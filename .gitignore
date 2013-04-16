@@ -153,3 +153,4 @@ DerivedData
 .idea/
 
 PointTracker.xcodeproj/project.xcworkspace/xcuserdata/lizzy.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
