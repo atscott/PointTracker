@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  PointTracker
 //
-//  Created by Andrew on 4/16/13.
+//  Created by Andrew fjfjfjjff on 4/16/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.
 //
 
