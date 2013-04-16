@@ -15,7 +15,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
@@ -24,6 +24,15 @@
     self.tabBarController.viewControllers = @[viewController1, viewController2];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    [Parse setApplicationId:@"nudxR7T6WonMVuXtp7R7Hao2B0VURfTHqa8gPWyk"
+                  clientKey:@"eG3RuQZQiiu8spXM1uBdlIloPE7EZY1udg8WD9aL"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+    
     return YES;
 }
 
