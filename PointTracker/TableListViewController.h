@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface TableListViewController : UITableViewController
+<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+{ }
+
+- (IBAction)addNewItem:(id)sender;
+- (IBAction)addRandom:(id)sender;
+- (IBAction)logOutButtonTapAction:(id)sender;
 
 @end

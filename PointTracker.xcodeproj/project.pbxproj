@@ -22,7 +22,7 @@
 		63EA8FED171DE83400E5BEB5 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EA8FEC171DE83400E5BEB5 /* SecondViewController.m */; };
 		63EA8FEF171DE83400E5BEB5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EA8FEE171DE83400E5BEB5 /* second.png */; };
 		63EA8FF1171DE83400E5BEB5 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EA8FF0171DE83400E5BEB5 /* second@2x.png */; };
-		63EA8FF4171DE83500E5BEB5 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EA8FF2171DE83500E5BEB5 /* FirstViewController.xib */; };
+		63EA8FF4171DE83500E5BEB5 /* FIrstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EA8FF2171DE83500E5BEB5 /* FIrstViewController.xib */; };
 		63EA8FF7171DE83500E5BEB5 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63EA8FF5171DE83500E5BEB5 /* SecondViewController.xib */; };
 		A72979BA171DF0A700693480 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979B9171DF0A700693480 /* Parse.framework */; };
 		A72979BC171DF0D300693480 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979BB171DF0D300693480 /* AudioToolbox.framework */; };
@@ -34,6 +34,13 @@
 		A72979C8171DF11F00693480 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979C7171DF11F00693480 /* Security.framework */; };
 		A72979CA171DF12700693480 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979C9171DF12700693480 /* StoreKit.framework */; };
 		A72979CC171DF13400693480 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979CB171DF13400693480 /* SystemConfiguration.framework */; };
+		A72979DA171E214600693480 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979D9171E214600693480 /* Group.m */; };
+		A72979DD171E218700693480 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979DC171E218700693480 /* Person.m */; };
+		A72979EC171E2CB600693480 /* AddPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979E7171E2CB400693480 /* AddPersonViewController.m */; };
+		A72979ED171E2CB600693480 /* AddPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72979E8171E2CB500693480 /* AddPersonViewController.xib */; };
+		A72979EE171E2CB600693480 /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979EA171E2CB500693480 /* MoreInfoViewController.m */; };
+		A72979EF171E2CB600693480 /* MoreInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72979EB171E2CB500693480 /* MoreInfoViewController.xib */; };
+		A72979F2171E310800693480 /* TableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979F1171E310700693480 /* TableListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +65,7 @@
 		63EA8FEC171DE83400E5BEB5 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		63EA8FEE171DE83400E5BEB5 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		63EA8FF0171DE83400E5BEB5 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		63EA8FF3171DE83500E5BEB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
+		63EA8FF3171DE83500E5BEB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FIrstViewController.xib; sourceTree = "<group>"; };
 		63EA8FF6171DE83500E5BEB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
 		A72979B9171DF0A700693480 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A72979BB171DF0D300693480 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -70,6 +77,18 @@
 		A72979C7171DF11F00693480 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A72979C9171DF12700693480 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A72979CB171DF13400693480 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A72979D8171E214600693480 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		A72979D9171E214600693480 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		A72979DB171E218700693480 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		A72979DC171E218700693480 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		A72979E6171E2CB400693480 /* AddPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPersonViewController.h; sourceTree = "<group>"; };
+		A72979E7171E2CB400693480 /* AddPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPersonViewController.m; sourceTree = "<group>"; };
+		A72979E8171E2CB500693480 /* AddPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPersonViewController.xib; sourceTree = "<group>"; };
+		A72979E9171E2CB500693480 /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInfoViewController.h; sourceTree = "<group>"; };
+		A72979EA171E2CB500693480 /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoViewController.m; sourceTree = "<group>"; };
+		A72979EB171E2CB500693480 /* MoreInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreInfoViewController.xib; sourceTree = "<group>"; };
+		A72979F0171E310700693480 /* TableListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableListViewController.h; sourceTree = "<group>"; };
+		A72979F1171E310700693480 /* TableListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +155,12 @@
 		63EA8FD2171DE83400E5BEB5 /* PointTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A72979E6171E2CB400693480 /* AddPersonViewController.h */,
+				A72979E7171E2CB400693480 /* AddPersonViewController.m */,
+				A72979E8171E2CB500693480 /* AddPersonViewController.xib */,
+				A72979E9171E2CB500693480 /* MoreInfoViewController.h */,
+				A72979EA171E2CB500693480 /* MoreInfoViewController.m */,
+				A72979EB171E2CB500693480 /* MoreInfoViewController.xib */,
 				63EA8FDB171DE83400E5BEB5 /* AppDelegate.h */,
 				63EA8FDC171DE83400E5BEB5 /* AppDelegate.m */,
 				63EA8FE4171DE83400E5BEB5 /* FirstViewController.h */,
@@ -146,9 +171,15 @@
 				63EA8FEC171DE83400E5BEB5 /* SecondViewController.m */,
 				63EA8FEE171DE83400E5BEB5 /* second.png */,
 				63EA8FF0171DE83400E5BEB5 /* second@2x.png */,
-				63EA8FF2171DE83500E5BEB5 /* FirstViewController.xib */,
+				63EA8FF2171DE83500E5BEB5 /* FIrstViewController.xib */,
 				63EA8FF5171DE83500E5BEB5 /* SecondViewController.xib */,
 				63EA8FD3171DE83400E5BEB5 /* Supporting Files */,
+				A72979D8171E214600693480 /* Group.h */,
+				A72979D9171E214600693480 /* Group.m */,
+				A72979DB171E218700693480 /* Person.h */,
+				A72979DC171E218700693480 /* Person.m */,
+				A72979F0171E310700693480 /* TableListViewController.h */,
+				A72979F1171E310700693480 /* TableListViewController.m */,
 			);
 			path = PointTracker;
 			sourceTree = "<group>";
@@ -226,8 +257,10 @@
 				63EA8FEA171DE83400E5BEB5 /* first@2x.png in Resources */,
 				63EA8FEF171DE83400E5BEB5 /* second.png in Resources */,
 				63EA8FF1171DE83400E5BEB5 /* second@2x.png in Resources */,
-				63EA8FF4171DE83500E5BEB5 /* FirstViewController.xib in Resources */,
+				63EA8FF4171DE83500E5BEB5 /* FIrstViewController.xib in Resources */,
 				63EA8FF7171DE83500E5BEB5 /* SecondViewController.xib in Resources */,
+				A72979ED171E2CB600693480 /* AddPersonViewController.xib in Resources */,
+				A72979EF171E2CB600693480 /* MoreInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +275,11 @@
 				63EA8FDD171DE83400E5BEB5 /* AppDelegate.m in Sources */,
 				63EA8FE6171DE83400E5BEB5 /* FirstViewController.m in Sources */,
 				63EA8FED171DE83400E5BEB5 /* SecondViewController.m in Sources */,
+				A72979DA171E214600693480 /* Group.m in Sources */,
+				A72979DD171E218700693480 /* Person.m in Sources */,
+				A72979EC171E2CB600693480 /* AddPersonViewController.m in Sources */,
+				A72979EE171E2CB600693480 /* MoreInfoViewController.m in Sources */,
+				A72979F2171E310800693480 /* TableListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,12 +294,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		63EA8FF2171DE83500E5BEB5 /* FirstViewController.xib */ = {
+		63EA8FF2171DE83500E5BEB5 /* FIrstViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				63EA8FF3171DE83500E5BEB5 /* en */,
 			);
-			name = FirstViewController.xib;
+			name = FIrstViewController.xib;
 			sourceTree = "<group>";
 		};
 		63EA8FF5171DE83500E5BEB5 /* SecondViewController.xib */ = {
@@ -341,6 +379,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PointTracker/PointTracker-Prefix.pch";
 				INFOPLIST_FILE = "PointTracker/PointTracker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -356,6 +395,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PointTracker/PointTracker-Prefix.pch";
 				INFOPLIST_FILE = "PointTracker/PointTracker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "MainListViewController.h"
+#import "TableListViewController.h"
 
 #import "SecondViewController.h"
 
@@ -23,11 +23,12 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *mainListViewController = [[MainListViewController alloc] init];
+    TableListViewController *listViewController =  [[TableListViewController alloc] init];
+    UINavigationController *navControl = [[UINavigationController alloc] initWithRootViewController:listViewController];
     UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[mainListViewController, viewController2];
+    self.tabBarController.viewControllers = @[navControl, viewController2];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     

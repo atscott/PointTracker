@@ -7,6 +7,10 @@
 //
 
 #import "TableListViewController.h"
+#import "MoreInfoViewController.h"
+#import "AddPersonViewController.h"
+#import "Person.h"
+#import "Group.h"
 
 @interface TableListViewController ()
 
@@ -14,13 +18,44 @@
 
 @implementation TableListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)init
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+    self = [super initWithStyle: UITableViewStyleGrouped];
+    if (self)
+    {
+        self.title = NSLocalizedString(@"First", @"First");
+        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        UINavigationItem *navItem = [self navigationItem];
+        
+        [navItem setTitle:@"People"];
+        
+        UIBarButtonItem *createNewPersonButton = [[UIBarButtonItem alloc]
+                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
+                                                  target:self
+                                                  action:@selector(addNewItem:)];
+        //[[self navigationItem] setRightBarButtonItem:createNewPersonButton];
+        
+        UIBarButtonItem *createRandomButton = [[UIBarButtonItem alloc]
+                                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                               target:self
+                                               action:@selector(addRandom:)];
+        NSArray *barButtons = [[NSArray alloc] initWithObjects:createNewPersonButton, createRandomButton, nil];
+        
+        [[self navigationItem] setRightBarButtonItems:barButtons];
+        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
     }
     return self;
+}
+
+-(void) loadView
+{
+    [super loadView];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self tableView] reloadData];
 }
 
 - (void)viewDidLoad
@@ -34,88 +69,74 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)addNewItem:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[self navigationController] pushViewController:[[AddPersonViewController alloc]init] animated:YES];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+-(IBAction)addRandom:(id)sender
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    Person *newPerson = [Person createRandomStranger];
+    [[Group defaultGroup] addPerson:newPerson];
+    int lastRow = [[[Group defaultGroup] getGroup] indexOfObject:newPerson];
     
-    // Configure the cell...
+    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    
+    // Insert this new row into the table.
+    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationRight];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    return [[[Group defaultGroup] getGroup] count];
+}
+
+-(void)  tableView:(UITableView *)tableView
+moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+       toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    [[Group defaultGroup] movePersonAtIndex:[sourceIndexPath row] toIndex:[destinationIndexPath row]];
+}
+-(void) tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[self navigationController] pushViewController:[[MoreInfoViewController alloc]init] animated:YES];
+    NSLog(@"Tapped Cell");
+}
+
+-(void)  tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+ forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        Group *group = [Group defaultGroup];
+        NSArray *people = [group getGroup];
+        Person *beingRemoved = [people objectAtIndex:[indexPath row]];
+        [group removePerson: beingRemoved];
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if(!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    }
+    Person *person = [[[Group defaultGroup] getGroup] objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[person description]];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+- (IBAction)logOutButtonTapAction:(id)sender {
+    [PFUser logOut];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
