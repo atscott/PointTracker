@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 moorea. All rights reserved.
 //
 
-#import "AddPersonViewController.h"
+#import "NewPersonViewController.h"
 #import "Person.h"
 #import "Group.h"
 
-@interface AddPersonViewController ()
+@interface NewPersonViewController ()
 
 @end
 
-@implementation AddPersonViewController
+@implementation NewPersonViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,9 +25,9 @@
         [navItem setTitle:@"New Person"];
         
         UIBarButtonItem *savePersonButton = [[UIBarButtonItem alloc]
-                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemSave
-                                                  target:self
-                                                  action:@selector(savePerson:)];
+                                             initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+                                             target:self
+                                             action:@selector(savePerson:)];
         [[self navigationItem] setRightBarButtonItem:savePersonButton];
         
     }
@@ -37,7 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [scroller setScrollEnabled:YES];
+    [scroller setContentSize:CGSizeMake(320, 600)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,20 +49,20 @@
 }
 
 -(IBAction)savePerson:(id)sender
-{    
+{
     // Create a new Person and add it to the store
-    Person *newPerson = [[Person alloc] initWithFirstName:self.firstNameTextField.text
-                                                 lastName:self.lastNameTextField.text
-                                              phoneNumber:self.phoneNumberTextField.text];
-    [[Group defaultGroup] addPerson:newPerson];
+    /*Person *newPerson = [[Person alloc] initWithFirstName:self.firstNameTextField.text
+     lastName:self.lastNameTextField.text
+     phoneNumber:self.phoneNumberTextField.text];
+     [[Group defaultGroup] addPerson:newPerson];*/
     
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload {
-    [self setFirstNameTextField:nil];
-    [self setLastNameTextField:nil];
-    [self setPhoneNumberTextField:nil];
+    //[self setFirstNameTextField:nil];
+    //[self setLastNameTextField:nil];
+    //[self setPhoneNumberTextField:nil];
     [super viewDidUnload];
 }
 @end

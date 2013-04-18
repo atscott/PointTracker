@@ -14,7 +14,6 @@
 { }
 
 - (IBAction)addNewItem:(id)sender;
-- (IBAction)addRandom:(id)sender;
 - (IBAction)logOutButtonTapAction:(id)sender;
 
 @end

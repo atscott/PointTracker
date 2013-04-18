@@ -8,7 +8,7 @@
 
 #import "TableListViewController.h"
 #import "MoreInfoViewController.h"
-#import "AddPersonViewController.h"
+#import "NewPersonViewController.h"
 #import "Person.h"
 #import "Group.h"
 
@@ -30,19 +30,21 @@
         [navItem setTitle:@"People"];
         
         UIBarButtonItem *createNewPersonButton = [[UIBarButtonItem alloc]
-                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
+                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                   target:self
                                                   action:@selector(addNewItem:)];
-        //[[self navigationItem] setRightBarButtonItem:createNewPersonButton];
         
-        UIBarButtonItem *createRandomButton = [[UIBarButtonItem alloc]
-                                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                               target:self
-                                               action:@selector(addRandom:)];
-        NSArray *barButtons = [[NSArray alloc] initWithObjects:createNewPersonButton, createRandomButton, nil];
+        UIImage *settingsImage = [UIImage imageNamed:@"Settings.png"];
+        UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [settingsButton setImage:settingsImage forState:UIControlStateNormal];
+        settingsButton.frame = CGRectMake(0, 0, settingsImage.size.width, settingsImage.size.height);
         
+        UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+        [settingsButton addTarget:self action:@selector(logOutButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
+        [[self navigationItem] setLeftBarButtonItem:settingsBarButton];
+        
+        NSArray *barButtons = [[NSArray alloc] initWithObjects: [self editButtonItem], createNewPersonButton, nil];
         [[self navigationItem] setRightBarButtonItems:barButtons];
-        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
     }
     return self;
 }
@@ -61,29 +63,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    if (![PFUser currentUser]) { // No user logged in
+        // Create the log in view controller
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        // Create the sign up view controller
+        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        // Assign our sign up controller to be displayed from the login controller
+        [logInViewController setSignUpController:signUpViewController];
+        
+        // Present the log in view controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    }
 }
 
 - (IBAction)addNewItem:(id)sender
 {
-    [[self navigationController] pushViewController:[[AddPersonViewController alloc]init] animated:YES];
-}
-
--(IBAction)addRandom:(id)sender
-{
-    Person *newPerson = [Person createRandomStranger];
-    [[Group defaultGroup] addPerson:newPerson];
-    int lastRow = [[[Group defaultGroup] getGroup] indexOfObject:newPerson];
-    
-    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    
-    // Insert this new row into the table.
-    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationRight];
+    [[self navigationController] pushViewController:[[NewPersonViewController alloc]init] animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -137,6 +137,49 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 - (IBAction)logOutButtonTapAction:(id)sender {
     [PFUser logOut];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
+    // Check if both fields are completed
+    if (username && password && username.length != 0 && password.length != 0) {
+        return YES; // Begin login process
+    }
+    
+    [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                message:@"Make sure you fill out all of the information!"
+                               delegate:nil
+                      cancelButtonTitle:@"ok"
+                      otherButtonTitles:nil] show];
+    return NO; // Interrupt login process
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+// Sent to the delegate when the log in attempt fails.
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
+}
+
+// Sent to the delegate when the log in screen is dismissed.
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+// Sent to the delegate when a PFUser is signed up.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissModalViewControllerAnimated:YES]; // Dismiss the PFSignUpViewController
+}
+
+// Sent to the delegate when the sign up attempt fails.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    NSLog(@"Failed to sign up...");
+}
+
+// Sent to the delegate when the sign up screen is dismissed.
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    NSLog(@"User dismissed the signUpViewController");
 }
 
 @end

@@ -46,11 +46,15 @@
 		A72979CC171DF13400693480 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979CB171DF13400693480 /* SystemConfiguration.framework */; };
 		A72979DA171E214600693480 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979D9171E214600693480 /* Group.m */; };
 		A72979DD171E218700693480 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979DC171E218700693480 /* Person.m */; };
-		A72979EC171E2CB600693480 /* AddPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979E7171E2CB400693480 /* AddPersonViewController.m */; };
-		A72979ED171E2CB600693480 /* AddPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72979E8171E2CB500693480 /* AddPersonViewController.xib */; };
 		A72979EE171E2CB600693480 /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979EA171E2CB500693480 /* MoreInfoViewController.m */; };
 		A72979EF171E2CB600693480 /* MoreInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72979EB171E2CB500693480 /* MoreInfoViewController.xib */; };
 		A72979F2171E310800693480 /* TableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979F1171E310700693480 /* TableListViewController.m */; };
+		A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38623171FFAEF007B5E4F /* Logout@2x.png */; };
+		A7A38628171FFAEF007B5E4F /* Logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38624171FFAEF007B5E4F /* Logout.png */; };
+		A7A3862D171FFEFA007B5E4F /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A3862B171FFEFA007B5E4F /* Settings@2x.png */; };
+		A7A3862E171FFEFA007B5E4F /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A3862C171FFEFA007B5E4F /* Settings.png */; };
+		A7F162BB171FB9FE00894E30 /* NewPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F162B9171FB9FE00894E30 /* NewPersonViewController.m */; };
+		A7F162BC171FB9FE00894E30 /* NewPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7F162BA171FB9FE00894E30 /* NewPersonViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,14 +106,18 @@
 		A72979D9171E214600693480 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		A72979DB171E218700693480 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		A72979DC171E218700693480 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		A72979E6171E2CB400693480 /* AddPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPersonViewController.h; sourceTree = "<group>"; };
-		A72979E7171E2CB400693480 /* AddPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPersonViewController.m; sourceTree = "<group>"; };
-		A72979E8171E2CB500693480 /* AddPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddPersonViewController.xib; sourceTree = "<group>"; };
 		A72979E9171E2CB500693480 /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInfoViewController.h; sourceTree = "<group>"; };
 		A72979EA171E2CB500693480 /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoViewController.m; sourceTree = "<group>"; };
 		A72979EB171E2CB500693480 /* MoreInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreInfoViewController.xib; sourceTree = "<group>"; };
 		A72979F0171E310700693480 /* TableListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableListViewController.h; sourceTree = "<group>"; };
 		A72979F1171E310700693480 /* TableListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableListViewController.m; sourceTree = "<group>"; };
+		A7A38623171FFAEF007B5E4F /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
+		A7A38624171FFAEF007B5E4F /* Logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout.png; sourceTree = "<group>"; };
+		A7A3862B171FFEFA007B5E4F /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
+		A7A3862C171FFEFA007B5E4F /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		A7F162B8171FB9FE00894E30 /* NewPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPersonViewController.h; sourceTree = "<group>"; };
+		A7F162B9171FB9FE00894E30 /* NewPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPersonViewController.m; sourceTree = "<group>"; };
+		A7F162BA171FB9FE00894E30 /* NewPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPersonViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,14 +225,14 @@
 		A711E0A4171FA0BC003F6224 /* ListTab */ = {
 			isa = PBXGroup;
 			children = (
-				A72979E6171E2CB400693480 /* AddPersonViewController.h */,
-				A72979E7171E2CB400693480 /* AddPersonViewController.m */,
-				A72979E8171E2CB500693480 /* AddPersonViewController.xib */,
 				A72979E9171E2CB500693480 /* MoreInfoViewController.h */,
 				A72979EA171E2CB500693480 /* MoreInfoViewController.m */,
 				A72979EB171E2CB500693480 /* MoreInfoViewController.xib */,
 				A72979F0171E310700693480 /* TableListViewController.h */,
 				A72979F1171E310700693480 /* TableListViewController.m */,
+				A7F162B8171FB9FE00894E30 /* NewPersonViewController.h */,
+				A7F162B9171FB9FE00894E30 /* NewPersonViewController.m */,
+				A7F162BA171FB9FE00894E30 /* NewPersonViewController.xib */,
 			);
 			name = ListTab;
 			sourceTree = "<group>";
@@ -262,6 +270,7 @@
 		A711E0A8171FA7C6003F6224 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A7A38622171FFAE3007B5E4F /* UIBarButtonItemIcons */,
 				A711E0A9171FA7CB003F6224 /* TabbarIcons */,
 			);
 			name = Assets;
@@ -284,6 +293,17 @@
 				A711E0AB171FA802003F6224 /* List.png */,
 			);
 			name = TabbarIcons;
+			sourceTree = "<group>";
+		};
+		A7A38622171FFAE3007B5E4F /* UIBarButtonItemIcons */ = {
+			isa = PBXGroup;
+			children = (
+				A7A3862B171FFEFA007B5E4F /* Settings@2x.png */,
+				A7A3862C171FFEFA007B5E4F /* Settings.png */,
+				A7A38623171FFAEF007B5E4F /* Logout@2x.png */,
+				A7A38624171FFAEF007B5E4F /* Logout.png */,
+			);
+			name = UIBarButtonItemIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +361,6 @@
 				63EA8FDF171DE83400E5BEB5 /* Default.png in Resources */,
 				63EA8FE1171DE83400E5BEB5 /* Default@2x.png in Resources */,
 				63EA8FE3171DE83400E5BEB5 /* Default-568h@2x.png in Resources */,
-				A72979ED171E2CB600693480 /* AddPersonViewController.xib in Resources */,
 				A72979EF171E2CB600693480 /* MoreInfoViewController.xib in Resources */,
 				A711E0AC171FA802003F6224 /* List@2x.png in Resources */,
 				A711E0AD171FA802003F6224 /* List.png in Resources */,
@@ -358,6 +377,11 @@
 				A711E0CB171FA98A003F6224 /* LogViewController.xib in Resources */,
 				A711E0D0171FA9BA003F6224 /* StatsViewController.xib in Resources */,
 				A711E0D5171FAA3B003F6224 /* ScheduleViewController.xib in Resources */,
+				A7F162BC171FB9FE00894E30 /* NewPersonViewController.xib in Resources */,
+				A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */,
+				A7A38628171FFAEF007B5E4F /* Logout.png in Resources */,
+				A7A3862D171FFEFA007B5E4F /* Settings@2x.png in Resources */,
+				A7A3862E171FFEFA007B5E4F /* Settings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,12 +396,12 @@
 				63EA8FDD171DE83400E5BEB5 /* AppDelegate.m in Sources */,
 				A72979DA171E214600693480 /* Group.m in Sources */,
 				A72979DD171E218700693480 /* Person.m in Sources */,
-				A72979EC171E2CB600693480 /* AddPersonViewController.m in Sources */,
 				A72979EE171E2CB600693480 /* MoreInfoViewController.m in Sources */,
 				A72979F2171E310800693480 /* TableListViewController.m in Sources */,
 				A711E0CA171FA98A003F6224 /* LogViewController.m in Sources */,
 				A711E0CF171FA9BA003F6224 /* StatsViewController.m in Sources */,
 				A711E0D4171FAA3B003F6224 /* ScheduleViewController.m in Sources */,
+				A7F162BB171FB9FE00894E30 /* NewPersonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
