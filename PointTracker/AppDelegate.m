@@ -12,8 +12,6 @@
 #import "ScheduleViewController.h"
 #import "LogViewController.h"
 #import "StatsViewController.h"
-#import "SecondViewController.h"
-
 
 @implementation AppDelegate
 
