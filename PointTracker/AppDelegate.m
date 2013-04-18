@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 
 #import "TableListViewController.h"
-
+#import "ScheduleViewController.h"
+#import "LogViewController.h"
+#import "StatsViewController.h"
 #import "SecondViewController.h"
 
 
@@ -22,13 +24,25 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    // Set Up Controller for the List Tab
     TableListViewController *listViewController =  [[TableListViewController alloc] init];
-    UINavigationController *navControl = [[UINavigationController alloc] initWithRootViewController:listViewController];
-    UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+    UINavigationController *listNavController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+    
+    // Set Up Controller for the Statistics Tab
+    UIViewController *statsViewController = [[StatsViewController alloc] init];
+    UINavigationController *statsNavController = [[UINavigationController alloc] initWithRootViewController:statsViewController];
+    
+    // Set Up Controller for the Log Tab
+    UIViewController *logViewController = [[LogViewController alloc] init];
+    UINavigationController *logNavController = [[UINavigationController alloc] initWithRootViewController:logViewController];
+    
+    // Set Up Controller for the Schedule Tab
+    UIViewController *scheduleViewController = [[ScheduleViewController alloc] init];
+    UINavigationController *scheduleNavController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[navControl, viewController2];
+    self.tabBarController.viewControllers = @[listNavController, statsNavController, logNavController, scheduleNavController];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     

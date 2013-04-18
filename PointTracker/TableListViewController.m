@@ -23,8 +23,8 @@
     self = [super initWithStyle: UITableViewStyleGrouped];
     if (self)
     {
-        self.title = NSLocalizedString(@"First", @"First");
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        self.title = NSLocalizedString(@"List", @"List");
+        self.tabBarItem.image = [UIImage imageNamed:@"List"];
         UINavigationItem *navItem = [self navigationItem];
         
         [navItem setTitle:@"People"];
