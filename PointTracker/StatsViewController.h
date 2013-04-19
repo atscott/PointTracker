@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CorePlot-CocoaTouch.h"
+@interface StatsViewController : UIViewController <CPTBarPlotDataSource, CPTBarPlotDelegate>
 
-@interface StatsViewController : UIViewController
+@property (nonatomic, retain) NSMutableArray *data;
+@property (nonatomic, retain) CPTXYGraph *graph;
+@property (nonatomic, retain) IBOutlet CPTGraphHostingView *hostingView;
+
+
+- (void) generateBarPlot;
 
 @end
