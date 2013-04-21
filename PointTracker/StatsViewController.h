@@ -13,6 +13,7 @@
 @property (nonatomic, retain) NSMutableArray *data;
 @property (nonatomic, retain) CPTXYGraph *graph;
 @property (nonatomic, retain) IBOutlet CPTGraphHostingView *hostingView;
+@property (nonatomic, retain) CPTPlotSpaceAnnotation *annotation;
 
 
 - (void) generateBarPlot;

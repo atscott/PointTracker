@@ -22,9 +22,12 @@
 #define AXIS_START 0
 #define AXIS_END 50
 
+CGFloat const CPDBarInitialX = 10.0f;
+
 @synthesize data;
 @synthesize graph;
 @synthesize hostingView;
+@synthesize annotation = _annotation;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -78,19 +81,22 @@
 {
     [self prepareGraph];
     
-        
     [self configurePlotArea];
     
     [self configureAxes];
     
+    [self configurePlot];
+}
+
+-(void)configurePlot
+{
     // Create bar plot and add it to the graph
     CPTBarPlot *plot = [[CPTBarPlot alloc] init] ;
     plot.dataSource = self;
     plot.delegate = self;
     plot.barWidth = [[NSDecimalNumber decimalNumberWithString:@"5.0"]
                      decimalValue];
-    plot.barOffset = [[NSDecimalNumber decimalNumberWithString:@"10.0"]
-                      decimalValue];
+    plot.barOffset = CPTDecimalFromDouble(CPDBarInitialX);
     plot.barCornerRadius = 5.0;
     // Remove bar outlines
     CPTMutableLineStyle *borderLineStyle = [CPTMutableLineStyle lineStyle];
@@ -98,6 +104,7 @@
     plot.lineStyle = borderLineStyle;
     // Identifiers are handy if you want multiple plots in one graph
     plot.identifier = @"chocoplot";
+    
     [self.graph addPlot:plot];
 }
 
@@ -107,13 +114,13 @@
     self.hostingView = [[CPTGraphHostingView alloc]
                         initWithFrame:[[UIScreen mainScreen]bounds]];
     [self.view addSubview:self.hostingView];
-
+    
     
     //Create graph and set it as host view's graph
     self.graph = [[CPTXYGraph alloc] initWithFrame:self.hostingView.bounds];
     self.graph.delegate = self;
     [self.hostingView setHostedGraph:self.graph];
-
+    
 }
 
 -(void)configurePlotArea{
@@ -197,27 +204,6 @@
     return [NSNumber numberWithFloat:0];
 }
 
--(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index
-{
-    if ( [plot.identifier isEqual: @"chocoplot"] )
-    {
-        CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-        textStyle.fontName = @"Helvetica";
-        textStyle.fontSize = 14;
-        textStyle.color = [CPTColor whiteColor];
-        
-        NSDictionary *bar = [self.data objectAtIndex:index];
-        CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%@", [bar valueForKey:@"CATEGORY"]]];
-        label.textStyle =textStyle;
-        
-        return label;
-    }
-    
-    CPTTextLayer *defaultLabel = [[CPTTextLayer alloc] initWithText:@"Label"];
-    return defaultLabel;
-    
-}
-
 -(CPTFill *)barFillForBarPlot:(CPTBarPlot *)barPlot
                   recordIndex:(NSUInteger)index
 {
@@ -241,6 +227,33 @@
 
 #pragma mark - CPTBarPlotDelegate methods
 -(void)barPlot:(CPTBarPlot *)plot barWasSelectedAtRecordIndex:(NSUInteger)index {
+    if (_annotation)
+    {
+        [graph.plotAreaFrame.plotArea removeAnnotation:_annotation];
+        _annotation = nil;
+    }
+    
+    CPTMutableTextStyle *annotationTextStyle = [CPTMutableTextStyle textStyle];
+    annotationTextStyle.color = [CPTColor whiteColor];
+    annotationTextStyle.fontSize = 12.0f;
+    annotationTextStyle.fontName = @"Helvetica";
+    
+    NSDictionary *bar = [self.data objectAtIndex:index];
+    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%@", [bar valueForKey:@"CATEGORY"]] style:annotationTextStyle];
+    // 7 - Get the anchor point for annotation
+    CGFloat x = [[bar valueForKey:BAR_POSITION] floatValue] + CPDBarInitialX;
+    NSNumber *anchorX = [NSNumber numberWithFloat:x];
+    CGFloat y = [[bar valueForKey:BAR_HEIGHT] floatValue] + 1.0f;
+    NSNumber *anchorY = [NSNumber numberWithFloat:y];
+    _annotation.anchorPlotPoint = [NSArray arrayWithObjects:anchorX, anchorY, nil];
+    
+    NSArray *anchorPoint = [NSArray arrayWithObjects: anchorX, anchorY, nil];
+    
+    _annotation = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
+    _annotation.contentLayer = label;
+    _annotation.displacement = CGPointMake(0.0f, 0.0f);
+    [graph.plotAreaFrame.plotArea addAnnotation:_annotation];
+
     
 }
 
