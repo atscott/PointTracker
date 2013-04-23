@@ -18,6 +18,11 @@
 @property (nonatomic, copy) NSString *firstName;
 @property (nonatomic, copy) NSString *lastName;
 @property (nonatomic, copy) NSString *phoneNumber;
+@property (nonatomic, copy) NSString *streetAddress;
+@property (nonatomic, copy) NSString *city;
+@property (nonatomic, copy) NSString *state;
+@property (nonatomic, copy) NSString *zipCode;
+@property (nonatomic) int points;
 
 
 @end

@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface TableListViewController : UITableViewController
-<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface TableListViewController : PFQueryTableViewController
+<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIActionSheetDelegate>
 { }
 
 - (IBAction)addNewItem:(id)sender;

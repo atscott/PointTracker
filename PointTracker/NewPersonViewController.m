@@ -29,7 +29,6 @@
                                              target:self
                                              action:@selector(savePerson:)];
         [[self navigationItem] setRightBarButtonItem:savePersonButton];
-        
     }
     return self;
 }
