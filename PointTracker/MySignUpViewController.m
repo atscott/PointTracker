@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBack.png"]]];
-    [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo2.png"]]];
+    [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo2.png"]]];
     
     // Change button apperance
     [self.signUpView.dismissButton setImage:[UIImage imageNamed:@"Exit.png"] forState:UIControlStateNormal];
