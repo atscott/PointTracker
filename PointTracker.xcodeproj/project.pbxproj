@@ -57,10 +57,10 @@
 		A72979EE171E2CB600693480 /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979EA171E2CB500693480 /* MoreInfoViewController.m */; };
 		A72979EF171E2CB600693480 /* MoreInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72979EB171E2CB500693480 /* MoreInfoViewController.xib */; };
 		A72979F2171E310800693480 /* TableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979F1171E310700693480 /* TableListViewController.m */; };
+		A751E4A01726D58800EC4D14 /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49E1726D58700EC4D14 /* Setting.png */; };
+		A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49F1726D58800EC4D14 /* Setting@2x.png */; };
 		A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38623171FFAEF007B5E4F /* Logout@2x.png */; };
 		A7A38628171FFAEF007B5E4F /* Logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38624171FFAEF007B5E4F /* Logout.png */; };
-		A7A3862D171FFEFA007B5E4F /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A3862B171FFEFA007B5E4F /* Settings@2x.png */; };
-		A7A3862E171FFEFA007B5E4F /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A3862C171FFEFA007B5E4F /* Settings.png */; };
 		A7BFA2411725D3C5001EF111 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA23F1725D3C5001EF111 /* SettingsViewController.m */; };
 		A7BFA2421725D3C5001EF111 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BFA2401725D3C5001EF111 /* SettingsViewController.xib */; };
 		A7BFA24A1725D775001EF111 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA2441725D775001EF111 /* BButton.m */; };
@@ -230,10 +230,10 @@
 		A72979EB171E2CB500693480 /* MoreInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreInfoViewController.xib; sourceTree = "<group>"; };
 		A72979F0171E310700693480 /* TableListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableListViewController.h; sourceTree = "<group>"; };
 		A72979F1171E310700693480 /* TableListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableListViewController.m; sourceTree = "<group>"; };
+		A751E49E1726D58700EC4D14 /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting.png; sourceTree = "<group>"; };
+		A751E49F1726D58800EC4D14 /* Setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Setting@2x.png"; sourceTree = "<group>"; };
 		A7A38623171FFAEF007B5E4F /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
 		A7A38624171FFAEF007B5E4F /* Logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout.png; sourceTree = "<group>"; };
-		A7A3862B171FFEFA007B5E4F /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
-		A7A3862C171FFEFA007B5E4F /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		A7BFA23E1725D3C5001EF111 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A7BFA23F1725D3C5001EF111 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A7BFA2401725D3C5001EF111 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -561,10 +561,10 @@
 		A7A38622171FFAE3007B5E4F /* UIBarButtonItemIcons */ = {
 			isa = PBXGroup;
 			children = (
+				A751E49E1726D58700EC4D14 /* Setting.png */,
+				A751E49F1726D58800EC4D14 /* Setting@2x.png */,
 				A7BFA24F1725E202001EF111 /* SignOut.png */,
 				A7BFA2511725E20D001EF111 /* SignOut@2x.png */,
-				A7A3862B171FFEFA007B5E4F /* Settings@2x.png */,
-				A7A3862C171FFEFA007B5E4F /* Settings.png */,
 				A7A38623171FFAEF007B5E4F /* Logout@2x.png */,
 				A7A38624171FFAEF007B5E4F /* Logout.png */,
 			);
@@ -686,8 +686,6 @@
 				A7F162BC171FB9FE00894E30 /* NewPersonViewController.xib in Resources */,
 				A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */,
 				A7A38628171FFAEF007B5E4F /* Logout.png in Resources */,
-				A7A3862D171FFEFA007B5E4F /* Settings@2x.png in Resources */,
-				A7A3862E171FFEFA007B5E4F /* Settings.png in Resources */,
 				63A5BBFC1721A3AF002D211D /* FacebookSDKResources.bundle in Resources */,
 				63A5BBFE1721A3B6002D211D /* FBUserSettingsViewResources.bundle in Resources */,
 				A7C955901725941000F683FC /* Exit.png in Resources */,
@@ -710,6 +708,8 @@
 				A7BFA24D1725D775001EF111 /* FontAwesome.ttf in Resources */,
 				A7BFA2501725E202001EF111 /* SignOut.png in Resources */,
 				A7BFA2521725E20D001EF111 /* SignOut@2x.png in Resources */,
+				A751E4A01726D58800EC4D14 /* Setting.png in Resources */,
+				A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

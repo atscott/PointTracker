@@ -15,5 +15,6 @@
 
 - (IBAction)addNewItem:(id)sender;
 - (IBAction)logOutButtonTapAction:(id)sender;
+- (IBAction)settingsButtonTapAction:(id)sender;
 
 @end

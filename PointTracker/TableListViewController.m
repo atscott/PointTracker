@@ -53,15 +53,29 @@
         UIImage *signoutImage = [UIImage imageNamed:@"SignOut.png"];
         UIButton *signoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [signoutButton setImage:signoutImage forState:UIControlStateNormal];
-        signoutButton.frame = CGRectMake(0, 0, signoutImage.size.width, signoutImage.size.height);
+        signoutButton.frame = CGRectMake(0, 0, signoutImage.size.width+10, signoutImage.size.height);
 
         UIBarButtonItem *signoutBarButton = [[UIBarButtonItem alloc] initWithCustomView:signoutButton];
         [signoutButton addTarget:self action:@selector(logOutButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
-        [[self navigationItem] setLeftBarButtonItem:signoutBarButton];
+        //[[self navigationItem] setLeftBarButtonItem:signoutBarButton];
+        
+        // Create and set up "settings" bar button 
+        UIImage *settingsImage = [UIImage imageNamed:@"Setting.png"];
+        UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [settingsButton setImage:settingsImage forState:UIControlStateNormal];
+        settingsButton.frame = CGRectMake(0, 0, settingsImage.size.width+10, settingsImage.size.height);
+        
+        UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+        [settingsButton addTarget:self action:@selector(settingsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
+        //[[self navigationItem] setLeftBarButtonItem:signoutBarButton];
+        
+        // Create and place Array of LeftBarButtons
+        NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, settingsBarButton, nil];
+        [[self navigationItem] setLeftBarButtonItems:leftBarButtons animated:YES];
         
         // Create and place Array of RightBarButtons 
         NSArray *barButtons = [[NSArray alloc] initWithObjects: [self editButtonItem], createNewPersonButton, nil];
-        [[self navigationItem] setRightBarButtonItems:barButtons];
+        [[self navigationItem] setRightBarButtonItems:barButtons animated:YES];
     }
     // Return this wonderful view we've just put together
     return self;
@@ -118,6 +132,11 @@
     [confirmSheet showInView:self.view];
 }
 
+- (IBAction)settingsButtonTapAction:(id)sender
+{
+    [[self navigationController] pushViewController:[[SettingsViewController alloc] init] animated:YES];
+}
+
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         [PFUser logOut];
@@ -127,7 +146,7 @@
 
 
 /***************************************************************/
-/* Overridden Methods for extending PFQueryTableViewController *
+/* Overridden Methods for extending PFQueryTableViewController */
 /***************************************************************/
 #pragma mark - Parse
 
