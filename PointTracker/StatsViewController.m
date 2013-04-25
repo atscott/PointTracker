@@ -41,10 +41,11 @@ NSNumber *minPoints = 0;
         self.title = NSLocalizedString(@"Stats", @"Stats");
         self.tabBarItem.image = [UIImage imageNamed:@"Stats"];
         [self createColors];
-        [self refreshPlot];
+
+        [self prepareGraph];
+        
+        [self configurePlot];
     }
-    
-    
     return self;
 }
 
@@ -56,35 +57,16 @@ NSNumber *minPoints = 0;
     colors[3] = [CPTColor purpleColor];
     colors[4] = [CPTColor orangeColor];
     colors[5] = [CPTColor greenColor];
-    colors[6] = [CPTColor colorWithComponentRed:arc4random() % 250
-                                          green:arc4random() % 250
-                                           blue:arc4random() % 250
-                                          alpha:1];
-    colors[7] = [CPTColor colorWithComponentRed:arc4random() % 250
-                                          green:arc4random() % 250
-                                           blue:arc4random() % 250
-                                          alpha:1];
-    colors[8] = [CPTColor colorWithComponentRed:arc4random() % 250
-                                          green:arc4random() % 250
-                                           blue:arc4random() % 250
-                                          alpha:1];
-    colors[9] = [CPTColor colorWithComponentRed:arc4random() % 250
-                                          green:arc4random() % 250
-                                           blue:arc4random() % 250
-                                          alpha:1];
+    colors[6] = [CPTColor redColor];
+    colors[7] = [CPTColor blueColor];
+    colors[8] = [CPTColor yellowColor];
+    colors[9] = [CPTColor purpleColor];
     
 }
 
--(void)refreshPlot
+-(void)viewWillAppear:(BOOL)animated
 {
-    [_loadingIndicator startAnimating];
-    dispatch_queue_t thread = dispatch_queue_create(nil, NULL);
-    dispatch_async(thread, ^{
-        [self getData];
-        [self generateBarPlot];
-        [_loadingIndicator stopAnimating];
-    });
-
+    [self refreshData];
 }
 
 /**
@@ -92,8 +74,7 @@ NSNumber *minPoints = 0;
  * use this method only when already in another thread.
  */
 -(void)getData
-{
-    
+{ 
     PFQuery *query = [PFQuery queryWithClassName:@"People"];
     [query orderByDescending:@"points"];
     query.limit = 10;
@@ -106,26 +87,32 @@ NSNumber *minPoints = 0;
 
 }
 
+-(void)refreshData{
+    [_loadingIndicator setHidden:NO];
+    [_loadingIndicator startAnimating];
+    dispatch_queue_t thread = dispatch_queue_create(nil, NULL);
+    dispatch_async(thread, ^{
+        [self getData];
+        [self configurePlotArea];
+        [self configureAxes];
+        
+        [_graph reloadData];
+        
+        [_loadingIndicator stopAnimating];
+        [_loadingIndicator setHidden:YES];
+    });
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self refreshData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)generateBarPlot
-{
-    [self prepareGraph];
-    
-    [self configurePlotArea];
-    
-    [self configureAxes];
-    
-    [self configurePlot];
 }
 
 -(void)prepareGraph
@@ -147,9 +134,9 @@ NSNumber *minPoints = 0;
     //set graph padding and theme
     self.graph.plotAreaFrame.paddingTop = 25.0f;
     self.graph.plotAreaFrame.paddingRight = 5.0f;
-    self.graph.plotAreaFrame.paddingBottom = 10.0f;
-    self.graph.plotAreaFrame.paddingLeft = 10.0f;
-    [self.graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
+    self.graph.plotAreaFrame.paddingBottom = 0.0f;
+    self.graph.plotAreaFrame.paddingLeft = 20.0f;
+    //[self.graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     
     //set axes ranges
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)self.graph.defaultPlotSpace;
@@ -165,39 +152,41 @@ NSNumber *minPoints = 0;
 
 -(void)configureAxes
 {
-    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
-    //set axes' title, labels and their text styles
-    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-    textStyle.fontName = @"Helvetica";
-    textStyle.fontSize = 14;
-    textStyle.color = [CPTColor whiteColor];
-    axisSet.xAxis.title = @"";
-    axisSet.yAxis.title = @"";
-    axisSet.xAxis.titleTextStyle = textStyle;
-    axisSet.yAxis.titleTextStyle = textStyle;
-    axisSet.xAxis.titleOffset = 10.0f;
-    axisSet.yAxis.titleOffset = 40.0f;
-    axisSet.xAxis.labelTextStyle = textStyle;
-    axisSet.xAxis.labelOffset = 3.0f;
-    axisSet.yAxis.labelTextStyle = textStyle;
-    axisSet.yAxis.labelOffset = 3.0f;
-    //set axes' line styles and interval ticks
-    CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
-    axisSet.xAxis.axisLineStyle = lineStyle;
-    axisSet.xAxis.majorTickLineStyle = lineStyle;
-    axisSet.xAxis.majorIntervalLength = CPTDecimalFromFloat(0);
-    axisSet.xAxis.majorTickLength = 0;
-    axisSet.xAxis.minorTickLineStyle = lineStyle;
-    axisSet.xAxis.minorTicksPerInterval = 0;
-    axisSet.xAxis.minorTickLength = 0;
-    
-    axisSet.yAxis.axisLineStyle = lineStyle;
-    axisSet.yAxis.majorTickLineStyle = lineStyle;
-    axisSet.yAxis.majorIntervalLength = CPTDecimalFromFloat(0);
-    axisSet.yAxis.majorTickLength = 0;
-    axisSet.yAxis.minorTickLineStyle = lineStyle;
-    axisSet.yAxis.minorTicksPerInterval = 0;
-    axisSet.yAxis.minorTickLength = 0;
+
+    self.graph.axisSet = nil;
+//    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.graph.axisSet;
+//    //set axes' title, labels and their text styles
+//    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
+//    textStyle.fontName = @"Helvetica";
+//    textStyle.fontSize = 14;
+//    textStyle.color = [CPTColor whiteColor];
+//    axisSet.xAxis.title = @"";
+//    axisSet.yAxis.title = @"";
+//    axisSet.xAxis.titleTextStyle = textStyle;
+//    axisSet.yAxis.titleTextStyle = textStyle;
+//    axisSet.xAxis.titleOffset = 10.0f;
+//    axisSet.yAxis.titleOffset = 40.0f;
+//    axisSet.xAxis.labelTextStyle = textStyle;
+//    axisSet.xAxis.labelOffset = 3.0f;
+//    axisSet.yAxis.labelTextStyle = textStyle;
+//    axisSet.yAxis.labelOffset = 3.0f;
+//    //set axes' line styles and interval ticks
+//    CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
+//    axisSet.xAxis.axisLineStyle = lineStyle;
+//    axisSet.xAxis.majorTickLineStyle = lineStyle;
+//    axisSet.xAxis.majorIntervalLength = CPTDecimalFromFloat(0);
+//    axisSet.xAxis.majorTickLength = 0;
+//    axisSet.xAxis.minorTickLineStyle = lineStyle;
+//    axisSet.xAxis.minorTicksPerInterval = 0;
+//    axisSet.xAxis.minorTickLength = 0;
+//    
+//    axisSet.yAxis.axisLineStyle = lineStyle;
+//    axisSet.yAxis.majorTickLineStyle = lineStyle;
+//    axisSet.yAxis.majorIntervalLength = CPTDecimalFromFloat(0);
+//    axisSet.yAxis.majorTickLength = 0;
+//    axisSet.yAxis.minorTickLineStyle = lineStyle;
+//    axisSet.yAxis.minorTicksPerInterval = 0;
+//    axisSet.yAxis.minorTickLength = 0;
 }
 
 -(void)configurePlot
@@ -263,9 +252,6 @@ NSNumber *minPoints = 0;
     
 }
 
-
-
-#pragma mark - CPTBarPlotDelegate methods
 -(void)barPlot:(CPTBarPlot *)plot barWasSelectedAtRecordIndex:(NSUInteger)index {
     if (_annotation)
     {
@@ -274,9 +260,9 @@ NSNumber *minPoints = 0;
     }
     
     CPTMutableTextStyle *annotationTextStyle = [CPTMutableTextStyle textStyle];
-    annotationTextStyle.color = [CPTColor whiteColor];
+    annotationTextStyle.color = [CPTColor blackColor];
     annotationTextStyle.fontSize = 12.0f;
-    annotationTextStyle.fontName = @"Helvetica";
+    annotationTextStyle.fontName = @"Helvetica-Bold";
     
     PFObject *person = [self.data objectAtIndex:index];
     CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:[self constructNameAndPointsString:person]
@@ -293,8 +279,8 @@ NSNumber *minPoints = 0;
     _annotation = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:_graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
     _annotation.contentLayer = label;
     _annotation.displacement = CGPointMake(0.0f, 0.0f);
-    [_graph.plotAreaFrame.plotArea addAnnotation:_annotation];
 
+    [_graph.plotAreaFrame.plotArea addAnnotation:_annotation];
     
 }
 
