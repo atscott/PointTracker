@@ -7,16 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
-#import "CorePlot-CocoaTouch.h"
+#import "PowerPlot.h"
 #include <stdlib.h>
-@interface StatsViewController : UIViewController <CPTBarPlotDataSource, CPTBarPlotDelegate>
+@interface StatsViewController :UIViewController
 
-@property (nonatomic, retain) NSArray *data;
-@property (nonatomic, retain) CPTXYGraph *graph;
-@property (nonatomic, retain) CPTBarPlot *plot;
-@property (nonatomic, retain) IBOutlet CPTGraphHostingView *hostingView;
-@property (nonatomic, retain) CPTPlotSpaceAnnotation *annotation;
+
+@property (nonatomic, weak) WSChart *barChart;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @end
