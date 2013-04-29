@@ -16,5 +16,6 @@
 
 /** Return the leading 10 people in points */
 + (WSData *)top10;
++(WSData *)historyForUser:(NSString *) userID fromLog: (NSString *) logName;
 
 @end

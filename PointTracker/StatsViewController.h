@@ -9,10 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "PowerPlot.h"
 #include <stdlib.h>
-@interface StatsViewController :UIViewController
+@interface StatsViewController :UIViewController <WSControllerGestureDelegate>
 
 
-@property (nonatomic, weak) WSChart *barChart;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+typedef NS_ENUM(NSInteger, ChartType) {
+    Top10,
+    History,
+};
+
+- (id)initWithType:(ChartType)type;
+
+@property (nonatomic) ChartType type;
+@property (nonatomic, retain) WSData *barData;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (nonatomic, retain) IBOutlet UILabel *resultLabel;
+@property (nonatomic, retain) IBOutlet WSChart *barChart;
+
+
 
 @end

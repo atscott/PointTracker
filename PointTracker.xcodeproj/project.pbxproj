@@ -59,6 +59,10 @@
 		63A5BC001721A414002D211D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A5BBFF1721A413002D211D /* Accounts.framework */; };
 		63A5BC021721A41C002D211D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A5BC011721A41C002D211D /* AdSupport.framework */; };
 		63A5BC041721A46F002D211D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A5BC031721A46E002D211D /* libsqlite3.dylib */; };
+		63E3BFD7172DB30E00E6F206 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E3BFD5172DB30E00E6F206 /* HistoryViewController.m */; };
+		63E3BFD8172DB30E00E6F206 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E3BFD6172DB30E00E6F206 /* HistoryViewController.xib */; };
+		63E3BFDC172DB75000E6F206 /* GraphpickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E3BFDA172DB74F00E6F206 /* GraphpickerViewController.m */; };
+		63E3BFDD172DB75000E6F206 /* GraphpickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E3BFDB172DB74F00E6F206 /* GraphpickerViewController.xib */; };
 		63EA8FCD171DE83400E5BEB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EA8FCC171DE83400E5BEB5 /* UIKit.framework */; };
 		63EA8FCF171DE83400E5BEB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EA8FCE171DE83400E5BEB5 /* Foundation.framework */; };
 		63EA8FD1171DE83400E5BEB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EA8FD0171DE83400E5BEB5 /* CoreGraphics.framework */; };
@@ -253,6 +257,12 @@
 		63A5BBFF1721A413002D211D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		63A5BC011721A41C002D211D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		63A5BC031721A46E002D211D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		63E3BFD4172DB30E00E6F206 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		63E3BFD5172DB30E00E6F206 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		63E3BFD6172DB30E00E6F206 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
+		63E3BFD9172DB74F00E6F206 /* GraphpickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphpickerViewController.h; sourceTree = "<group>"; };
+		63E3BFDA172DB74F00E6F206 /* GraphpickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphpickerViewController.m; sourceTree = "<group>"; };
+		63E3BFDB172DB74F00E6F206 /* GraphpickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphpickerViewController.xib; sourceTree = "<group>"; };
 		63EA8FC9171DE83400E5BEB5 /* PointTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PointTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EA8FCC171DE83400E5BEB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63EA8FCE171DE83400E5BEB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -605,6 +615,12 @@
 				A711E0CE171FA9BA003F6224 /* StatsViewController.xib */,
 				6347FF5B172993FB00CF12D4 /* ChartData.h */,
 				6347FF5C172993FB00CF12D4 /* ChartData.m */,
+				63E3BFD4172DB30E00E6F206 /* HistoryViewController.h */,
+				63E3BFD5172DB30E00E6F206 /* HistoryViewController.m */,
+				63E3BFD6172DB30E00E6F206 /* HistoryViewController.xib */,
+				63E3BFD9172DB74F00E6F206 /* GraphpickerViewController.h */,
+				63E3BFDA172DB74F00E6F206 /* GraphpickerViewController.m */,
+				63E3BFDB172DB74F00E6F206 /* GraphpickerViewController.xib */,
 			);
 			name = StatisticsTab;
 			sourceTree = "<group>";
@@ -809,6 +825,8 @@
 				A7BFA2521725E20D001EF111 /* SignOut@2x.png in Resources */,
 				A751E4A01726D58800EC4D14 /* Setting.png in Resources */,
 				A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */,
+				63E3BFD8172DB30E00E6F206 /* HistoryViewController.xib in Resources */,
+				63E3BFDD172DB75000E6F206 /* GraphpickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,6 +898,8 @@
 				634700861729A02000CF12D4 /* WSTicks.m in Sources */,
 				634700871729A02000CF12D4 /* WSVersion.m in Sources */,
 				634700881729A02000CF12D4 /* WSView.m in Sources */,
+				63E3BFD7172DB30E00E6F206 /* HistoryViewController.m in Sources */,
+				63E3BFDC172DB75000E6F206 /* GraphpickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
