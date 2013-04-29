@@ -14,12 +14,11 @@
 
 #import "TableListViewController.h"
 #import "MoreInfoViewController.h"
-#import "NewPersonViewController.h"
-#import "Person.h"
-#import "Group.h"
+#import "AddFormViewController.h"
 #import "MyLogInViewController.h"
 #import "MySignUpViewController.h"
 #import "SettingsViewController.h"
+#import "PersonDetailsViewController.h"
 
 @interface TableListViewController ()
 
@@ -29,11 +28,14 @@
 
 -(id)init
 {
-    self = [super initWithStyle: UITableViewStyleGrouped];
+    self = [super initWithStyle: UITableViewStyleGrouped ];
     if (self)
     {
+        
+        ///[[self view] setBackgroundColor:[UIColor blackColor]];
+        
         // Set which "class" on parse this table is related to
-        self.parseClassName = @"Kids";
+        self.parseClassName = @"People";
         self.pullToRefreshEnabled = YES;
         
         // Set the title and logo on the lower tab bar
@@ -57,7 +59,6 @@
 
         UIBarButtonItem *signoutBarButton = [[UIBarButtonItem alloc] initWithCustomView:signoutButton];
         [signoutButton addTarget:self action:@selector(logOutButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
-        //[[self navigationItem] setLeftBarButtonItem:signoutBarButton];
         
         // Create and set up "settings" bar button 
         UIImage *settingsImage = [UIImage imageNamed:@"Setting.png"];
@@ -67,7 +68,6 @@
         
         UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
         [settingsButton addTarget:self action:@selector(settingsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
-        //[[self navigationItem] setLeftBarButtonItem:signoutBarButton];
         
         // Create and place Array of LeftBarButtons
         NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, settingsBarButton, nil];
@@ -84,7 +84,19 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CoolBackground.png"]];
     [self handleLogin];
+    [self loadObjects];
+}
+
+-(void) viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = nil;
+    self.tableView.backgroundColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    self.tableView.backgroundView = nil;
+    //self.view.backgroundView = nil;
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CoolBackground.png"]];
 }
 
 -(void)handleLogin
@@ -93,14 +105,10 @@
         // Customize the Log In View Controller
         MyLogInViewController *logInViewController = [[MyLogInViewController alloc] init];
         [logInViewController setDelegate:self];
-        /* Uncomment to include Facebook/Twitter Authentication */
-        //[logInViewController setFacebookPermissions:[NSArray arrayWithObjects:@"friends_about_me", nil]];
-        [logInViewController setFields:PFLogInFieldsUsernameAndPassword |
-         /* Uncomment to include Facebook/Twitter Authentication */
-         /*PFLogInFieldsTwitter |
-          PFLogInFieldsFacebook | */
-         PFLogInFieldsSignUpButton |
-         PFLogInFieldsDismissButton];
+        [logInViewController setFields:
+            PFLogInFieldsUsernameAndPassword |
+            PFLogInFieldsSignUpButton |
+            PFLogInFieldsDismissButton ];
         
         // Customize the Sign Up View Controller
         MySignUpViewController *signUpViewController = [[MySignUpViewController alloc] init];
@@ -115,7 +123,7 @@
 
 - (IBAction)addNewItem:(id)sender
 {
-    [[self navigationController] pushViewController:[[NewPersonViewController alloc]init] animated:YES];
+    [[self navigationController] pushViewController:[[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped] animated:YES];
 }
 
 - (IBAction)logOutButtonTapAction:(id)sender {
@@ -125,10 +133,6 @@
                                    cancelButtonTitle:@"Cancel"
                                    destructiveButtonTitle:@"Logout"
                                    otherButtonTitles:nil, nil];
-    //[confirmSheet addButtonWithTitle:@"Log Out"];
-    //[confirmSheet addButtonWithTitle:@"Cancel"];
-    [confirmSheet setDestructiveButtonIndex:0];
-    [confirmSheet setCancelButtonIndex:1];
     [confirmSheet showInView:self.view];
 }
 
@@ -144,7 +148,6 @@
     }
 }
 
-
 /***************************************************************/
 /* Overridden Methods for extending PFQueryTableViewController */
 /***************************************************************/
@@ -158,12 +161,10 @@
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-    
-    // This method is called before a PFQuery is fired to get more objects
+        // This method is called before a PFQuery is fired to get more objects
 }
 
-// Override to customize what kind of query to perform on the class. The default is to query for
-// all objects ordered by createdAt descending.
+// Override to customize what kind of query to perform on the class.
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
@@ -172,29 +173,29 @@
     if ([self.objects count] == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-    
-    [query orderByAscending:@"Points"];
-    
+    [query orderByDescending:@"points"];
     return query;
 }
 
-// Override to customize the look of a cell representing an object. The default is to display
-// a UITableViewCellStyleDefault style cell with the label being the first key in the object.
-- (UITableViewCell *) tableView:(UITableView *)
-tableView cellForRowAtIndexPath:(NSIndexPath *)
-               indexPath object:(PFObject *)object {
+// Override to customize the look of a cell representing an object. 
+- (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath object:(PFObject *)object {
     
     static NSString *CellIdentifier = @"Cell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell
-    cell.textLabel.text = [object objectForKey:@"First_Name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Points: %@", [object objectForKey:@"Points"]];
-    
+    NSString *first = [object objectForKey:@"firstName"];
+    NSString *last = [object objectForKey:@"lastName"];
+    cell.textLabel.text = [[first stringByAppendingString:@" "] stringByAppendingString:last];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Points: %@", [object objectForKey:@"points"]];
+    if( [indexPath row] % 2)
+        [cell setBackgroundColor:[UIColor colorWithRed:229/255.0f green:256/255.0f blue:255/255.0f alpha:1.0f]];
+    else
+        [cell setBackgroundColor:[UIColor colorWithRed:221/255.0f green:256/255.0f blue:235/255.0f alpha:1.0f]];
     return cell;
 }
 /*************************************************************************/
@@ -268,9 +269,27 @@ tableView cellForRowAtIndexPath:(NSIndexPath *)
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    // TODO: Create and push view for managing points of the selected person
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSArray *name = [cell.textLabel.text componentsSeparatedByString:@" "];
+       
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
+    [query whereKey:@"firstName" equalTo: name[0]];
+    [query whereKey:@"lastName" equalTo: name[1]];
+    
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            // The find succeeded.
+//            NSLog(@"Successfully retrieved %d scores.", objects.count);
+//            PFObject *user = objects[0];
+//            [user setObject:[NSNumber numberWithInt:500] forKey:@"points"];
+//            [user saveEventually];
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
+    [[self navigationController] pushViewController:[[PersonDetailsViewController alloc]initWithID:[NSNumber numberWithInt:9]] animated:YES];
 }
-
 
 /**************************************************/
 /* Login Stuff                                    */

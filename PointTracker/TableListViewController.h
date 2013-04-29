@@ -11,7 +11,9 @@
 
 @interface TableListViewController : PFQueryTableViewController
 <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIActionSheetDelegate>
-{ }
+{
+    
+}
 
 - (IBAction)addNewItem:(id)sender;
 - (IBAction)logOutButtonTapAction:(id)sender;
