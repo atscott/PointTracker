@@ -14,7 +14,7 @@
 @implementation ChartData
 + (WSData *)top10 {
     
-    PFQuery *query = [PFQuery queryWithClassName:@"People2"];
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
     [query orderByDescending:@"points"];
     query.limit = 10;
     NSArray *data = [query findObjects];
