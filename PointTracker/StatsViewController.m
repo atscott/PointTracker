@@ -53,49 +53,57 @@
     aCtrl.hitResponseMethod = kHitResponseDatum;
 }
 
-
--(void)setChartTitle{
-    if(_type == Top10){
-        [_barChart setChartTitle:NSLocalizedString(@"Top 10", @"")];   
-    }
-    else if(_type == History){
-        [_barChart setChartTitle:NSLocalizedString(@"Point History", @"")];
-    }
-}
-
 -(void)getChartData{
     if(_type == Top10){
-    _barData = [[ChartData top10] indexedData];
+        _barData = [ChartData top10];
     }
     else if(_type == History){
-    _barData = [[ChartData historyForUser:@"dummy" fromLog:@"dummy"] indexedData];
+        _barData = [ChartData historyForCurrentUser];
     }
 
 }
 
 - (void)CreateGraph:(id)obj
 {
+    self.resultLabel.text = @"";
     [_loadingIndicator setHidden:NO];
     [_loadingIndicator startAnimating];
-    if(_barChart)
+    if(_barChart != nil && [[self.view subviews] containsObject:_barChart])
     {
         [_barChart removeFromSuperview];
     }
+    
     [self getChartData];
-    // Create and configure a bar chart.
-    _barChart = [WSChart barPlotWithFrame:[self.view bounds]
-                                     data:_barData
-                                    style:kChartBarPlain
-                              colorScheme:kColorDarkBlue];
-    [self getChartData];
-    [self setChartTitle];
-    [self setupTapFeature];
-    _barChart.autoresizingMask = 63;
-    [[self view] addSubview:_barChart];
-    [self.view sendSubviewToBack:_barChart];
+    if(_barData != nil)
+    {
+        // Create and configure a bar chart.
+        CGRect frame = [self.view bounds];
+        frame.size.width -= 10;
+        frame.size.height -= 10;
+        frame.origin.x += 10;
+        frame.origin.x += 10;
+        self.view.backgroundColor = [UIColor blackColor];
+        _barChart = [WSChart barPlotWithFrame:frame
+                                         data:_barData
+                                        style:kChartBarPlain
+                                  colorScheme:kColorDarkBlue];
+        [self setupTapFeature];
+        _barChart.autoresizingMask = 63;
+        [[self view] addSubview:_barChart];
+        [self.view sendSubviewToBack:_barChart];
+    }
+    else
+    {
+        [self indicateNoDataToDisplay];
+    }
+    
     [_loadingIndicator stopAnimating];
     [_loadingIndicator setHidden:YES];
-    
+}
+
+-(void) indicateNoDataToDisplay
+{
+    self.resultLabel.text = @"No relevant data could be retrieved";
 }
 
 #pragma mark - WSControllerGestureDelegate
