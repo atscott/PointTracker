@@ -74,7 +74,7 @@
         [[self navigationItem] setLeftBarButtonItems:leftBarButtons animated:YES];
         
         // Create and place Array of RightBarButtons 
-        NSArray *barButtons = [[NSArray alloc] initWithObjects: [self editButtonItem], createNewPersonButton, nil];
+        NSArray *barButtons = [[NSArray alloc] initWithObjects: createNewPersonButton, nil];
         [[self navigationItem] setRightBarButtonItems:barButtons animated:YES];
     }
     // Return this wonderful view we've just put together

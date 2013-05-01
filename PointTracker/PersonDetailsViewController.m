@@ -23,13 +23,19 @@
 @synthesize pointsLabel;
 
 NSString *identifier;
+UINavigationItem *navItem;
+
 
 -(id)initWithID:(NSString *)objectId
 {
     //self = [super initWithNibName:@"PersonDetailsViewController.xib" bundle:nil];
     self = [super init];
-    
-    identifier = objectId;
+    if(self)
+    {
+        identifier = objectId;
+
+        navItem = [self navigationItem];
+    }
         
     return self;
 }
@@ -54,20 +60,33 @@ NSString *identifier;
 {
     [super viewDidLoad];
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"CoolBackground.jpg"]]];
-    // Do any additional setup after loading the view from its nib.
+
     PFQuery *query = [PFQuery queryWithClassName:@"_User"];
     PFObject *selectedUser = [query getObjectWithId:identifier];
 
-    self.phoneNumberLabel.text = [selectedUser objectForKey:@"phoneNumber"];
-    self.emergencyPhoneLabel.text = [selectedUser objectForKey:@"emergencyPhoneNumber"];
+    self.phoneNumberLabel.text = [NSString stringWithFormat:@"Phone #: %@",
+                                 [selectedUser objectForKey:@"phoneNumber"]];
+    
+    self.emergencyPhoneLabel.text = [NSString stringWithFormat:@"Emergency #: %@",
+                                    [selectedUser objectForKey:@"emergencyPhoneNumber"]];
+    
     self.emailLabel.text = [selectedUser objectForKey:@"email"];
+    
     self.streetAddressLabel.text = [selectedUser objectForKey:@"streetAddress"];
+                                    
     self.cityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@ %@",
                              [selectedUser objectForKey:@"city"],
                              [selectedUser objectForKey:@"state"],
                              [selectedUser objectForKey:@"zipCode"]];
-    self.otherLabel.text = [selectedUser objectForKey:@"other"];
+    
+    self.otherLabel.text = [NSString stringWithFormat:@"Miscellaneous Info: %@",
+                           [selectedUser objectForKey:@"other"]];
+    
     self.pointsLabel.text = [NSString stringWithFormat:@"%@",[selectedUser objectForKey:@"points"]];
+    
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ %@",
+                                 [selectedUser objectForKey:@"firstName"],
+                                 [selectedUser objectForKey:@"lastName"]];
 }
 
 - (void)didReceiveMemoryWarning
