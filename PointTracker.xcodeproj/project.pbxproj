@@ -104,6 +104,11 @@
 		A72C226D1729AFAF00E6D9DA /* AddFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226C1729AFAF00E6D9DA /* AddFormViewController.m */; };
 		A72C22711729B17D00E6D9DA /* PersonDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */; };
 		A72C22721729B17D00E6D9DA /* PersonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */; };
+		A74FB432173168B000E19D03 /* classy_fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB431173168B000E19D03 /* classy_fabric.png */; };
+		A74FB4391731700F00E19D03 /* GirlVsBoy.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB4381731700F00E19D03 /* GirlVsBoy.png */; };
+		A74FB43B1731707600E19D03 /* TopTenIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43A1731707600E19D03 /* TopTenIcon.png */; };
+		A74FB43D173170DB00E19D03 /* HistoryIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43C173170DB00E19D03 /* HistoryIcon.png */; };
+		A74FB43F1731716D00E19D03 /* WeekIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43E1731716D00E19D03 /* WeekIcon.png */; };
 		A751E4A01726D58800EC4D14 /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49E1726D58700EC4D14 /* Setting.png */; };
 		A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49F1726D58800EC4D14 /* Setting@2x.png */; };
 		A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38623171FFAEF007B5E4F /* Logout@2x.png */; };
@@ -314,6 +319,11 @@
 		A72C226E1729B17D00E6D9DA /* PersonDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailsViewController.h; sourceTree = "<group>"; };
 		A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailsViewController.m; sourceTree = "<group>"; };
 		A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsViewController.xib; sourceTree = "<group>"; };
+		A74FB431173168B000E19D03 /* classy_fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classy_fabric.png; sourceTree = "<group>"; };
+		A74FB4381731700F00E19D03 /* GirlVsBoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GirlVsBoy.png; sourceTree = "<group>"; };
+		A74FB43A1731707600E19D03 /* TopTenIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopTenIcon.png; sourceTree = "<group>"; };
+		A74FB43C173170DB00E19D03 /* HistoryIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HistoryIcon.png; sourceTree = "<group>"; };
+		A74FB43E1731716D00E19D03 /* WeekIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeekIcon.png; sourceTree = "<group>"; };
 		A751E49E1726D58700EC4D14 /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting.png; sourceTree = "<group>"; };
 		A751E49F1726D58800EC4D14 /* Setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Setting@2x.png"; sourceTree = "<group>"; };
 		A7A38623171FFAEF007B5E4F /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
@@ -644,6 +654,7 @@
 		A711E0A8171FA7C6003F6224 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A74FB43717316B0300E19D03 /* ButtonIcons */,
 				A72C22731729B96800E6D9DA /* Backgrounds */,
 				A7A38622171FFAE3007B5E4F /* UIBarButtonItemIcons */,
 				A711E0A9171FA7CB003F6224 /* TabbarIcons */,
@@ -673,11 +684,23 @@
 		A72C22731729B96800E6D9DA /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				A74FB431173168B000E19D03 /* classy_fabric.png */,
 				A7D13DC9173107D70017AF3C /* DetailsBackground.jpg */,
 				A7D13DCA173107D70017AF3C /* DetailsBackground@2x.jpg */,
 				A7D13DCB173107D70017AF3C /* DetailsBackground-568@2x.jpg */,
 			);
 			name = Backgrounds;
+			sourceTree = "<group>";
+		};
+		A74FB43717316B0300E19D03 /* ButtonIcons */ = {
+			isa = PBXGroup;
+			children = (
+				A74FB43E1731716D00E19D03 /* WeekIcon.png */,
+				A74FB43C173170DB00E19D03 /* HistoryIcon.png */,
+				A74FB43A1731707600E19D03 /* TopTenIcon.png */,
+				A74FB4381731700F00E19D03 /* GirlVsBoy.png */,
+			);
+			name = ButtonIcons;
 			sourceTree = "<group>";
 		};
 		A7A38622171FFAE3007B5E4F /* UIBarButtonItemIcons */ = {
@@ -847,6 +870,11 @@
 				A7D13DCC173107D70017AF3C /* DetailsBackground.jpg in Resources */,
 				A7D13DCD173107D70017AF3C /* DetailsBackground@2x.jpg in Resources */,
 				A7D13DCE173107D70017AF3C /* DetailsBackground-568@2x.jpg in Resources */,
+				A74FB432173168B000E19D03 /* classy_fabric.png in Resources */,
+				A74FB4391731700F00E19D03 /* GirlVsBoy.png in Resources */,
+				A74FB43B1731707600E19D03 /* TopTenIcon.png in Resources */,
+				A74FB43D173170DB00E19D03 /* HistoryIcon.png in Resources */,
+				A74FB43F1731716D00E19D03 /* WeekIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

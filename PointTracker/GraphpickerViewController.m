@@ -15,6 +15,11 @@
 @end
 
 @implementation GraphpickerViewController
+@synthesize top10;
+@synthesize history;
+@synthesize boysVGirls;
+@synthesize pointsByWeek;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,7 +28,11 @@
         self.title = NSLocalizedString(@"Stats", @"Stats");
         self.tabBarItem.image = [UIImage imageNamed:@"Stats"];
     }
-    
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
+    [top10 setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"TopTenIcon.png"]]];
+    [boysVGirls setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"GirlVsBoy.png"]]];
+    [history setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"HistoryIcon.png"]]];
+    [pointsByWeek setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"WeekIcon.png"]]];
     return self;
 }
 

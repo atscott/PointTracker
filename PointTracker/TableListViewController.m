@@ -87,6 +87,7 @@
     //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CoolBackground.png"]];
     [self handleLogin];
     [self loadObjects];
+
 }
 
 -(void) viewDidLoad

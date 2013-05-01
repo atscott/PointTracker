@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *top10;
 @property (weak, nonatomic) IBOutlet UIButton *history;
 @property (weak, nonatomic) IBOutlet UIButton *boysVGirls;
+@property (weak, nonatomic) IBOutlet UIButton *pointsByWeek;
+
 - (IBAction)history:(id)sender;
 - (IBAction)top10:(id)sender;
 - (IBAction)boysVsGirls:(id)sender;
