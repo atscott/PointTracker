@@ -32,6 +32,7 @@
     if (self) {
         self.title = NSLocalizedString(@"Stats", @"Stats");
         _type = Top10;
+        self.view.backgroundColor = [UIColor blackColor];
     }
     return self;
 }
@@ -59,8 +60,12 @@
     }
     else if(_type == History){
         _barData = [ChartData historyForCurrentUser];
+    }else if(_type == BoysVsGirls){
+        _barData = [ChartData boysVsGirls];
+    }else if(_type == PointsForLast5Weeks)
+    {
+        _barData = [ChartData totalPointsLast5Weeks];
     }
-
 }
 
 - (void)CreateGraph:(id)obj
@@ -68,27 +73,25 @@
     self.resultLabel.text = @"";
     [_loadingIndicator setHidden:NO];
     [_loadingIndicator startAnimating];
-    if(_barChart != nil && [[self.view subviews] containsObject:_barChart])
+    if(_barChart != NULL && [[self.view subviews] containsObject:_barChart])
     {
-        [_barChart removeFromSuperview];
+            [_barChart removeFromSuperview];
     }
     
     [self getChartData];
-    if(_barData != nil)
+    if(_barData != NULL && [_barData count] > 0)
     {
         // Create and configure a bar chart.
         CGRect frame = [self.view bounds];
-        frame.size.width -= 10;
+        frame.size.width -= 20;
         frame.size.height -= 10;
-        frame.origin.x += 10;
-        frame.origin.x += 10;
-        self.view.backgroundColor = [UIColor blackColor];
+        frame.origin.x += 30;
         _barChart = [WSChart barPlotWithFrame:frame
                                          data:_barData
                                         style:kChartBarPlain
                                   colorScheme:kColorDarkBlue];
         [self setupTapFeature];
-        _barChart.autoresizingMask = 63;
+        self.resultLabel.text = @"Tap a column to view values";
         [[self view] addSubview:_barChart];
         [self.view sendSubviewToBack:_barChart];
     }
@@ -104,6 +107,7 @@
 -(void) indicateNoDataToDisplay
 {
     self.resultLabel.text = @"No relevant data could be retrieved";
+    [self.view bringSubviewToFront:_resultLabel];
 }
 
 #pragma mark - WSControllerGestureDelegate
@@ -111,7 +115,7 @@
 - (void)controller:(WSPlotController *)controller
   singleTapAtDatum:(NSInteger)i {
     WSDatum *target = [self.barData datumAtIndex:i];
-    self.resultLabel.text = [NSString stringWithFormat:@"%@: %2.0f",
+    self.resultLabel.text = [NSString stringWithFormat:@"%@: %.f",
                              target.annotation,
                              target.value];
 }

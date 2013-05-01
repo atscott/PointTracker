@@ -13,7 +13,7 @@
 
 @implementation ChartData
 + (WSData *)top10 {
-    PFQuery *query = [PFQuery queryWithClassName:@"People"];
+    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
     [query orderByDescending:@"points"];
     query.limit = 10;
     NSArray *data = [query findObjects];
@@ -25,11 +25,10 @@
         for(int i=0; i<data.count; i++)
         {
             points[i] = [[[data objectAtIndex:i] objectForKey:@"points"] floatValue];
-            names[i] = [[data objectAtIndex:i] objectForKey:@"firstName"];
-            
+            NSString *name = [[data objectAtIndex:i] valueForKey:@"firstName"];
+            names[i] = (name == NULL ? @"null" : name);
         }
-        
-        result = [[WSData dataWithValues:[WSData arrayWithFloat:points
+        return [[WSData dataWithValues:[WSData arrayWithFloat:points
                                                             len:data.count]
                              annotations:[NSArray arrayWithObjects:names
                                                              count:data.count]]
@@ -40,10 +39,7 @@
 }
 
 +(WSData *)historyForCurrentUser{
-    PFQuery *test = [PFQuery queryWithClassName:@"People"];
-    PFObject *andrew = [test getObjectWithId:@"bMWZwS6ALN"];
-    PFRelation *relation = [andrew relationforKey:@"log"];
-    //    PFRelation *relation = [[PFUser user] relationforKey:@"log"];
+    PFRelation *relation = [[PFUser currentUser] relationforKey:@"log"];
     PFQuery *query = [relation query];
     [query orderByDescending:@"createdAt"];
     query.limit = 10;
@@ -71,6 +67,148 @@
     }
     
     return result;
+}
+
++(WSData *)totalPointsLast5Weeks{
+    
+    NSDate *startDates[5];
+    NSDate *endDates[5];
+    NSDate *today = [NSDate date];
+    NSDate *lastWednesday = [today dateByAddingTimeInterval:
+                             -1*[ChartData daysSinceWednesday]*24*60*60];
+    startDates[0]= lastWednesday;
+    endDates[0] = today;
+    //subtract 1 day from last wednesday to get last tuesday, the end date
+    //for the last weekly interval
+    NSDate *tuesday = [lastWednesday dateByAddingTimeInterval:-1*24*60*60];
+    for(int i=1;i<5;i++)
+    {
+        //subtract 7 days from the current last wednesday to get the wednesday
+        //before that, the start date for the previous interval
+        lastWednesday = [lastWednesday dateByAddingTimeInterval:-7*24*60*60];
+        startDates[i] = lastWednesday;
+        endDates[i] = tuesday;
+        tuesday = [tuesday dateByAddingTimeInterval:-7*24*60*60];
+    }
+
+    //get the entire points log
+    PFQuery *query = [PFQuery queryWithClassName:@"PointLog"];
+    NSArray *data = [query findObjects];
+    float pointsForDateRange[5];
+    for(int i=0;i<5;i++){
+        pointsForDateRange[i] = 0;
+    }
+    
+    for(PFObject *obj in data)
+    {
+        Boolean matched = false;
+        int index = 0;
+        while(!matched && index < 5)
+        {
+            matched = [ChartData isDate:obj.createdAt
+            greaterThanOrEqual:startDates[index]
+            andLessThanOrEqual:endDates[index]];
+            index++;
+        }
+        
+        if(matched)
+        {
+            index--;
+            pointsForDateRange[index] += [[obj objectForKey:@"pointsAdded"] floatValue];
+        }
+    }
+    
+    NSString *annotationArray[5];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yy"];
+    for(int i=0; i<5; i++)
+    {
+        annotationArray[i] = [formatter stringFromDate:startDates[i]];
+    }
+
+    
+    return [[WSData dataWithValues:[WSData arrayWithFloat:pointsForDateRange
+                                                      len:5]
+                       annotations:[NSArray arrayWithObjects:annotationArray
+                                                       count:5]]indexedData];
+}
+
+
++(Boolean)isDate:(NSDate *)date1 greaterThanOrEqual:(NSDate *)date2 andLessThanOrEqual:(NSDate *) date3
+{
+    [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&date1 interval:NULL forDate:date1];
+    [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&date2 interval:NULL forDate:date2];
+    
+    NSComparisonResult result = [date1 compare:date2];
+    Boolean retVal = false;
+    if (result == NSOrderedAscending) {
+        //date 1 less than date 2
+        retVal = false;
+    } else if (result == NSOrderedDescending) {
+        //date 1 greater than date 2
+        retVal = true;
+    }  else {
+        //date 1 equal to date 2
+        retVal = true;
+    }
+    
+    if(retVal == true)
+    {
+        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&date1 interval:NULL forDate:date1];
+        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&date3 interval:NULL forDate:date3];
+        
+        NSComparisonResult result = [date1 compare:date3];
+        if (result == NSOrderedAscending) {
+            retVal = true;
+        } else if (result == NSOrderedDescending) {
+            retVal = false;
+        }  else {
+            retVal = true;
+        }
+    }
+    return retVal;
+
+}
+
++(int)daysSinceWednesday
+{
+    //1=sunday, 7=saturday, 4=wednesday
+    int weekday = [[[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:[NSDate date]] weekday];
+    weekday-=4;
+    if(weekday < 0){
+        weekday = 7+weekday;
+    }
+    return weekday;
+}
+
++(WSData *)boysVsGirls{
+    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    [query whereKey:@"isBoy" equalTo:[NSNumber numberWithBool:YES]];
+    NSArray *boys = [query findObjects];
+    query = [PFQuery queryWithClassName:@"_User"];
+    [query whereKey:@"isBoy" equalTo:[NSNumber numberWithBool:NO]];
+    NSArray *girls = [query findObjects];
+    
+    float pointsGirls = 0;
+    for(int i=0; i<girls.count; i++)
+    {
+        pointsGirls += [[[girls objectAtIndex:i] objectForKey:@"points"] floatValue];
+    }
+    
+    float pointsBoys = 0;
+    for(int i=0; i<boys.count; i++)
+    {
+        pointsBoys += [[[boys objectAtIndex:i] objectForKey:@"points"] floatValue];
+    }
+    
+    float pointArray[2] = {pointsGirls, pointsBoys};
+    NSString *annotationArray[2] = {@"Girls", @"Boys"};
+    return [[WSData dataWithValues:[WSData arrayWithFloat:pointArray
+                                                      len:2]
+                         annotations:[NSArray arrayWithObjects:annotationArray
+                                                         count:2]]indexedData];
+    
+
 }
 
 @end

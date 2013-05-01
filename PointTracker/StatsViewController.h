@@ -15,15 +15,17 @@
 typedef NS_ENUM(NSInteger, ChartType) {
     Top10,
     History,
+    BoysVsGirls,
+    PointsForLast5Weeks,
 };
 
 - (id)initWithType:(ChartType)type;
 
 @property (nonatomic) ChartType type;
-@property (nonatomic, retain) WSData *barData;
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadingIndicator;
-@property (nonatomic, retain) IBOutlet UILabel *resultLabel;
-@property (nonatomic, retain) IBOutlet WSChart *barChart;
+@property (nonatomic) WSData *barData;
+@property (nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (nonatomic) IBOutlet UILabel *resultLabel;
+@property (nonatomic) IBOutlet WSChart *barChart;
 
 
 

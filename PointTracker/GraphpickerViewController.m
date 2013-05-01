@@ -32,9 +32,19 @@
     [[self navigationController] pushViewController:[[StatsViewController alloc]init] animated:YES];
 }
 
+
 - (IBAction)history:(id)sender
 {
     [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:History] animated:YES];
+}
+
+- (IBAction)boysVsGirls:(id)sender
+{
+    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:BoysVsGirls] animated:YES];
+}
+
+- (IBAction)pointsByWeek:(id)sender {
+    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:PointsForLast5Weeks] animated:YES];
 }
 
 - (void)viewDidLoad

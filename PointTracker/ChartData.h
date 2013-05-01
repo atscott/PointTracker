@@ -18,5 +18,9 @@
 + (WSData *)top10;
 /** return last 10 entries for points */
 +(WSData *)historyForCurrentUser;
+/** total points from wednesday to tuesday */
++(WSData *)totalPointsLast5Weeks;
+/** point listing of boys vs grils */
++(WSData *)boysVsGirls;
 
 @end
