@@ -174,6 +174,7 @@
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     [query orderByDescending:@"points"];
+    [query orderByAscending:@"isBoy"];
     return query;
 }
 
@@ -203,6 +204,8 @@
     else
         [cell setBackgroundColor:[UIColor whiteColor]];
     
+    
+    [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
     return cell;
 }
 

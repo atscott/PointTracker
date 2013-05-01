@@ -22,7 +22,7 @@
         CGRect logoutFrame = CGRectMake(50, 300, 225, 50);
         BButton *btn = [[BButton alloc] initWithFrame:logoutFrame];
         [btn setTitle:@"Log Out" forState:UIControlStateNormal];
-        [btn addAwesomeIcon:FAIconSignout beforeTitle:YES];
+        [btn addAwesomeIcon:FAIconPlay beforeTitle:YES];
         [btn setType:BButtonTypeDanger];
         [btn addTarget:self action:@selector(logOutButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:btn];

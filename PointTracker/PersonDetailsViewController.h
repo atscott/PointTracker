@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "BButton.h"
+#import "TDRatingView.h"
 
 @interface PersonDetailsViewController : UIViewController
-
-@property (strong, nonatomic) IBOutlet UILabel *phoneNumberLabel;
+<TDRatingViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
+{
+    TDRatingView *pointScale;
+}
+@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emergencyPhoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *streetAddressLabel;
@@ -20,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 
 -(id)initWithID:(NSString *)objectId;
+- (IBAction)addPointsButtonTapAction:(id)sender;
 
 
 @end

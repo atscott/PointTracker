@@ -106,9 +106,6 @@
 		A72C22721729B17D00E6D9DA /* PersonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */; };
 		A751E4A01726D58800EC4D14 /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49E1726D58700EC4D14 /* Setting.png */; };
 		A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49F1726D58800EC4D14 /* Setting@2x.png */; };
-		A752D0891729D467001CF8F9 /* CoolBackground-568h@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A752D0861729D465001CF8F9 /* CoolBackground-568h@2x.jpg */; };
-		A752D08A1729D467001CF8F9 /* CoolBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A752D0871729D466001CF8F9 /* CoolBackground.jpg */; };
-		A752D08B1729D467001CF8F9 /* CoolBackground@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A752D0881729D466001CF8F9 /* CoolBackground@2x.jpg */; };
 		A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38623171FFAEF007B5E4F /* Logout@2x.png */; };
 		A7A38628171FFAEF007B5E4F /* Logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38624171FFAEF007B5E4F /* Logout.png */; };
 		A7BFA2411725D3C5001EF111 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA23F1725D3C5001EF111 /* SettingsViewController.m */; };
@@ -134,6 +131,11 @@
 		A7C955A51725943200F683FC /* MyLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C955A01725943200F683FC /* MyLogInViewController.m */; };
 		A7C955A61725943200F683FC /* MySignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C955A21725943200F683FC /* MySignUpViewController.m */; };
 		A7C955A81725A24A00F683FC /* Logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955A71725A24900F683FC /* Logo2.png */; };
+		A7D13DC71730FEF90017AF3C /* TDArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D13DC41730FEF90017AF3C /* TDArrow.m */; };
+		A7D13DC81730FEF90017AF3C /* TDRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D13DC61730FEF90017AF3C /* TDRatingView.m */; };
+		A7D13DCC173107D70017AF3C /* DetailsBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7D13DC9173107D70017AF3C /* DetailsBackground.jpg */; };
+		A7D13DCD173107D70017AF3C /* DetailsBackground@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7D13DCA173107D70017AF3C /* DetailsBackground@2x.jpg */; };
+		A7D13DCE173107D70017AF3C /* DetailsBackground-568@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7D13DCB173107D70017AF3C /* DetailsBackground-568@2x.jpg */; };
 		A7FA36261725B52A006359D6 /* loginBack-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36231725B52A006359D6 /* loginBack-568h@2x.png */; };
 		A7FA36271725B52A006359D6 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36241725B52A006359D6 /* loginBack.png */; };
 		A7FA36281725B52A006359D6 /* loginBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36251725B52A006359D6 /* loginBack@2x.png */; };
@@ -314,9 +316,6 @@
 		A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsViewController.xib; sourceTree = "<group>"; };
 		A751E49E1726D58700EC4D14 /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting.png; sourceTree = "<group>"; };
 		A751E49F1726D58800EC4D14 /* Setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Setting@2x.png"; sourceTree = "<group>"; };
-		A752D0861729D465001CF8F9 /* CoolBackground-568h@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "CoolBackground-568h@2x.jpg"; sourceTree = "<group>"; };
-		A752D0871729D466001CF8F9 /* CoolBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CoolBackground.jpg; sourceTree = "<group>"; };
-		A752D0881729D466001CF8F9 /* CoolBackground@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "CoolBackground@2x.jpg"; sourceTree = "<group>"; };
 		A7A38623171FFAEF007B5E4F /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
 		A7A38624171FFAEF007B5E4F /* Logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout.png; sourceTree = "<group>"; };
 		A7BFA23E1725D3C5001EF111 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -348,6 +347,13 @@
 		A7C955A11725943200F683FC /* MySignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySignUpViewController.h; sourceTree = "<group>"; };
 		A7C955A21725943200F683FC /* MySignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySignUpViewController.m; sourceTree = "<group>"; };
 		A7C955A71725A24900F683FC /* Logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo2.png; sourceTree = "<group>"; };
+		A7D13DC31730FEF90017AF3C /* TDArrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDArrow.h; sourceTree = "<group>"; };
+		A7D13DC41730FEF90017AF3C /* TDArrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDArrow.m; sourceTree = "<group>"; };
+		A7D13DC51730FEF90017AF3C /* TDRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRatingView.h; sourceTree = "<group>"; };
+		A7D13DC61730FEF90017AF3C /* TDRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRatingView.m; sourceTree = "<group>"; };
+		A7D13DC9173107D70017AF3C /* DetailsBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DetailsBackground.jpg; sourceTree = "<group>"; };
+		A7D13DCA173107D70017AF3C /* DetailsBackground@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DetailsBackground@2x.jpg"; sourceTree = "<group>"; };
+		A7D13DCB173107D70017AF3C /* DetailsBackground-568@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DetailsBackground-568@2x.jpg"; sourceTree = "<group>"; };
 		A7FA36231725B52A006359D6 /* loginBack-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBack-568h@2x.png"; sourceTree = "<group>"; };
 		A7FA36241725B52A006359D6 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
 		A7FA36251725B52A006359D6 /* loginBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBack@2x.png"; sourceTree = "<group>"; };
@@ -581,9 +587,7 @@
 		A711E0A4171FA0BC003F6224 /* ListTab */ = {
 			isa = PBXGroup;
 			children = (
-				A752D0861729D465001CF8F9 /* CoolBackground-568h@2x.jpg */,
-				A752D0871729D466001CF8F9 /* CoolBackground.jpg */,
-				A752D0881729D466001CF8F9 /* CoolBackground@2x.jpg */,
+				A7D13DC21730FEEB0017AF3C /* TDRatingScale */,
 				A7C955781725939300F683FC /* CustomLoginView */,
 				A72C226B1729AFAF00E6D9DA /* AddFormViewController.h */,
 				A72C226C1729AFAF00E6D9DA /* AddFormViewController.m */,
@@ -669,6 +673,9 @@
 		A72C22731729B96800E6D9DA /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				A7D13DC9173107D70017AF3C /* DetailsBackground.jpg */,
+				A7D13DCA173107D70017AF3C /* DetailsBackground@2x.jpg */,
+				A7D13DCB173107D70017AF3C /* DetailsBackground-568@2x.jpg */,
 			);
 			name = Backgrounds;
 			sourceTree = "<group>";
@@ -725,6 +732,17 @@
 				A7C9558F1725941000F683FC /* TwitterDown.png */,
 			);
 			name = CustomLoginView;
+			sourceTree = "<group>";
+		};
+		A7D13DC21730FEEB0017AF3C /* TDRatingScale */ = {
+			isa = PBXGroup;
+			children = (
+				A7D13DC31730FEF90017AF3C /* TDArrow.h */,
+				A7D13DC41730FEF90017AF3C /* TDArrow.m */,
+				A7D13DC51730FEF90017AF3C /* TDRatingView.h */,
+				A7D13DC61730FEF90017AF3C /* TDRatingView.m */,
+			);
+			name = TDRatingScale;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -825,10 +843,10 @@
 				A751E4A01726D58800EC4D14 /* Setting.png in Resources */,
 				A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */,
 				A72C22721729B17D00E6D9DA /* PersonDetailsViewController.xib in Resources */,
-				A752D0891729D467001CF8F9 /* CoolBackground-568h@2x.jpg in Resources */,
-				A752D08A1729D467001CF8F9 /* CoolBackground.jpg in Resources */,
-				A752D08B1729D467001CF8F9 /* CoolBackground@2x.jpg in Resources */,
 				63F60926172F178A00C454DA /* GraphpickerViewController.xib in Resources */,
+				A7D13DCC173107D70017AF3C /* DetailsBackground.jpg in Resources */,
+				A7D13DCD173107D70017AF3C /* DetailsBackground@2x.jpg in Resources */,
+				A7D13DCE173107D70017AF3C /* DetailsBackground-568@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,6 +918,8 @@
 				A72C226D1729AFAF00E6D9DA /* AddFormViewController.m in Sources */,
 				A72C22711729B17D00E6D9DA /* PersonDetailsViewController.m in Sources */,
 				63F60925172F178A00C454DA /* GraphpickerViewController.m in Sources */,
+				A7D13DC71730FEF90017AF3C /* TDArrow.m in Sources */,
+				A7D13DC81730FEF90017AF3C /* TDRatingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
