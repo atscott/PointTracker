@@ -25,6 +25,7 @@
 @end
 
 @implementation TableListViewController
+@synthesize idValues;
 
 -(id)init
 {
@@ -33,9 +34,8 @@
     {
         
         ///[[self view] setBackgroundColor:[UIColor blackColor]];
-        
         // Set which "class" on parse this table is related to
-        self.parseClassName = @"People";
+        self.parseClassName = @"_User";
         self.pullToRefreshEnabled = YES;
         
         // Set the title and logo on the lower tab bar
@@ -161,7 +161,7 @@
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-        // This method is called before a PFQuery is fired to get more objects
+    idValues = [[NSMutableArray alloc] init];
 }
 
 // Override to customize what kind of query to perform on the class.
@@ -190,105 +190,30 @@
     // Configure the cell
     NSString *first = [object objectForKey:@"firstName"];
     NSString *last = [object objectForKey:@"lastName"];
-    cell.textLabel.text = [[first stringByAppendingString:@" "] stringByAppendingString:last];
+    [idValues addObject:[object objectId]];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", first, last];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Points: %@", [object objectForKey:@"points"]];
-    if( [indexPath row] % 2)
-        [cell setBackgroundColor:[UIColor colorWithRed:229/255.0f green:256/255.0f blue:255/255.0f alpha:1.0f]];
+    bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
+    
+    if(isBoy)
+        [cell setBackgroundColor:[UIColor colorWithRed:123/255.0f green:255/255.0f blue:99/255.0f alpha:1.0f]];
+    else if(!isBoy)
+        [cell setBackgroundColor:[UIColor colorWithRed:255/255.0f green:128/255.0f blue:255/255.0f alpha:1.0f]];
     else
-        [cell setBackgroundColor:[UIColor colorWithRed:221/255.0f green:256/255.0f blue:235/255.0f alpha:1.0f]];
+        [cell setBackgroundColor:[UIColor whiteColor]];
+    
     return cell;
 }
-/*************************************************************************/
-/* TableView methods I may or may not implement in the future */
-/*************************************************************************/
-
-/*
- // Override if you need to change the ordering of objects in the table.
- - (PFObject *)objectAtIndex:(NSIndexPath *)indexPath {
- return [objects objectAtIndex:indexPath.row];
- }
- */
-
-/*
- // Override to customize the look of the cell that allows the user to load the next page of objects.
- // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
- static NSString *CellIdentifier = @"NextPage";
- 
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- 
- if (cell == nil) {
- cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
- 
- cell.selectionStyle = UITableViewCellSelectionStyleNone;
- cell.textLabel.text = @"Load more...";
- 
- return cell;
- }
- */
-
-#pragma mark - Table view data source
-/*************************************************************************/
-/* TableView Data Source methods I may or may not implement in the future */
-/*************************************************************************/
-
- 
- /* Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }*/
-
- /* Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
- }*/
-
- /* Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {  } */
-
- /* Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
- } */
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSArray *name = [cell.textLabel.text componentsSeparatedByString:@" "];
-       
-    PFQuery *query = [PFQuery queryWithClassName:@"People"];
-    [query whereKey:@"firstName" equalTo: name[0]];
-    [query whereKey:@"lastName" equalTo: name[1]];
-    
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            // The find succeeded.
-//            NSLog(@"Successfully retrieved %d scores.", objects.count);
-//            PFObject *user = objects[0];
-//            [user setObject:[NSNumber numberWithInt:500] forKey:@"points"];
-//            [user saveEventually];
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];
-    [[self navigationController] pushViewController:[[PersonDetailsViewController alloc]initWithID:[NSNumber numberWithInt:9]] animated:YES];
+
+    //[[self navigationController] pushViewController:[[PersonDetailsViewController alloc] init] animated:YES];
+    [[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
 }
 
 /**************************************************/

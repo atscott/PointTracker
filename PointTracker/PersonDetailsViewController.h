@@ -11,7 +11,7 @@
 
 @interface PersonDetailsViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLable;
+@property (strong, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emergencyPhoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *streetAddressLabel;
@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *otherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 
--(id)initWithID:(NSNumber *)ID;
+-(id)initWithID:(NSString *)objectId;
+
 
 @end
