@@ -65,7 +65,7 @@ PFObject *selectedUser;
     
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"DetailsBackground.jpg"]]];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
     selectedUser = [query getObjectWithId:identifier];
     
     self.phoneNumberLabel.text = [NSString stringWithFormat:@"Phone #: %@",
@@ -74,7 +74,7 @@ PFObject *selectedUser;
     self.phoneNumberLabel.textColor = [UIColor whiteColor];
     
     self.emergencyPhoneLabel.text = [NSString stringWithFormat:@"Emergency #: %@",
-                                     [selectedUser objectForKey:@"emergencyPhoneNumber"]];
+                                    [selectedUser objectForKey:@"emergencyPhoneNumber"]];
     self.emergencyPhoneLabel.font = [UIFont fontWithName:@"Arial" size:18];
     self.emergencyPhoneLabel.textColor = [UIColor whiteColor];
     

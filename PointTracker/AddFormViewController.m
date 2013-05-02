@@ -197,7 +197,11 @@
 
 -(IBAction)savePerson:(id)sender
 {
-    PFObject *newDude = [PFObject objectWithClassName:@"People"];
+    PFUser *newDude = [PFUser user];
+    newDude.username = _firstName;
+    newDude.password = @"pass";
+    newDude.email = _email;
+    
     [newDude setObject:_firstName forKey:@"firstName"];
     [newDude setObject:_lastName forKey:@"lastName"];
     [newDude setObject:_email forKey:@"email"];
@@ -209,7 +213,7 @@
     [newDude setObject:_zip forKey:@"zipCode"];
     [newDude setObject:_other forKey:@"other"];
     [newDude setObject:[NSNumber numberWithInt:0] forKey:@"points"];
-    [newDude saveEventually];
+    [newDude signUpInBackground];
     
     [[self navigationController] popViewControllerAnimated:YES];
 }

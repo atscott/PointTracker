@@ -35,7 +35,7 @@
         
         ///[[self view] setBackgroundColor:[UIColor blackColor]];
         // Set which "class" on parse this table is related to
-        self.parseClassName = @"_User";
+        self.parseClassName = @"People";
         self.pullToRefreshEnabled = YES;
         
         // Set the title and logo on the lower tab bar
