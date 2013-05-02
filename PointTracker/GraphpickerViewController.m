@@ -38,22 +38,22 @@
 
 - (IBAction)top10:(id)sender
 {
-    [[self navigationController] pushViewController:[[StatsViewController alloc]init] animated:YES];
+    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:Top10 andTitle:@"Leaderboard"] animated:YES];
 }
 
 
 - (IBAction)history:(id)sender
 {
-    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:History] animated:YES];
+    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:History andTitle:@"Recent Activity"] animated:YES];
 }
 
 - (IBAction)boysVsGirls:(id)sender
 {
-    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:BoysVsGirls] animated:YES];
+    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:BoysVsGirls andTitle:@"Girls vs Boys"] animated:YES];
 }
 
 - (IBAction)pointsByWeek:(id)sender {
-    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:PointsForLast5Weeks] animated:YES];
+    [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:PointsForLast5Weeks andTitle:@"5 Week History"] animated:YES];
 }
 
 - (void)viewDidLoad

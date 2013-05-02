@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, ChartType) {
     PointsForLast5Weeks,
 };
 
-- (id)initWithType:(ChartType)type;
+- (id)initWithType:(ChartType)type andTitle:(NSString *)title;
 
 @property (nonatomic) ChartType type;
 @property (nonatomic) WSData *barData;

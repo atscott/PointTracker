@@ -16,10 +16,10 @@
 
 @implementation StatsViewController
 
-- (id)initWithType:(ChartType)type{
+- (id)initWithType:(ChartType)type andTitle:(NSString *)title{
     self=[super init];
     if (self) {
-        self.title = NSLocalizedString(@"Stats", @"Stats");
+        self.title = NSLocalizedString(title, title);
         _type = type;
     }
     return self;
@@ -75,7 +75,7 @@
     [_loadingIndicator startAnimating];
     if(_barChart != NULL && [[self.view subviews] containsObject:_barChart])
     {
-            [_barChart removeFromSuperview];
+        [_barChart removeFromSuperview];
     }
     
     [self getChartData];
@@ -83,9 +83,9 @@
     {
         // Create and configure a bar chart.
         CGRect frame = [self.view bounds];
-        frame.size.width -= 20;
+        frame.size.width -= 30;
         frame.size.height -= 10;
-        frame.origin.x += 30;
+        frame.origin.x += 40;
         _barChart = [WSChart barPlotWithFrame:frame
                                          data:_barData
                                         style:kChartBarPlain
@@ -115,9 +115,11 @@
 - (void)controller:(WSPlotController *)controller
   singleTapAtDatum:(NSInteger)i {
     WSDatum *target = [self.barData datumAtIndex:i];
-    self.resultLabel.text = [NSString stringWithFormat:@"%@: %.f",
-                             target.annotation,
-                             target.value];
+    if(target.annotation.length > 0){
+        self.resultLabel.text = [NSString stringWithFormat:@"%@: %.f",
+                                 target.annotation,
+                                 target.value];
+    }
 }
 
 

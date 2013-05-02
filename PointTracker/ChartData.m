@@ -13,7 +13,7 @@
 
 @implementation ChartData
 + (WSData *)top10 {
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
     [query orderByDescending:@"points"];
     query.limit = 10;
     NSArray *data = [query findObjects];
@@ -182,10 +182,10 @@
 }
 
 +(WSData *)boysVsGirls{
-    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
     [query whereKey:@"isBoy" equalTo:[NSNumber numberWithBool:YES]];
     NSArray *boys = [query findObjects];
-    query = [PFQuery queryWithClassName:@"_User"];
+    query = [PFQuery queryWithClassName:@"People"];
     [query whereKey:@"isBoy" equalTo:[NSNumber numberWithBool:NO]];
     NSArray *girls = [query findObjects];
     
@@ -201,12 +201,12 @@
         pointsBoys += [[[boys objectAtIndex:i] objectForKey:@"points"] floatValue];
     }
     
-    float pointArray[2] = {pointsGirls, pointsBoys};
-    NSString *annotationArray[2] = {@"Girls", @"Boys"};
+    float pointArray[3] = {pointsGirls, pointsBoys, 0};
+    NSString *annotationArray[3] = {@"Girls", @"Boys", @""};
     return [[WSData dataWithValues:[WSData arrayWithFloat:pointArray
-                                                      len:2]
+                                                      len:3]
                          annotations:[NSArray arrayWithObjects:annotationArray
-                                                         count:2]]indexedData];
+                                                         count:3]]indexedData];
     
 
 }
