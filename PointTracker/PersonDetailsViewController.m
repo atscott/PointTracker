@@ -22,31 +22,26 @@
 @synthesize otherLabel;
 @synthesize pointsLabel;
 
-NSString *identifier;
 NSNumber *pointValSelected;
 PFObject *selectedUser;
 
 
 
--(id)initWithID:(NSString *)objectId
+-(id)initWithID:(PFObject *)person
 {
     //self = [super initWithNibName:@"PersonDetailsViewController.xib" bundle:nil];
     self = [super init];
     if(self)
     {
-        identifier = objectId;
+        selectedUser = person;
         
         CGRect frame = CGRectMake(260, 275, 50, 40);
         BButton *addPointsButton = [[BButton alloc] initWithFrame:frame];
         [addPointsButton setTitle:@"add" forState:UIControlStateNormal];
         [addPointsButton setType:BButtonTypePrimary];
         [addPointsButton addTarget:self action:@selector(addPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:addPointsButton];
-        
-        
-        
+        [self.view addSubview:addPointsButton];        
     }
-        
     return self;
 }
 
@@ -64,10 +59,7 @@ PFObject *selectedUser;
     [super viewWillAppear:animated];
     
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"DetailsBackground.jpg"]]];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"People"];
-    selectedUser = [query getObjectWithId:identifier];
-    
+        
     self.phoneNumberLabel.text = [NSString stringWithFormat:@"Phone #: %@",
                                   [selectedUser objectForKey:@"phoneNumber"]];
     self.phoneNumberLabel.font = [UIFont fontWithName:@"Arial" size:18];
@@ -169,6 +161,7 @@ PFObject *selectedUser;
     NSNumber *sum = [NSNumber numberWithFloat:([currentPoints floatValue] + [pointValSelected floatValue])];
 
     [selectedUser setObject:sum forKey:@"points"];
+    [pointsLabel setText:(@"%@",[sum stringValue])];
     [selectedUser saveEventually];
 
 

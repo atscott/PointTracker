@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface LogViewController : UIViewController
+@interface LogViewController : PFQueryTableViewController
+
 
 @end

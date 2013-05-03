@@ -32,8 +32,6 @@
     self = [super initWithStyle: UITableViewStyleGrouped ];
     if (self)
     {
-        
-        ///[[self view] setBackgroundColor:[UIColor blackColor]];
         // Set which "class" on parse this table is related to
         self.parseClassName = @"People";
         self.pullToRefreshEnabled = YES;
@@ -43,11 +41,10 @@
         self.tabBarItem.image = [UIImage imageNamed:@"List"];
         
         // Set the NavItem and title on the top navigation bar
-        UINavigationItem *navItem = [self navigationItem];
-        [navItem setTitle:@"People"];
+        [[self navigationItem] setTitle:@"People"];
         
         // Create and place the "+" button 
-        UIBarButtonItem *createNewPersonButton = [[UIBarButtonItem alloc]
+        UIBarButtonItem *addPersonButton = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                   target:self
                                                   action:@selector(addNewItem:)];
@@ -70,12 +67,18 @@
         [settingsButton addTarget:self action:@selector(settingsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         
         // Create and place Array of LeftBarButtons
-        NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, settingsBarButton, nil];
+        NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, /*settingsBarButton,*/ nil];
         [[self navigationItem] setLeftBarButtonItems:leftBarButtons animated:YES];
         
         // Create and place Array of RightBarButtons 
-        NSArray *barButtons = [[NSArray alloc] initWithObjects: createNewPersonButton, nil];
+        NSArray *barButtons = [[NSArray alloc] initWithObjects: addPersonButton, nil];
         [[self navigationItem] setRightBarButtonItems:barButtons animated:YES];
+        
+        self.view.backgroundColor = nil;
+        [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
+        self.tableView.backgroundView = nil;
+        
+        self.tableView.separatorColor = [UIColor clearColor];
     }
     // Return this wonderful view we've just put together
     return self;
@@ -84,20 +87,18 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CoolBackground.png"]];
     [self handleLogin];
     [self loadObjects];
+}
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 -(void) viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = nil;
-    self.tableView.backgroundColor = [UIColor colorWithRed:214/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-    self.tableView.backgroundView = nil;
-    //self.view.backgroundView = nil;
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"CoolBackground.png"]];
 }
 
 -(void)handleLogin
@@ -134,7 +135,7 @@
                                    cancelButtonTitle:@"Cancel"
                                    destructiveButtonTitle:@"Logout"
                                    otherButtonTitles:nil, nil];
-    [confirmSheet showInView:self.view];
+    [confirmSheet showFromTabBar:self.tabBarController.tabBar];
 }
 
 - (IBAction)settingsButtonTapAction:(id)sender
@@ -156,13 +157,23 @@
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-    
     // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
 - (void)objectsWillLoad {
     [super objectsWillLoad];
-    idValues = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [self queryForTable];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error)
+        {
+            idValues = [NSArray arrayWithArray:objects];
+        }
+        else
+        {
+            NSLog(@"Error getting idValues");
+        }
+    }];
 }
 
 // Override to customize what kind of query to perform on the class.
@@ -174,8 +185,9 @@
     if ([self.objects count] == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-    [query orderByDescending:@"points"];
+    //[query orderByDescending:@"points"];
     [query orderByAscending:@"isBoy"];
+
     return query;
 }
 
@@ -192,21 +204,23 @@
     // Configure the cell
     NSString *first = [object objectForKey:@"firstName"];
     NSString *last = [object objectForKey:@"lastName"];
-    [idValues addObject:[object objectId]];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", first, last];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Points: %@", [object objectForKey:@"points"]];
     bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
     
-    if(isBoy)
-        [cell setBackgroundColor:[UIColor colorWithRed:123/255.0f green:255/255.0f blue:99/255.0f alpha:1.0f]];
-    else if(!isBoy)
-        [cell setBackgroundColor:[UIColor colorWithRed:255/255.0f green:128/255.0f blue:255/255.0f alpha:1.0f]];
-    else
-        [cell setBackgroundColor:[UIColor whiteColor]];
-    
+    if(isBoy){
+        cell.textLabel.textColor = [UIColor colorWithRed:123/255.0f green:255/255.0f blue:99/255.0f alpha:0.75f];
+        [cell setBackgroundColor: [UIColor clearColor]];
+        [cell setBackgroundColor:[UIColor colorWithRed:123/255.0f green:255/255.0f blue:99/255.0f alpha:0.15f]];
+    }
+    else if(!isBoy){
+        [cell.textLabel setTextColor:[UIColor colorWithRed:255/255.0f green:128/255.0f blue:255/255.0f alpha:0.75f]];
+        [cell setBackgroundColor:[UIColor colorWithRed:255/255.0f green:128/255.0f blue:255/255.0f alpha:0.15f]];
+    }
     
     [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+    [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
 }
 
@@ -215,8 +229,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-
-    //[[self navigationController] pushViewController:[[PersonDetailsViewController alloc] init] animated:YES];
     [[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
 }
 

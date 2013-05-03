@@ -14,13 +14,21 @@
 
 @implementation LogViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    self = [super initWithStyle: UITableViewStyleGrouped ];
+    if (self)
+    {
+        self.parseClassName = @"PointLog";
+        self.pullToRefreshEnabled = YES;
+        
         self.title = NSLocalizedString(@"History", @"History");
         self.tabBarItem.image = [UIImage imageNamed:@"History"];
-        UINavigationItem *navItem = [self navigationItem];
+        
+        self.view.backgroundColor = nil;
+        [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
+        self.tableView.backgroundView = nil;
+        
     }
     return self;
 }
@@ -36,5 +44,71 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/***************************************************************/
+/* Overridden Methods for extending PFQueryTableViewController */
+/***************************************************************/
+#pragma mark - Parse
+
+- (void)objectsDidLoad:(NSError *)error {
+    [super objectsDidLoad:error];
+    // This method is called every time objects are loaded from Parse via the PFQuery
+}
+
+- (void)objectsWillLoad {
+    [super objectsWillLoad];
+}
+
+// Override to customize what kind of query to perform on the class.
+- (PFQuery *)queryForTable {
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    
+    // If no objects are loaded in memory, we look to the cache first to fill the table
+    // and then subsequently do a query against the network.
+    if ([self.objects count] == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    //[query orderByDescending:@"points"];
+    [query orderByDescending:@"createdAt"];
+    
+    return query;
+}
+
+// Override to customize the look of a cell representing an object.
+- (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath object:(PFObject *)object {
+    
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    NSString *receiver = [object objectForKey:@"addedTo"];
+    NSString *giver = [object objectForKey:@"addedBy"];
+    NSString *amount = [NSString stringWithFormat:@"%@",[object objectForKey:@"pointsAdded"]];
+    
+    NSDate *date = object.createdAt;
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yy"];
+    NSString *dateString = [dateFormatter stringFromDate: date];
+    
+    NSString *reason = [object objectForKey:@"reason"];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@pts -> %@", amount, receiver];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  (%@)  Reason: %@", giver, dateString, reason];
+    
+    [cell setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"PaperTexture.jpg"]]];
+    
+    return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    //[[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
+}
+
 
 @end

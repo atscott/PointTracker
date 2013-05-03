@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *otherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 
--(id)initWithID:(NSString *)objectId;
+-(id)initWithID:(PFObject *)person;
 - (IBAction)addPointsButtonTapAction:(id)sender;
 
 

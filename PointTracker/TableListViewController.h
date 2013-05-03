@@ -18,7 +18,7 @@
 - (IBAction)logOutButtonTapAction:(id)sender;
 - (IBAction)settingsButtonTapAction:(id)sender;
 
-@property (nonatomic, strong) NSMutableArray *idValues;
+@property (nonatomic, strong) NSArray *idValues;
 
 
 @end

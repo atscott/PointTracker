@@ -29,8 +29,8 @@
     UINavigationController *listNavController = [[UINavigationController alloc] initWithRootViewController:listViewController];
     
     // Set Up Controller for the Statistics Tab
-    UIViewController *graphpickerViewController = [[GraphpickerViewController alloc] init];
-    UINavigationController *graphpickerNavController = [[UINavigationController alloc] initWithRootViewController:graphpickerViewController];
+    UIViewController *graphPickerViewController = [[GraphpickerViewController alloc] init];
+    UINavigationController *graphPickerNavController = [[UINavigationController alloc] initWithRootViewController:graphPickerViewController];
     
     // Set Up Controller for the Log Tab
     UIViewController *logViewController = [[LogViewController alloc] init];
@@ -41,7 +41,7 @@
     UINavigationController *scheduleNavController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[listNavController, graphpickerNavController, logNavController, scheduleNavController];
+    self.tabBarController.viewControllers = @[listNavController, graphPickerNavController, logNavController, scheduleNavController];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
