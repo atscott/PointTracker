@@ -24,8 +24,7 @@
 
 NSNumber *pointValSelected;
 PFObject *selectedUser;
-
-
+NSString *reason;
 
 -(id)initWithID:(PFObject *)person
 {
@@ -141,30 +140,42 @@ PFObject *selectedUser;
 {
     if(buttonIndex == 0)
     {
+        reason = @"Nose";
         NSLog(@"Nose");
     }
     else if(buttonIndex == 1)
     {
+        reason = @"Blaster";
         NSLog(@"Blaster");
     }
     else if(buttonIndex == 2)
     {
+        reason = @"Special Challenge";
         NSLog(@"Special Challenge");
     }
     else if(buttonIndex == 3)
     {
+        reason = @"Other";
         NSLog(@"Other");
     }
 
-    // TODO: Log points added
-    NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
-    NSNumber *sum = [NSNumber numberWithFloat:([currentPoints floatValue] + [pointValSelected floatValue])];
+    if(buttonIndex < 4)
+    {
+        
+        NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
+        NSNumber *sum = [NSNumber numberWithFloat:([currentPoints floatValue] + [pointValSelected floatValue])];
 
-    [selectedUser setObject:sum forKey:@"points"];
-    [pointsLabel setText:(@"%@",[sum stringValue])];
-    [selectedUser saveEventually];
-
-
+        [selectedUser setObject:sum forKey:@"points"];
+        [pointsLabel setText:(@"%@", [sum stringValue])];
+        [selectedUser saveEventually];
+        
+        PFObject *log = [PFObject objectWithClassName:@"PointLog"];
+        [log  setObject: self.navigationItem.title forKey:@"addedTo"];
+        [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
+        [log setObject: reason forKey: @"reason"];
+        [log setObject: pointValSelected forKey:@"pointsAdded"];
+        [log saveEventually];
+    }
 }
 
 -(void) addPoints:(NSNumber*)numToAdd

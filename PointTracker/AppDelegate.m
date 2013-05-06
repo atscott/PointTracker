@@ -7,9 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
 #import "TableListViewController.h"
-#import "ScheduleViewController.h"
 #import "LogViewController.h"
 #import "GraphpickerViewController.h"
 #import "MyLogInViewController.h"
@@ -37,7 +35,7 @@
     UINavigationController *logNavController = [[UINavigationController alloc] initWithRootViewController:logViewController];
     
     // Set Up Controller for the Schedule Tab
-    UIViewController *scheduleViewController = [[ScheduleViewController alloc] init];
+    UIViewController *scheduleViewController = [[UIViewController alloc] init];
     UINavigationController *scheduleNavController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
     
     self.tabBarController = [[UITabBarController alloc] init];

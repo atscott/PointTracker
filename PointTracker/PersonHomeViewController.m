@@ -1,26 +1,24 @@
 //
-//  ScheduleViewController.m
+//  PersonHomeViewController.m
 //  PointTracker
 //
-//  Created by Andrew Moore on 4/17/13.
+//  Created by Andrew Moore on 5/4/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.
 //
 
-#import "ScheduleViewController.h"
+#import "PersonHomeViewController.h"
 
-@interface ScheduleViewController ()
+@interface PersonHomeViewController ()
 
 @end
 
-@implementation ScheduleViewController
+@implementation PersonHomeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Schedule", @"Schedule");
-        self.tabBarItem.image = [UIImage imageNamed:@"Schedule"];
-        UINavigationItem *navItem = [self navigationItem];
+        // Custom initialization
     }
     return self;
 }

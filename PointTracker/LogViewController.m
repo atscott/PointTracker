@@ -39,10 +39,15 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadObjects];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /***************************************************************/
@@ -95,7 +100,7 @@
     NSString *reason = [object objectForKey:@"reason"];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@pts -> %@", amount, receiver];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  (%@)  Reason: %@", giver, dateString, reason];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"(%@) By: %@ Reason: %@", dateString, giver, reason];
     
     [cell setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"PaperTexture.jpg"]]];
     

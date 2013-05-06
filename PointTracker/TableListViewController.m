@@ -78,7 +78,7 @@
         [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
         self.tableView.backgroundView = nil;
         
-        self.tableView.separatorColor = [UIColor clearColor];
+        self.tableView.separatorColor = [UIColor grayColor];
     }
     // Return this wonderful view we've just put together
     return self;
@@ -210,17 +210,16 @@
     bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
     
     if(isBoy){
-        cell.textLabel.textColor = [UIColor colorWithRed:123/255.0f green:255/255.0f blue:99/255.0f alpha:0.75f];
-        [cell setBackgroundColor: [UIColor clearColor]];
-        [cell setBackgroundColor:[UIColor colorWithRed:123/255.0f green:255/255.0f blue:99/255.0f alpha:0.15f]];
+        cell.textLabel.textColor = [UIColor colorWithRed:4/255.0f green:55/255.0f blue:255/255.0f alpha:1.0f];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
     }
     else if(!isBoy){
-        [cell.textLabel setTextColor:[UIColor colorWithRed:255/255.0f green:128/255.0f blue:255/255.0f alpha:0.75f]];
-        [cell setBackgroundColor:[UIColor colorWithRed:255/255.0f green:128/255.0f blue:255/255.0f alpha:0.15f]];
+        [cell.textLabel setTextColor: [UIColor colorWithRed:172/255.0f green:1/255.0f blue:255/255.0f alpha:1.0f]];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
     }
     
     [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
-    [cell setBackgroundColor:[UIColor clearColor]];
+    [cell setBackgroundColor:[UIColor lightGrayColor]];
     return cell;
 }
 
