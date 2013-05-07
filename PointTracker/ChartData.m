@@ -39,7 +39,10 @@
 }
 
 +(WSData *)historyForCurrentUser{
-    PFRelation *relation = [[PFUser currentUser] relationforKey:@"log"];
+    PFQuery *queryForCurrentUser = [PFQuery queryWithClassName:@"People" ];
+    [queryForCurrentUser whereKey:@"userPointer" equalTo:[PFUser currentUser]];
+    PFObject *currentUser = [queryForCurrentUser getFirstObject];
+    PFRelation *relation = [currentUser relationforKey:@"log"];
     PFQuery *query = [relation query];
     [query orderByDescending:@"createdAt"];
     query.limit = 10;
@@ -54,7 +57,7 @@
         for(int i=data.count - 1; i>=0; i--)
         {
             
-            points[i] = [[[data objectAtIndex:i] objectForKey:@"currentPoints"] floatValue];
+            points[i] = [[[data objectAtIndex:i] objectForKey:@"pointsAdded"] floatValue];
             
             dates[i] = [formatter stringFromDate:[[data objectAtIndex:i] createdAt]];
         }
