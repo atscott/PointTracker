@@ -268,14 +268,34 @@
 
 #pragma mark - PFSignUpViewControllerDelegate
 
+- (BOOL)doesAUserExistInPeopleTableWithEmail:(NSString *) email
+{
+    BOOL __block exists = false;
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
+    [query whereKey:@"email" equalTo:email];
+    PFObject *match = [query getFirstObject ];
+    if(match != nil)
+    {
+        exists = true;
+    }
+
+    return exists;
+}
+
+
 // Sent to the delegate to determine whether the sign up request should be submitted to the server.
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
     BOOL informationComplete = YES;
+    BOOL goodEmail = YES;
     for (id key in info) {
         NSString *field = [info objectForKey:key];
         if (!field || field.length == 0) {
             informationComplete = NO;
             break;
+        }
+        if([key isEqualToString:@"email"])
+        {
+            goodEmail = [self doesAUserExistInPeopleTableWithEmail:field];
         }
     }
     
@@ -285,12 +305,30 @@
                                    delegate:nil
                           cancelButtonTitle:@"ok"
                           otherButtonTitles:nil] show];
+    }else if(!goodEmail) {
+        [[[UIAlertView alloc] initWithTitle:@"No Matching Email"
+                                    message:@"There is no matching person with that email in the database."
+                                   delegate:nil
+                          cancelButtonTitle:@"ok"
+                          otherButtonTitles:nil] show];
     }
-    return informationComplete;
+    return (informationComplete && goodEmail);
+}
+
+- (void) createPointerInPeopleTableInBackground:(PFUser *) withUser
+{
+    NSString *emailForUser = [withUser objectForKey:@"email"];
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
+    [query whereKey:@"email" containsString:emailForUser];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *match, NSError *error) {
+        [match setObject:withUser forKey:@"userPointer"];
+        [match saveInBackground];
+    }];
 }
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self createPointerInPeopleTableInBackground: user];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
