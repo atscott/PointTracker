@@ -322,7 +322,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"People"];
     [query whereKey:@"email" containsString:emailForUser];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *match, NSError *error) {
-        [match setObject:withUser forKey:@"userPointer"];
+        [match setObject:withUser forKey:@"userLink"];
         [match saveInBackground];
     }];
 }

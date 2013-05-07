@@ -40,7 +40,7 @@
 
 +(WSData *)historyForCurrentUser{
     PFQuery *queryForCurrentUser = [PFQuery queryWithClassName:@"People" ];
-    [queryForCurrentUser whereKey:@"userPointer" equalTo:[PFUser currentUser]];
+    [queryForCurrentUser whereKey:@"userLink" equalTo:[PFUser currentUser]];
     PFObject *currentUser = [queryForCurrentUser getFirstObject];
     PFRelation *relation = [currentUser relationforKey:@"log"];
     PFQuery *query = [relation query];
@@ -50,8 +50,17 @@
     
     WSData *result = nil;
     if(data.count > 0){
-        float points[data.count];
-        NSString *dates[data.count];
+        int newCount = data.count;
+        if(data.count < 3){
+            newCount = 3;
+        }
+        float points[newCount];
+        NSString *dates[newCount];
+        for(int i=0; i<newCount;i++){
+            points[i] = 0;
+            dates[i] = @"";
+        }
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM/dd/yy"];
         for(int i=data.count - 1; i>=0; i--)
@@ -62,10 +71,11 @@
             dates[i] = [formatter stringFromDate:[[data objectAtIndex:i] createdAt]];
         }
         
+        
         result = [[WSData dataWithValues:[WSData arrayWithFloat:points
-                                                           len:data.count]
+                                                           len:newCount]
                             annotations:[NSArray arrayWithObjects:dates
-                                                            count:data.count]]
+                                                            count:newCount]]
                   indexedData];
     }
     
