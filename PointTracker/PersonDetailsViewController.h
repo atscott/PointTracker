@@ -26,6 +26,7 @@
 
 -(id)initWithID:(PFObject *)person;
 - (IBAction)addPointsButtonTapAction:(id)sender;
+- (IBAction)rmvPointsButtonTapAction:(id)sender;
 
 
 @end

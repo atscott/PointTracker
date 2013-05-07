@@ -80,7 +80,6 @@
         
         self.tableView.separatorColor = [UIColor grayColor];
     }
-    // Return this wonderful view we've just put together
     return self;
 }
 
@@ -210,11 +209,11 @@
     bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
     
     if(isBoy){
-        cell.textLabel.textColor = [UIColor colorWithRed:4/255.0f green:55/255.0f blue:255/255.0f alpha:1.0f];
+        cell.textLabel.textColor = [UIColor colorWithRed:97/255.0f green:10/255.0f blue:245/255.0f alpha:1.0f];
         cell.detailTextLabel.textColor = [UIColor blackColor];
     }
     else if(!isBoy){
-        [cell.textLabel setTextColor: [UIColor colorWithRed:172/255.0f green:1/255.0f blue:255/255.0f alpha:1.0f]];
+        [cell.textLabel setTextColor: [UIColor colorWithRed:141/255.0f green:1/255.0f blue:167/255.0f alpha:1.0f]];
         cell.detailTextLabel.textColor = [UIColor blackColor];
     }
     

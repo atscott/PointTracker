@@ -34,12 +34,19 @@ NSString *reason;
     {
         selectedUser = person;
         
-        CGRect frame = CGRectMake(260, 275, 50, 40);
+        CGRect frame = CGRectMake(260, 250, 50, 40);
         BButton *addPointsButton = [[BButton alloc] initWithFrame:frame];
-        [addPointsButton setTitle:@"add" forState:UIControlStateNormal];
+        [addPointsButton setTitle:@"+" forState:UIControlStateNormal];
         [addPointsButton setType:BButtonTypePrimary];
         [addPointsButton addTarget:self action:@selector(addPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:addPointsButton];        
+        [self.view addSubview:addPointsButton];
+        
+        CGRect frame2 = CGRectMake(260, 300, 50, 40);
+        BButton *rmvPointsButton = [[BButton alloc] initWithFrame:frame2];
+        [rmvPointsButton setTitle:@"-" forState:UIControlStateNormal];
+        [rmvPointsButton setType:BButtonTypeDanger];
+        [rmvPointsButton addTarget:self action:@selector(rmvPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:rmvPointsButton];
     }
     return self;
 }
@@ -98,8 +105,8 @@ NSString *reason;
                                  [selectedUser objectForKey:@"lastName"]];
     
     pointScale = [[TDRatingView alloc]init];
-    pointScale.maximumRating = 500;
-    pointScale.minimumRating = 0;
+    pointScale.maximumRating = 600;
+    pointScale.minimumRating = 100;
     pointScale.widthOfEachNo = 40;
     pointScale.heightOfEachNo = 50;
     pointScale.sliderHeight = 22;
@@ -136,6 +143,33 @@ NSString *reason;
     
 }
 
+- (IBAction)rmvPointsButtonTapAction:(id)sender
+{
+    UIAlertView *confirmationAlert = [[UIAlertView alloc] initWithTitle:@"Really?" message:@"Are you sure you want to remove these points?" delegate:self cancelButtonTitle:@"Nevermind" otherButtonTitles:@"Yes!", nil];
+    [confirmationAlert show];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
+        NSNumber *dif = [NSNumber numberWithFloat:([currentPoints floatValue] - [pointValSelected floatValue])];
+        
+        [selectedUser setObject:dif forKey:@"points"];
+        [pointsLabel setText:(@"%@", [dif stringValue])];
+        [selectedUser saveEventually];
+        
+        PFObject *log = [PFObject objectWithClassName:@"PointLog"];
+        [log setObject: self.navigationItem.title forKey:@"addedTo"];
+        [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
+        [log setObject: @"REMOVED" forKey: @"reason"];
+        [log setObject: pointValSelected forKey:@"pointsAdded"];
+        [log saveEventually];
+    }
+}
+
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 0)
@@ -161,7 +195,6 @@ NSString *reason;
 
     if(buttonIndex < 4)
     {
-        
         NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
         NSNumber *sum = [NSNumber numberWithFloat:([currentPoints floatValue] + [pointValSelected floatValue])];
 
