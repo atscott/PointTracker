@@ -47,7 +47,13 @@ NSString *reason;
         [rmvPointsButton addTarget:self action:@selector(rmvPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:rmvPointsButton];
         
-        [[self navigationItem] setRightBarButtonItem:self.editButtonItem];
+        
+        UIBarButtonItem *editPersonButton = [[UIBarButtonItem alloc]
+                                             initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                             target:self
+                                             action:@selector(editPerson:)];
+        [[self navigationItem] setRightBarButtonItem:editPersonButton];
+        
     }
     return self;
 }
@@ -166,6 +172,7 @@ NSString *reason;
         
         PFObject *log = [PFObject objectWithClassName:@"PointLog"];
         [log setObject: self.navigationItem.title forKey:@"addedTo"];
+        [log setObject: selectedUser forKey:@"addedToPointer"];
         [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
         [log setObject: @"REMOVED" forKey: @"reason"];
         [log setObject: pointValSelected forKey:@"pointsAdded"];
@@ -207,17 +214,27 @@ NSString *reason;
         
         PFObject *log = [PFObject objectWithClassName:@"PointLog"];
         [log  setObject: self.navigationItem.title forKey:@"addedTo"];
+        [log setObject: selectedUser forKey:@"addedToPointer"];
         [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
         [log setObject: reason forKey: @"reason"];
         [log setObject: pointValSelected forKey:@"pointsAdded"];
         [log saveEventually];
+        
+        
     }
 }
+
 
 -(void) addPoints:(NSNumber*)numToAdd
 {
     
 
+}
+
+
+-(IBAction)savePerson:(id)sender
+{
+    
 }
 
 @end

@@ -40,9 +40,6 @@
     self.zip = @"";
     self.other = @"No other notes";
     self.grade = @"4th";
-    
-    
-    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -80,6 +77,7 @@
     [_zipField setReturnKeyType:UIReturnKeyNext];
 	[_otherField setReturnKeyType:UIReturnKeyNext];
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }

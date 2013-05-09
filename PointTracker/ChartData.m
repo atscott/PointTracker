@@ -42,11 +42,11 @@
     PFQuery *queryForCurrentUser = [PFQuery queryWithClassName:@"People" ];
     [queryForCurrentUser whereKey:@"userLink" equalTo:[PFUser currentUser]];
     PFObject *currentUser = [queryForCurrentUser getFirstObject];
-    PFRelation *relation = [currentUser relationforKey:@"log"];
-    PFQuery *query = [relation query];
-    [query orderByDescending:@"createdAt"];
-    query.limit = 10;
-    NSArray *data = [query findObjects];
+    PFQuery *logQuery = [PFQuery queryWithClassName:@"PointLog"];
+    [logQuery whereKey:@"addedToPointer" equalTo:currentUser];
+    [logQuery orderByDescending:@"createdAt"];
+    logQuery.limit = 10;
+    NSArray *data = [logQuery findObjects];
     
     WSData *result = nil;
     if(data.count > 0){

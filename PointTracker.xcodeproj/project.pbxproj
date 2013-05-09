@@ -59,6 +59,7 @@
 		63A5BC001721A414002D211D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A5BBFF1721A413002D211D /* Accounts.framework */; };
 		63A5BC021721A41C002D211D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A5BC011721A41C002D211D /* AdSupport.framework */; };
 		63A5BC041721A46F002D211D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A5BC031721A46E002D211D /* libsqlite3.dylib */; };
+		63C01BF7173C6ABD00358E2F /* EditFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C01BF6173C6ABA00358E2F /* EditFormViewController.m */; };
 		63EA8FCD171DE83400E5BEB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EA8FCC171DE83400E5BEB5 /* UIKit.framework */; };
 		63EA8FCF171DE83400E5BEB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EA8FCE171DE83400E5BEB5 /* Foundation.framework */; };
 		63EA8FD1171DE83400E5BEB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EA8FD0171DE83400E5BEB5 /* CoreGraphics.framework */; };
@@ -283,6 +284,8 @@
 		63A5BBFF1721A413002D211D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		63A5BC011721A41C002D211D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		63A5BC031721A46E002D211D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		63C01BF5173C6AB900358E2F /* EditFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFormViewController.h; sourceTree = "<group>"; };
+		63C01BF6173C6ABA00358E2F /* EditFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFormViewController.m; sourceTree = "<group>"; };
 		63EA8FC9171DE83400E5BEB5 /* PointTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PointTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EA8FCC171DE83400E5BEB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63EA8FCE171DE83400E5BEB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -664,6 +667,8 @@
 				A72C226E1729B17D00E6D9DA /* PersonDetailsViewController.h */,
 				A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */,
 				A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */,
+				63C01BF5173C6AB900358E2F /* EditFormViewController.h */,
+				63C01BF6173C6ABA00358E2F /* EditFormViewController.m */,
 			);
 			name = ListTab;
 			sourceTree = "<group>";
@@ -1054,6 +1059,7 @@
 				A7A59D4A1739A15100D944BB /* iCarousel.m in Sources */,
 				A7A59D501739A16200D944BB /* iCarouselExampleViewController.m in Sources */,
 				A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */,
+				63C01BF7173C6ABD00358E2F /* EditFormViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
