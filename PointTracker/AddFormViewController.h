@@ -19,6 +19,8 @@
     NSString *_state;
     NSString *_zip;
     NSString *_other;
+    NSString *_gender;
+    bool _isBoy;
     
 	UITextField *_firstNameField;
     UITextField *_lastNameField;
@@ -30,6 +32,8 @@
     UITextField *_stateField;
     UITextField *_zipField;
 	UITextField *_otherField;
+    UISegmentedControl *_genderSelector;
+    UISegmentedControl *_gradeSelector;
 }
 
 // Creates a textfield with the specified text and placeholder text
@@ -41,7 +45,6 @@
 
 -(IBAction)savePerson:(id)sender;
 
-
 @property (nonatomic,copy) NSString* firstName;
 @property (nonatomic,copy) NSString* lastName;
 @property (nonatomic,copy) NSString* email;
@@ -52,5 +55,7 @@
 @property (nonatomic,copy) NSString* state;
 @property (nonatomic,copy) NSString* zip;
 @property (nonatomic,copy) NSString* other;
+@property (nonatomic,copy) NSString* grade;
+
 
 @end

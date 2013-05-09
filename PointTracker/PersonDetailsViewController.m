@@ -14,12 +14,11 @@
 
 @implementation PersonDetailsViewController
 
-@synthesize phoneNumberLabel;
-@synthesize emergencyPhoneLabel;
-@synthesize emailLabel;
-@synthesize streetAddressLabel;
-@synthesize cityStateZipLabel;
-@synthesize otherLabel;
+@synthesize gradeGenderLabel;
+@synthesize addressTextView;
+@synthesize emailTextView;
+@synthesize emergencyPhoneTextView;
+@synthesize phoneNumberTextView;
 @synthesize pointsLabel;
 
 NSNumber *pointValSelected;
@@ -47,6 +46,8 @@ NSString *reason;
         [rmvPointsButton setType:BButtonTypeDanger];
         [rmvPointsButton addTarget:self action:@selector(rmvPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:rmvPointsButton];
+        
+        [[self navigationItem] setRightBarButtonItem:self.editButtonItem];
     }
     return self;
 }
@@ -65,36 +66,38 @@ NSString *reason;
     [super viewWillAppear:animated];
     
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"DetailsBackground.jpg"]]];
-        
-    self.phoneNumberLabel.text = [NSString stringWithFormat:@"Phone #: %@",
+    
+    self.gradeGenderLabel.text = [NSString stringWithFormat:@"Grade: %@th", [selectedUser objectForKey:@"grade"]];
+    self.gradeGenderLabel.font = [UIFont fontWithName:@"Arial" size:18];
+    self.gradeGenderLabel.textColor = [UIColor whiteColor];
+
+    
+    self.phoneNumberTextView.text = [NSString stringWithFormat:@"Phone #: %@",
                                   [selectedUser objectForKey:@"phoneNumber"]];
-    self.phoneNumberLabel.font = [UIFont fontWithName:@"Arial" size:18];
-    self.phoneNumberLabel.textColor = [UIColor whiteColor];
+    self.phoneNumberTextView.font = [UIFont fontWithName:@"Arial" size:18];
+    self.phoneNumberTextView.textColor = [UIColor whiteColor];
     
-    self.emergencyPhoneLabel.text = [NSString stringWithFormat:@"Emergency #: %@",
+    self.emergencyPhoneTextView.text = [NSString stringWithFormat:@"Emergency #: %@",
                                     [selectedUser objectForKey:@"emergencyPhoneNumber"]];
-    self.emergencyPhoneLabel.font = [UIFont fontWithName:@"Arial" size:18];
-    self.emergencyPhoneLabel.textColor = [UIColor whiteColor];
+    self.emergencyPhoneTextView.font = [UIFont fontWithName:@"Arial" size:18];
+    self.emergencyPhoneTextView.textColor = [UIColor whiteColor];
     
-    self.emailLabel.text = [selectedUser objectForKey:@"email"];
-    self.emailLabel.font = [UIFont fontWithName:@"Arial" size:18];
-    self.emailLabel.textColor = [UIColor whiteColor];
+    self.emailTextView.text = [NSString stringWithFormat:@"Email: %@",[selectedUser objectForKey:@"email"]];
+    self.emailTextView.font = [UIFont fontWithName:@"Arial" size:18];
+    self.emailTextView.textColor = [UIColor whiteColor];
     
-    self.streetAddressLabel.text = [selectedUser objectForKey:@"streetAddress"];
-    self.streetAddressLabel.font = [UIFont fontWithName:@"Arial" size:18];
-    self.streetAddressLabel.textColor = [UIColor whiteColor];
-    
-    self.cityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@ %@",
+    self.addressTextView.text = [NSString stringWithFormat:@"%@ %@, %@ %@",
+                                   [selectedUser objectForKey:@"streetAddress"],
                                    [selectedUser objectForKey:@"city"],
                                    [selectedUser objectForKey:@"state"],
                                    [selectedUser objectForKey:@"zipCode"]];
-    self.cityStateZipLabel.font = [UIFont fontWithName:@"Arial" size:18];
-    self.cityStateZipLabel.textColor = [UIColor whiteColor];
+    self.addressTextView.font = [UIFont fontWithName:@"Arial" size:18];
+    self.addressTextView.textColor = [UIColor whiteColor];
     
-    self.otherLabel.text = [NSString stringWithFormat:@"Miscellaneous Info: %@",
-                            [selectedUser objectForKey:@"other"]];
-    self.otherLabel.font = [UIFont fontWithName:@"Arial" size:18];
-    self.otherLabel.textColor = [UIColor whiteColor];
+//    self.otherLabel.text = [NSString stringWithFormat:@"Miscellaneous Info: %@",
+//                            [selectedUser objectForKey:@"other"]];
+//    self.otherLabel.font = [UIFont fontWithName:@"Arial" size:18];
+//    self.otherLabel.textColor = [UIColor whiteColor];
     
     self.pointsLabel.text = [NSString stringWithFormat:@"%@",[selectedUser objectForKey:@"points"]];
     self.pointsLabel.font = [UIFont fontWithName:@"Arial" size:28];

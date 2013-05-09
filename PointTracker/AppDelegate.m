@@ -11,6 +11,7 @@
 #import "LogViewController.h"
 #import "GraphpickerViewController.h"
 #import "MyLogInViewController.h"
+#import "iCarouselExampleViewController.h"
 
 @implementation AppDelegate
 
@@ -35,7 +36,7 @@
     UINavigationController *logNavController = [[UINavigationController alloc] initWithRootViewController:logViewController];
     
     // Set Up Controller for the Schedule Tab
-    UIViewController *scheduleViewController = [[UIViewController alloc] init];
+    iCarouselExampleViewController *scheduleViewController = [[iCarouselExampleViewController alloc] init];
     UINavigationController *scheduleNavController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
     
     self.tabBarController = [[UITabBarController alloc] init];

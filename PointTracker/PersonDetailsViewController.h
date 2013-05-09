@@ -16,13 +16,12 @@
 {
     TDRatingView *pointScale;
 }
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emergencyPhoneLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *streetAddressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cityStateZipLabel;
-@property (weak, nonatomic) IBOutlet UILabel *otherLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gradeGenderLabel;
+@property (weak, nonatomic) IBOutlet UITextView *addressTextView;
+@property (weak, nonatomic) IBOutlet UITextView *emailTextView;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
+@property (weak, nonatomic) IBOutlet UITextView *phoneNumberTextView;
+@property (weak, nonatomic) IBOutlet UITextView *emergencyPhoneTextView;
 
 -(id)initWithID:(PFObject *)person;
 - (IBAction)addPointsButtonTapAction:(id)sender;

@@ -23,6 +23,7 @@
 @synthesize state = _state;
 @synthesize zip = _zip;
 @synthesize other = _other;
+@synthesize grade = _grade;
 
 - (void)viewDidLoad
 {
@@ -37,7 +38,9 @@
     self.city = @"";
     self.state = @"";
     self.zip = @"";
-    self.other = @"";
+    self.other = @"No other notes";
+    self.grade = @"4th";
+    
     
     
 }
@@ -82,7 +85,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 12;
 }
 
 
@@ -186,6 +189,30 @@
 			[cell addSubview: _otherField];
 			break ;
 		}
+        
+        case 10: {
+            cell.textLabel.text = @"Gender" ;
+            
+            NSArray *gendersArray = [NSArray arrayWithObjects: @"Girl", @"Boy", nil];
+            _genderSelector = [[UISegmentedControl alloc] initWithItems:gendersArray];
+            _genderSelector.frame = CGRectMake(110, 5, 180, 35);
+            _genderSelector.segmentedControlStyle = UISegmentedControlStylePlain;
+            _genderSelector.selectedSegmentIndex = 1;
+            [cell addSubview: _genderSelector];
+            break;
+        }
+        
+        case 11: {
+            cell.textLabel.text = @"Grade" ;
+            
+            NSArray *gradesArray = [NSArray arrayWithObjects: @"4th", @"5th", @"6th", @"7th", nil];
+            _gradeSelector= [[UISegmentedControl alloc] initWithItems:gradesArray];
+            _gradeSelector.frame = CGRectMake(110, 5, 180, 35);
+            _gradeSelector.segmentedControlStyle = UISegmentedControlStylePlain;
+            _gradeSelector.selectedSegmentIndex = 1;
+            [cell addSubview: _gradeSelector];
+            break;
+        }
 	}
     
 	// Textfield dimensions
@@ -209,6 +236,9 @@
     [newDude setObject:_state forKey:@"state"];
     [newDude setObject:_zip forKey:@"zipCode"];
     [newDude setObject:_other forKey:@"other"];
+    _isBoy = [_genderSelector selectedSegmentIndex] == 0 ? NO : YES;
+    [newDude setObject:[NSNumber numberWithBool:_isBoy] forKey:@"isBoy"];
+    [newDude setObject:[_gradeSelector titleForSegmentAtIndex:_genderSelector.selectedSegmentIndex] forKey:@"grade"];
     [newDude setObject:[NSNumber numberWithInt:0] forKey:@"points"];
     [newDude saveEventually];
     

@@ -127,6 +127,13 @@
 		A7A1E46417355189005D705C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A1E46317355189005D705C /* Icon@2x.png */; };
 		A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38623171FFAEF007B5E4F /* Logout@2x.png */; };
 		A7A38628171FFAEF007B5E4F /* Logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38624171FFAEF007B5E4F /* Logout.png */; };
+		A7A59D4A1739A15100D944BB /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D491739A15100D944BB /* iCarousel.m */; };
+		A7A59D501739A16200D944BB /* iCarouselExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D4B1739A16200D944BB /* iCarouselExampleViewController.m */; };
+		A7A59D511739A16200D944BB /* iCarouselExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4D1739A16200D944BB /* iCarouselExampleViewController.xib */; };
+		A7A59D521739A16200D944BB /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4E1739A16200D944BB /* background.png */; };
+		A7A59D531739A16200D944BB /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4F1739A16200D944BB /* page.png */; };
+		A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */; };
+		A7A59D5D1739BE0F00D944BB /* NightDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D5B1739BE0E00D944BB /* NightDetailViewController.xib */; };
 		A7BFA2411725D3C5001EF111 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA23F1725D3C5001EF111 /* SettingsViewController.m */; };
 		A7BFA2421725D3C5001EF111 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BFA2401725D3C5001EF111 /* SettingsViewController.xib */; };
 		A7BFA24A1725D775001EF111 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA2441725D775001EF111 /* BButton.m */; };
@@ -356,6 +363,16 @@
 		A7A1E46317355189005D705C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		A7A38623171FFAEF007B5E4F /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
 		A7A38624171FFAEF007B5E4F /* Logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout.png; sourceTree = "<group>"; };
+		A7A59D481739A15100D944BB /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		A7A59D491739A15100D944BB /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		A7A59D4B1739A16200D944BB /* iCarouselExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarouselExampleViewController.m; sourceTree = "<group>"; };
+		A7A59D4C1739A16200D944BB /* iCarouselExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarouselExampleViewController.h; sourceTree = "<group>"; };
+		A7A59D4D1739A16200D944BB /* iCarouselExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iCarouselExampleViewController.xib; sourceTree = "<group>"; };
+		A7A59D4E1739A16200D944BB /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		A7A59D4F1739A16200D944BB /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
+		A7A59D591739BE0E00D944BB /* NightDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NightDetailViewController.h; sourceTree = "<group>"; };
+		A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NightDetailViewController.m; sourceTree = "<group>"; };
+		A7A59D5B1739BE0E00D944BB /* NightDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NightDetailViewController.xib; sourceTree = "<group>"; };
 		A7BFA23E1725D3C5001EF111 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		A7BFA23F1725D3C5001EF111 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A7BFA2401725D3C5001EF111 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -542,8 +559,6 @@
 		63EA8FC0171DE83400E5BEB5 = {
 			isa = PBXGroup;
 			children = (
-				A7667B3F173746D700E2E64D /* EventKitUI.framework */,
-				A7667B3D173746D100E2E64D /* EventKit.framework */,
 				63EA8FD2171DE83400E5BEB5 /* PointTracker */,
 				63EA8FCB171DE83400E5BEB5 /* Frameworks */,
 				63EA8FCA171DE83400E5BEB5 /* Products */,
@@ -561,6 +576,8 @@
 		63EA8FCB171DE83400E5BEB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A7667B3F173746D700E2E64D /* EventKitUI.framework */,
+				A7667B3D173746D100E2E64D /* EventKit.framework */,
 				6347FFF41729A01F00CF12D4 /* PowerPlot_lib */,
 				6347FF5A1729936300CF12D4 /* PowerPlot_Prefix.pch */,
 				6347FF591729935400CF12D4 /* PowerPlot.h */,
@@ -679,6 +696,15 @@
 		A711E0A7171FA0F2003F6224 /* ScheduleTab */ = {
 			isa = PBXGroup;
 			children = (
+				A7A59D4B1739A16200D944BB /* iCarouselExampleViewController.m */,
+				A7A59D4C1739A16200D944BB /* iCarouselExampleViewController.h */,
+				A7A59D4D1739A16200D944BB /* iCarouselExampleViewController.xib */,
+				A7A59D4E1739A16200D944BB /* background.png */,
+				A7A59D4F1739A16200D944BB /* page.png */,
+				A7A59D471739A13200D944BB /* iCarousel */,
+				A7A59D591739BE0E00D944BB /* NightDetailViewController.h */,
+				A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */,
+				A7A59D5B1739BE0E00D944BB /* NightDetailViewController.xib */,
 			);
 			name = ScheduleTab;
 			sourceTree = "<group>";
@@ -766,6 +792,15 @@
 				A7A38624171FFAEF007B5E4F /* Logout.png */,
 			);
 			name = UIBarButtonItemIcons;
+			sourceTree = "<group>";
+		};
+		A7A59D471739A13200D944BB /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				A7A59D481739A15100D944BB /* iCarousel.h */,
+				A7A59D491739A15100D944BB /* iCarousel.m */,
+			);
+			name = iCarousel;
 			sourceTree = "<group>";
 		};
 		A7BFA24E1725D779001EF111 /* BButton */ = {
@@ -939,6 +974,10 @@
 				A79E56C917384D9F000B1D45 /* HomeBackground-568@2x.png in Resources */,
 				A79E56CA17384D9F000B1D45 /* HomeBackground@2x.png in Resources */,
 				A79E56CB17384D9F000B1D45 /* HomeBackground.png in Resources */,
+				A7A59D511739A16200D944BB /* iCarouselExampleViewController.xib in Resources */,
+				A7A59D521739A16200D944BB /* background.png in Resources */,
+				A7A59D531739A16200D944BB /* page.png in Resources */,
+				A7A59D5D1739BE0F00D944BB /* NightDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,6 +1051,9 @@
 				A7D13DC71730FEF90017AF3C /* TDArrow.m in Sources */,
 				A7D13DC81730FEF90017AF3C /* TDRatingView.m in Sources */,
 				A78BB47A1735A70C00E35573 /* PersonHomeViewController.m in Sources */,
+				A7A59D4A1739A15100D944BB /* iCarousel.m in Sources */,
+				A7A59D501739A16200D944BB /* iCarouselExampleViewController.m in Sources */,
+				A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
