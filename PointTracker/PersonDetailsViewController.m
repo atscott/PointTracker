@@ -7,6 +7,7 @@
 //
 
 #import "PersonDetailsViewController.h"
+#import "AddFormViewController.h"
 
 @interface PersonDetailsViewController ()
 
@@ -73,18 +74,18 @@ NSString *reason;
     
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"DetailsBackground.jpg"]]];
     
-    self.gradeGenderLabel.text = [NSString stringWithFormat:@"Grade: %@th", [selectedUser objectForKey:@"grade"]];
+    self.gradeGenderLabel.text = [NSString stringWithFormat:@"Grade: %dth", [[selectedUser objectForKey:@"grade"] intValue]];
     self.gradeGenderLabel.font = [UIFont fontWithName:@"Arial" size:18];
     self.gradeGenderLabel.textColor = [UIColor whiteColor];
-
+    
     
     self.phoneNumberTextView.text = [NSString stringWithFormat:@"Phone #: %@",
-                                  [selectedUser objectForKey:@"phoneNumber"]];
+                                     [selectedUser objectForKey:@"phoneNumber"]];
     self.phoneNumberTextView.font = [UIFont fontWithName:@"Arial" size:18];
     self.phoneNumberTextView.textColor = [UIColor whiteColor];
     
     self.emergencyPhoneTextView.text = [NSString stringWithFormat:@"Emergency #: %@",
-                                    [selectedUser objectForKey:@"emergencyPhoneNumber"]];
+                                        [selectedUser objectForKey:@"emergencyPhoneNumber"]];
     self.emergencyPhoneTextView.font = [UIFont fontWithName:@"Arial" size:18];
     self.emergencyPhoneTextView.textColor = [UIColor whiteColor];
     
@@ -93,17 +94,17 @@ NSString *reason;
     self.emailTextView.textColor = [UIColor whiteColor];
     
     self.addressTextView.text = [NSString stringWithFormat:@"%@ %@, %@ %@",
-                                   [selectedUser objectForKey:@"streetAddress"],
-                                   [selectedUser objectForKey:@"city"],
-                                   [selectedUser objectForKey:@"state"],
-                                   [selectedUser objectForKey:@"zipCode"]];
+                                 [selectedUser objectForKey:@"streetAddress"],
+                                 [selectedUser objectForKey:@"city"],
+                                 [selectedUser objectForKey:@"state"],
+                                 [selectedUser objectForKey:@"zipCode"]];
     self.addressTextView.font = [UIFont fontWithName:@"Arial" size:18];
     self.addressTextView.textColor = [UIColor whiteColor];
     
-//    self.otherLabel.text = [NSString stringWithFormat:@"Miscellaneous Info: %@",
-//                            [selectedUser objectForKey:@"other"]];
-//    self.otherLabel.font = [UIFont fontWithName:@"Arial" size:18];
-//    self.otherLabel.textColor = [UIColor whiteColor];
+    //    self.otherLabel.text = [NSString stringWithFormat:@"Miscellaneous Info: %@",
+    //                            [selectedUser objectForKey:@"other"]];
+    //    self.otherLabel.font = [UIFont fontWithName:@"Arial" size:18];
+    //    self.otherLabel.textColor = [UIColor whiteColor];
     
     self.pointsLabel.text = [NSString stringWithFormat:@"%@",[selectedUser objectForKey:@"points"]];
     self.pointsLabel.font = [UIFont fontWithName:@"Arial" size:28];
@@ -126,8 +127,8 @@ NSString *reason;
     pointScale.disableStateTextColor = [UIColor colorWithRed:202.0f/255 green:183.0f/255 blue:172.0f/255 alpha:1.0];
     [pointScale drawRatingControlWithX:10 Y:250];
     [self.view addSubview:pointScale];
-
-
+    
+    
 }
 - (void)viewDidLoad
 {
@@ -202,12 +203,12 @@ NSString *reason;
         reason = @"Other";
         NSLog(@"Other");
     }
-
+    
     if(buttonIndex < 4)
     {
         NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
         NSNumber *sum = [NSNumber numberWithFloat:([currentPoints floatValue] + [pointValSelected floatValue])];
-
+        
         [selectedUser setObject:sum forKey:@"points"];
         [pointsLabel setText:(@"%@", [sum stringValue])];
         [selectedUser saveEventually];
@@ -228,13 +229,16 @@ NSString *reason;
 -(void) addPoints:(NSNumber*)numToAdd
 {
     
-
+    
 }
 
 
--(IBAction)savePerson:(id)sender
+-(IBAction)editPerson:(id)sender
 {
+    AddFormViewController *editView = [[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    [editView setUserBeingEdited:selectedUser];
     
+    [[self navigationController] pushViewController:editView animated:YES];
 }
 
 @end

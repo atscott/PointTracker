@@ -20,7 +20,6 @@
     NSString *_zip;
     NSString *_other;
     NSString *_gender;
-    bool _isBoy;
     
 	UITextField *_firstNameField;
     UITextField *_lastNameField;
@@ -55,7 +54,8 @@
 @property (nonatomic,copy) NSString* state;
 @property (nonatomic,copy) NSString* zip;
 @property (nonatomic,copy) NSString* other;
-@property (nonatomic,copy) NSString* grade;
 
+
+- (void) setUserBeingEdited:(PFObject *)other;
 
 @end

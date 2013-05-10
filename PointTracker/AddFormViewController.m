@@ -12,6 +12,10 @@
 @end
 
 @implementation AddFormViewController
+bool isBoy;
+int gradeIndex;
+int genderIndex;
+PFObject *userBeingEdited;
 
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
@@ -23,12 +27,20 @@
 @synthesize state = _state;
 @synthesize zip = _zip;
 @synthesize other = _other;
-@synthesize grade = _grade;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    if(userBeingEdited && userBeingEdited != nil){
+        [self fillFormWithUserValues];
+    }else{
+        [self fillFormDefaults];
+    }
+}
+
+- (void) fillFormDefaults
+{
     self.firstName = @"";
     self.lastName = @"";
     self.email = @"";
@@ -39,8 +51,32 @@
     self.state = @"";
     self.zip = @"";
     self.other = @"No other notes";
-    self.grade = @"4th";
+    gradeIndex = 0;
 }
+
+- (void) fillFormWithUserValues
+{
+    self.firstName = [userBeingEdited objectForKey:@"firstName"];
+    self.lastName = [userBeingEdited objectForKey:@"lastName"];
+    self.email = [userBeingEdited objectForKey:@"email"];
+    self.phoneNum = [userBeingEdited objectForKey:@"phoneNumber"];
+    self.emergencyNum = [userBeingEdited objectForKey:@"emergencyPhoneNumber"];
+    self.address = [userBeingEdited objectForKey:@"streetAddress"];
+    self.city = [userBeingEdited objectForKey:@"city"];
+    self.state = [userBeingEdited objectForKey:@"state"];
+    self.zip = [userBeingEdited objectForKey:@"zipCode"];
+    self.other = [userBeingEdited objectForKey:@"other"];
+    
+    gradeIndex = [[userBeingEdited objectForKey:@"grade"] intValue]-4;
+    if(gradeIndex <0 || gradeIndex > 3)
+    {
+        gradeIndex = 0;
+    }
+    
+    genderIndex = [[userBeingEdited objectForKey:@"isBoy"] intValue];
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -93,7 +129,7 @@
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     // Make cell unselectable
-	cell.selectionStyle = UITableViewCellSelectionStyleNone;    
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
 	UITextField* tf = nil ;
 	switch (indexPath.row) {
@@ -187,7 +223,7 @@
 			[cell addSubview: _otherField];
 			break ;
 		}
-        
+            
         case 10: {
             cell.textLabel.text = @"Gender" ;
             
@@ -195,11 +231,14 @@
             _genderSelector = [[UISegmentedControl alloc] initWithItems:gendersArray];
             _genderSelector.frame = CGRectMake(110, 5, 180, 35);
             _genderSelector.segmentedControlStyle = UISegmentedControlStylePlain;
-            _genderSelector.selectedSegmentIndex = 1;
+            _genderSelector.selectedSegmentIndex = genderIndex;
+            [_genderSelector addTarget:self
+                               action:@selector(updateGenderIndex:)
+                     forControlEvents:UIControlEventValueChanged];
             [cell addSubview: _genderSelector];
             break;
         }
-        
+            
         case 11: {
             cell.textLabel.text = @"Grade" ;
             
@@ -207,7 +246,10 @@
             _gradeSelector= [[UISegmentedControl alloc] initWithItems:gradesArray];
             _gradeSelector.frame = CGRectMake(110, 5, 180, 35);
             _gradeSelector.segmentedControlStyle = UISegmentedControlStylePlain;
-            _gradeSelector.selectedSegmentIndex = 1;
+            _gradeSelector.selectedSegmentIndex = gradeIndex;
+            [_gradeSelector addTarget:self
+                               action:@selector(updateGradeIndex:)
+                     forControlEvents:UIControlEventValueChanged];
             [cell addSubview: _gradeSelector];
             break;
         }
@@ -222,23 +264,28 @@
 
 -(IBAction)savePerson:(id)sender
 {
-    PFObject *newDude = [PFObject objectWithClassName:@"People"];
+    PFObject *userToSave;
+    if(userBeingEdited && userBeingEdited != nil){
+        userToSave = userBeingEdited;
+    }else{
+        userToSave = [PFObject objectWithClassName:@"People"];
+    }
     
-    [newDude setObject:_firstName forKey:@"firstName"];
-    [newDude setObject:_lastName forKey:@"lastName"];
-    [newDude setObject:_email forKey:@"email"];
-    [newDude setObject:_phoneNum forKey:@"phoneNumber"];
-    [newDude setObject:_emergencyNum forKey:@"emergencyPhoneNumber"];
-    [newDude setObject:_address forKey:@"streetAddress"];
-    [newDude setObject:_city forKey:@"city"];
-    [newDude setObject:_state forKey:@"state"];
-    [newDude setObject:_zip forKey:@"zipCode"];
-    [newDude setObject:_other forKey:@"other"];
-    _isBoy = [_genderSelector selectedSegmentIndex] == 0 ? NO : YES;
-    [newDude setObject:[NSNumber numberWithBool:_isBoy] forKey:@"isBoy"];
-    [newDude setObject:[_gradeSelector titleForSegmentAtIndex:_genderSelector.selectedSegmentIndex] forKey:@"grade"];
-    [newDude setObject:[NSNumber numberWithInt:0] forKey:@"points"];
-    [newDude saveEventually];
+    [userToSave setObject:_firstName forKey:@"firstName"];
+    [userToSave setObject:_lastName forKey:@"lastName"];
+    [userToSave setObject:_email forKey:@"email"];
+    [userToSave setObject:_phoneNum forKey:@"phoneNumber"];
+    [userToSave setObject:_emergencyNum forKey:@"emergencyPhoneNumber"];
+    [userToSave setObject:_address forKey:@"streetAddress"];
+    [userToSave setObject:_city forKey:@"city"];
+    [userToSave setObject:_state forKey:@"state"];
+    [userToSave setObject:_zip forKey:@"zipCode"];
+    [userToSave setObject:_other forKey:@"other"];
+    isBoy = [_genderSelector selectedSegmentIndex] == 0 ? NO : YES;
+    [userToSave setObject:[NSNumber numberWithBool:isBoy] forKey:@"isBoy"];
+    [userToSave setObject:[NSNumber numberWithInt:(_gradeSelector.selectedSegmentIndex +4)] forKey:@"grade"];
+    [userToSave setObject:[NSNumber numberWithInt:0] forKey:@"points"];
+    [userToSave saveEventually];
     
     [[self navigationController] popViewControllerAnimated:YES];
 }
@@ -249,11 +296,11 @@
     // Try to find next responder
     UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
     //if (nextResponder) {
-        // Found next responder, so set it.
-        [nextResponder becomeFirstResponder];
+    // Found next responder, so set it.
+    [nextResponder becomeFirstResponder];
     //} else {
-        // Not found, so remove keyboard.
-        //[textField resignFirstResponder];
+    // Not found, so remove keyboard.
+    //[textField resignFirstResponder];
     //}
     return NO; // We do not want UITextField to insert line-breaks.
 }
@@ -293,6 +340,21 @@
 	} else if (textField == _otherField) {
 		self.other = textField.text ;
 	}
+}
+
+- (void) setUserBeingEdited:(PFObject *)other
+{
+    userBeingEdited = other;
+}
+
+- (IBAction)updateGradeIndex:(id)sender
+{
+    gradeIndex = _gradeSelector.selectedSegmentIndex;
+}
+
+- (IBAction)updateGenderIndex:(id)sender
+{
+    genderIndex = _genderSelector.selectedSegmentIndex;
 }
 
 @end
