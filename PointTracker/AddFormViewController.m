@@ -33,13 +33,13 @@ PFObject *userBeingEdited;
     [super viewDidLoad];
     
     if(userBeingEdited && userBeingEdited != nil){
-        [self fillFormWithUserValues];
+        [self setUserDefaults];
     }else{
-        [self fillFormDefaults];
+        [self setBlankDefaults];
     }
 }
 
-- (void) fillFormDefaults
+- (void) setBlankDefaults
 {
     self.firstName = @"";
     self.lastName = @"";
@@ -54,7 +54,7 @@ PFObject *userBeingEdited;
     gradeIndex = 0;
 }
 
-- (void) fillFormWithUserValues
+- (void) setUserDefaults
 {
     self.firstName = [userBeingEdited objectForKey:@"firstName"];
     self.lastName = [userBeingEdited objectForKey:@"lastName"];
@@ -67,6 +67,8 @@ PFObject *userBeingEdited;
     self.zip = [userBeingEdited objectForKey:@"zipCode"];
     self.other = [userBeingEdited objectForKey:@"other"];
     
+    [self checkDefaultNulls];
+    
     gradeIndex = [[userBeingEdited objectForKey:@"grade"] intValue]-4;
     if(gradeIndex <0 || gradeIndex > 3)
     {
@@ -74,6 +76,31 @@ PFObject *userBeingEdited;
     }
     
     genderIndex = [[userBeingEdited objectForKey:@"isBoy"] intValue];
+    
+}
+
+- (void)checkDefaultNulls
+{
+    if(self.firstName == NULL)
+        self.firstName = @"";
+    if(self.lastName == NULL)
+        self.lastName = @"";
+    if(self.email == NULL)
+        self.email = @"";
+    if(self.phoneNum == NULL)
+        self.phoneNum = @"";
+    if(self.emergencyNum == NULL)
+        self.emergencyNum = @"";
+    if(self.address == NULL)
+        self. address = @"";
+    if(self.city == NULL)
+        self.city = @"";
+    if(self.state == NULL)
+        self.state = @"";
+    if(self.zip == NULL)
+        self.zip = @"";
+    if(self.other == NULL)
+        self.other = @"";
     
 }
 
@@ -138,7 +165,6 @@ PFObject *userBeingEdited;
 			tf = _firstNameField = [self makeTextField:self.firstName placeholder:@"Carla"];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:0];
-            [tf setDelegate:self];
 			[cell addSubview: _firstNameField];
 			break;
 		}
@@ -147,7 +173,6 @@ PFObject *userBeingEdited;
 			tf = _lastNameField = [self makeTextField:self.lastName placeholder:@"Clueless"];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:1];
-            [tf setDelegate:self];
 			[cell addSubview: _lastNameField];
 			break;
 		}
@@ -156,7 +181,6 @@ PFObject *userBeingEdited;
 			tf = _emailField = [self makeTextField:self.email placeholder:@"example@gmail.com"];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:2];
-            [tf setDelegate:self];
 			[cell addSubview: _emailField];
 			break;
 		}
@@ -174,7 +198,6 @@ PFObject *userBeingEdited;
 			tf = _emergencyNumberField = [self makeTextField:self.emergencyNum placeholder:@"(414)123-HELP"];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:4];
-            [tf setDelegate:self];
 			[cell addSubview: _emergencyNumberField];
 			break;
 		}
@@ -183,7 +206,6 @@ PFObject *userBeingEdited;
 			tf = _addressField = [self makeTextField:self.address placeholder:@"100 Pilgram Rd."];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:5];
-            [tf setDelegate:self];
 			[cell addSubview: _addressField];
 			break;
 		}
@@ -192,7 +214,6 @@ PFObject *userBeingEdited;
 			tf = _cityField = [self makeTextField:self.city placeholder:@"Milwaukee"];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:6];
-            [tf setDelegate:self];
 			[cell addSubview: _cityField];
 			break;
 		}
@@ -201,7 +222,6 @@ PFObject *userBeingEdited;
 			tf = _stateField = [self makeTextField:self.state placeholder:@"WI"];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:7];
-            [tf setDelegate:self];
 			[cell addSubview: _stateField];
 			break;
 		}
@@ -210,7 +230,6 @@ PFObject *userBeingEdited;
 			tf = _zipField = [self makeTextField:self.zip placeholder:@"53202"];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:8];
-            [tf setDelegate:self];
 			[cell addSubview: _zipField];
 			break;
 		}
@@ -219,7 +238,6 @@ PFObject *userBeingEdited;
 			tf = _otherField = [self makeTextField:self.other placeholder:@"random stuff?"];
             [tf setReturnKeyType:UIReturnKeyNext];
             [tf setTag:9];
-            [tf setDelegate:self];
 			[cell addSubview: _otherField];
 			break ;
 		}
@@ -233,8 +251,8 @@ PFObject *userBeingEdited;
             _genderSelector.segmentedControlStyle = UISegmentedControlStylePlain;
             _genderSelector.selectedSegmentIndex = genderIndex;
             [_genderSelector addTarget:self
-                               action:@selector(updateGenderIndex:)
-                     forControlEvents:UIControlEventValueChanged];
+                                action:@selector(updateGenderIndex:)
+                      forControlEvents:UIControlEventValueChanged];
             [cell addSubview: _genderSelector];
             break;
         }
@@ -265,8 +283,10 @@ PFObject *userBeingEdited;
 -(IBAction)savePerson:(id)sender
 {
     PFObject *userToSave;
+    int points=0;
     if(userBeingEdited && userBeingEdited != nil){
         userToSave = userBeingEdited;
+        points = [[userBeingEdited objectForKey:@"points"] intValue];
     }else{
         userToSave = [PFObject objectWithClassName:@"People"];
     }
@@ -284,7 +304,7 @@ PFObject *userBeingEdited;
     isBoy = [_genderSelector selectedSegmentIndex] == 0 ? NO : YES;
     [userToSave setObject:[NSNumber numberWithBool:isBoy] forKey:@"isBoy"];
     [userToSave setObject:[NSNumber numberWithInt:(_gradeSelector.selectedSegmentIndex +4)] forKey:@"grade"];
-    [userToSave setObject:[NSNumber numberWithInt:0] forKey:@"points"];
+    [userToSave setObject:[NSNumber numberWithInt:points] forKey:@"points"];
     [userToSave saveEventually];
     
     [[self navigationController] popViewControllerAnimated:YES];
@@ -314,12 +334,16 @@ PFObject *userBeingEdited;
 	tf.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	tf.adjustsFontSizeToFitWidth = YES;
 	tf.textColor = [UIColor colorWithRed:56.0f/255.0f green:84.0f/255.0f blue:135.0f/255.0f alpha:1.0f];
+    [tf addTarget:self
+           action:@selector(TextFieldChanged:)
+ forControlEvents:UIControlEventEditingChanged];
 	return tf ;
 }
 
-// Textfield value changed, store the new value.
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-	if (textField == _firstNameField) {
+-(IBAction)TextFieldChanged:(id)sender
+{
+    UITextField * textField = (UITextField *)sender;
+    if (textField == _firstNameField) {
 		self.firstName = textField.text ;
 	} else if (textField == _lastNameField) {
 		self.lastName = textField.text ;
@@ -341,6 +365,7 @@ PFObject *userBeingEdited;
 		self.other = textField.text ;
 	}
 }
+
 
 - (void) setUserBeingEdited:(PFObject *)other
 {
