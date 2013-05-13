@@ -52,6 +52,7 @@ PFObject *userBeingEdited;
     self.zip = @"";
     self.other = @"No other notes";
     gradeIndex = 0;
+    genderIndex = 0;
 }
 
 - (void) setUserDefaults
