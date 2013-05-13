@@ -124,7 +124,10 @@
 
 - (IBAction)addNewItem:(id)sender
 {
-    [[self navigationController] pushViewController:[[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped] animated:YES];
+    AddFormViewController *addForm = [[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    [addForm setUserBeingEdited:nil];
+    
+    [[self navigationController] pushViewController:addForm animated:YES];
 }
 
 - (IBAction)logOutButtonTapAction:(id)sender {
