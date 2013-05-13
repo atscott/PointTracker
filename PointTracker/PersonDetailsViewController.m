@@ -34,14 +34,14 @@ NSString *reason;
     {
         selectedUser = person;
         
-        CGRect frame = CGRectMake(260, 250, 50, 40);
+        CGRect frame = CGRectMake(272, 65, 40, 40);
         BButton *addPointsButton = [[BButton alloc] initWithFrame:frame];
         [addPointsButton setTitle:@"+" forState:UIControlStateNormal];
         [addPointsButton setType:BButtonTypePrimary];
         [addPointsButton addTarget:self action:@selector(addPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:addPointsButton];
         
-        CGRect frame2 = CGRectMake(260, 300, 50, 40);
+        CGRect frame2 = CGRectMake(10, 65, 40, 40);
         BButton *rmvPointsButton = [[BButton alloc] initWithFrame:frame2];
         [rmvPointsButton setTitle:@"-" forState:UIControlStateNormal];
         [rmvPointsButton setType:BButtonTypeDanger];
@@ -72,24 +72,26 @@ NSString *reason;
 {
     [super viewWillAppear:animated];
     
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"DetailsBackground.jpg"]]];
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"newBackground.png"]]];
     
-    self.gradeGenderLabel.text = [NSString stringWithFormat:@"Grade: %dth", [[selectedUser objectForKey:@"grade"] intValue]];
-    self.gradeGenderLabel.font = [UIFont fontWithName:@"Arial" size:18];
-    self.gradeGenderLabel.textColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
+    
+    self.gradeGenderLabel.text = [NSString stringWithFormat:@"%dth", [[selectedUser objectForKey:@"grade"] intValue]];
+    self.gradeGenderLabel.font = [UIFont fontWithName:@"Arial" size:20];
+    self.gradeGenderLabel.textColor = [UIColor blackColor];
     
     
-    self.phoneNumberTextView.text = [NSString stringWithFormat:@"Phone #: %@",
+    self.phoneNumberTextView.text = [NSString stringWithFormat:@"%@",
                                      [selectedUser objectForKey:@"phoneNumber"]];
     self.phoneNumberTextView.font = [UIFont fontWithName:@"Arial" size:18];
     self.phoneNumberTextView.textColor = [UIColor whiteColor];
     
-    self.emergencyPhoneTextView.text = [NSString stringWithFormat:@"Emergency #: %@",
+    self.emergencyPhoneTextView.text = [NSString stringWithFormat:@"%@",
                                         [selectedUser objectForKey:@"emergencyPhoneNumber"]];
     self.emergencyPhoneTextView.font = [UIFont fontWithName:@"Arial" size:18];
     self.emergencyPhoneTextView.textColor = [UIColor whiteColor];
     
-    self.emailTextView.text = [NSString stringWithFormat:@"Email: %@",[selectedUser objectForKey:@"email"]];
+    self.emailTextView.text = [NSString stringWithFormat:@"%@",[selectedUser objectForKey:@"email"]];
     self.emailTextView.font = [UIFont fontWithName:@"Arial" size:18];
     self.emailTextView.textColor = [UIColor whiteColor];
     
@@ -117,7 +119,7 @@ NSString *reason;
     pointScale = [[TDRatingView alloc]init];
     pointScale.maximumRating = 600;
     pointScale.minimumRating = 100;
-    pointScale.widthOfEachNo = 40;
+    pointScale.widthOfEachNo = 35;
     pointScale.heightOfEachNo = 50;
     pointScale.sliderHeight = 22;
     pointScale.difference = 100;
@@ -125,7 +127,7 @@ NSString *reason;
     pointScale.scaleBgColor = [UIColor colorWithRed:40.0f/255 green:38.0f/255 blue:46.0f/255 alpha:1.0];
     pointScale.arrowColor = [UIColor colorWithRed:0.0f/255 green:215.0f/255 blue:255.0f/255 alpha:1.0];
     pointScale.disableStateTextColor = [UIColor colorWithRed:202.0f/255 green:183.0f/255 blue:172.0f/255 alpha:1.0];
-    [pointScale drawRatingControlWithX:10 Y:250];
+    [pointScale drawRatingControlWithX:55 Y:40];
     [self.view addSubview:pointScale];
     
     

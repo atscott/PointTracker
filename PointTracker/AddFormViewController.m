@@ -111,6 +111,8 @@ PFObject *userBeingEdited;
     UINavigationItem *navItem = [self navigationItem];
     
     [navItem setTitle:@"New Person"];
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+
     
     UIBarButtonItem *savePersonButton = [[UIBarButtonItem alloc]
                                          initWithBarButtonSystemItem:UIBarButtonSystemItemSave

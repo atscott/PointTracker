@@ -6,12 +6,24 @@
 //  Copyright 2011 Charcoal Design. All rights reserved.
 //
 
-#import "iCarouselExampleViewController.h"
+#import "WeekPickerViewController.h"
 
 
-@implementation iCarouselExampleViewController
+@implementation WeekPickerViewController
 
 @synthesize carousel;
+NSArray *weeks;
+
+-(id)init
+{
+    self = [super init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Nights"];
+    [query orderByAscending:@"date"];
+    weeks = [query findObjects];
+    
+    return self;
+}
 
 - (void)dealloc
 {
@@ -30,6 +42,11 @@
     self.title = @"Schedule";
     self.tabBarItem.image = [UIImage imageNamed:@"List"];
     carousel.type = iCarouselTypeCylinder;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Nights"];
+    [query orderByAscending:@"date"];
+    weeks = [query findObjects];
+    
 }
 
 - (void)viewDidUnload
@@ -48,11 +65,7 @@
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    //generate 100 buttons
-    //normally we'd use a backing array
-    //as shown in the basic iOS example
-    //but for this example we haven't bothered
-    return 10;
+    return (unsigned long)weeks.count;
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view

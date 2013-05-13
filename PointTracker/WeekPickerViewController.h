@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
+#import <Parse/Parse.h>
 
 
-@interface iCarouselExampleViewController : UIViewController
+@interface WeekPickerViewController : UIViewController
 <iCarouselDataSource, iCarouselDelegate>
+{
 
+}
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 
 @end

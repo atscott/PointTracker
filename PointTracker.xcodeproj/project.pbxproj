@@ -115,6 +115,8 @@
 		A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49F1726D58800EC4D14 /* Setting@2x.png */; };
 		A7667B3E173746D100E2E64D /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7667B3D173746D100E2E64D /* EventKit.framework */; };
 		A7667B40173746D700E2E64D /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7667B3F173746D700E2E64D /* EventKitUI.framework */; };
+		A76AB1071741826300D7D960 /* newBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A76AB1051741826300D7D960 /* newBackground@2x.png */; };
+		A76AB1081741826300D7D960 /* newBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A76AB1061741826300D7D960 /* newBackground.png */; };
 		A78BB47A1735A70C00E35573 /* PersonHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BB4781735A70C00E35573 /* PersonHomeViewController.m */; };
 		A78BB47B1735A70C00E35573 /* PersonHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78BB4791735A70C00E35573 /* PersonHomeViewController.xib */; };
 		A79E56C317384D7F000B1D45 /* Home-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C017384D7F000B1D45 /* Home-568@2x.png */; };
@@ -128,8 +130,8 @@
 		A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38623171FFAEF007B5E4F /* Logout@2x.png */; };
 		A7A38628171FFAEF007B5E4F /* Logout.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38624171FFAEF007B5E4F /* Logout.png */; };
 		A7A59D4A1739A15100D944BB /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D491739A15100D944BB /* iCarousel.m */; };
-		A7A59D501739A16200D944BB /* iCarouselExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D4B1739A16200D944BB /* iCarouselExampleViewController.m */; };
-		A7A59D511739A16200D944BB /* iCarouselExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4D1739A16200D944BB /* iCarouselExampleViewController.xib */; };
+		A7A59D501739A16200D944BB /* WeekPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D4B1739A16200D944BB /* WeekPickerViewController.m */; };
+		A7A59D511739A16200D944BB /* WeekPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4D1739A16200D944BB /* WeekPickerViewController.xib */; };
 		A7A59D521739A16200D944BB /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4E1739A16200D944BB /* background.png */; };
 		A7A59D531739A16200D944BB /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4F1739A16200D944BB /* page.png */; };
 		A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */; };
@@ -350,6 +352,8 @@
 		A751E49F1726D58800EC4D14 /* Setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Setting@2x.png"; sourceTree = "<group>"; };
 		A7667B3D173746D100E2E64D /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		A7667B3F173746D700E2E64D /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		A76AB1051741826300D7D960 /* newBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newBackground@2x.png"; sourceTree = "<group>"; };
+		A76AB1061741826300D7D960 /* newBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newBackground.png; sourceTree = "<group>"; };
 		A78BB4771735A70C00E35573 /* PersonHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHomeViewController.h; sourceTree = "<group>"; };
 		A78BB4781735A70C00E35573 /* PersonHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHomeViewController.m; sourceTree = "<group>"; };
 		A78BB4791735A70C00E35573 /* PersonHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHomeViewController.xib; sourceTree = "<group>"; };
@@ -365,9 +369,9 @@
 		A7A38624171FFAEF007B5E4F /* Logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout.png; sourceTree = "<group>"; };
 		A7A59D481739A15100D944BB /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		A7A59D491739A15100D944BB /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-		A7A59D4B1739A16200D944BB /* iCarouselExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarouselExampleViewController.m; sourceTree = "<group>"; };
-		A7A59D4C1739A16200D944BB /* iCarouselExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarouselExampleViewController.h; sourceTree = "<group>"; };
-		A7A59D4D1739A16200D944BB /* iCarouselExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iCarouselExampleViewController.xib; sourceTree = "<group>"; };
+		A7A59D4B1739A16200D944BB /* WeekPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekPickerViewController.m; sourceTree = "<group>"; };
+		A7A59D4C1739A16200D944BB /* WeekPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekPickerViewController.h; sourceTree = "<group>"; };
+		A7A59D4D1739A16200D944BB /* WeekPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeekPickerViewController.xib; sourceTree = "<group>"; };
 		A7A59D4E1739A16200D944BB /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		A7A59D4F1739A16200D944BB /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		A7A59D591739BE0E00D944BB /* NightDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NightDetailViewController.h; sourceTree = "<group>"; };
@@ -696,9 +700,9 @@
 		A711E0A7171FA0F2003F6224 /* ScheduleTab */ = {
 			isa = PBXGroup;
 			children = (
-				A7A59D4B1739A16200D944BB /* iCarouselExampleViewController.m */,
-				A7A59D4C1739A16200D944BB /* iCarouselExampleViewController.h */,
-				A7A59D4D1739A16200D944BB /* iCarouselExampleViewController.xib */,
+				A7A59D4B1739A16200D944BB /* WeekPickerViewController.m */,
+				A7A59D4C1739A16200D944BB /* WeekPickerViewController.h */,
+				A7A59D4D1739A16200D944BB /* WeekPickerViewController.xib */,
 				A7A59D4E1739A16200D944BB /* background.png */,
 				A7A59D4F1739A16200D944BB /* page.png */,
 				A7A59D471739A13200D944BB /* iCarousel */,
@@ -745,6 +749,8 @@
 		A72C22731729B96800E6D9DA /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				A76AB1051741826300D7D960 /* newBackground@2x.png */,
+				A76AB1061741826300D7D960 /* newBackground.png */,
 				A79E56C617384D9E000B1D45 /* HomeBackground-568@2x.png */,
 				A79E56C717384D9E000B1D45 /* HomeBackground@2x.png */,
 				A79E56C817384D9E000B1D45 /* HomeBackground.png */,
@@ -974,10 +980,12 @@
 				A79E56C917384D9F000B1D45 /* HomeBackground-568@2x.png in Resources */,
 				A79E56CA17384D9F000B1D45 /* HomeBackground@2x.png in Resources */,
 				A79E56CB17384D9F000B1D45 /* HomeBackground.png in Resources */,
-				A7A59D511739A16200D944BB /* iCarouselExampleViewController.xib in Resources */,
+				A7A59D511739A16200D944BB /* WeekPickerViewController.xib in Resources */,
 				A7A59D521739A16200D944BB /* background.png in Resources */,
 				A7A59D531739A16200D944BB /* page.png in Resources */,
 				A7A59D5D1739BE0F00D944BB /* NightDetailViewController.xib in Resources */,
+				A76AB1071741826300D7D960 /* newBackground@2x.png in Resources */,
+				A76AB1081741826300D7D960 /* newBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1052,7 +1060,7 @@
 				A7D13DC81730FEF90017AF3C /* TDRatingView.m in Sources */,
 				A78BB47A1735A70C00E35573 /* PersonHomeViewController.m in Sources */,
 				A7A59D4A1739A15100D944BB /* iCarousel.m in Sources */,
-				A7A59D501739A16200D944BB /* iCarouselExampleViewController.m in Sources */,
+				A7A59D501739A16200D944BB /* WeekPickerViewController.m in Sources */,
 				A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
