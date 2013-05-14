@@ -41,6 +41,8 @@ PFObject *userBeingEdited;
 
 - (void) setBlankDefaults
 {
+    [[self navigationItem] setTitle:@"New Person"];
+
     self.firstName = @"";
     self.lastName = @"";
     self.email = @"";
@@ -57,6 +59,8 @@ PFObject *userBeingEdited;
 
 - (void) setUserDefaults
 {
+    [[self navigationItem] setTitle:@"Edit Person"];
+    
     self.firstName = [userBeingEdited objectForKey:@"firstName"];
     self.lastName = [userBeingEdited objectForKey:@"lastName"];
     self.email = [userBeingEdited objectForKey:@"email"];
@@ -111,7 +115,7 @@ PFObject *userBeingEdited;
     
     UINavigationItem *navItem = [self navigationItem];
     
-    [navItem setTitle:@"New Person"];
+    //[navItem setTitle:@"New Person"];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 
     

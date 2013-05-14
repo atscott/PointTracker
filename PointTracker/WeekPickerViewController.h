@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
 #import <Parse/Parse.h>
-
+#import "ReaderViewController.h"
 
 @interface WeekPickerViewController : UIViewController
-<iCarouselDataSource, iCarouselDelegate>
+<iCarouselDataSource, iCarouselDelegate, UIAlertViewDelegate, ReaderViewControllerDelegate>
 {
 
 }
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
+
+-(IBAction)downloadStuffConfirm:(id)sender;
 
 @end

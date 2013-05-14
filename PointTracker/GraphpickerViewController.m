@@ -25,7 +25,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Stats", @"Stats");
+        self.title = @"Statistics";
         self.tabBarItem.image = [UIImage imageNamed:@"Stats"];
     }
     [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
@@ -40,7 +40,6 @@
 {
     [[self navigationController] pushViewController:[[StatsViewController alloc]initWithType:Top10 andTitle:@"Leaderboard"] animated:YES];
 }
-
 
 - (IBAction)history:(id)sender
 {
@@ -60,6 +59,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+//    UIColor * color = [UIColor colorWithRed:130/255.0f green:22/255.0f blue:241/255.0f alpha:1.0f];
+//    [self.navigationController.navigationBar setTintColor:color];
+    [self.navigationController.navigationBar setTintColor:[UIColor blueColor]];
+
 }
 
 - (void)didReceiveMemoryWarning

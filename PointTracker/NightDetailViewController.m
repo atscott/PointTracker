@@ -14,20 +14,44 @@
 
 @implementation NightDetailViewController
 
+@synthesize titleLabel;
+@synthesize topicLabel;
+@synthesize verseLabel;
+
+PFObject *night;
+
+-(id)initWithNight:(id)theNight
+{
+    self = [super init];
+    if(self){
+        night = theNight;
+    }
+    return self;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-        // Custom initialization
-    }
+    if (self) { }
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    titleLabel.text = [night objectForKey:@"title"];
+    topicLabel.text = [night objectForKey:@"topic"];
+    verseLabel.text = [night objectForKey:@"verse"];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    NSString *dateString = [dateFormatter stringFromDate:[night objectForKey:@"date"]];
+    self.navigationItem.title = dateString;
 }
 
 - (void)didReceiveMemoryWarning

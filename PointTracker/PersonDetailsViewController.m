@@ -28,11 +28,11 @@ NSString *reason;
 
 -(id)initWithID:(PFObject *)person
 {
-    //self = [super initWithNibName:@"PersonDetailsViewController.xib" bundle:nil];
     self = [super init];
     if(self)
     {
         selectedUser = person;
+        pointValSelected = [NSNumber numberWithInt:100];
         
         CGRect frame = CGRectMake(272, 65, 40, 40);
         BButton *addPointsButton = [[BButton alloc] initWithFrame:frame];
@@ -71,8 +71,6 @@ NSString *reason;
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"newBackground.png"]]];
     
     [self.navigationController.navigationBar setTintColor:[UIColor orangeColor]];
     
@@ -115,7 +113,13 @@ NSString *reason;
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@",
                                  [selectedUser objectForKey:@"firstName"],
                                  [selectedUser objectForKey:@"lastName"]];
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"newBackground.png"]]];
+
     pointScale = [[TDRatingView alloc]init];
     pointScale.maximumRating = 600;
     pointScale.minimumRating = 100;
@@ -129,13 +133,11 @@ NSString *reason;
     pointScale.disableStateTextColor = [UIColor colorWithRed:202.0f/255 green:183.0f/255 blue:172.0f/255 alpha:1.0];
     [pointScale drawRatingControlWithX:55 Y:40];
     [self.view addSubview:pointScale];
-    
-    
 }
-- (void)viewDidLoad
+
+-(void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidLoad];
-    
+    [super viewWillDisappear:animated];
 }
 -(void) selectedRating:(NSString *)scale
 {
@@ -222,18 +224,8 @@ NSString *reason;
         [log setObject: reason forKey: @"reason"];
         [log setObject: pointValSelected forKey:@"pointsAdded"];
         [log saveEventually];
-        
-        
     }
 }
-
-
--(void) addPoints:(NSNumber*)numToAdd
-{
-    
-    
-}
-
 
 -(IBAction)editPerson:(id)sender
 {

@@ -16,7 +16,7 @@
 
 -(id)init
 {
-    self = [super initWithStyle: UITableViewStyleGrouped ];
+    self = [super initWithStyle: UITableViewStylePlain];
     if (self)
     {
         self.parseClassName = @"PointLog";
@@ -28,7 +28,6 @@
         self.view.backgroundColor = nil;
         [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
         self.tableView.backgroundView = nil;
-        
     }
     return self;
 }
@@ -36,7 +35,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:18/255.0f green:193/255.0f blue:40/255.0f alpha:1.0f]];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -100,10 +103,13 @@
     NSString *reason = [object objectForKey:@"reason"];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@pts -> %@", amount, receiver];
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"(%@) By: %@ Reason: %@", dateString, giver, reason];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
     
-    [cell setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"PaperTexture.jpg"]]];
-    
+    [cell setUserInteractionEnabled: NO];
     return cell;
 }
 

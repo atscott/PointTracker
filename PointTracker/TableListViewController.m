@@ -19,6 +19,7 @@
 #import "MySignUpViewController.h"
 #import "SettingsViewController.h"
 #import "PersonDetailsViewController.h"
+#import "CheckinViewController.h"
 
 @interface TableListViewController ()
 
@@ -29,7 +30,7 @@
 
 -(id)init
 {
-    self = [super initWithStyle: UITableViewStyleGrouped ];
+    self = [super initWithStyle: UITableViewStylePlain ];
     if (self)
     {
         // Set which "class" on parse this table is related to
@@ -73,12 +74,6 @@
         // Create and place Array of RightBarButtons 
         NSArray *barButtons = [[NSArray alloc] initWithObjects: addPersonButton, nil];
         [[self navigationItem] setRightBarButtonItems:barButtons animated:YES];
-        
-        self.view.backgroundColor = nil;
-        [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
-        self.tableView.backgroundView = nil;
-        
-        self.tableView.separatorColor = [UIColor grayColor];
     }
     return self;
 }
@@ -92,8 +87,9 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
+    [super viewWillAppear:animated];    
+    UIColor * color = [UIColor colorWithRed:130/255.0f green:22/255.0f blue:241/255.0f alpha:1.0f];
+    [self.navigationController.navigationBar setTintColor:color];
 
 }
 
@@ -214,16 +210,24 @@
     bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
     
     if(isBoy){
-        cell.textLabel.textColor = [UIColor colorWithRed:97/255.0f green:10/255.0f blue:245/255.0f alpha:1.0f];
-        cell.detailTextLabel.textColor = [UIColor blackColor];
+        [cell.textLabel setTextColor: [UIColor colorWithRed:97/255.0f green:10/255.0f blue:245/255.0f alpha:1.0f]];
+        [cell.detailTextLabel setTextColor: [UIColor blackColor]];
+        UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
+        [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"boysBack 2.jpeg"]]];
+        cell.backgroundView = back;
     }
     else if(!isBoy){
         [cell.textLabel setTextColor: [UIColor colorWithRed:141/255.0f green:1/255.0f blue:167/255.0f alpha:1.0f]];
-        cell.detailTextLabel.textColor = [UIColor blackColor];
+        [cell.detailTextLabel setTextColor: [UIColor blackColor]];
+        UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
+        [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"girlsBack 2.jpeg"]]];
+        cell.backgroundView = back;
     }
-    
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.accessoryView.backgroundColor = [UIColor clearColor];
+    [cell.accessoryView setBackgroundColor:[UIColor clearColor]];
     [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
-    [cell setBackgroundColor:[UIColor lightGrayColor]];
     return cell;
 }
 
@@ -233,6 +237,11 @@
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     [[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
+}
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Checkin" message:@"This is the checkin feature" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    [alert show];
+    [[self navigationController]pushViewController:[[CheckinViewController alloc]init] animated:YES];
 }
 
 /**************************************************/

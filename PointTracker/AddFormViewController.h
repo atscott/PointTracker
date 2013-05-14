@@ -55,7 +55,6 @@
 @property (nonatomic,copy) NSString* zip;
 @property (nonatomic,copy) NSString* other;
 
-
 - (void) setUserBeingEdited:(PFObject *)other;
 
 @end
