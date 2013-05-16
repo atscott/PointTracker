@@ -29,54 +29,57 @@
             names[i] = (name == NULL ? @"null" : name);
         }
         return [[WSData dataWithValues:[WSData arrayWithFloat:points
-                                                            len:data.count]
-                             annotations:[NSArray arrayWithObjects:names
-                                                             count:data.count]]
-                  indexedData];
+                                                          len:data.count]
+                           annotations:[NSArray arrayWithObjects:names
+                                                           count:data.count]]
+                indexedData];
     }
     
     return result;
 }
 
 +(WSData *)historyForCurrentUser{
+    
+    WSData *result = nil;
     PFQuery *queryForCurrentUser = [PFQuery queryWithClassName:@"People" ];
     [queryForCurrentUser whereKey:@"userLink" equalTo:[PFUser currentUser]];
     PFObject *currentUser = [queryForCurrentUser getFirstObject];
-    PFQuery *logQuery = [PFQuery queryWithClassName:@"PointLog"];
-    [logQuery whereKey:@"addedToPointer" equalTo:currentUser];
-    [logQuery orderByDescending:@"createdAt"];
-    logQuery.limit = 10;
-    NSArray *data = [logQuery findObjects];
-    
-    WSData *result = nil;
-    if(data.count > 0){
-        int newCount = data.count;
-        if(data.count < 3){
-            newCount = 3;
-        }
-        float points[newCount];
-        NSString *dates[newCount];
-        for(int i=0; i<newCount;i++){
-            points[i] = 0;
-            dates[i] = @"";
-        }
+    if(currentUser != nil){
+        PFQuery *logQuery = [PFQuery queryWithClassName:@"PointLog"];
+        [logQuery whereKey:@"addedToPointer" equalTo:currentUser];
+        [logQuery orderByDescending:@"createdAt"];
+        logQuery.limit = 10;
+        NSArray *data = [logQuery findObjects];
         
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MM/dd/yy"];
-        for(int i=data.count - 1; i>=0; i--)
-        {
+        if(data.count > 0){
+            int newCount = data.count;
+            if(data.count < 3){
+                newCount = 3;
+            }
+            float points[newCount];
+            NSString *dates[newCount];
+            for(int i=0; i<newCount;i++){
+                points[i] = 0;
+                dates[i] = @"";
+            }
             
-            points[i] = [[[data objectAtIndex:i] objectForKey:@"pointsAdded"] floatValue];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MM/dd/yy"];
+            for(int i=data.count - 1; i>=0; i--)
+            {
+                
+                points[i] = [[[data objectAtIndex:i] objectForKey:@"pointsAdded"] floatValue];
+                
+                dates[i] = [formatter stringFromDate:[[data objectAtIndex:i] createdAt]];
+            }
             
-            dates[i] = [formatter stringFromDate:[[data objectAtIndex:i] createdAt]];
+            
+            result = [[WSData dataWithValues:[WSData arrayWithFloat:points
+                                                                len:newCount]
+                                 annotations:[NSArray arrayWithObjects:dates
+                                                                 count:newCount]]
+                      indexedData];
         }
-        
-        
-        result = [[WSData dataWithValues:[WSData arrayWithFloat:points
-                                                           len:newCount]
-                            annotations:[NSArray arrayWithObjects:dates
-                                                            count:newCount]]
-                  indexedData];
     }
     
     return result;
@@ -103,7 +106,7 @@
         endDates[i] = tuesday;
         tuesday = [tuesday dateByAddingTimeInterval:-7*24*60*60];
     }
-
+    
     //get the entire points log
     PFQuery *query = [PFQuery queryWithClassName:@"PointLog"];
     NSArray *data = [query findObjects];
@@ -119,8 +122,8 @@
         while(!matched && index < 5)
         {
             matched = [ChartData isDate:obj.createdAt
-            greaterThanOrEqual:startDates[index]
-            andLessThanOrEqual:endDates[index]];
+                     greaterThanOrEqual:startDates[index]
+                     andLessThanOrEqual:endDates[index]];
             index++;
         }
         
@@ -138,7 +141,7 @@
     {
         annotationArray[i] = [formatter stringFromDate:startDates[i]];
     }
-
+    
     
     return [[WSData dataWithValues:[WSData arrayWithFloat:pointsForDateRange
                                                       len:5]
@@ -180,7 +183,7 @@
         }
     }
     return retVal;
-
+    
 }
 
 +(int)daysSinceWednesday
@@ -218,10 +221,10 @@
     NSString *annotationArray[3] = {@"Girls", @"Boys", @""};
     return [[WSData dataWithValues:[WSData arrayWithFloat:pointArray
                                                       len:3]
-                         annotations:[NSArray arrayWithObjects:annotationArray
-                                                         count:3]]indexedData];
+                       annotations:[NSArray arrayWithObjects:annotationArray
+                                                       count:3]]indexedData];
     
-
+    
 }
 
 @end

@@ -22,7 +22,7 @@
         self.parseClassName = @"PointLog";
         self.pullToRefreshEnabled = YES;
         
-        self.title = NSLocalizedString(@"History", @"History");
+        self.title = @"Point Log";
         self.tabBarItem.image = [UIImage imageNamed:@"History"];
         
         self.view.backgroundColor = nil;

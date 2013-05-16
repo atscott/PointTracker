@@ -93,7 +93,7 @@ NSString *reason;
     self.emailTextView.font = [UIFont fontWithName:@"Arial" size:18];
     self.emailTextView.textColor = [UIColor whiteColor];
     
-    self.addressTextView.text = [NSString stringWithFormat:@"%@ %@, %@ %@",
+    self.addressTextView.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
                                  [selectedUser objectForKey:@"streetAddress"],
                                  [selectedUser objectForKey:@"city"],
                                  [selectedUser objectForKey:@"state"],
@@ -159,41 +159,51 @@ NSString *reason;
 
 - (IBAction)rmvPointsButtonTapAction:(id)sender
 {
-    UIAlertView *confirmationAlert = [[UIAlertView alloc] initWithTitle:@"Really?" message:@"Are you sure you want to remove these points?" delegate:self cancelButtonTitle:@"Nevermind" otherButtonTitles:@"Yes!", nil];
-    [confirmationAlert show];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Really? Are you sure you want to remove these points?"
+                                                             delegate:self cancelButtonTitle:@"No, Cancel" destructiveButtonTitle:@"Yes, Remove"
+                                                    otherButtonTitles:nil, nil];
+	actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+	[actionSheet showFromTabBar:self.tabBarController.tabBar];
     
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void)removePoints
 {
-    if(buttonIndex == 1)
-    {
-        NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
-        NSNumber *dif = [NSNumber numberWithFloat:([currentPoints floatValue] - [pointValSelected floatValue])];
-        
-        [selectedUser setObject:dif forKey:@"points"];
-        [pointsLabel setText:(@"%@", [dif stringValue])];
-        [selectedUser saveEventually];
-        
-        PFObject *log = [PFObject objectWithClassName:@"PointLog"];
-        [log setObject: self.navigationItem.title forKey:@"addedTo"];
-        [log setObject: selectedUser forKey:@"addedToPointer"];
-        [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
-        [log setObject: @"REMOVED" forKey: @"reason"];
-        [log setObject: pointValSelected forKey:@"pointsAdded"];
-        [log saveEventually];
-    }
+    NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
+    NSNumber *dif = [NSNumber numberWithFloat:([currentPoints floatValue] - [pointValSelected floatValue])];
+    
+    [selectedUser setObject:dif forKey:@"points"];
+    [pointsLabel setText:[NSString stringWithFormat:@"%@",[dif stringValue]]];
+    [selectedUser saveEventually];
+    
+    PFObject *log = [PFObject objectWithClassName:@"PointLog"];
+    [log setObject: self.navigationItem.title forKey:@"addedTo"];
+    [log setObject: selectedUser forKey:@"addedToPointer"];
+    [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
+    [log setObject: @"REMOVED" forKey: @"reason"];
+    [log setObject: pointValSelected forKey:@"pointsAdded"];
+    [log saveEventually];
+    
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    NSLog(@"INDEX:%d", buttonIndex);
     if(buttonIndex == 0)
     {
+        if(actionSheet.destructiveButtonIndex==buttonIndex)
+        {
+            [self removePoints];
+            return;
+        }
         reason = @"Nose";
         NSLog(@"Nose");
     }
     else if(buttonIndex == 1)
     {
+        if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqual: @"No, Cancel"]) {
+            return;
+        }
         reason = @"Blaster";
         NSLog(@"Blaster");
     }
@@ -214,7 +224,7 @@ NSString *reason;
         NSNumber *sum = [NSNumber numberWithFloat:([currentPoints floatValue] + [pointValSelected floatValue])];
         
         [selectedUser setObject:sum forKey:@"points"];
-        [pointsLabel setText:(@"%@", [sum stringValue])];
+        [pointsLabel setText:[NSString stringWithFormat:@"%@", [sum stringValue]]];
         [selectedUser saveEventually];
         
         PFObject *log = [PFObject objectWithClassName:@"PointLog"];

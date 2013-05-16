@@ -10,6 +10,11 @@
 #import <Parse/Parse.h>
 
 @interface CheckinViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *bibleSeg;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *verseSeg;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *friendSeg;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *costumeSeg;
 
 -(id)initWithID:(PFObject *)person;
 

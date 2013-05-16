@@ -129,7 +129,7 @@
         lblMyLabel.numberOfLines = 0;
         lblMyLabel.tag=i;
         lblMyLabel.backgroundColor = [UIColor clearColor];
-        lblMyLabel.textAlignment = UITextAlignmentCenter;
+        lblMyLabel.textAlignment = NSTextAlignmentCenter;
         lblMyLabel.text = [NSString stringWithFormat:@"%d",differ];
         differ = differ + self.difference;
         

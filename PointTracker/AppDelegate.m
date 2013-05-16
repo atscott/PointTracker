@@ -40,7 +40,7 @@
     UINavigationController *scheduleNavController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[listNavController, graphPickerNavController, logNavController, scheduleNavController];
+    self.tabBarController.viewControllers = @[listNavController, scheduleNavController, graphPickerNavController, logNavController];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     

@@ -6,11 +6,7 @@
 //  Copyright (c) 2013 SE4910I. All rights reserved.
 //
 //  This class serves as the base/starting point upon launch of the application.
-//
-//  It it responsible for the following:
-//  - Presenting the Login screen
-//  - Presenting and managing the list of people
-//
+
 
 #import "TableListViewController.h"
 #import "MoreInfoViewController.h"
@@ -64,8 +60,8 @@
         [settingsButton setImage:settingsImage forState:UIControlStateNormal];
         settingsButton.frame = CGRectMake(0, 0, settingsImage.size.width+10, settingsImage.size.height);
         
-        UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
-        [settingsButton addTarget:self action:@selector(settingsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
+        //UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+        //[settingsButton addTarget:self action:@selector(settingsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         
         // Create and place Array of LeftBarButtons
         NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, /*settingsBarButton,*/ nil];
@@ -82,7 +78,6 @@
 {
     [super viewDidAppear:animated];
     [self handleLogin];
-    [self loadObjects];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -90,7 +85,7 @@
     [super viewWillAppear:animated];    
     UIColor * color = [UIColor colorWithRed:130/255.0f green:22/255.0f blue:241/255.0f alpha:1.0f];
     [self.navigationController.navigationBar setTintColor:color];
-
+    [self loadObjects];
 }
 
 -(void) viewDidLoad
@@ -185,7 +180,6 @@
     if ([self.objects count] == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-    //[query orderByDescending:@"points"];
     [query orderByAscending:@"isBoy"];
 
     return query;
@@ -201,7 +195,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell
     NSString *first = [object objectForKey:@"firstName"];
     NSString *last = [object objectForKey:@"lastName"];
     
@@ -210,24 +203,45 @@
     bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
     
     if(isBoy){
-        [cell.textLabel setTextColor: [UIColor colorWithRed:97/255.0f green:10/255.0f blue:245/255.0f alpha:1.0f]];
-        [cell.detailTextLabel setTextColor: [UIColor blackColor]];
         UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
-        [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"boysBack 2.jpeg"]]];
+        [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"finalBoyBack.jpeg"]]];
         cell.backgroundView = back;
     }
     else if(!isBoy){
-        [cell.textLabel setTextColor: [UIColor colorWithRed:141/255.0f green:1/255.0f blue:167/255.0f alpha:1.0f]];
-        [cell.detailTextLabel setTextColor: [UIColor blackColor]];
         UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
-        [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"girlsBack 2.jpeg"]]];
+        [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"girlCellBack.jpeg"]]];
         cell.backgroundView = back;
     }
+    
+    cell.textLabel.textColor = [UIColor grayColor];
+    cell.detailTextLabel.textColor = [UIColor grayColor];
+    
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.accessoryView.backgroundColor = [UIColor clearColor];
-    [cell.accessoryView setBackgroundColor:[UIColor clearColor]];
-    [cell setAccessoryType:UITableViewCellAccessoryDetailDisclosureButton];
+    cell.accessoryView.backgroundColor = [UIColor clearColor];
+    
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    
+    PFQuery *checkinQuery = [PFQuery queryWithClassName:@"Attendance"];
+    [checkinQuery whereKey:@"personPointer" equalTo:object];
+    [checkinQuery orderByAscending:@"date"];
+    [checkinQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(objects.count > 0){
+            PFObject *checkinLog = [objects objectAtIndex:0];
+            NSDate *date = checkinLog.createdAt;
+            NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
+            NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+            if([today day] == [otherDay day] &&
+               [today month] == [otherDay month] &&
+               [today year] == [otherDay year] &&
+               [today era] == [otherDay era]) {
+                    cell.textLabel.textColor = [UIColor blackColor];
+                    cell.detailTextLabel.textColor = [UIColor blackColor];
+            }
+        }
+    }];
+    
     return cell;
 }
 
@@ -239,9 +253,7 @@
     [[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
 }
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Checkin" message:@"This is the checkin feature" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//    [alert show];
-    [[self navigationController]pushViewController:[[CheckinViewController alloc]init] animated:YES];
+    [[self navigationController]pushViewController:[[CheckinViewController alloc]initWithID:idValues[indexPath.row]] animated:YES];
 }
 
 /**************************************************/

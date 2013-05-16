@@ -113,7 +113,7 @@ PFObject *userBeingEdited;
 {
     [super viewWillAppear:animated];
     
-    UINavigationItem *navItem = [self navigationItem];
+    //UINavigationItem *navItem = [self navigationItem];
     
     //[navItem setTitle:@"New Person"];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];

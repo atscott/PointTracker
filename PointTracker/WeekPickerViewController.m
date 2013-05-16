@@ -5,6 +5,7 @@
 //  Created by Nick Lockwood on 03/04/2011.
 //  Copyright 2011 Charcoal Design. All rights reserved.
 //
+//  Adaptions by Andrew Moore 5/14/2013
 
 #import "WeekPickerViewController.h"
 #import "NightDetailViewController.h"
@@ -120,12 +121,14 @@ NSArray *weeks;
 	if (button == nil)
 	{
 		//no button available to recycle, so create new one
+        
 		UIImage *image = [UIImage imageNamed:@"page.png"];
+
 		button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button.titleLabel setFont:[UIFont fontWithName:@"American Typewriter" size:36]];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
 		button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
 		[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-		[button setBackgroundImage:image forState:UIControlStateNormal];
-		button.titleLabel.font = [button.titleLabel.font fontWithSize:50];
 		[button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
 	}
 

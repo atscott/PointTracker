@@ -115,11 +115,6 @@
 		A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49F1726D58800EC4D14 /* Setting@2x.png */; };
 		A754DFCE1741EF6B008EC3E2 /* gray_fabric 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFCD1741EF6B008EC3E2 /* gray_fabric 2.jpg */; };
 		A754DFD01741F0A9008EC3E2 /* gridBackground 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFCF1741F0A9008EC3E2 /* gridBackground 2.jpg */; };
-		A754DFD21741F48E008EC3E2 /* girlGradient 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFD11741F48E008EC3E2 /* girlGradient 2.jpeg */; };
-		A754DFD51741F614008EC3E2 /* boysCellBack 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFD31741F613008EC3E2 /* boysCellBack 2.jpeg */; };
-		A754DFD61741F614008EC3E2 /* girlsCellBack 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFD41741F613008EC3E2 /* girlsCellBack 2.jpeg */; };
-		A754DFD917420338008EC3E2 /* boysBack 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFD717420337008EC3E2 /* boysBack 2.jpeg */; };
-		A754DFDA17420338008EC3E2 /* girlsBack 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFD817420338008EC3E2 /* girlsBack 2.jpeg */; };
 		A754DFDC17421116008EC3E2 /* nightBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A754DFDB17421115008EC3E2 /* nightBack.png */; };
 		A754DFDE17421716008EC3E2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A754DFDD17421716008EC3E2 /* ImageIO.framework */; };
 		A754DFE01742171F008EC3E2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A754DFDF1742171F008EC3E2 /* MessageUI.framework */; };
@@ -149,6 +144,13 @@
 		A754E02A174219F7008EC3E2 /* KidBlast Bible topic list.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A754E029174219F7008EC3E2 /* KidBlast Bible topic list.pdf */; };
 		A754E02E174221DA008EC3E2 /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754E02C174221D9008EC3E2 /* CheckinViewController.m */; };
 		A754E02F174221DA008EC3E2 /* CheckinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A754E02D174221D9008EC3E2 /* CheckinViewController.xib */; };
+		A754E03417428C7B008EC3E2 /* boyCheckedinBack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754E03017428C7B008EC3E2 /* boyCheckedinBack.jpeg */; };
+		A754E03517428C7B008EC3E2 /* boyCellBack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754E03117428C7B008EC3E2 /* boyCellBack.jpeg */; };
+		A754E03617428C7B008EC3E2 /* girlCheckedinBack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754E03217428C7B008EC3E2 /* girlCheckedinBack.jpeg */; };
+		A754E03717428C7B008EC3E2 /* girlCellBack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754E03317428C7B008EC3E2 /* girlCellBack.jpeg */; };
+		A754E03917428E2D008EC3E2 /* girlCheckedBack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754E03817428E2D008EC3E2 /* girlCheckedBack.jpeg */; };
+		A754E03C17428F06008EC3E2 /* finalBoyBack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754E03A17428F06008EC3E2 /* finalBoyBack.jpeg */; };
+		A754E03D17428F06008EC3E2 /* finalGirlBack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754E03B17428F06008EC3E2 /* finalGirlBack.jpeg */; };
 		A7667B3E173746D100E2E64D /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7667B3D173746D100E2E64D /* EventKit.framework */; };
 		A7667B40173746D700E2E64D /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7667B3F173746D700E2E64D /* EventKitUI.framework */; };
 		A76AB1071741826300D7D960 /* newBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A76AB1051741826300D7D960 /* newBackground@2x.png */; };
@@ -388,11 +390,6 @@
 		A751E49F1726D58800EC4D14 /* Setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Setting@2x.png"; sourceTree = "<group>"; };
 		A754DFCD1741EF6B008EC3E2 /* gray_fabric 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gray_fabric 2.jpg"; sourceTree = "<group>"; };
 		A754DFCF1741F0A9008EC3E2 /* gridBackground 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gridBackground 2.jpg"; sourceTree = "<group>"; };
-		A754DFD11741F48E008EC3E2 /* girlGradient 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "girlGradient 2.jpeg"; sourceTree = "<group>"; };
-		A754DFD31741F613008EC3E2 /* boysCellBack 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "boysCellBack 2.jpeg"; sourceTree = "<group>"; };
-		A754DFD41741F613008EC3E2 /* girlsCellBack 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "girlsCellBack 2.jpeg"; sourceTree = "<group>"; };
-		A754DFD717420337008EC3E2 /* boysBack 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "boysBack 2.jpeg"; sourceTree = "<group>"; };
-		A754DFD817420338008EC3E2 /* girlsBack 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "girlsBack 2.jpeg"; sourceTree = "<group>"; };
 		A754DFDB17421115008EC3E2 /* nightBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nightBack.png; sourceTree = "<group>"; };
 		A754DFDD17421716008EC3E2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		A754DFDF1742171F008EC3E2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -446,6 +443,13 @@
 		A754E02B174221D9008EC3E2 /* CheckinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinViewController.h; sourceTree = "<group>"; };
 		A754E02C174221D9008EC3E2 /* CheckinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinViewController.m; sourceTree = "<group>"; };
 		A754E02D174221D9008EC3E2 /* CheckinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinViewController.xib; sourceTree = "<group>"; };
+		A754E03017428C7B008EC3E2 /* boyCheckedinBack.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boyCheckedinBack.jpeg; sourceTree = "<group>"; };
+		A754E03117428C7B008EC3E2 /* boyCellBack.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boyCellBack.jpeg; sourceTree = "<group>"; };
+		A754E03217428C7B008EC3E2 /* girlCheckedinBack.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girlCheckedinBack.jpeg; sourceTree = "<group>"; };
+		A754E03317428C7B008EC3E2 /* girlCellBack.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girlCellBack.jpeg; sourceTree = "<group>"; };
+		A754E03817428E2D008EC3E2 /* girlCheckedBack.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girlCheckedBack.jpeg; sourceTree = "<group>"; };
+		A754E03A17428F06008EC3E2 /* finalBoyBack.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = finalBoyBack.jpeg; sourceTree = "<group>"; };
+		A754E03B17428F06008EC3E2 /* finalGirlBack.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = finalGirlBack.jpeg; sourceTree = "<group>"; };
 		A7667B3D173746D100E2E64D /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		A7667B3F173746D700E2E64D /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		A76AB1051741826300D7D960 /* newBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newBackground@2x.png"; sourceTree = "<group>"; };
@@ -854,12 +858,14 @@
 		A72C22731729B96800E6D9DA /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				A754E03A17428F06008EC3E2 /* finalBoyBack.jpeg */,
+				A754E03B17428F06008EC3E2 /* finalGirlBack.jpeg */,
+				A754E03817428E2D008EC3E2 /* girlCheckedBack.jpeg */,
+				A754E03017428C7B008EC3E2 /* boyCheckedinBack.jpeg */,
+				A754E03117428C7B008EC3E2 /* boyCellBack.jpeg */,
+				A754E03217428C7B008EC3E2 /* girlCheckedinBack.jpeg */,
+				A754E03317428C7B008EC3E2 /* girlCellBack.jpeg */,
 				A754DFDB17421115008EC3E2 /* nightBack.png */,
-				A754DFD717420337008EC3E2 /* boysBack 2.jpeg */,
-				A754DFD817420338008EC3E2 /* girlsBack 2.jpeg */,
-				A754DFD31741F613008EC3E2 /* boysCellBack 2.jpeg */,
-				A754DFD41741F613008EC3E2 /* girlsCellBack 2.jpeg */,
-				A754DFD11741F48E008EC3E2 /* girlGradient 2.jpeg */,
 				A754DFCF1741F0A9008EC3E2 /* gridBackground 2.jpg */,
 				A754DFCD1741EF6B008EC3E2 /* gray_fabric 2.jpg */,
 				A76AB1051741826300D7D960 /* newBackground@2x.png */,
@@ -1170,14 +1176,16 @@
 				A76AB1081741826300D7D960 /* newBackground.png in Resources */,
 				A754DFCE1741EF6B008EC3E2 /* gray_fabric 2.jpg in Resources */,
 				A754DFD01741F0A9008EC3E2 /* gridBackground 2.jpg in Resources */,
-				A754DFD21741F48E008EC3E2 /* girlGradient 2.jpeg in Resources */,
-				A754DFD51741F614008EC3E2 /* boysCellBack 2.jpeg in Resources */,
-				A754DFD61741F614008EC3E2 /* girlsCellBack 2.jpeg in Resources */,
-				A754DFD917420338008EC3E2 /* boysBack 2.jpeg in Resources */,
-				A754DFDA17420338008EC3E2 /* girlsBack 2.jpeg in Resources */,
 				A754DFDC17421116008EC3E2 /* nightBack.png in Resources */,
 				A754E02A174219F7008EC3E2 /* KidBlast Bible topic list.pdf in Resources */,
 				A754E02F174221DA008EC3E2 /* CheckinViewController.xib in Resources */,
+				A754E03417428C7B008EC3E2 /* boyCheckedinBack.jpeg in Resources */,
+				A754E03517428C7B008EC3E2 /* boyCellBack.jpeg in Resources */,
+				A754E03617428C7B008EC3E2 /* girlCheckedinBack.jpeg in Resources */,
+				A754E03717428C7B008EC3E2 /* girlCellBack.jpeg in Resources */,
+				A754E03917428E2D008EC3E2 /* girlCheckedBack.jpeg in Resources */,
+				A754E03C17428F06008EC3E2 /* finalBoyBack.jpeg in Resources */,
+				A754E03D17428F06008EC3E2 /* finalGirlBack.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

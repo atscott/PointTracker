@@ -39,8 +39,20 @@ PFObject *night;
 {
     [super viewDidLoad];
     titleLabel.text = [night objectForKey:@"title"];
-    topicLabel.text = [night objectForKey:@"topic"];
-    verseLabel.text = [night objectForKey:@"verse"];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [UIFont fontWithName:@"American Typewriter" size:30];
+    
+    topicLabel.text = [NSString stringWithFormat:@"Topic:\r %@",[night objectForKey:@"topic"]];
+    topicLabel.textColor = [UIColor whiteColor];
+    topicLabel.textAlignment = NSTextAlignmentCenter;
+    topicLabel.font = [UIFont fontWithName:@"American Typewriter" size:20];
+    
+    verseLabel.text = [NSString stringWithFormat:@"Memory Verse: \r%@", [night objectForKey:@"verse"]];
+    verseLabel.textColor = [UIColor whiteColor];
+    verseLabel.textAlignment = NSTextAlignmentCenter;
+    verseLabel.font = [UIFont fontWithName:@"American Typewriter" size:20];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
