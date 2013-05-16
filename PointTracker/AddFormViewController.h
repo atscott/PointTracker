@@ -9,6 +9,11 @@
 @interface AddFormViewController : UITableViewController
 <UITextFieldDelegate>
 {
+    
+    bool isBoy;
+    int gradeIndex;
+    int genderIndex;
+    PFObject *userBeingEdited;
 	NSString *_firstName;
     NSString *_lastName;
     NSString *_email;

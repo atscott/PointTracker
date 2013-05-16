@@ -665,8 +665,6 @@
 		63EA8FC0171DE83400E5BEB5 = {
 			isa = PBXGroup;
 			children = (
-				A754DFDF1742171F008EC3E2 /* MessageUI.framework */,
-				A754DFDD17421716008EC3E2 /* ImageIO.framework */,
 				63EA8FD2171DE83400E5BEB5 /* PointTracker */,
 				63EA8FCB171DE83400E5BEB5 /* Frameworks */,
 				63EA8FCA171DE83400E5BEB5 /* Products */,
@@ -684,6 +682,8 @@
 		63EA8FCB171DE83400E5BEB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A754DFDF1742171F008EC3E2 /* MessageUI.framework */,
+				A754DFDD17421716008EC3E2 /* ImageIO.framework */,
 				A7667B3F173746D700E2E64D /* EventKitUI.framework */,
 				A7667B3D173746D100E2E64D /* EventKit.framework */,
 				6347FFF41729A01F00CF12D4 /* PowerPlot_lib */,

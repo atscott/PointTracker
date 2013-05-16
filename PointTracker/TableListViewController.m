@@ -118,7 +118,6 @@
 - (IBAction)addNewItem:(id)sender
 {
     AddFormViewController *addForm = [[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped];
-    [addForm setUserBeingEdited:nil];
     
     [[self navigationController] pushViewController:addForm animated:YES];
 }

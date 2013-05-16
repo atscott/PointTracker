@@ -12,10 +12,7 @@
 @end
 
 @implementation AddFormViewController
-bool isBoy;
-int gradeIndex;
-int genderIndex;
-PFObject *userBeingEdited;
+
 
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
