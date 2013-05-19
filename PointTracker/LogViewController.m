@@ -1,6 +1,5 @@
 //
 //  LogViewController.m
-//  PointTracker
 //
 //  Created by Andrew Moore on 4/17/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.
@@ -118,8 +117,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    //[[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
 }
-
 
 @end

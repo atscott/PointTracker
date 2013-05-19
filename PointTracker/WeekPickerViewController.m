@@ -5,7 +5,7 @@
 //  Created by Nick Lockwood on 03/04/2011.
 //  Copyright 2011 Charcoal Design. All rights reserved.
 //
-//  Adaptions by Andrew Moore 5/14/2013
+//  Adaptions by Andrew Moore on 5/14/2013
 
 #import "WeekPickerViewController.h"
 #import "NightDetailViewController.h"
@@ -44,13 +44,6 @@ NSArray *weeks;
 
 -(IBAction)downloadStuffConfirm:(id)sender
 {
-//    UIAlertView *confirmation = [[UIAlertView alloc]initWithTitle:@"Hey there!" message:@"You sure you want to download the whole schedule as a PDF?" delegate:self cancelButtonTitle:@"Nevermind" otherButtonTitles:@"Yes Sir!", nil];
-//    [confirmation show];
-    
-    //        PFQuery *query = [PFQuery queryWithClassName:@"Lessons"];
-    //        NSArray *pdfArray = [query findObjects];
-    //        FILE *pdfFile = (__bridge FILE *)([pdfArray[0] objectForKey:@"lesson"]);
-    
     NSString *file = [[NSBundle mainBundle] pathForResource:@"KidBlast Bible topic list" ofType:@"pdf"];
     ReaderDocument *document = [ReaderDocument withDocumentFilePath:file password:nil];
     
@@ -62,14 +55,6 @@ NSArray *weeks;
         readerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
         
         [[self navigationController] pushViewController:readerViewController animated:YES];
-    }
-}
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 1)
-    {
-
     }
 }
 

@@ -1,11 +1,9 @@
 //
-//  AddPersonViewController.m
-//  tableViewLearning
+//  AddFormViewController.m
 //
-//  Created by Andrew Moore on 4/16/13.
-//  Copyright (c) 2013 moorea. All rights reserved.
+//  Created by Andrew Moore on 4/22/13.
+//  Copyright (c) 2013 SE4910I. All rights reserved.
 //
-
 #import "AddFormViewController.h"
 @interface AddFormViewController ()
 

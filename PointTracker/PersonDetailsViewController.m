@@ -1,6 +1,5 @@
 //
 //  PersonDetailsViewController.m
-//  PointTracker
 //
 //  Created by Andrew Moore on 4/25/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.

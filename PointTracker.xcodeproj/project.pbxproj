@@ -103,12 +103,9 @@
 		A74FB43F1731716D00E19D03 /* WeekIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43E1731716D00E19D03 /* WeekIcon.png */; };
 		A750544717334D6A003C9A86 /* PaperTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A750544617334D6A003C9A86 /* PaperTexture.jpg */; };
 		A750544917335180003C9A86 /* CoolTexture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A750544817335180003C9A86 /* CoolTexture1.jpg */; };
-		A750544B17335226003C9A86 /* CoolTexture2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A750544A17335226003C9A86 /* CoolTexture2.jpg */; };
-		A750544D17335365003C9A86 /* rainbow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A750544C17335365003C9A86 /* rainbow.jpg */; };
 		A751E4A01726D58800EC4D14 /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49E1726D58700EC4D14 /* Setting.png */; };
 		A751E4A11726D58800EC4D14 /* Setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A751E49F1726D58800EC4D14 /* Setting@2x.png */; };
 		A754DFCE1741EF6B008EC3E2 /* gray_fabric 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFCD1741EF6B008EC3E2 /* gray_fabric 2.jpg */; };
-		A754DFD01741F0A9008EC3E2 /* gridBackground 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A754DFCF1741F0A9008EC3E2 /* gridBackground 2.jpg */; };
 		A754DFDC17421116008EC3E2 /* nightBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A754DFDB17421115008EC3E2 /* nightBack.png */; };
 		A754DFDE17421716008EC3E2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A754DFDD17421716008EC3E2 /* ImageIO.framework */; };
 		A754DFE01742171F008EC3E2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A754DFDF1742171F008EC3E2 /* MessageUI.framework */; };
@@ -154,9 +151,6 @@
 		A79E56C317384D7F000B1D45 /* Home-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C017384D7F000B1D45 /* Home-568@2x.png */; };
 		A79E56C417384D7F000B1D45 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C117384D7F000B1D45 /* Home.png */; };
 		A79E56C517384D7F000B1D45 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C217384D7F000B1D45 /* Home@2x.png */; };
-		A79E56C917384D9F000B1D45 /* HomeBackground-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C617384D9E000B1D45 /* HomeBackground-568@2x.png */; };
-		A79E56CA17384D9F000B1D45 /* HomeBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C717384D9E000B1D45 /* HomeBackground@2x.png */; };
-		A79E56CB17384D9F000B1D45 /* HomeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C817384D9E000B1D45 /* HomeBackground.png */; };
 		A7A1E46217355185005D705C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A1E46117355185005D705C /* Icon.png */; };
 		A7A1E46417355189005D705C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A1E46317355189005D705C /* Icon@2x.png */; };
 		A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38623171FFAEF007B5E4F /* Logout@2x.png */; };
@@ -372,12 +366,9 @@
 		A74FB43E1731716D00E19D03 /* WeekIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeekIcon.png; sourceTree = "<group>"; };
 		A750544617334D6A003C9A86 /* PaperTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PaperTexture.jpg; sourceTree = "<group>"; };
 		A750544817335180003C9A86 /* CoolTexture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CoolTexture1.jpg; sourceTree = "<group>"; };
-		A750544A17335226003C9A86 /* CoolTexture2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CoolTexture2.jpg; sourceTree = "<group>"; };
-		A750544C17335365003C9A86 /* rainbow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rainbow.jpg; sourceTree = "<group>"; };
 		A751E49E1726D58700EC4D14 /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting.png; sourceTree = "<group>"; };
 		A751E49F1726D58800EC4D14 /* Setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Setting@2x.png"; sourceTree = "<group>"; };
 		A754DFCD1741EF6B008EC3E2 /* gray_fabric 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gray_fabric 2.jpg"; sourceTree = "<group>"; };
-		A754DFCF1741F0A9008EC3E2 /* gridBackground 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gridBackground 2.jpg"; sourceTree = "<group>"; };
 		A754DFDB17421115008EC3E2 /* nightBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nightBack.png; sourceTree = "<group>"; };
 		A754DFDD17421716008EC3E2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		A754DFDF1742171F008EC3E2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -448,9 +439,6 @@
 		A79E56C017384D7F000B1D45 /* Home-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-568@2x.png"; sourceTree = "<group>"; };
 		A79E56C117384D7F000B1D45 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		A79E56C217384D7F000B1D45 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
-		A79E56C617384D9E000B1D45 /* HomeBackground-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeBackground-568@2x.png"; sourceTree = "<group>"; };
-		A79E56C717384D9E000B1D45 /* HomeBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeBackground@2x.png"; sourceTree = "<group>"; };
-		A79E56C817384D9E000B1D45 /* HomeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeBackground.png; sourceTree = "<group>"; };
 		A7A1E46117355185005D705C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		A7A1E46317355189005D705C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		A7A38623171FFAEF007B5E4F /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
@@ -694,7 +682,6 @@
 		63EA8FD2171DE83400E5BEB5 /* PointTracker */ = {
 			isa = PBXGroup;
 			children = (
-				A7BFA24E1725D779001EF111 /* BButton */,
 				A711E0A8171FA7C6003F6224 /* Assets */,
 				A711E0A3171FA075003F6224 /* Screens */,
 				63EA8FDB171DE83400E5BEB5 /* AppDelegate.h */,
@@ -735,6 +722,7 @@
 		A711E0A4171FA0BC003F6224 /* ListTab */ = {
 			isa = PBXGroup;
 			children = (
+				A7BFA24E1725D779001EF111 /* BButton */,
 				A7D13DC21730FEEB0017AF3C /* TDRatingScale */,
 				A7C955781725939300F683FC /* CustomLoginView */,
 				A72C226B1729AFAF00E6D9DA /* AddFormViewController.h */,
@@ -789,8 +777,6 @@
 				A7A59D4B1739A16200D944BB /* WeekPickerViewController.m */,
 				A7A59D4C1739A16200D944BB /* WeekPickerViewController.h */,
 				A7A59D4D1739A16200D944BB /* WeekPickerViewController.xib */,
-				A7A59D4E1739A16200D944BB /* background.png */,
-				A7A59D4F1739A16200D944BB /* page.png */,
 				A7A59D471739A13200D944BB /* iCarousel */,
 				A7A59D591739BE0E00D944BB /* NightDetailViewController.h */,
 				A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */,
@@ -836,6 +822,8 @@
 		A72C22731729B96800E6D9DA /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				A7A59D4F1739A16200D944BB /* page.png */,
+				A7A59D4E1739A16200D944BB /* background.png */,
 				A754E03A17428F06008EC3E2 /* finalBoyBack.jpeg */,
 				A754E03B17428F06008EC3E2 /* finalGirlBack.jpeg */,
 				A754E03817428E2D008EC3E2 /* girlCheckedBack.jpeg */,
@@ -844,15 +832,9 @@
 				A754E03217428C7B008EC3E2 /* girlCheckedinBack.jpeg */,
 				A754E03317428C7B008EC3E2 /* girlCellBack.jpeg */,
 				A754DFDB17421115008EC3E2 /* nightBack.png */,
-				A754DFCF1741F0A9008EC3E2 /* gridBackground 2.jpg */,
 				A754DFCD1741EF6B008EC3E2 /* gray_fabric 2.jpg */,
 				A76AB1051741826300D7D960 /* newBackground@2x.png */,
 				A76AB1061741826300D7D960 /* newBackground.png */,
-				A79E56C617384D9E000B1D45 /* HomeBackground-568@2x.png */,
-				A79E56C717384D9E000B1D45 /* HomeBackground@2x.png */,
-				A79E56C817384D9E000B1D45 /* HomeBackground.png */,
-				A750544C17335365003C9A86 /* rainbow.jpg */,
-				A750544A17335226003C9A86 /* CoolTexture2.jpg */,
 				A750544817335180003C9A86 /* CoolTexture1.jpg */,
 				A750544617334D6A003C9A86 /* PaperTexture.jpg */,
 				A74FB431173168B000E19D03 /* classy_fabric.png */,
@@ -1133,17 +1115,12 @@
 				A74FB43F1731716D00E19D03 /* WeekIcon.png in Resources */,
 				A750544717334D6A003C9A86 /* PaperTexture.jpg in Resources */,
 				A750544917335180003C9A86 /* CoolTexture1.jpg in Resources */,
-				A750544B17335226003C9A86 /* CoolTexture2.jpg in Resources */,
-				A750544D17335365003C9A86 /* rainbow.jpg in Resources */,
 				A7A1E46217355185005D705C /* Icon.png in Resources */,
 				A7A1E46417355189005D705C /* Icon@2x.png in Resources */,
 				A78BB47B1735A70C00E35573 /* PersonHomeViewController.xib in Resources */,
 				A79E56C317384D7F000B1D45 /* Home-568@2x.png in Resources */,
 				A79E56C417384D7F000B1D45 /* Home.png in Resources */,
 				A79E56C517384D7F000B1D45 /* Home@2x.png in Resources */,
-				A79E56C917384D9F000B1D45 /* HomeBackground-568@2x.png in Resources */,
-				A79E56CA17384D9F000B1D45 /* HomeBackground@2x.png in Resources */,
-				A79E56CB17384D9F000B1D45 /* HomeBackground.png in Resources */,
 				A7A59D511739A16200D944BB /* WeekPickerViewController.xib in Resources */,
 				A7A59D521739A16200D944BB /* background.png in Resources */,
 				A7A59D531739A16200D944BB /* page.png in Resources */,
@@ -1151,7 +1128,6 @@
 				A76AB1071741826300D7D960 /* newBackground@2x.png in Resources */,
 				A76AB1081741826300D7D960 /* newBackground.png in Resources */,
 				A754DFCE1741EF6B008EC3E2 /* gray_fabric 2.jpg in Resources */,
-				A754DFD01741F0A9008EC3E2 /* gridBackground 2.jpg in Resources */,
 				A754DFDC17421116008EC3E2 /* nightBack.png in Resources */,
 				A754E02A174219F7008EC3E2 /* KidBlast Bible topic list.pdf in Resources */,
 				A754E02F174221DA008EC3E2 /* CheckinViewController.xib in Resources */,

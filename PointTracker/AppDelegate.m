@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  PointTracker
 //
-//  Created by Andrew Scott on 4/16/13.
+//  Created by Andrew Moore on 4/16/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.
 //
 

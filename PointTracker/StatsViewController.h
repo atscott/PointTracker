@@ -2,7 +2,7 @@
 //  StatsViewController.h
 //  PointTracker
 //
-//  Created by Andrew Moore on 4/17/13.
+//  Created by Andrew Scott on 4/17/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.
 //
 

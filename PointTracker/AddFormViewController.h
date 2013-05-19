@@ -1,8 +1,9 @@
 //
-//  FormTableController.h
-//  TableWithTextField
+//  AddFormViewController.h
 //
-//  Created by Andrew Lim on 4/15/11.
+//  Created by Andrew Moore on 4/22/13.
+//  Copyright (c) 2013 SE4910I. All rights reserved.
+//
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 

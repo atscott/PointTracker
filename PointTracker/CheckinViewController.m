@@ -1,6 +1,5 @@
 //
 //  CheckinViewController.m
-//  PointTracker
 //
 //  Created by Andrew Moore on 5/14/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.

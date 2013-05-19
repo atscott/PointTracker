@@ -1,6 +1,5 @@
 //
 //  SettingsViewController.h
-//  PointTracker
 //
 //  Created by Andrew Moore on 4/22/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.

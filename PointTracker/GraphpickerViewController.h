@@ -2,7 +2,7 @@
 //  GraphpickerViewController.h
 //  PointTracker
 //
-//  Created by wxynot on 4/28/13.
+//  Created by Andrew Moore on 4/28/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.
 //
 
