@@ -21,10 +21,6 @@
 @synthesize phoneNumberTextView;
 @synthesize pointsLabel;
 
-NSNumber *pointValSelected;
-PFObject *selectedUser;
-NSString *reason;
-
 -(id)initWithID:(PFObject *)person
 {
     self = [super init];

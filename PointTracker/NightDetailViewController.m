@@ -18,8 +18,6 @@
 @synthesize topicLabel;
 @synthesize verseLabel;
 
-PFObject *night;
-
 -(id)initWithNight:(id)theNight
 {
     self = [super init];

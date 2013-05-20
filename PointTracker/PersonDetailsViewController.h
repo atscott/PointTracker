@@ -14,6 +14,9 @@
 <TDRatingViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 {
     TDRatingView *pointScale;
+    NSNumber *pointValSelected;
+    PFObject *selectedUser;
+    NSString *reason;
 }
 @property (weak, nonatomic) IBOutlet UILabel *gradeGenderLabel;
 @property (weak, nonatomic) IBOutlet UITextView *addressTextView;

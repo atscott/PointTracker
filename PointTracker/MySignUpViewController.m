@@ -1,10 +1,11 @@
 //
 //  MySignUpViewController.m
-//  LogInAndSignUpDemo
 //
 //  Created by Mattieu Gamache-Asselin on 6/15/12.
 //  Copyright (c) 2012 Parse. All rights reserved.
 //
+//  Modifications by Andrew Moore on 5/1/13
+
 
 #import "MySignUpViewController.h"
 #import <QuartzCore/QuartzCore.h>

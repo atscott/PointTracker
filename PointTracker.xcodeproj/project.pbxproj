@@ -68,8 +68,6 @@
 		A711E0AD171FA802003F6224 /* List.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0AB171FA802003F6224 /* List.png */; };
 		A711E0B0171FA839003F6224 /* Stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0AE171FA839003F6224 /* Stats@2x.png */; };
 		A711E0B1171FA839003F6224 /* Stats.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0AF171FA839003F6224 /* Stats.png */; };
-		A711E0B4171FA84D003F6224 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0B2171FA84D003F6224 /* Home@2x.png */; };
-		A711E0B5171FA84D003F6224 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0B3171FA84D003F6224 /* Home.png */; };
 		A711E0B8171FA877003F6224 /* Schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0B6171FA877003F6224 /* Schedule@2x.png */; };
 		A711E0B9171FA877003F6224 /* Schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0B7171FA877003F6224 /* Schedule.png */; };
 		A711E0BC171FA896003F6224 /* Person.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0BA171FA896003F6224 /* Person.png */; };
@@ -90,8 +88,6 @@
 		A72979C8171DF11F00693480 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979C7171DF11F00693480 /* Security.framework */; };
 		A72979CA171DF12700693480 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979C9171DF12700693480 /* StoreKit.framework */; };
 		A72979CC171DF13400693480 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979CB171DF13400693480 /* SystemConfiguration.framework */; };
-		A72979EE171E2CB600693480 /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72979EA171E2CB500693480 /* MoreInfoViewController.m */; };
-		A72979EF171E2CB600693480 /* MoreInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72979EB171E2CB500693480 /* MoreInfoViewController.xib */; };
 		A72C226A1729AEFF00E6D9DA /* TableListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C22691729AEFF00E6D9DA /* TableListViewController.m */; };
 		A72C226D1729AFAF00E6D9DA /* AddFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226C1729AFAF00E6D9DA /* AddFormViewController.m */; };
 		A72C22711729B17D00E6D9DA /* PersonDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */; };
@@ -146,11 +142,7 @@
 		A7667B40173746D700E2E64D /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7667B3F173746D700E2E64D /* EventKitUI.framework */; };
 		A76AB1071741826300D7D960 /* newBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A76AB1051741826300D7D960 /* newBackground@2x.png */; };
 		A76AB1081741826300D7D960 /* newBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = A76AB1061741826300D7D960 /* newBackground.png */; };
-		A78BB47A1735A70C00E35573 /* PersonHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78BB4781735A70C00E35573 /* PersonHomeViewController.m */; };
-		A78BB47B1735A70C00E35573 /* PersonHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A78BB4791735A70C00E35573 /* PersonHomeViewController.xib */; };
 		A79E56C317384D7F000B1D45 /* Home-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C017384D7F000B1D45 /* Home-568@2x.png */; };
-		A79E56C417384D7F000B1D45 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C117384D7F000B1D45 /* Home.png */; };
-		A79E56C517384D7F000B1D45 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A79E56C217384D7F000B1D45 /* Home@2x.png */; };
 		A7A1E46217355185005D705C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A1E46117355185005D705C /* Icon.png */; };
 		A7A1E46417355189005D705C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A1E46317355189005D705C /* Icon@2x.png */; };
 		A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A38623171FFAEF007B5E4F /* Logout@2x.png */; };
@@ -162,8 +154,6 @@
 		A7A59D531739A16200D944BB /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4F1739A16200D944BB /* page.png */; };
 		A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */; };
 		A7A59D5D1739BE0F00D944BB /* NightDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D5B1739BE0E00D944BB /* NightDetailViewController.xib */; };
-		A7BFA2411725D3C5001EF111 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA23F1725D3C5001EF111 /* SettingsViewController.m */; };
-		A7BFA2421725D3C5001EF111 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BFA2401725D3C5001EF111 /* SettingsViewController.xib */; };
 		A7BFA24A1725D775001EF111 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA2441725D775001EF111 /* BButton.m */; };
 		A7BFA24B1725D775001EF111 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA2461725D775001EF111 /* NSString+FontAwesome.m */; };
 		A7BFA24C1725D775001EF111 /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA2481725D775001EF111 /* UIColor+BButton.m */; };
@@ -172,16 +162,10 @@
 		A7BFA2521725E20D001EF111 /* SignOut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BFA2511725E20D001EF111 /* SignOut@2x.png */; };
 		A7C955901725941000F683FC /* Exit.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955841725940E00F683FC /* Exit.png */; };
 		A7C955911725941000F683FC /* ExitDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955851725940E00F683FC /* ExitDown.png */; };
-		A7C955921725941000F683FC /* Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955861725940E00F683FC /* Facebook.png */; };
-		A7C955931725941000F683FC /* FacebookDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955871725940E00F683FC /* FacebookDown.png */; };
 		A7C955941725941000F683FC /* LoginFieldBG.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955881725940E00F683FC /* LoginFieldBG.png */; };
-		A7C955951725941000F683FC /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955891725940F00F683FC /* Logo.png */; };
-		A7C955961725941000F683FC /* MainBG.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C9558A1725940F00F683FC /* MainBG.png */; };
 		A7C955971725941000F683FC /* SignUp.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C9558B1725940F00F683FC /* SignUp.png */; };
 		A7C955981725941000F683FC /* SignUpDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C9558C1725940F00F683FC /* SignUpDown.png */; };
 		A7C955991725941000F683FC /* SignUpFieldBG.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C9558D1725940F00F683FC /* SignUpFieldBG.png */; };
-		A7C9559A1725941000F683FC /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C9558E1725941000F683FC /* Twitter.png */; };
-		A7C9559B1725941000F683FC /* TwitterDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C9558F1725941000F683FC /* TwitterDown.png */; };
 		A7C955A51725943200F683FC /* MyLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C955A01725943200F683FC /* MyLogInViewController.m */; };
 		A7C955A61725943200F683FC /* MySignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C955A21725943200F683FC /* MySignUpViewController.m */; };
 		A7C955A81725A24A00F683FC /* Logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955A71725A24900F683FC /* Logo2.png */; };
@@ -325,8 +309,6 @@
 		A711E0AB171FA802003F6224 /* List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List.png; sourceTree = "<group>"; };
 		A711E0AE171FA839003F6224 /* Stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stats@2x.png"; sourceTree = "<group>"; };
 		A711E0AF171FA839003F6224 /* Stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stats.png; sourceTree = "<group>"; };
-		A711E0B2171FA84D003F6224 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
-		A711E0B3171FA84D003F6224 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		A711E0B6171FA877003F6224 /* Schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Schedule@2x.png"; sourceTree = "<group>"; };
 		A711E0B7171FA877003F6224 /* Schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Schedule.png; sourceTree = "<group>"; };
 		A711E0BA171FA896003F6224 /* Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person.png; sourceTree = "<group>"; };
@@ -349,9 +331,6 @@
 		A72979C7171DF11F00693480 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A72979C9171DF12700693480 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A72979CB171DF13400693480 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A72979E9171E2CB500693480 /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInfoViewController.h; sourceTree = "<group>"; };
-		A72979EA171E2CB500693480 /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoViewController.m; sourceTree = "<group>"; };
-		A72979EB171E2CB500693480 /* MoreInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreInfoViewController.xib; sourceTree = "<group>"; };
 		A72C22681729AEFF00E6D9DA /* TableListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableListViewController.h; sourceTree = "<group>"; };
 		A72C22691729AEFF00E6D9DA /* TableListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableListViewController.m; sourceTree = "<group>"; };
 		A72C226B1729AFAF00E6D9DA /* AddFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFormViewController.h; sourceTree = "<group>"; };
@@ -433,12 +412,7 @@
 		A7667B3F173746D700E2E64D /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		A76AB1051741826300D7D960 /* newBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newBackground@2x.png"; sourceTree = "<group>"; };
 		A76AB1061741826300D7D960 /* newBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newBackground.png; sourceTree = "<group>"; };
-		A78BB4771735A70C00E35573 /* PersonHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHomeViewController.h; sourceTree = "<group>"; };
-		A78BB4781735A70C00E35573 /* PersonHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHomeViewController.m; sourceTree = "<group>"; };
-		A78BB4791735A70C00E35573 /* PersonHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonHomeViewController.xib; sourceTree = "<group>"; };
 		A79E56C017384D7F000B1D45 /* Home-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-568@2x.png"; sourceTree = "<group>"; };
-		A79E56C117384D7F000B1D45 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
-		A79E56C217384D7F000B1D45 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
 		A7A1E46117355185005D705C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		A7A1E46317355189005D705C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		A7A38623171FFAEF007B5E4F /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
@@ -453,9 +427,6 @@
 		A7A59D591739BE0E00D944BB /* NightDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NightDetailViewController.h; sourceTree = "<group>"; };
 		A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NightDetailViewController.m; sourceTree = "<group>"; };
 		A7A59D5B1739BE0E00D944BB /* NightDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NightDetailViewController.xib; sourceTree = "<group>"; };
-		A7BFA23E1725D3C5001EF111 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		A7BFA23F1725D3C5001EF111 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		A7BFA2401725D3C5001EF111 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		A7BFA2431725D774001EF111 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		A7BFA2441725D775001EF111 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		A7BFA2451725D775001EF111 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
@@ -467,16 +438,10 @@
 		A7BFA2511725E20D001EF111 /* SignOut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SignOut@2x.png"; sourceTree = "<group>"; };
 		A7C955841725940E00F683FC /* Exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Exit.png; sourceTree = "<group>"; };
 		A7C955851725940E00F683FC /* ExitDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExitDown.png; sourceTree = "<group>"; };
-		A7C955861725940E00F683FC /* Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook.png; sourceTree = "<group>"; };
-		A7C955871725940E00F683FC /* FacebookDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FacebookDown.png; sourceTree = "<group>"; };
 		A7C955881725940E00F683FC /* LoginFieldBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginFieldBG.png; sourceTree = "<group>"; };
-		A7C955891725940F00F683FC /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
-		A7C9558A1725940F00F683FC /* MainBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainBG.png; sourceTree = "<group>"; };
 		A7C9558B1725940F00F683FC /* SignUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUp.png; sourceTree = "<group>"; };
 		A7C9558C1725940F00F683FC /* SignUpDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUpDown.png; sourceTree = "<group>"; };
 		A7C9558D1725940F00F683FC /* SignUpFieldBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUpFieldBG.png; sourceTree = "<group>"; };
-		A7C9558E1725941000F683FC /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
-		A7C9558F1725941000F683FC /* TwitterDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwitterDown.png; sourceTree = "<group>"; };
 		A7C9559F1725943200F683FC /* MyLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLogInViewController.h; sourceTree = "<group>"; };
 		A7C955A01725943200F683FC /* MyLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLogInViewController.m; sourceTree = "<group>"; };
 		A7C955A11725943200F683FC /* MySignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySignUpViewController.h; sourceTree = "<group>"; };
@@ -682,7 +647,6 @@
 		63EA8FD2171DE83400E5BEB5 /* PointTracker */ = {
 			isa = PBXGroup;
 			children = (
-				A711E0A8171FA7C6003F6224 /* Assets */,
 				A711E0A3171FA075003F6224 /* Screens */,
 				63EA8FDB171DE83400E5BEB5 /* AppDelegate.h */,
 				63EA8FDC171DE83400E5BEB5 /* AppDelegate.m */,
@@ -694,6 +658,7 @@
 		63EA8FD3171DE83400E5BEB5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A711E0A8171FA7C6003F6224 /* Assets */,
 				A7A1E46317355189005D705C /* Icon@2x.png */,
 				A7A1E46117355185005D705C /* Icon.png */,
 				63EA8FD4171DE83400E5BEB5 /* PointTracker-Info.plist */,
@@ -710,7 +675,6 @@
 		A711E0A3171FA075003F6224 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A78BB4761735A6C200E35573 /* PersonHomeScreen */,
 				A711E0A7171FA0F2003F6224 /* ScheduleTab */,
 				A711E0A6171FA0D7003F6224 /* LogTab */,
 				A711E0A5171FA0CB003F6224 /* StatisticsTab */,
@@ -729,12 +693,6 @@
 				A72C226C1729AFAF00E6D9DA /* AddFormViewController.m */,
 				A72C22681729AEFF00E6D9DA /* TableListViewController.h */,
 				A72C22691729AEFF00E6D9DA /* TableListViewController.m */,
-				A72979E9171E2CB500693480 /* MoreInfoViewController.h */,
-				A72979EA171E2CB500693480 /* MoreInfoViewController.m */,
-				A72979EB171E2CB500693480 /* MoreInfoViewController.xib */,
-				A7BFA23E1725D3C5001EF111 /* SettingsViewController.h */,
-				A7BFA23F1725D3C5001EF111 /* SettingsViewController.m */,
-				A7BFA2401725D3C5001EF111 /* SettingsViewController.xib */,
 				A72C226E1729B17D00E6D9DA /* PersonDetailsViewController.h */,
 				A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */,
 				A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */,
@@ -801,16 +759,12 @@
 			isa = PBXGroup;
 			children = (
 				A79E56C017384D7F000B1D45 /* Home-568@2x.png */,
-				A79E56C117384D7F000B1D45 /* Home.png */,
-				A79E56C217384D7F000B1D45 /* Home@2x.png */,
 				A711E0BE171FA8D5003F6224 /* History.png */,
 				A711E0BF171FA8D5003F6224 /* History@2x.png */,
 				A711E0BA171FA896003F6224 /* Person.png */,
 				A711E0BB171FA896003F6224 /* Person@2x.png */,
 				A711E0B6171FA877003F6224 /* Schedule@2x.png */,
 				A711E0B7171FA877003F6224 /* Schedule.png */,
-				A711E0B2171FA84D003F6224 /* Home@2x.png */,
-				A711E0B3171FA84D003F6224 /* Home.png */,
 				A711E0AE171FA839003F6224 /* Stats@2x.png */,
 				A711E0AF171FA839003F6224 /* Stats.png */,
 				A711E0AA171FA802003F6224 /* List@2x.png */,
@@ -925,16 +879,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		A78BB4761735A6C200E35573 /* PersonHomeScreen */ = {
-			isa = PBXGroup;
-			children = (
-				A78BB4771735A70C00E35573 /* PersonHomeViewController.h */,
-				A78BB4781735A70C00E35573 /* PersonHomeViewController.m */,
-				A78BB4791735A70C00E35573 /* PersonHomeViewController.xib */,
-			);
-			name = PersonHomeScreen;
-			sourceTree = "<group>";
-		};
 		A7A38622171FFAE3007B5E4F /* UIBarButtonItemIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -984,16 +928,10 @@
 				A7C955A21725943200F683FC /* MySignUpViewController.m */,
 				A7C955841725940E00F683FC /* Exit.png */,
 				A7C955851725940E00F683FC /* ExitDown.png */,
-				A7C955861725940E00F683FC /* Facebook.png */,
-				A7C955871725940E00F683FC /* FacebookDown.png */,
 				A7C955881725940E00F683FC /* LoginFieldBG.png */,
-				A7C955891725940F00F683FC /* Logo.png */,
-				A7C9558A1725940F00F683FC /* MainBG.png */,
 				A7C9558B1725940F00F683FC /* SignUp.png */,
 				A7C9558C1725940F00F683FC /* SignUpDown.png */,
 				A7C9558D1725940F00F683FC /* SignUpFieldBG.png */,
-				A7C9558E1725941000F683FC /* Twitter.png */,
-				A7C9558F1725941000F683FC /* TwitterDown.png */,
 			);
 			name = CustomLoginView;
 			sourceTree = "<group>";
@@ -1064,13 +1002,10 @@
 				63EA8FDF171DE83400E5BEB5 /* Default.png in Resources */,
 				63EA8FE1171DE83400E5BEB5 /* Default@2x.png in Resources */,
 				63EA8FE3171DE83400E5BEB5 /* Default-568h@2x.png in Resources */,
-				A72979EF171E2CB600693480 /* MoreInfoViewController.xib in Resources */,
 				A711E0AC171FA802003F6224 /* List@2x.png in Resources */,
 				A711E0AD171FA802003F6224 /* List.png in Resources */,
 				A711E0B0171FA839003F6224 /* Stats@2x.png in Resources */,
 				A711E0B1171FA839003F6224 /* Stats.png in Resources */,
-				A711E0B4171FA84D003F6224 /* Home@2x.png in Resources */,
-				A711E0B5171FA84D003F6224 /* Home.png in Resources */,
 				A711E0B8171FA877003F6224 /* Schedule@2x.png in Resources */,
 				A711E0B9171FA877003F6224 /* Schedule.png in Resources */,
 				A711E0BC171FA896003F6224 /* Person.png in Resources */,
@@ -1083,21 +1018,14 @@
 				A7A38628171FFAEF007B5E4F /* Logout.png in Resources */,
 				A7C955901725941000F683FC /* Exit.png in Resources */,
 				A7C955911725941000F683FC /* ExitDown.png in Resources */,
-				A7C955921725941000F683FC /* Facebook.png in Resources */,
-				A7C955931725941000F683FC /* FacebookDown.png in Resources */,
 				A7C955941725941000F683FC /* LoginFieldBG.png in Resources */,
-				A7C955951725941000F683FC /* Logo.png in Resources */,
-				A7C955961725941000F683FC /* MainBG.png in Resources */,
 				A7C955971725941000F683FC /* SignUp.png in Resources */,
 				A7C955981725941000F683FC /* SignUpDown.png in Resources */,
 				A7C955991725941000F683FC /* SignUpFieldBG.png in Resources */,
-				A7C9559A1725941000F683FC /* Twitter.png in Resources */,
-				A7C9559B1725941000F683FC /* TwitterDown.png in Resources */,
 				A7C955A81725A24A00F683FC /* Logo2.png in Resources */,
 				A7FA36261725B52A006359D6 /* loginBack-568h@2x.png in Resources */,
 				A7FA36271725B52A006359D6 /* loginBack.png in Resources */,
 				A7FA36281725B52A006359D6 /* loginBack@2x.png in Resources */,
-				A7BFA2421725D3C5001EF111 /* SettingsViewController.xib in Resources */,
 				A7BFA24D1725D775001EF111 /* FontAwesome.ttf in Resources */,
 				A7BFA2501725E202001EF111 /* SignOut.png in Resources */,
 				A7BFA2521725E20D001EF111 /* SignOut@2x.png in Resources */,
@@ -1117,10 +1045,7 @@
 				A750544917335180003C9A86 /* CoolTexture1.jpg in Resources */,
 				A7A1E46217355185005D705C /* Icon.png in Resources */,
 				A7A1E46417355189005D705C /* Icon@2x.png in Resources */,
-				A78BB47B1735A70C00E35573 /* PersonHomeViewController.xib in Resources */,
 				A79E56C317384D7F000B1D45 /* Home-568@2x.png in Resources */,
-				A79E56C417384D7F000B1D45 /* Home.png in Resources */,
-				A79E56C517384D7F000B1D45 /* Home@2x.png in Resources */,
 				A7A59D511739A16200D944BB /* WeekPickerViewController.xib in Resources */,
 				A7A59D521739A16200D944BB /* background.png in Resources */,
 				A7A59D531739A16200D944BB /* page.png in Resources */,
@@ -1150,12 +1075,10 @@
 			files = (
 				63EA8FD9171DE83400E5BEB5 /* main.m in Sources */,
 				63EA8FDD171DE83400E5BEB5 /* AppDelegate.m in Sources */,
-				A72979EE171E2CB600693480 /* MoreInfoViewController.m in Sources */,
 				A711E0CA171FA98A003F6224 /* LogViewController.m in Sources */,
 				A711E0CF171FA9BA003F6224 /* StatsViewController.m in Sources */,
 				A7C955A51725943200F683FC /* MyLogInViewController.m in Sources */,
 				A7C955A61725943200F683FC /* MySignUpViewController.m in Sources */,
-				A7BFA2411725D3C5001EF111 /* SettingsViewController.m in Sources */,
 				A7BFA24A1725D775001EF111 /* BButton.m in Sources */,
 				A7BFA24B1725D775001EF111 /* NSString+FontAwesome.m in Sources */,
 				A7BFA24C1725D775001EF111 /* UIColor+BButton.m in Sources */,
@@ -1210,7 +1133,6 @@
 				63F60925172F178A00C454DA /* GraphpickerViewController.m in Sources */,
 				A7D13DC71730FEF90017AF3C /* TDArrow.m in Sources */,
 				A7D13DC81730FEF90017AF3C /* TDRatingView.m in Sources */,
-				A78BB47A1735A70C00E35573 /* PersonHomeViewController.m in Sources */,
 				A7A59D4A1739A15100D944BB /* iCarousel.m in Sources */,
 				A7A59D501739A16200D944BB /* WeekPickerViewController.m in Sources */,
 				A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */,

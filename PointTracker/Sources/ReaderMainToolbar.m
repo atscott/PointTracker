@@ -70,16 +70,17 @@
 	if ((self = [super initWithFrame:frame]))
 	{
 		CGFloat viewWidth = self.bounds.size.width;
-
-		UIImage *imageH = [UIImage imageNamed:@"Reader-Button-H"];
-		UIImage *imageN = [UIImage imageNamed:@"Reader-Button-N"];
-
-		UIImage *buttonH = [imageH stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-		UIImage *buttonN = [imageN stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        // ADM 5/20/13
+		//UIImage *imageH = [UIImage imageNamed:@"Reader-Button-H"];
+		//UIImage *imageN = [UIImage imageNamed:@"Reader-Button-N"];
+        
+        // ADM 5/20/13
+		//UIImage *buttonH = [imageH stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+		//UIImage *buttonN = [imageN stretchableImageWithLeftCapWidth:5 topCapHeight:0];
 
 		CGFloat titleX = BUTTON_X; CGFloat titleWidth = (viewWidth - (titleX + titleX));
 
-		CGFloat leftButtonX = BUTTON_X; // Left button start X position
+		//CGFloat leftButtonX = BUTTON_X; // Left button start X position
 
 #if (READER_STANDALONE == FALSE) // Option
 

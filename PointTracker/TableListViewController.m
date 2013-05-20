@@ -8,11 +8,9 @@
 
 
 #import "TableListViewController.h"
-#import "MoreInfoViewController.h"
 #import "AddFormViewController.h"
 #import "MyLogInViewController.h"
 #import "MySignUpViewController.h"
-#import "SettingsViewController.h"
 #import "PersonDetailsViewController.h"
 #import "CheckinViewController.h"
 
@@ -21,6 +19,7 @@
 @end
 
 @implementation TableListViewController
+
 @synthesize idValues;
 
 -(id)init
@@ -48,8 +47,8 @@
         UIImage *signoutImage = [UIImage imageNamed:@"SignOut.png"];
         UIButton *signoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [signoutButton setImage:signoutImage forState:UIControlStateNormal];
-        signoutButton.frame = CGRectMake(0, 0, signoutImage.size.width+10, signoutImage.size.height);
-
+        [signoutButton setFrame:CGRectMake(0, 0, signoutImage.size.width+10, signoutImage.size.height)];
+        
         UIBarButtonItem *signoutBarButton = [[UIBarButtonItem alloc] initWithCustomView:signoutButton];
         [signoutButton addTarget:self action:@selector(logOutButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -57,11 +56,13 @@
         UIImage *settingsImage = [UIImage imageNamed:@"Setting.png"];
         UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [settingsButton setImage:settingsImage forState:UIControlStateNormal];
-        settingsButton.frame = CGRectMake(0, 0, settingsImage.size.width+10, settingsImage.size.height);
+        [settingsButton setFrame:CGRectMake(0, 0, settingsImage.size.width+10, settingsImage.size.height)];
         
+        // TODO: Implement Settings page
         //UIBarButtonItem *settingsBarButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
         //[settingsButton addTarget:self action:@selector(settingsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         
+        // Setting via using an array was done with future extensibility in mind
         // Create and place Array of LeftBarButtons
         NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, /*settingsBarButton,*/ nil];
         [[self navigationItem] setLeftBarButtonItems:leftBarButtons animated:YES];
@@ -131,10 +132,7 @@
     [confirmSheet showFromTabBar:self.tabBarController.tabBar];
 }
 
-- (IBAction)settingsButtonTapAction:(id)sender
-{
-    [[self navigationController] pushViewController:[[SettingsViewController alloc] init] animated:YES];
-}
+- (IBAction)settingsButtonTapAction:(id)sender { }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
@@ -150,7 +148,6 @@
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-    // This method is called every time objects are loaded from Parse via the PFQuery
 }
 
 - (void)objectsWillLoad {
@@ -169,7 +166,6 @@
     }];
 }
 
-// Override to customize what kind of query to perform on the class.
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
@@ -183,7 +179,6 @@
     return query;
 }
 
-// Override to customize the look of a cell representing an object. 
 - (UITableViewCell *) tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath object:(PFObject *)object {
     
     static NSString *CellIdentifier = @"Cell";
@@ -193,27 +188,29 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
+    // Get the first and last name of the person this cell is for
     NSString *first = [object objectForKey:@"firstName"];
     NSString *last = [object objectForKey:@"lastName"];
     
+    // Set the text of the labels of the cell
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", first, last];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Points: %@", [object objectForKey:@"points"]];
-    bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
     
+    // Set the background of the cell based on gender
+    bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
+    UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
     if(isBoy){
-        UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
         [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"finalBoyBack.jpeg"]]];
         cell.backgroundView = back;
     }
     else if(!isBoy){
-        UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
         [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"girlCellBack.jpeg"]]];
         cell.backgroundView = back;
     }
     
+    // Set colors
     cell.textLabel.textColor = [UIColor grayColor];
     cell.detailTextLabel.textColor = [UIColor grayColor];
-    
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.accessoryView.backgroundColor = [UIColor clearColor];
@@ -221,6 +218,8 @@
     
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
+    // Change the color of the label's text if the person has been checked-in today.
+    // TODO: find a better way to do this than to query every time a cell is made. 
     PFQuery *checkinQuery = [PFQuery queryWithClassName:@"Attendance"];
     [checkinQuery whereKey:@"personPointer" equalTo:object];
     [checkinQuery orderByAscending:@"date"];
@@ -243,8 +242,6 @@
     return cell;
 }
 
-#pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
@@ -255,7 +252,7 @@
 }
 
 /**************************************************/
-/* Login Stuff                                    */
+/* Methods for Login Stuff                        */
 /**************************************************/
 #pragma mark - PFLogInViewControllerDelegate
 
@@ -263,7 +260,6 @@
     
     // Check if both fields are completed
     if (username && password && username.length != 0 && password.length != 0) {
-        // Begin login process
         return YES; 
     }
     
@@ -272,7 +268,7 @@
                                delegate:nil
                       cancelButtonTitle:@"ok"
                       otherButtonTitles:nil] show];
-    // Interrupt login process
+    // Stop login process
     return NO; 
 }
 
@@ -280,7 +276,6 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-// Sent to the delegate when the log in attempt fails.
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
     NSLog(@"Failed to log in...");
 }
@@ -302,7 +297,6 @@
     {
         exists = true;
     }
-
     return exists;
 }
 

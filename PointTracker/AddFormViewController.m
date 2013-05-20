@@ -4,13 +4,14 @@
 //  Created by Andrew Moore on 4/22/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.
 //
+
 #import "AddFormViewController.h"
+
 @interface AddFormViewController ()
 
 @end
 
 @implementation AddFormViewController
-
 
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
@@ -108,9 +109,6 @@
 {
     [super viewWillAppear:animated];
     
-    //UINavigationItem *navItem = [self navigationItem];
-    
-    //[navItem setTitle:@"New Person"];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 
     
@@ -119,28 +117,6 @@
                                          target:self
                                          action:@selector(savePerson:)];
     [[self navigationItem] setRightBarButtonItem:savePersonButton];
-    
-    _firstNameField.tag = 0;
-    _lastNameField.tag = 1;
-    _emailField.tag = 2;
-    _phoneNumberField.tag = 3;
-    _emergencyNumberField.tag = 4;
-	_addressField.tag = 5;
-    _cityField.tag = 6;
-    _stateField.tag = 7;
-    _zipField.tag = 8;
-	_otherField.tag = 9;
-    
-    [_firstNameField setReturnKeyType:UIReturnKeyNext];
-    [_lastNameField setReturnKeyType:UIReturnKeyNext];
-    [_emailField setReturnKeyType:UIReturnKeyNext];
-    [_phoneNumberField setReturnKeyType:UIReturnKeyNext];
-    [_emergencyNumberField setReturnKeyType:UIReturnKeyNext];
-	[_addressField setReturnKeyType:UIReturnKeyNext];
-    [_cityField setReturnKeyType:UIReturnKeyNext];
-    [_stateField setReturnKeyType:UIReturnKeyNext];
-    [_zipField setReturnKeyType:UIReturnKeyNext];
-	[_otherField setReturnKeyType:UIReturnKeyNext];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -165,32 +141,24 @@
 		case 0: {
 			cell.textLabel.text = @"First Name" ;
 			tf = _firstNameField = [self makeTextField:self.firstName placeholder:@"Carla"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:0];
 			[cell addSubview: _firstNameField];
 			break;
 		}
 		case 1:{
 			cell.textLabel.text = @"Last Name" ;
 			tf = _lastNameField = [self makeTextField:self.lastName placeholder:@"Clueless"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:1];
 			[cell addSubview: _lastNameField];
 			break;
 		}
 		case 2: {
 			cell.textLabel.text = @"Email" ;
 			tf = _emailField = [self makeTextField:self.email placeholder:@"example@gmail.com"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:2];
 			[cell addSubview: _emailField];
 			break;
 		}
 		case 3: {
 			cell.textLabel.text = @"Phone #" ;
 			tf = _phoneNumberField = [self makeTextField:self.phoneNum placeholder:@"(414)123-4567"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:3];
             [tf setDelegate:self];
 			[cell addSubview: _phoneNumberField];
 			break;
@@ -198,48 +166,36 @@
         case 4: {
 			cell.textLabel.text = @"Emerg. #" ;
 			tf = _emergencyNumberField = [self makeTextField:self.emergencyNum placeholder:@"(414)123-HELP"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:4];
 			[cell addSubview: _emergencyNumberField];
 			break;
 		}
         case 5: {
 			cell.textLabel.text = @"Street" ;
 			tf = _addressField = [self makeTextField:self.address placeholder:@"100 Pilgram Rd."];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:5];
 			[cell addSubview: _addressField];
 			break;
 		}
         case 6: {
 			cell.textLabel.text = @"City" ;
 			tf = _cityField = [self makeTextField:self.city placeholder:@"Milwaukee"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:6];
 			[cell addSubview: _cityField];
 			break;
 		}
         case 7: {
 			cell.textLabel.text = @"State" ;
 			tf = _stateField = [self makeTextField:self.state placeholder:@"WI"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:7];
 			[cell addSubview: _stateField];
 			break;
 		}
         case 8: {
 			cell.textLabel.text = @"ZIP code" ;
 			tf = _zipField = [self makeTextField:self.zip placeholder:@"53202"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:8];
 			[cell addSubview: _zipField];
 			break;
 		}
         case 9: {
 			cell.textLabel.text = @"Misc. Info" ;
 			tf = _otherField = [self makeTextField:self.other placeholder:@"random stuff?"];
-            [tf setReturnKeyType:UIReturnKeyNext];
-            [tf setTag:9];
 			[cell addSubview: _otherField];
 			break ;
 		}
@@ -274,13 +230,10 @@
             break;
         }
 	}
-    
 	// Textfield dimensions
 	tf.frame = CGRectMake(120, 12, 170, 30);
-    
     return cell;
 }
-
 
 -(IBAction)savePerson:(id)sender
 {
@@ -310,21 +263,6 @@
     [userToSave saveEventually];
     
     [[self navigationController] popViewControllerAnimated:YES];
-}
-
--(BOOL)textFieldShouldReturn:(UITextField*)textField;
-{
-    NSInteger nextTag = textField.tag + 1;
-    // Try to find next responder
-    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
-    //if (nextResponder) {
-    // Found next responder, so set it.
-    [nextResponder becomeFirstResponder];
-    //} else {
-    // Not found, so remove keyboard.
-    //[textField resignFirstResponder];
-    //}
-    return NO; // We do not want UITextField to insert line-breaks.
 }
 
 -(UITextField*) makeTextField: (NSString*)text
@@ -367,7 +305,6 @@
 		self.other = textField.text ;
 	}
 }
-
 
 - (void) setUserBeingEdited:(PFObject *)other
 {

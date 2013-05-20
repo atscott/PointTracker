@@ -9,6 +9,13 @@
 #import <Parse/Parse.h>
 
 @interface CheckinViewController : UIViewController
+{
+    PFObject *selectedPerson;
+    bool hasBible;
+    bool didVerse;
+    NSNumber *friends;
+    NSString *costume;
+}
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *bibleSeg;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *verseSeg;

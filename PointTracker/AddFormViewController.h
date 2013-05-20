@@ -41,13 +41,9 @@
     UISegmentedControl *_gradeSelector;
 }
 
-// Creates a textfield with the specified text and placeholder text
 -(UITextField*) makeTextField: (NSString*)text
-                  placeholder: (NSString*)placeholder  ;
-
-// Handles UIControlEventEditingDidEndOnExit
-//-(IBAction)textFieldFinished:(id)sender ;
-
+                  placeholder: (NSString*)placeholder;
+-(void) setUserBeingEdited:(PFObject *)other;
 -(IBAction)savePerson:(id)sender;
 
 @property (nonatomic,copy) NSString* firstName;
@@ -60,7 +56,5 @@
 @property (nonatomic,copy) NSString* state;
 @property (nonatomic,copy) NSString* zip;
 @property (nonatomic,copy) NSString* other;
-
-- (void) setUserBeingEdited:(PFObject *)other;
 
 @end

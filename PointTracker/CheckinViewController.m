@@ -19,12 +19,6 @@
 @synthesize costumeSeg;
 @synthesize friendSeg;
 
-PFObject *selectedPerson;
-bool hasBible;
-bool didVerse;
-NSNumber *friends;
-NSString *costume;
-
 -(id) initWithID:(PFObject *)person
 {
     self = [super init];
