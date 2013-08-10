@@ -10,7 +10,6 @@
 @interface AddFormViewController : UITableViewController
 <UITextFieldDelegate>
 {
-    
     bool isBoy;
     int gradeIndex;
     int genderIndex;

@@ -69,16 +69,18 @@ NSArray *weeks;
 {
     [super viewDidLoad];
     
-    carousel.type = iCarouselTypeCylinder;
+    carousel.type = iCarouselTypeInvertedTimeMachine;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Nights"];
     [query orderByAscending:@"date"];
     weeks = [query findObjects];
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     UIColor * color = [UIColor colorWithRed:171/255.0f green:1/255.0f blue:0/255.0f alpha:1.0f];
-    [self.navigationController.navigationBar setTintColor:color];    
+    [self.navigationController.navigationBar setTintColor:color];
+    [carousel setCurrentItemIndex:1];
 }
 
 - (void)viewDidUnload

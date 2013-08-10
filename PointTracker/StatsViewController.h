@@ -14,7 +14,6 @@
 
 typedef NS_ENUM(NSInteger, ChartType) {
     Top10,
-    History,
     BoysVsGirls,
     PointsForLast5Weeks,
 };

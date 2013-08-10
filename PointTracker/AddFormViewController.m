@@ -131,7 +131,8 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+	
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     
     // Make cell unselectable
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -238,7 +239,7 @@
 -(IBAction)savePerson:(id)sender
 {
     PFObject *userToSave;
-    int points=0;
+    int points = 0;
     if(userBeingEdited && userBeingEdited != nil){
         userToSave = userBeingEdited;
         points = [[userBeingEdited objectForKey:@"points"] intValue];

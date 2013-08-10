@@ -58,9 +58,7 @@
     if(_type == Top10){
         _barData = [ChartData top10];
     }
-    else if(_type == History){
-        _barData = [ChartData historyForCurrentUser];
-    }else if(_type == BoysVsGirls){
+    else if(_type == BoysVsGirls){
         _barData = [ChartData boysVsGirls];
     }else if(_type == PointsForLast5Weeks)
     {
@@ -122,25 +120,9 @@
     }
 }
 
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [self performSelectorInBackground:@selector(CreateGraph:) withObject:nil];
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
-
 
 @end

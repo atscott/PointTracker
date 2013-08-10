@@ -78,6 +78,8 @@
 		A711E0CB171FA98A003F6224 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A711E0C9171FA98A003F6224 /* LogViewController.xib */; };
 		A711E0CF171FA9BA003F6224 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A711E0CD171FA9BA003F6224 /* StatsViewController.m */; };
 		A711E0D0171FA9BA003F6224 /* StatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A711E0CE171FA9BA003F6224 /* StatsViewController.xib */; };
+		A71E8F97177E6BCF00F8F114 /* KidDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A71E8F95177E6BCF00F8F114 /* KidDashViewController.m */; };
+		A71E8F98177E6BCF00F8F114 /* KidDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71E8F96177E6BCF00F8F114 /* KidDashViewController.xib */; };
 		A72979BA171DF0A700693480 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979B9171DF0A700693480 /* Parse.framework */; };
 		A72979BC171DF0D300693480 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979BB171DF0D300693480 /* AudioToolbox.framework */; };
 		A72979BE171DF0DE00693480 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979BD171DF0DE00693480 /* CFNetwork.framework */; };
@@ -92,6 +94,8 @@
 		A72C226D1729AFAF00E6D9DA /* AddFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226C1729AFAF00E6D9DA /* AddFormViewController.m */; };
 		A72C22711729B17D00E6D9DA /* PersonDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */; };
 		A72C22721729B17D00E6D9DA /* PersonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */; };
+		A733AF61178F901100DDCE75 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A733AF5F178F901100DDCE75 /* LoginViewController.m */; };
+		A733AF62178F901100DDCE75 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A733AF60178F901100DDCE75 /* LoginViewController.xib */; };
 		A74FB432173168B000E19D03 /* classy_fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB431173168B000E19D03 /* classy_fabric.png */; };
 		A74FB4391731700F00E19D03 /* GirlVsBoy.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB4381731700F00E19D03 /* GirlVsBoy.png */; };
 		A74FB43B1731707600E19D03 /* TopTenIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43A1731707600E19D03 /* TopTenIcon.png */; };
@@ -321,6 +325,9 @@
 		A711E0CC171FA9BA003F6224 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		A711E0CD171FA9BA003F6224 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		A711E0CE171FA9BA003F6224 /* StatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatsViewController.xib; sourceTree = "<group>"; };
+		A71E8F94177E6BCF00F8F114 /* KidDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KidDashViewController.h; sourceTree = "<group>"; };
+		A71E8F95177E6BCF00F8F114 /* KidDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KidDashViewController.m; sourceTree = "<group>"; };
+		A71E8F96177E6BCF00F8F114 /* KidDashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KidDashViewController.xib; sourceTree = "<group>"; };
 		A72979B9171DF0A700693480 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A72979BB171DF0D300693480 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A72979BD171DF0DE00693480 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -338,6 +345,9 @@
 		A72C226E1729B17D00E6D9DA /* PersonDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailsViewController.h; sourceTree = "<group>"; };
 		A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailsViewController.m; sourceTree = "<group>"; };
 		A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsViewController.xib; sourceTree = "<group>"; };
+		A733AF5E178F901100DDCE75 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A733AF5F178F901100DDCE75 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A733AF60178F901100DDCE75 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A74FB431173168B000E19D03 /* classy_fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classy_fabric.png; sourceTree = "<group>"; };
 		A74FB4381731700F00E19D03 /* GirlVsBoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GirlVsBoy.png; sourceTree = "<group>"; };
 		A74FB43A1731707600E19D03 /* TopTenIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopTenIcon.png; sourceTree = "<group>"; };
@@ -675,6 +685,8 @@
 		A711E0A3171FA075003F6224 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				A733AF5D178F8F3600DDCE75 /* Login */,
+				A71E8F93177E6BA500F8F114 /* KidDashboard */,
 				A711E0A7171FA0F2003F6224 /* ScheduleTab */,
 				A711E0A6171FA0D7003F6224 /* LogTab */,
 				A711E0A5171FA0CB003F6224 /* StatisticsTab */,
@@ -773,6 +785,16 @@
 			name = TabbarIcons;
 			sourceTree = "<group>";
 		};
+		A71E8F93177E6BA500F8F114 /* KidDashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A71E8F94177E6BCF00F8F114 /* KidDashViewController.h */,
+				A71E8F95177E6BCF00F8F114 /* KidDashViewController.m */,
+				A71E8F96177E6BCF00F8F114 /* KidDashViewController.xib */,
+			);
+			name = KidDashboard;
+			sourceTree = "<group>";
+		};
 		A72C22731729B96800E6D9DA /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +819,16 @@
 				A7D13DCB173107D70017AF3C /* DetailsBackground-568@2x.jpg */,
 			);
 			name = Backgrounds;
+			sourceTree = "<group>";
+		};
+		A733AF5D178F8F3600DDCE75 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A733AF5E178F901100DDCE75 /* LoginViewController.h */,
+				A733AF5F178F901100DDCE75 /* LoginViewController.m */,
+				A733AF60178F901100DDCE75 /* LoginViewController.xib */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		A74FB43717316B0300E19D03 /* ButtonIcons */ = {
@@ -1063,6 +1095,8 @@
 				A754E03917428E2D008EC3E2 /* girlCheckedBack.jpeg in Resources */,
 				A754E03C17428F06008EC3E2 /* finalBoyBack.jpeg in Resources */,
 				A754E03D17428F06008EC3E2 /* finalGirlBack.jpeg in Resources */,
+				A71E8F98177E6BCF00F8F114 /* KidDashViewController.xib in Resources */,
+				A733AF62178F901100DDCE75 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1160,6 +1194,8 @@
 				A754E027174217B9008EC3E2 /* ReaderBookDelegate.m in Sources */,
 				A754E028174217B9008EC3E2 /* ReaderDemoController.m in Sources */,
 				A754E02E174221DA008EC3E2 /* CheckinViewController.m in Sources */,
+				A71E8F97177E6BCF00F8F114 /* KidDashViewController.m in Sources */,
+				A733AF61178F901100DDCE75 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
