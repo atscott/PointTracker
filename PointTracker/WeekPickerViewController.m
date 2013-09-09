@@ -78,8 +78,8 @@ NSArray *weeks;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    UIColor * color = [UIColor colorWithRed:171/255.0f green:1/255.0f blue:0/255.0f alpha:1.0f];
-    [self.navigationController.navigationBar setTintColor:color];
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
     [carousel setCurrentItemIndex:1];
 }
 

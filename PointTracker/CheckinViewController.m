@@ -59,7 +59,7 @@
 
 - (IBAction)save:(id)sender
 {
-    [[self navigationController]popViewControllerAnimated:YES];
+    [[self navigationController]popToRootViewControllerAnimated:YES];
     int points = 100;
     
     if ([bibleSeg selectedSegmentIndex] > 0) {

@@ -1,18 +1,18 @@
 //
-//  LoginViewController.m
+//  LeaderDashViewController.m
 //  PointTracker
 //
-//  Created by Andrew Moore on 7/11/13.
+//  Created by Andrew Moore on 8/22/13.
 //  Copyright (c) 2013 SE4910I. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "LeaderDashViewController.h"
 
-@interface LoginViewController ()
+@interface LeaderDashViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation LeaderDashViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

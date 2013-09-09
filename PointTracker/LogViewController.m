@@ -38,7 +38,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:18/255.0f green:193/255.0f blue:40/255.0f alpha:1.0f]];
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -69,7 +69,7 @@
 // Override to customize what kind of query to perform on the class.
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    
+    //[query whereKey:[[PFUser currentUser] username] equalTo:<#(id)#>]
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
     if ([self.objects count] == 0) {

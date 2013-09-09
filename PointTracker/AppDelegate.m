@@ -12,6 +12,7 @@
 #import "GraphpickerViewController.h"
 #import "MyLogInViewController.h"
 #import "WeekPickerViewController.h"
+#import "MainLandingViewController.h"
 
 @implementation AppDelegate
 
@@ -25,9 +26,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // List Tab
-    TableListViewController *listViewController =  [[TableListViewController alloc] init];
-    UINavigationController *listNavController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+//    TableListViewController *listViewController =  [[TableListViewController alloc] init];
+//    UINavigationController *listNavController = [[UINavigationController alloc] initWithRootViewController:listViewController];
     
+    UINavigationController *mainViewNavController =[[UINavigationController alloc] initWithRootViewController:[[MainLandingViewController alloc] init]];
     // Statistics Tab
     UIViewController *graphPickerViewController = [[GraphpickerViewController alloc] init];
     UINavigationController *graphPickerNavController = [[UINavigationController alloc] initWithRootViewController:graphPickerViewController];
@@ -41,7 +43,7 @@
     UINavigationController *scheduleNavController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[listNavController, scheduleNavController, graphPickerNavController, logNavController];
+    self.tabBarController.viewControllers = @[mainViewNavController, scheduleNavController, graphPickerNavController, logNavController];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     

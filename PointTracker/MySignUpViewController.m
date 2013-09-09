@@ -62,7 +62,7 @@
     [self.signUpView.dismissButton setFrame:CGRectMake(10.0f, 10.0f, 87.5f, 45.5f)];
     [self.signUpView.logo setFrame:CGRectMake(100.0f, 10.0f, 125.0f, 125.0f)];
     [self.signUpView.signUpButton setFrame:CGRectMake(35.0f, 385.0f, 250.0f, 40.0f)];
-    [self.fieldsBackground setFrame:CGRectMake(35.0f, 134.0f+30.0f, 250.0f, 174.0f)];
+    [self.fieldsBackground setFrame:CGRectMake(35.0f, 210.0f, 250.0f, 174.0f)];
     
     // Move all fields down
     float yOffset = 0.0f;

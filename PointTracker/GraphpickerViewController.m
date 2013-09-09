@@ -55,10 +55,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-//    UIColor * color = [UIColor colorWithRed:130/255.0f green:22/255.0f blue:241/255.0f alpha:1.0f];
-//    [self.navigationController.navigationBar setTintColor:color];
-    [self.navigationController.navigationBar setTintColor:[UIColor blueColor]];
-
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -17,6 +17,7 @@
     NSNumber *pointValSelected;
     PFObject *selectedUser;
     NSString *reason;
+    UIBarButtonItem *checkinPersonButton;
 }
 @property (weak, nonatomic) IBOutlet UILabel *gradeGenderLabel;
 @property (weak, nonatomic) IBOutlet UITextView *addressTextView;

@@ -74,8 +74,6 @@
 		A711E0BD171FA896003F6224 /* Person@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0BB171FA896003F6224 /* Person@2x.png */; };
 		A711E0C0171FA8D5003F6224 /* History.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0BE171FA8D5003F6224 /* History.png */; };
 		A711E0C1171FA8D5003F6224 /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0BF171FA8D5003F6224 /* History@2x.png */; };
-		A711E0CA171FA98A003F6224 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A711E0C8171FA98A003F6224 /* LogViewController.m */; };
-		A711E0CB171FA98A003F6224 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A711E0C9171FA98A003F6224 /* LogViewController.xib */; };
 		A711E0CF171FA9BA003F6224 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A711E0CD171FA9BA003F6224 /* StatsViewController.m */; };
 		A711E0D0171FA9BA003F6224 /* StatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A711E0CE171FA9BA003F6224 /* StatsViewController.xib */; };
 		A71E8F97177E6BCF00F8F114 /* KidDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A71E8F95177E6BCF00F8F114 /* KidDashViewController.m */; };
@@ -94,8 +92,6 @@
 		A72C226D1729AFAF00E6D9DA /* AddFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226C1729AFAF00E6D9DA /* AddFormViewController.m */; };
 		A72C22711729B17D00E6D9DA /* PersonDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */; };
 		A72C22721729B17D00E6D9DA /* PersonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */; };
-		A733AF61178F901100DDCE75 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A733AF5F178F901100DDCE75 /* LoginViewController.m */; };
-		A733AF62178F901100DDCE75 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A733AF60178F901100DDCE75 /* LoginViewController.xib */; };
 		A74FB432173168B000E19D03 /* classy_fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB431173168B000E19D03 /* classy_fabric.png */; };
 		A74FB4391731700F00E19D03 /* GirlVsBoy.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB4381731700F00E19D03 /* GirlVsBoy.png */; };
 		A74FB43B1731707600E19D03 /* TopTenIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43A1731707600E19D03 /* TopTenIcon.png */; };
@@ -164,6 +160,8 @@
 		A7BFA24D1725D775001EF111 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7BFA2491725D775001EF111 /* FontAwesome.ttf */; };
 		A7BFA2501725E202001EF111 /* SignOut.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BFA24F1725E202001EF111 /* SignOut.png */; };
 		A7BFA2521725E20D001EF111 /* SignOut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BFA2511725E20D001EF111 /* SignOut@2x.png */; };
+		A7BFD60917C6F60D00C1CD61 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFD60717C6F60D00C1CD61 /* LogViewController.m */; };
+		A7BFD60A17C6F60D00C1CD61 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7BFD60817C6F60D00C1CD61 /* LogViewController.xib */; };
 		A7C955901725941000F683FC /* Exit.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955841725940E00F683FC /* Exit.png */; };
 		A7C955911725941000F683FC /* ExitDown.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955851725940E00F683FC /* ExitDown.png */; };
 		A7C955941725941000F683FC /* LoginFieldBG.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C955881725940E00F683FC /* LoginFieldBG.png */; };
@@ -181,6 +179,11 @@
 		A7FA36261725B52A006359D6 /* loginBack-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36231725B52A006359D6 /* loginBack-568h@2x.png */; };
 		A7FA36271725B52A006359D6 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36241725B52A006359D6 /* loginBack.png */; };
 		A7FA36281725B52A006359D6 /* loginBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36251725B52A006359D6 /* loginBack@2x.png */; };
+		A7FBF62817DBD28A00E92981 /* MainLandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FBF62617DBD28A00E92981 /* MainLandingViewController.m */; };
+		A7FBF62917DBD28A00E92981 /* MainLandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FBF62717DBD28A00E92981 /* MainLandingViewController.xib */; };
+		A7FBF62C17DBE29400E92981 /* PrayerRequestYeahGodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FBF62B17DBE29400E92981 /* PrayerRequestYeahGodViewController.m */; };
+		A7FBF63017DD5B6600E92981 /* NewRequestOrPraiseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FBF62E17DD5B6400E92981 /* NewRequestOrPraiseViewController.m */; };
+		A7FBF63117DD5B6600E92981 /* NewRequestOrPraiseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7FBF62F17DD5B6500E92981 /* NewRequestOrPraiseViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -319,9 +322,6 @@
 		A711E0BB171FA896003F6224 /* Person@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Person@2x.png"; sourceTree = "<group>"; };
 		A711E0BE171FA8D5003F6224 /* History.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = History.png; sourceTree = "<group>"; };
 		A711E0BF171FA8D5003F6224 /* History@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "History@2x.png"; sourceTree = "<group>"; };
-		A711E0C7171FA98A003F6224 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
-		A711E0C8171FA98A003F6224 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
-		A711E0C9171FA98A003F6224 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
 		A711E0CC171FA9BA003F6224 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		A711E0CD171FA9BA003F6224 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		A711E0CE171FA9BA003F6224 /* StatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatsViewController.xib; sourceTree = "<group>"; };
@@ -345,9 +345,6 @@
 		A72C226E1729B17D00E6D9DA /* PersonDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailsViewController.h; sourceTree = "<group>"; };
 		A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailsViewController.m; sourceTree = "<group>"; };
 		A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsViewController.xib; sourceTree = "<group>"; };
-		A733AF5E178F901100DDCE75 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		A733AF5F178F901100DDCE75 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		A733AF60178F901100DDCE75 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		A74FB431173168B000E19D03 /* classy_fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classy_fabric.png; sourceTree = "<group>"; };
 		A74FB4381731700F00E19D03 /* GirlVsBoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GirlVsBoy.png; sourceTree = "<group>"; };
 		A74FB43A1731707600E19D03 /* TopTenIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopTenIcon.png; sourceTree = "<group>"; };
@@ -446,6 +443,9 @@
 		A7BFA2491725D775001EF111 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		A7BFA24F1725E202001EF111 /* SignOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignOut.png; sourceTree = "<group>"; };
 		A7BFA2511725E20D001EF111 /* SignOut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SignOut@2x.png"; sourceTree = "<group>"; };
+		A7BFD60617C6F60D00C1CD61 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		A7BFD60717C6F60D00C1CD61 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
+		A7BFD60817C6F60D00C1CD61 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
 		A7C955841725940E00F683FC /* Exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Exit.png; sourceTree = "<group>"; };
 		A7C955851725940E00F683FC /* ExitDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ExitDown.png; sourceTree = "<group>"; };
 		A7C955881725940E00F683FC /* LoginFieldBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginFieldBG.png; sourceTree = "<group>"; };
@@ -467,6 +467,14 @@
 		A7FA36231725B52A006359D6 /* loginBack-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBack-568h@2x.png"; sourceTree = "<group>"; };
 		A7FA36241725B52A006359D6 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
 		A7FA36251725B52A006359D6 /* loginBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBack@2x.png"; sourceTree = "<group>"; };
+		A7FBF62517DBD28A00E92981 /* MainLandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLandingViewController.h; sourceTree = "<group>"; };
+		A7FBF62617DBD28A00E92981 /* MainLandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLandingViewController.m; sourceTree = "<group>"; };
+		A7FBF62717DBD28A00E92981 /* MainLandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainLandingViewController.xib; sourceTree = "<group>"; };
+		A7FBF62A17DBE29400E92981 /* PrayerRequestYeahGodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerRequestYeahGodViewController.h; sourceTree = "<group>"; };
+		A7FBF62B17DBE29400E92981 /* PrayerRequestYeahGodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerRequestYeahGodViewController.m; sourceTree = "<group>"; };
+		A7FBF62D17DD5B6200E92981 /* NewRequestOrPraiseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRequestOrPraiseViewController.h; sourceTree = "<group>"; };
+		A7FBF62E17DD5B6400E92981 /* NewRequestOrPraiseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRequestOrPraiseViewController.m; sourceTree = "<group>"; };
+		A7FBF62F17DD5B6500E92981 /* NewRequestOrPraiseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewRequestOrPraiseViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -685,22 +693,21 @@
 		A711E0A3171FA075003F6224 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A733AF5D178F8F3600DDCE75 /* Login */,
+				A7FBF62417DBCEC600E92981 /* MainTab */,
+				A7BFD60517C6F5FB00C1CD61 /* Log Tab */,
 				A71E8F93177E6BA500F8F114 /* KidDashboard */,
 				A711E0A7171FA0F2003F6224 /* ScheduleTab */,
-				A711E0A6171FA0D7003F6224 /* LogTab */,
 				A711E0A5171FA0CB003F6224 /* StatisticsTab */,
-				A711E0A4171FA0BC003F6224 /* ListTab */,
+				A711E0A4171FA0BC003F6224 /* LeaderDashboard */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
 		};
-		A711E0A4171FA0BC003F6224 /* ListTab */ = {
+		A711E0A4171FA0BC003F6224 /* LeaderDashboard */ = {
 			isa = PBXGroup;
 			children = (
 				A7BFA24E1725D779001EF111 /* BButton */,
 				A7D13DC21730FEEB0017AF3C /* TDRatingScale */,
-				A7C955781725939300F683FC /* CustomLoginView */,
 				A72C226B1729AFAF00E6D9DA /* AddFormViewController.h */,
 				A72C226C1729AFAF00E6D9DA /* AddFormViewController.m */,
 				A72C22681729AEFF00E6D9DA /* TableListViewController.h */,
@@ -712,7 +719,7 @@
 				A754E02C174221D9008EC3E2 /* CheckinViewController.m */,
 				A754E02D174221D9008EC3E2 /* CheckinViewController.xib */,
 			);
-			name = ListTab;
+			name = LeaderDashboard;
 			sourceTree = "<group>";
 		};
 		A711E0A5171FA0CB003F6224 /* StatisticsTab */ = {
@@ -728,16 +735,6 @@
 				6347FF5C172993FB00CF12D4 /* ChartData.m */,
 			);
 			name = StatisticsTab;
-			sourceTree = "<group>";
-		};
-		A711E0A6171FA0D7003F6224 /* LogTab */ = {
-			isa = PBXGroup;
-			children = (
-				A711E0C7171FA98A003F6224 /* LogViewController.h */,
-				A711E0C8171FA98A003F6224 /* LogViewController.m */,
-				A711E0C9171FA98A003F6224 /* LogViewController.xib */,
-			);
-			name = LogTab;
 			sourceTree = "<group>";
 		};
 		A711E0A7171FA0F2003F6224 /* ScheduleTab */ = {
@@ -791,6 +788,11 @@
 				A71E8F94177E6BCF00F8F114 /* KidDashViewController.h */,
 				A71E8F95177E6BCF00F8F114 /* KidDashViewController.m */,
 				A71E8F96177E6BCF00F8F114 /* KidDashViewController.xib */,
+				A7FBF62A17DBE29400E92981 /* PrayerRequestYeahGodViewController.h */,
+				A7FBF62B17DBE29400E92981 /* PrayerRequestYeahGodViewController.m */,
+				A7FBF62D17DD5B6200E92981 /* NewRequestOrPraiseViewController.h */,
+				A7FBF62E17DD5B6400E92981 /* NewRequestOrPraiseViewController.m */,
+				A7FBF62F17DD5B6500E92981 /* NewRequestOrPraiseViewController.xib */,
 			);
 			name = KidDashboard;
 			sourceTree = "<group>";
@@ -819,16 +821,6 @@
 				A7D13DCB173107D70017AF3C /* DetailsBackground-568@2x.jpg */,
 			);
 			name = Backgrounds;
-			sourceTree = "<group>";
-		};
-		A733AF5D178F8F3600DDCE75 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				A733AF5E178F901100DDCE75 /* LoginViewController.h */,
-				A733AF5F178F901100DDCE75 /* LoginViewController.m */,
-				A733AF60178F901100DDCE75 /* LoginViewController.xib */,
-			);
-			name = Login;
 			sourceTree = "<group>";
 		};
 		A74FB43717316B0300E19D03 /* ButtonIcons */ = {
@@ -947,6 +939,16 @@
 			name = BButton;
 			sourceTree = "<group>";
 		};
+		A7BFD60517C6F5FB00C1CD61 /* Log Tab */ = {
+			isa = PBXGroup;
+			children = (
+				A7BFD60617C6F60D00C1CD61 /* LogViewController.h */,
+				A7BFD60717C6F60D00C1CD61 /* LogViewController.m */,
+				A7BFD60817C6F60D00C1CD61 /* LogViewController.xib */,
+			);
+			name = "Log Tab";
+			sourceTree = "<group>";
+		};
 		A7C955781725939300F683FC /* CustomLoginView */ = {
 			isa = PBXGroup;
 			children = (
@@ -977,6 +979,17 @@
 				A7D13DC61730FEF90017AF3C /* TDRatingView.m */,
 			);
 			name = TDRatingScale;
+			sourceTree = "<group>";
+		};
+		A7FBF62417DBCEC600E92981 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				A7C955781725939300F683FC /* CustomLoginView */,
+				A7FBF62517DBD28A00E92981 /* MainLandingViewController.h */,
+				A7FBF62617DBD28A00E92981 /* MainLandingViewController.m */,
+				A7FBF62717DBD28A00E92981 /* MainLandingViewController.xib */,
+			);
+			name = MainTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1044,7 +1057,6 @@
 				A711E0BD171FA896003F6224 /* Person@2x.png in Resources */,
 				A711E0C0171FA8D5003F6224 /* History.png in Resources */,
 				A711E0C1171FA8D5003F6224 /* History@2x.png in Resources */,
-				A711E0CB171FA98A003F6224 /* LogViewController.xib in Resources */,
 				A711E0D0171FA9BA003F6224 /* StatsViewController.xib in Resources */,
 				A7A38627171FFAEF007B5E4F /* Logout@2x.png in Resources */,
 				A7A38628171FFAEF007B5E4F /* Logout.png in Resources */,
@@ -1096,7 +1108,9 @@
 				A754E03C17428F06008EC3E2 /* finalBoyBack.jpeg in Resources */,
 				A754E03D17428F06008EC3E2 /* finalGirlBack.jpeg in Resources */,
 				A71E8F98177E6BCF00F8F114 /* KidDashViewController.xib in Resources */,
-				A733AF62178F901100DDCE75 /* LoginViewController.xib in Resources */,
+				A7BFD60A17C6F60D00C1CD61 /* LogViewController.xib in Resources */,
+				A7FBF62917DBD28A00E92981 /* MainLandingViewController.xib in Resources */,
+				A7FBF63117DD5B6600E92981 /* NewRequestOrPraiseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1109,7 +1123,6 @@
 			files = (
 				63EA8FD9171DE83400E5BEB5 /* main.m in Sources */,
 				63EA8FDD171DE83400E5BEB5 /* AppDelegate.m in Sources */,
-				A711E0CA171FA98A003F6224 /* LogViewController.m in Sources */,
 				A711E0CF171FA9BA003F6224 /* StatsViewController.m in Sources */,
 				A7C955A51725943200F683FC /* MyLogInViewController.m in Sources */,
 				A7C955A61725943200F683FC /* MySignUpViewController.m in Sources */,
@@ -1195,7 +1208,10 @@
 				A754E028174217B9008EC3E2 /* ReaderDemoController.m in Sources */,
 				A754E02E174221DA008EC3E2 /* CheckinViewController.m in Sources */,
 				A71E8F97177E6BCF00F8F114 /* KidDashViewController.m in Sources */,
-				A733AF61178F901100DDCE75 /* LoginViewController.m in Sources */,
+				A7BFD60917C6F60D00C1CD61 /* LogViewController.m in Sources */,
+				A7FBF62817DBD28A00E92981 /* MainLandingViewController.m in Sources */,
+				A7FBF62C17DBE29400E92981 /* PrayerRequestYeahGodViewController.m in Sources */,
+				A7FBF63017DD5B6600E92981 /* NewRequestOrPraiseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

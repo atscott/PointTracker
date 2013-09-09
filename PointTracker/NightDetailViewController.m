@@ -50,8 +50,6 @@
     verseLabel.textColor = [UIColor whiteColor];
     verseLabel.textAlignment = NSTextAlignmentCenter;
     verseLabel.font = [UIFont fontWithName:@"American Typewriter" size:20];
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -61,6 +59,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     NSString *dateString = [dateFormatter stringFromDate:[night objectForKey:@"date"]];
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
     self.navigationItem.title = dateString;
 }
 

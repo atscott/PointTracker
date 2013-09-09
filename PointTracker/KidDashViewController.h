@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface KidDashViewController : UIViewController
+<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *pictureTitle;
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
+
+- (IBAction)logOutButtonTapAction:(id)sender;
+
 @end
