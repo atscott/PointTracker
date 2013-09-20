@@ -62,7 +62,11 @@
     [self.signUpView.dismissButton setFrame:CGRectMake(10.0f, 10.0f, 87.5f, 45.5f)];
     [self.signUpView.logo setFrame:CGRectMake(100.0f, 10.0f, 125.0f, 125.0f)];
     [self.signUpView.signUpButton setFrame:CGRectMake(35.0f, 385.0f, 250.0f, 40.0f)];
-    [self.fieldsBackground setFrame:CGRectMake(35.0f, 210.0f, 250.0f, 174.0f)];
+    [self.fieldsBackground setFrame:CGRectMake(35.0f, 165.0f, 250.0f, 174.0f)];
+    [self.signUpView.usernameField setFrame: CGRectMake(85.0f, 140.0f, 150.0f, 40.0f)];
+    [self.signUpView.passwordField setFrame: CGRectMake(85.0f, 180.0f, 150.0f, 40.0f)];
+    [self.signUpView.emailField setFrame: CGRectMake(85.0f, 230.0f, 150.0f, 40.0f)];
+    [self.signUpView.additionalField setFrame: CGRectMake(85.0f, 270.0f, 150.0f, 40.0f)];
     
     // Move all fields down
     float yOffset = 0.0f;
@@ -89,10 +93,6 @@
                                                          fieldFrame.origin.y+30.0f+yOffset, 
                                                          fieldFrame.size.width-10.0f, 
                                                          fieldFrame.size.height)];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

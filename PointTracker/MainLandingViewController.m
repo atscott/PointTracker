@@ -31,6 +31,13 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+//    Reachability *netReachability = [Reachability reachabilityForInternetConnection];
+//    NetworkStatus *netStatus = [netReachability currentReachabilityStatus];
+//    if(netStatus == NotReachable)
+//    {
+//        [[[UIAlertView alloc]initWithTitle:@"Connection Falure" message:@"Please connect to the internet and try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+//    }
     [self handleLogin];
     if([PFUser currentUser])
     {
@@ -165,7 +172,12 @@
     [query whereKey:@"email" containsString:emailForUser];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *match, NSError *error) {
         [match setObject:withUser forKey:@"userLink"];
-        [match saveInBackground];
+        [match saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(error != nil)
+            {
+                [[[UIAlertView alloc]initWithTitle:@"Connection Falure" message:@"Please connect to the internet and try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            }
+        }];
     }];
 }
 

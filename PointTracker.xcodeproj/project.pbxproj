@@ -95,7 +95,6 @@
 		A74FB432173168B000E19D03 /* classy_fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB431173168B000E19D03 /* classy_fabric.png */; };
 		A74FB4391731700F00E19D03 /* GirlVsBoy.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB4381731700F00E19D03 /* GirlVsBoy.png */; };
 		A74FB43B1731707600E19D03 /* TopTenIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43A1731707600E19D03 /* TopTenIcon.png */; };
-		A74FB43D173170DB00E19D03 /* HistoryIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43C173170DB00E19D03 /* HistoryIcon.png */; };
 		A74FB43F1731716D00E19D03 /* WeekIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43E1731716D00E19D03 /* WeekIcon.png */; };
 		A750544717334D6A003C9A86 /* PaperTexture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A750544617334D6A003C9A86 /* PaperTexture.jpg */; };
 		A750544917335180003C9A86 /* CoolTexture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A750544817335180003C9A86 /* CoolTexture1.jpg */; };
@@ -150,7 +149,6 @@
 		A7A59D4A1739A15100D944BB /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D491739A15100D944BB /* iCarousel.m */; };
 		A7A59D501739A16200D944BB /* WeekPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D4B1739A16200D944BB /* WeekPickerViewController.m */; };
 		A7A59D511739A16200D944BB /* WeekPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4D1739A16200D944BB /* WeekPickerViewController.xib */; };
-		A7A59D521739A16200D944BB /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4E1739A16200D944BB /* background.png */; };
 		A7A59D531739A16200D944BB /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4F1739A16200D944BB /* page.png */; };
 		A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */; };
 		A7A59D5D1739BE0F00D944BB /* NightDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D5B1739BE0E00D944BB /* NightDetailViewController.xib */; };
@@ -348,7 +346,6 @@
 		A74FB431173168B000E19D03 /* classy_fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classy_fabric.png; sourceTree = "<group>"; };
 		A74FB4381731700F00E19D03 /* GirlVsBoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GirlVsBoy.png; sourceTree = "<group>"; };
 		A74FB43A1731707600E19D03 /* TopTenIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopTenIcon.png; sourceTree = "<group>"; };
-		A74FB43C173170DB00E19D03 /* HistoryIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HistoryIcon.png; sourceTree = "<group>"; };
 		A74FB43E1731716D00E19D03 /* WeekIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeekIcon.png; sourceTree = "<group>"; };
 		A750544617334D6A003C9A86 /* PaperTexture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PaperTexture.jpg; sourceTree = "<group>"; };
 		A750544817335180003C9A86 /* CoolTexture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CoolTexture1.jpg; sourceTree = "<group>"; };
@@ -429,7 +426,6 @@
 		A7A59D4B1739A16200D944BB /* WeekPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekPickerViewController.m; sourceTree = "<group>"; };
 		A7A59D4C1739A16200D944BB /* WeekPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekPickerViewController.h; sourceTree = "<group>"; };
 		A7A59D4D1739A16200D944BB /* WeekPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeekPickerViewController.xib; sourceTree = "<group>"; };
-		A7A59D4E1739A16200D944BB /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		A7A59D4F1739A16200D944BB /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		A7A59D591739BE0E00D944BB /* NightDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NightDetailViewController.h; sourceTree = "<group>"; };
 		A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NightDetailViewController.m; sourceTree = "<group>"; };
@@ -801,7 +797,6 @@
 			isa = PBXGroup;
 			children = (
 				A7A59D4F1739A16200D944BB /* page.png */,
-				A7A59D4E1739A16200D944BB /* background.png */,
 				A754E03A17428F06008EC3E2 /* finalBoyBack.jpeg */,
 				A754E03B17428F06008EC3E2 /* finalGirlBack.jpeg */,
 				A754E03817428E2D008EC3E2 /* girlCheckedBack.jpeg */,
@@ -827,7 +822,6 @@
 			isa = PBXGroup;
 			children = (
 				A74FB43E1731716D00E19D03 /* WeekIcon.png */,
-				A74FB43C173170DB00E19D03 /* HistoryIcon.png */,
 				A74FB43A1731707600E19D03 /* TopTenIcon.png */,
 				A74FB4381731700F00E19D03 /* GirlVsBoy.png */,
 			);
@@ -1083,7 +1077,6 @@
 				A74FB432173168B000E19D03 /* classy_fabric.png in Resources */,
 				A74FB4391731700F00E19D03 /* GirlVsBoy.png in Resources */,
 				A74FB43B1731707600E19D03 /* TopTenIcon.png in Resources */,
-				A74FB43D173170DB00E19D03 /* HistoryIcon.png in Resources */,
 				A74FB43F1731716D00E19D03 /* WeekIcon.png in Resources */,
 				A750544717334D6A003C9A86 /* PaperTexture.jpg in Resources */,
 				A750544917335180003C9A86 /* CoolTexture1.jpg in Resources */,
@@ -1091,7 +1084,6 @@
 				A7A1E46417355189005D705C /* Icon@2x.png in Resources */,
 				A79E56C317384D7F000B1D45 /* Home-568@2x.png in Resources */,
 				A7A59D511739A16200D944BB /* WeekPickerViewController.xib in Resources */,
-				A7A59D521739A16200D944BB /* background.png in Resources */,
 				A7A59D531739A16200D944BB /* page.png in Resources */,
 				A7A59D5D1739BE0F00D944BB /* NightDetailViewController.xib in Resources */,
 				A76AB1071741826300D7D960 /* newBackground@2x.png in Resources */,
@@ -1241,7 +1233,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1256,6 +1249,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1272,7 +1267,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1280,6 +1276,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1288,6 +1286,8 @@
 		63EA8FFB171DE83500E5BEB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1303,6 +1303,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1310,6 +1312,8 @@
 		63EA8FFC171DE83500E5BEB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1325,6 +1329,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

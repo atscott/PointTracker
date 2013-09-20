@@ -27,24 +27,22 @@
         self.view.backgroundColor = nil;
         [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
         self.tableView.backgroundView = nil;
+        
+        
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];   
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self loadObjects];
+    [[self tableView] reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,7 +67,26 @@
 // Override to customize what kind of query to perform on the class.
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    //[query whereKey:[[PFUser currentUser] username] equalTo:<#(id)#>]
+    showOnePersonInfo = NO;
+    personToShow = nil;
+    
+    PFQuery *peopleQuery = [PFQuery queryWithClassName:@"People"];
+    NSString *emailOfCurrentUser = [[PFUser currentUser]email];
+    if(emailOfCurrentUser == nil)
+        emailOfCurrentUser = [NSString stringWithFormat:@"noemail@gmail.com"];
+    [peopleQuery whereKey:@"email" equalTo:emailOfCurrentUser];
+    NSArray *objects = [peopleQuery findObjects];
+    if(objects.count == 1)
+    {
+       personToShow = [objects objectAtIndex:0];
+       showOnePersonInfo = [[personToShow objectForKey:@"isKid"]boolValue];
+    }
+    
+    if(showOnePersonInfo)
+    {
+        [query whereKey:@"addedToPointer" equalTo:personToShow];
+    }
+    
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
     if ([self.objects count] == 0) {

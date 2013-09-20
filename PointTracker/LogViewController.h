@@ -9,5 +9,8 @@
 #import <Parse/Parse.h>
 
 @interface LogViewController : PFQueryTableViewController
-
+{
+    bool showOnePersonInfo;
+    PFObject *personToShow;
+}
 @end

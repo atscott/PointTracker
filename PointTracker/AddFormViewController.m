@@ -261,6 +261,7 @@
     [userToSave setObject:[NSNumber numberWithBool:isBoy] forKey:@"isBoy"];
     [userToSave setObject:[NSNumber numberWithInt:(_gradeSelector.selectedSegmentIndex +4)] forKey:@"grade"];
     [userToSave setObject:[NSNumber numberWithInt:points] forKey:@"points"];
+    [userToSave setObject:[NSNumber numberWithBool:YES] forKey:@"isKid"];
     [userToSave saveEventually];
     
     [[self navigationController] popViewControllerAnimated:YES];
