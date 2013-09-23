@@ -137,7 +137,7 @@
     if ([self.objects count] == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-    [query orderByAscending:@"isBoy"];
+    [query orderByDescending:@"firstName"];
 
     return query;
 }
