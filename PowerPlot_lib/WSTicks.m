@@ -80,7 +80,7 @@ NAFloat loground(NAFloat x);
 - (void)autoTicksWithRange:(NARange)aRange
                     number:(NAFloat)labelNum {
     NSParameterAssert([self minorTicksNum] >= 0);
-    NSParameterAssert(NARangeLen(aRange) > 0.0);
+    NSParameterAssert(NARangeLen(aRange) >= 0.0);
     NSParameterAssert(labelNum > 0.0);
     
     NSUInteger i, j;
@@ -116,7 +116,7 @@ NAFloat loground(NAFloat x);
 - (NSInteger)autoNiceTicksWithRange:(NARange)aRange
                              number:(NAFloat)labelNum {
     NSParameterAssert([self minorTicksNum] >= 0);
-    NSParameterAssert(NARangeLen(aRange) > 0.0);
+    NSParameterAssert(NARangeLen(aRange) >= 0.0);
     NSParameterAssert(labelNum > 0.0);
     
     NSUInteger i, j;
