@@ -30,6 +30,7 @@
         // Set which "class" on parse this table is related to
         self.parseClassName = @"People";
         self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = NO;
         
         // Set the title and logo on the lower tab bar
         self.title = @"List";
