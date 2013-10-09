@@ -24,8 +24,8 @@
         self.title = @"Point Log";
         self.tabBarItem.image = [UIImage imageNamed:@"History"];
         
-        self.view.backgroundColor = nil;
-        [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
+        self.view.backgroundColor = [UIColor blackColor];
+        [self.tableView setBackgroundColor:[UIColor blackColor]];
         self.tableView.backgroundView = nil;
         
         
@@ -119,7 +119,7 @@
     NSString *reason = [object objectForKey:@"reason"];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@pts -> %@", amount, receiver];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor lightGrayColor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"(%@) By: %@ Reason: %@", dateString, giver, reason];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];

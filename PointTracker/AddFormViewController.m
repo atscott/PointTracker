@@ -247,8 +247,8 @@
         userToSave = [PFObject objectWithClassName:@"People"];
     }
     
-    [userToSave setObject:_firstName forKey:@"firstName"];
-    [userToSave setObject:_lastName forKey:@"lastName"];
+    [userToSave setObject:[_firstName capitalizedString] forKey:@"firstName"];
+    [userToSave setObject:[_lastName capitalizedString] forKey:@"lastName"];
     [userToSave setObject:_email forKey:@"email"];
     [userToSave setObject:_phoneNum forKey:@"phoneNumber"];
     [userToSave setObject:_emergencyNum forKey:@"emergencyPhoneNumber"];
@@ -257,9 +257,9 @@
     [userToSave setObject:_state forKey:@"state"];
     [userToSave setObject:_zip forKey:@"zipCode"];
     [userToSave setObject:_other forKey:@"other"];
-    isBoy = [_genderSelector selectedSegmentIndex] == 0 ? NO : YES;
+    isBoy = genderIndex == 0 ? NO : YES;
     [userToSave setObject:[NSNumber numberWithBool:isBoy] forKey:@"isBoy"];
-    [userToSave setObject:[NSNumber numberWithInt:(_gradeSelector.selectedSegmentIndex +4)] forKey:@"grade"];
+    [userToSave setObject:[NSNumber numberWithInt:gradeIndex+4] forKey:@"grade"];
     [userToSave setObject:[NSNumber numberWithInt:points] forKey:@"points"];
     [userToSave setObject:[NSNumber numberWithBool:YES] forKey:@"isKid"];
     [userToSave saveEventually];

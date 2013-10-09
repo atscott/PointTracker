@@ -65,7 +65,7 @@
     This is an auxilliary method which should make life easier when
     the data model is available as C-style data.
  */
-+ (NSArray *)arrayWithString:(NSString *[])strings
++ (NSArray *)arrayWithString:(__weak NSString *[])strings
                          len:(NSUInteger)len;
 
 /** Return an autoreleased empty data set (factory method). */

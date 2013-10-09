@@ -54,7 +54,9 @@
     
     nameLabel.text = [NSString stringWithFormat:@"%@ %@", first, last];
     nameLabel.textColor = [UIColor whiteColor];
-    nameLabel.font = [UIFont fontWithName:@"Chalkduster" size:24];
+    
+    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
+
 }
 
 - (IBAction)save:(id)sender
