@@ -8,6 +8,7 @@
 
 #import "MyLogInViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface MyLogInViewController ()
 @property (nonatomic, strong) UIImageView *fieldsBackground;
@@ -54,17 +55,37 @@
     [self.logInView.usernameField setTextColor:[UIColor colorWithRed:135.0f/255.0f green:118.0f/255.0f blue:92.0f/255.0f alpha:1.0]];
     [self.logInView.passwordField setTextColor:[UIColor colorWithRed:135.0f/255.0f green:118.0f/255.0f blue:92.0f/255.0f alpha:1.0]];
     
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        
+    } else {
+        [self moveAllSubviewsDown];
+    }
 }
+
+- (void) moveAllSubviewsDown{
+    float barHeight = 45.0;
+    for (UIView *view in self.view.subviews) {
+        
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height - barHeight);
+        } else {
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height);
+        }
+    }
+}
+
 
 - (void)viewDidLayoutSubviews {
     // Set frame for elements
     [self.logInView.dismissButton setFrame:CGRectMake(10.0f, 10.0f, 87.5f, 45.5f)];
-    [self.logInView.logo setFrame:CGRectMake(100.0f, 10.0f, 125.0f, 125.0f)];
-    [self.logInView.usernameField setFrame:CGRectMake(60.0f, 145.0f, 200.0f, 50.0f)];
-    [self.logInView.passwordField setFrame:CGRectMake(60.0f, 190.0f, 200.0f, 50.0f)];
-    [self.logInView.signUpLabel setFrame:CGRectMake(35.0f, 240.0f, 250.0f, 40.0f)];
-    [self.logInView.signUpButton setFrame:CGRectMake(35.0f, 270.0f, 250.0f, 40.0f)];
-    [self.fieldsBackground setFrame:CGRectMake(35.0f, 145.0f, 250.0f, 100.0f)];
+    [self.logInView.logo setFrame:CGRectMake(100.0f, 20.0f, 125.0f, 125.0f)];
+    [self.logInView.usernameField setFrame:CGRectMake(60.0f, 155.0f, 200.0f, 50.0f)];
+    [self.logInView.passwordField setFrame:CGRectMake(60.0f, 200.0f, 200.0f, 50.0f)];
+    [self.logInView.signUpLabel setFrame:CGRectMake(35.0f, 250.0f, 250.0f, 40.0f)];
+    [self.logInView.signUpButton setFrame:CGRectMake(35.0f, 280.0f, 250.0f, 40.0f)];
+    [self.fieldsBackground setFrame:CGRectMake(35.0f, 155.0f, 250.0f, 100.0f)];
 }
 
 @end

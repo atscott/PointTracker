@@ -11,4 +11,7 @@
 
 @interface MainLandingViewController : UIViewController
 <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIActionSheetDelegate>
+{
+    UIViewController *viewControllerOnDisplay;
+}
 @end

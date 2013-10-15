@@ -16,12 +16,14 @@
 
 @synthesize carousel;
 NSArray *weeks;
+int mostRecentSelection;
 
 -(id)init
 {
     self = [super init];
     self.tabBarItem.image = [UIImage imageNamed:@"Schedule"];
     self.title = @"Schedule";
+    mostRecentSelection = 0;
     
     UIBarButtonItem *downloadScheduleButton = [[UIBarButtonItem alloc]
                                          initWithTitle:@"PDF" style:UIBarButtonItemStyleBordered
@@ -31,6 +33,7 @@ NSArray *weeks;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Nights"];
     [query orderByAscending:@"date"];
+    [query whereKey:@"date" greaterThanOrEqualTo:[NSDate date]];
     weeks = [query findObjects];
     
     return self;
@@ -69,18 +72,15 @@ NSArray *weeks;
 {
     [super viewDidLoad];
     
-    carousel.type = iCarouselTypeInvertedTimeMachine;
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Nights"];
-    [query orderByAscending:@"date"];
-    weeks = [query findObjects];
+    carousel.type = iCarouselTypeCoverFlow;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
-    [carousel setCurrentItemIndex:0];
+    
+    [[self view] setBackgroundColor:[UIColor darkGrayColor]];
+    [carousel setCurrentItemIndex:mostRecentSelection];
 }
 
 - (void)viewDidUnload
@@ -122,7 +122,6 @@ NSArray *weeks;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     NSString *dateString = [dateFormatter stringFromDate:[weeks[index] objectForKey:@"date"]];
-	//set button label
 	[button setTitle:[NSString stringWithFormat:@"%@", dateString] forState:UIControlStateNormal];
 	
 	return button;
@@ -135,13 +134,8 @@ NSArray *weeks;
 {
 	//get item index for button
 	NSInteger index = [carousel indexOfItemViewOrSubview:sender];
-	
+	mostRecentSelection = index;
     [[self navigationController] pushViewController:[[NightDetailViewController alloc] initWithNight:weeks[index]] animated:YES];
-    /*[[[UIAlertView alloc] initWithTitle:@"Button Tapped"
-                                 message:[NSString stringWithFormat:@"You tapped button number %i", index]
-                                delegate:nil
-                       cancelButtonTitle:@"OK"
-                       otherButtonTitles:nil] show];*/
 }
 
 @end

@@ -13,6 +13,9 @@
 #import "MySignUpViewController.h"
 #import "PersonDetailsViewController.h"
 #import "CheckinViewController.h"
+#import "CurrentRosterViewController.h"
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface TableListViewController ()
 
@@ -44,6 +47,11 @@
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                   target:self
                                                   action:@selector(addNewItem:)];
+        UIBarButtonItem *viewAttendanceButton = [[UIBarButtonItem alloc]
+                                                 initWithTitle:@"Today"
+                                                 style:UIBarButtonItemStyleBordered
+                                                 target:self
+                                                 action:@selector(viewPresentKids:)];
         
         // Create and place the "<-" logout button
         UIImage *signoutImage = [UIImage imageNamed:@"SignOut.png"];
@@ -58,10 +66,50 @@
         [[self navigationItem] setLeftBarButtonItems:leftBarButtons animated:YES];
         
         // Create and place Array of RightBarButtons 
-        NSArray *barButtons = [[NSArray alloc] initWithObjects: addPersonButton, nil];
+        NSArray *barButtons = [[NSArray alloc] initWithObjects: addPersonButton, viewAttendanceButton, nil];
         [[self navigationItem] setRightBarButtonItems:barButtons animated:YES];
+        
+        myTableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 80.0)];
+        
+        NSArray *itemArray = [NSArray arrayWithObjects: @"First Name", @"Last Name", @"Points", nil];
+        segControl = [[UISegmentedControl alloc] initWithItems:itemArray];
+        segControl.frame = CGRectMake(0.0, 40.0, 320.0, 40.0);
+        segControl.selectedSegmentIndex = 0;
+        segControl.segmentedControlStyle = 7;
+        segControl.tintColor = [UIColor darkGrayColor];
+        [segControl addTarget:self
+                    action:@selector(segTapped:)
+                    forControlEvents:UIControlEventValueChanged];
+        [myTableHeaderView addSubview:segControl];
+        
+        mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 40.0)];
+        mySearchBar.placeholder = segControl.selectedSegmentIndex == 1 ? @"Enter Last Name" : @"Enter First Name";
+        mySearchBar.showsCancelButton = YES;
+        mySearchBar.delegate = self;
+        mySearchBar.tintColor = [UIColor blackColor];
+        
+        [myTableHeaderView addSubview:mySearchBar];
+        
+        self.tableView.tableHeaderView = myTableHeaderView;
+        
+        
     }
     return self;
+}
+
+-(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    searchName = searchBar.text;
+    [searchBar resignFirstResponder];
+    [self loadObjects];
+}
+
+-(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    searchName = @"";
+    searchBar.text = @"";
+    [mySearchBar resignFirstResponder];
+    [self loadObjects];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -77,16 +125,29 @@
     [self loadObjects];
 }
 
+
 -(void) viewDidLoad
 {
     [super viewDidLoad];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+        self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
+- (IBAction)viewPresentKids:(id)sender
+{
+    CurrentRosterViewController *currentRostView = [[CurrentRosterViewController alloc]init];
+    [[self navigationController] pushViewController:currentRostView animated:YES];
+}
 - (IBAction)addNewItem:(id)sender
 {
     AddFormViewController *addForm = [[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped];
-    
     [[self navigationController] pushViewController:addForm animated:YES];
+}
+
+- (IBAction)segTapped:(id)sender
+{
+    mySearchBar.placeholder = segControl.selectedSegmentIndex == 1 ? @"Enter Last Name" : @"Enter First Name";
+    [self loadObjects];
 }
 
 - (IBAction)logOutButtonTapAction:(id)sender {
@@ -125,6 +186,7 @@
         }
         else
         {
+            [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Couldn't Connect" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             NSLog(@"Error getting idValues");
         }
     }];
@@ -138,8 +200,22 @@
     if ([self.objects count] == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
+    
+    if (segControl.selectedSegmentIndex == 0)
     [query orderByAscending:@"firstName"];
+    else if (segControl.selectedSegmentIndex == 1)
+    [query orderByAscending:@"lastName"];
+    else if (segControl.selectedSegmentIndex == 2)
+    [query orderByDescending:@"points"];
 
+    if(searchName.length > 0)
+    {
+        if(segControl.selectedSegmentIndex == 1)
+            [query whereKey:@"lastName" containsString:searchName.capitalizedString];
+        else
+            [query whereKey:@"firstName" containsString:searchName.capitalizedString];
+
+    }
     return query;
 }
 
@@ -157,7 +233,10 @@
     NSString *last = [object objectForKey:@"lastName"];
     
     // Set the text of the labels of the cell
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", first, last];
+    if (segControl.selectedSegmentIndex == 1)
+        cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", last, first];
+    else
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", first, last];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Points: %@", [object objectForKey:@"points"]];
     
     // Set the background of the cell based on gender
@@ -188,7 +267,5 @@
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     [[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
 }
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    [[self navigationController]pushViewController:[[CheckinViewController alloc]initWithID:idValues[indexPath.row]] animated:YES];
-}
+
 @end

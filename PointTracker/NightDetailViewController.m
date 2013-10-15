@@ -7,6 +7,7 @@
 //
 
 #import "NightDetailViewController.h"
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface NightDetailViewController ()
 
@@ -50,7 +51,28 @@
     verseLabel.textColor = [UIColor whiteColor];
     verseLabel.textAlignment = NSTextAlignmentCenter;
     verseLabel.font = [UIFont fontWithName:@"American Typewriter" size:20];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        
+    } else {
+        [self moveAllSubviewsDown];
+    }
 }
+
+- (void) moveAllSubviewsDown{
+    float barHeight = 45.0;
+    for (UIView *view in self.view.subviews) {
+        
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height - barHeight);
+        } else {
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height);
+        }
+    }
+}
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -59,7 +81,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     NSString *dateString = [dateFormatter stringFromDate:[night objectForKey:@"date"]];
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
+    [[self view] setBackgroundColor:[UIColor darkGrayColor]];
     self.navigationItem.title = dateString;
 }
 

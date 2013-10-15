@@ -32,25 +32,27 @@
 {
     [super viewDidAppear:animated];
     
-//    Reachability *netReachability = [Reachability reachabilityForInternetConnection];
-//    NetworkStatus *netStatus = [netReachability currentReachabilityStatus];
-//    if(netStatus == NotReachable)
-//    {
-//        [[[UIAlertView alloc]initWithTitle:@"Connection Falure" message:@"Please connect to the internet and try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-//    }
     [self handleLogin];
+}
+-(void) viewDidAppear:(BOOL)animated
+{
     if([PFUser currentUser])
     {
         if([[[PFUser currentUser] objectForKey:@"isLeader"]boolValue] == YES)
         {
-            [[self navigationController] pushViewController:[[TableListViewController alloc] init] animated:NO];
+            self.title = @"People";
+            if(viewControllerOnDisplay == nil)
+                viewControllerOnDisplay =[[TableListViewController alloc] init];
+            else
+                [self.navigationController popViewControllerAnimated:NO];
+            
+            [[self navigationController] pushViewController:viewControllerOnDisplay animated:NO];
+            
         }
         else if([[[PFUser currentUser] objectForKey:@"isLeader"]boolValue] == NO)
         {
             [[self navigationController] pushViewController:[[PrayerRequestYeahGodViewController alloc] init] animated:NO];
-
         }
-
     }
 }
 

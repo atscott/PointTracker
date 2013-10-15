@@ -6,6 +6,7 @@
 //
 
 #import "AddFormViewController.h"
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface AddFormViewController ()
 
@@ -23,6 +24,7 @@
 @synthesize state = _state;
 @synthesize zip = _zip;
 @synthesize other = _other;
+@synthesize groupLeader = _groupLeader;
 
 - (void)viewDidLoad
 {
@@ -32,6 +34,27 @@
         [self setUserDefaults];
     }else{
         [self setBlankDefaults];
+    }
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        self.edgesForExtendedLayout=UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars=NO;
+        self.automaticallyAdjustsScrollViewInsets=NO;
+        
+    } else {
+        [self moveAllSubviewsDown];
+    }
+}
+
+- (void) moveAllSubviewsDown{
+    float barHeight = 45.0;
+    for (UIView *view in self.view.subviews) {
+        
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height - barHeight);
+        } else {
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height);
+        }
     }
 }
 
@@ -49,6 +72,7 @@
     self.state = @"";
     self.zip = @"";
     self.other = @"No other notes";
+    self.groupLeader = @"";
     gradeIndex = 0;
     genderIndex = 0;
 }
@@ -67,6 +91,7 @@
     self.state = [userBeingEdited objectForKey:@"state"];
     self.zip = [userBeingEdited objectForKey:@"zipCode"];
     self.other = [userBeingEdited objectForKey:@"other"];
+    self.groupLeader = [userBeingEdited objectForKey:@"groupLeader"];
     
     [self checkDefaultNulls];
     
@@ -102,7 +127,8 @@
         self.zip = @"";
     if(self.other == NULL)
         self.other = @"";
-    
+    if(self.groupLeader == NULL)
+        self.groupLeader = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -124,7 +150,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 12;
+    return 13;
 }
 
 
@@ -217,7 +243,7 @@
         }
             
         case 11: {
-            cell.textLabel.text = @"Grade" ;
+            cell.textLabel.text = @"Grade";
             
             NSArray *gradesArray = [NSArray arrayWithObjects: @"4th", @"5th", @"6th", @"7th", nil];
             _gradeSelector= [[UISegmentedControl alloc] initWithItems:gradesArray];
@@ -229,6 +255,12 @@
                      forControlEvents:UIControlEventValueChanged];
             [cell addSubview: _gradeSelector];
             break;
+        }
+        case 12: {
+            cell.textLabel.text = @"Leader";
+            tf = _groupLeaderField = [self makeTextField:self.groupLeader placeholder:@"Name"];
+            [cell addSubview: _groupLeaderField];
+			break;
         }
 	}
 	// Textfield dimensions
@@ -262,6 +294,7 @@
     [userToSave setObject:[NSNumber numberWithInt:gradeIndex+4] forKey:@"grade"];
     [userToSave setObject:[NSNumber numberWithInt:points] forKey:@"points"];
     [userToSave setObject:[NSNumber numberWithBool:YES] forKey:@"isKid"];
+    [userToSave setObject:_groupLeader forKey:@"groupLeader"];
     [userToSave saveEventually];
     
     [[self navigationController] popViewControllerAnimated:YES];
@@ -305,7 +338,9 @@
 		self.zip = textField.text ;
 	} else if (textField == _otherField) {
 		self.other = textField.text ;
-	}
+	} else if (textField == _groupLeaderField){
+        self.groupLeader = textField.text;
+    }
 }
 
 - (void) setUserBeingEdited:(PFObject *)other

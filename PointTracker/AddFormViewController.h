@@ -25,6 +25,7 @@
     NSString *_zip;
     NSString *_other;
     NSString *_gender;
+    NSString *_groupLeader;
     
 	UITextField *_firstNameField;
     UITextField *_lastNameField;
@@ -36,6 +37,7 @@
     UITextField *_stateField;
     UITextField *_zipField;
 	UITextField *_otherField;
+    UITextField *_groupLeaderField;
     UISegmentedControl *_genderSelector;
     UISegmentedControl *_gradeSelector;
 }
@@ -55,5 +57,6 @@
 @property (nonatomic,copy) NSString* state;
 @property (nonatomic,copy) NSString* zip;
 @property (nonatomic,copy) NSString* other;
+@property (nonatomic,copy) NSString* groupLeader;
 
 @end

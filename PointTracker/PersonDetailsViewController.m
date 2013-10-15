@@ -8,6 +8,7 @@
 #import "PersonDetailsViewController.h"
 #import "AddFormViewController.h"
 #import "CheckinViewController.h"
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface PersonDetailsViewController ()
 
@@ -134,7 +135,8 @@
     pointScale.scaleBgColor = [UIColor colorWithRed:40.0f/255 green:38.0f/255 blue:46.0f/255 alpha:1.0];
     pointScale.arrowColor = [UIColor blackColor];
     pointScale.disableStateTextColor = [UIColor colorWithRed:202.0f/255 green:183.0f/255 blue:172.0f/255 alpha:1.0];
-    [pointScale drawRatingControlWithX:55 Y:50];
+    [pointScale drawRatingControlWithX:55
+                                     Y:SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ? 50 : 5];
     [self.view addSubview:pointScale];
     
     UIBarButtonItem *editPersonButton = [[UIBarButtonItem alloc]
@@ -148,6 +150,26 @@
                                             action:@selector(checkinPerson:)];
     NSMutableArray *buttons = [[NSMutableArray alloc] initWithObjects:editPersonButton, checkinPersonButton, nil];
     [[self navigationItem] setRightBarButtonItems: buttons];
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        
+    } else {
+        [self moveAllSubviewsDown];
+    }
+}
+
+- (void) moveAllSubviewsDown{
+    float barHeight = 45.0;
+    for (UIView *view in self.view.subviews) {
+        
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height - barHeight);
+        } else {
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height);
+        }
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated

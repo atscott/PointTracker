@@ -9,7 +9,13 @@
 #import <Parse/Parse.h>
 
 @interface TableListViewController : PFQueryTableViewController
-<UIActionSheetDelegate>
+<UIActionSheetDelegate, UISearchBarDelegate>
+{
+    UIView *myTableHeaderView;
+    UISegmentedControl *segControl;
+    UISearchBar *mySearchBar;
+    NSString *searchName;
+}
 
 - (IBAction)addNewItem:(id)sender;
 - (IBAction)logOutButtonTapAction:(id)sender;

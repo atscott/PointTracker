@@ -92,6 +92,7 @@
 		A72C226D1729AFAF00E6D9DA /* AddFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226C1729AFAF00E6D9DA /* AddFormViewController.m */; };
 		A72C22711729B17D00E6D9DA /* PersonDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */; };
 		A72C22721729B17D00E6D9DA /* PersonDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */; };
+		A73BD9661808BCEB001CA58E /* WeeklyStatsSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A73BD9651808BCEB001CA58E /* WeeklyStatsSelectionViewController.m */; };
 		A74FB432173168B000E19D03 /* classy_fabric.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB431173168B000E19D03 /* classy_fabric.png */; };
 		A74FB4391731700F00E19D03 /* GirlVsBoy.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB4381731700F00E19D03 /* GirlVsBoy.png */; };
 		A74FB43B1731707600E19D03 /* TopTenIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A74FB43A1731707600E19D03 /* TopTenIcon.png */; };
@@ -127,7 +128,6 @@
 		A754E026174217B9008EC3E2 /* ReaderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A754E021174217B9008EC3E2 /* ReaderAppDelegate.m */; };
 		A754E027174217B9008EC3E2 /* ReaderBookDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A754E023174217B9008EC3E2 /* ReaderBookDelegate.m */; };
 		A754E028174217B9008EC3E2 /* ReaderDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754E025174217B9008EC3E2 /* ReaderDemoController.m */; };
-		A754E02A174219F7008EC3E2 /* KidBlast Bible topic list.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A754E029174219F7008EC3E2 /* KidBlast Bible topic list.pdf */; };
 		A754E02E174221DA008EC3E2 /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754E02C174221D9008EC3E2 /* CheckinViewController.m */; };
 		A754E02F174221DA008EC3E2 /* CheckinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A754E02D174221D9008EC3E2 /* CheckinViewController.xib */; };
 		A754E03417428C7B008EC3E2 /* boyCheckedinBack.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A754E03017428C7B008EC3E2 /* boyCheckedinBack.jpeg */; };
@@ -174,6 +174,8 @@
 		A7D13DCC173107D70017AF3C /* DetailsBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7D13DC9173107D70017AF3C /* DetailsBackground.jpg */; };
 		A7D13DCD173107D70017AF3C /* DetailsBackground@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7D13DCA173107D70017AF3C /* DetailsBackground@2x.jpg */; };
 		A7D13DCE173107D70017AF3C /* DetailsBackground-568@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7D13DCB173107D70017AF3C /* DetailsBackground-568@2x.jpg */; };
+		A7F591031805A50300658C06 /* CurrentRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F591021805A50300658C06 /* CurrentRosterViewController.m */; };
+		A7F591051805CDB600658C06 /* KidBlast Bible topic list.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A7F591041805CDB600658C06 /* KidBlast Bible topic list.pdf */; };
 		A7FA36261725B52A006359D6 /* loginBack-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36231725B52A006359D6 /* loginBack-568h@2x.png */; };
 		A7FA36271725B52A006359D6 /* loginBack.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36241725B52A006359D6 /* loginBack.png */; };
 		A7FA36281725B52A006359D6 /* loginBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FA36251725B52A006359D6 /* loginBack@2x.png */; };
@@ -343,6 +345,8 @@
 		A72C226E1729B17D00E6D9DA /* PersonDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailsViewController.h; sourceTree = "<group>"; };
 		A72C226F1729B17D00E6D9DA /* PersonDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailsViewController.m; sourceTree = "<group>"; };
 		A72C22701729B17D00E6D9DA /* PersonDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonDetailsViewController.xib; sourceTree = "<group>"; };
+		A73BD9641808BCEB001CA58E /* WeeklyStatsSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyStatsSelectionViewController.h; sourceTree = "<group>"; };
+		A73BD9651808BCEB001CA58E /* WeeklyStatsSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyStatsSelectionViewController.m; sourceTree = "<group>"; };
 		A74FB431173168B000E19D03 /* classy_fabric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = classy_fabric.png; sourceTree = "<group>"; };
 		A74FB4381731700F00E19D03 /* GirlVsBoy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GirlVsBoy.png; sourceTree = "<group>"; };
 		A74FB43A1731707600E19D03 /* TopTenIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopTenIcon.png; sourceTree = "<group>"; };
@@ -401,7 +405,6 @@
 		A754E023174217B9008EC3E2 /* ReaderBookDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderBookDelegate.m; sourceTree = "<group>"; };
 		A754E024174217B9008EC3E2 /* ReaderDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderDemoController.h; sourceTree = "<group>"; };
 		A754E025174217B9008EC3E2 /* ReaderDemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderDemoController.m; sourceTree = "<group>"; };
-		A754E029174219F7008EC3E2 /* KidBlast Bible topic list.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "KidBlast Bible topic list.pdf"; sourceTree = "<group>"; };
 		A754E02B174221D9008EC3E2 /* CheckinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinViewController.h; sourceTree = "<group>"; };
 		A754E02C174221D9008EC3E2 /* CheckinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinViewController.m; sourceTree = "<group>"; };
 		A754E02D174221D9008EC3E2 /* CheckinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinViewController.xib; sourceTree = "<group>"; };
@@ -460,6 +463,9 @@
 		A7D13DC9173107D70017AF3C /* DetailsBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DetailsBackground.jpg; sourceTree = "<group>"; };
 		A7D13DCA173107D70017AF3C /* DetailsBackground@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DetailsBackground@2x.jpg"; sourceTree = "<group>"; };
 		A7D13DCB173107D70017AF3C /* DetailsBackground-568@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DetailsBackground-568@2x.jpg"; sourceTree = "<group>"; };
+		A7F591011805A50300658C06 /* CurrentRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentRosterViewController.h; sourceTree = "<group>"; };
+		A7F591021805A50300658C06 /* CurrentRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentRosterViewController.m; sourceTree = "<group>"; };
+		A7F591041805CDB600658C06 /* KidBlast Bible topic list.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "KidBlast Bible topic list.pdf"; sourceTree = "<group>"; };
 		A7FA36231725B52A006359D6 /* loginBack-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBack-568h@2x.png"; sourceTree = "<group>"; };
 		A7FA36241725B52A006359D6 /* loginBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBack.png; sourceTree = "<group>"; };
 		A7FA36251725B52A006359D6 /* loginBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBack@2x.png"; sourceTree = "<group>"; };
@@ -714,6 +720,8 @@
 				A754E02B174221D9008EC3E2 /* CheckinViewController.h */,
 				A754E02C174221D9008EC3E2 /* CheckinViewController.m */,
 				A754E02D174221D9008EC3E2 /* CheckinViewController.xib */,
+				A7F591011805A50300658C06 /* CurrentRosterViewController.h */,
+				A7F591021805A50300658C06 /* CurrentRosterViewController.m */,
 			);
 			name = LeaderDashboard;
 			sourceTree = "<group>";
@@ -751,7 +759,7 @@
 		A711E0A8171FA7C6003F6224 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				A754E029174219F7008EC3E2 /* KidBlast Bible topic list.pdf */,
+				A7F591041805CDB600658C06 /* KidBlast Bible topic list.pdf */,
 				A74FB43717316B0300E19D03 /* ButtonIcons */,
 				A72C22731729B96800E6D9DA /* Backgrounds */,
 				A7A38622171FFAE3007B5E4F /* UIBarButtonItemIcons */,
@@ -939,6 +947,8 @@
 				A7BFD60617C6F60D00C1CD61 /* LogViewController.h */,
 				A7BFD60717C6F60D00C1CD61 /* LogViewController.m */,
 				A7BFD60817C6F60D00C1CD61 /* LogViewController.xib */,
+				A73BD9641808BCEB001CA58E /* WeeklyStatsSelectionViewController.h */,
+				A73BD9651808BCEB001CA58E /* WeeklyStatsSelectionViewController.m */,
 			);
 			name = "Log Tab";
 			sourceTree = "<group>";
@@ -1073,6 +1083,7 @@
 				63F60926172F178A00C454DA /* GraphpickerViewController.xib in Resources */,
 				A7D13DCC173107D70017AF3C /* DetailsBackground.jpg in Resources */,
 				A7D13DCD173107D70017AF3C /* DetailsBackground@2x.jpg in Resources */,
+				A7F591051805CDB600658C06 /* KidBlast Bible topic list.pdf in Resources */,
 				A7D13DCE173107D70017AF3C /* DetailsBackground-568@2x.jpg in Resources */,
 				A74FB432173168B000E19D03 /* classy_fabric.png in Resources */,
 				A74FB4391731700F00E19D03 /* GirlVsBoy.png in Resources */,
@@ -1090,7 +1101,6 @@
 				A76AB1081741826300D7D960 /* newBackground.png in Resources */,
 				A754DFCE1741EF6B008EC3E2 /* gray_fabric 2.jpg in Resources */,
 				A754DFDC17421116008EC3E2 /* nightBack.png in Resources */,
-				A754E02A174219F7008EC3E2 /* KidBlast Bible topic list.pdf in Resources */,
 				A754E02F174221DA008EC3E2 /* CheckinViewController.xib in Resources */,
 				A754E03417428C7B008EC3E2 /* boyCheckedinBack.jpeg in Resources */,
 				A754E03517428C7B008EC3E2 /* boyCellBack.jpeg in Resources */,
@@ -1159,6 +1169,7 @@
 				6347007F1729A02000CF12D4 /* WSPlotBar.m in Sources */,
 				634700801729A02000CF12D4 /* WSPlotController.m in Sources */,
 				634700811729A02000CF12D4 /* WSPlotData.m in Sources */,
+				A73BD9661808BCEB001CA58E /* WeeklyStatsSelectionViewController.m in Sources */,
 				634700821729A02000CF12D4 /* WSPlotDisc.m in Sources */,
 				634700831729A02000CF12D4 /* WSPlotGraph.m in Sources */,
 				634700841729A02000CF12D4 /* WSPlotRegion.m in Sources */,
@@ -1170,6 +1181,7 @@
 				A72C226D1729AFAF00E6D9DA /* AddFormViewController.m in Sources */,
 				A72C22711729B17D00E6D9DA /* PersonDetailsViewController.m in Sources */,
 				63F60925172F178A00C454DA /* GraphpickerViewController.m in Sources */,
+				A7F591031805A50300658C06 /* CurrentRosterViewController.m in Sources */,
 				A7D13DC71730FEF90017AF3C /* TDArrow.m in Sources */,
 				A7D13DC81730FEF90017AF3C /* TDRatingView.m in Sources */,
 				A7A59D4A1739A15100D944BB /* iCarousel.m in Sources */,
