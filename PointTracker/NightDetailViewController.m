@@ -15,10 +15,6 @@
 
 @implementation NightDetailViewController
 
-@synthesize titleLabel;
-@synthesize topicLabel;
-@synthesize verseLabel;
-
 -(id)initWithNight:(id)theNight
 {
     self = [super init];
@@ -37,27 +33,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    titleLabel.text = [night objectForKey:@"title"];
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = [UIFont fontWithName:@"American Typewriter" size:30];
+    titleField = [[UITextView alloc] initWithFrame: CGRectMake(10.0f, 30.0f, 300.0f, 70.0f)];
+    titleField.text = [night objectForKey:@"title"];
+    titleField.textColor = [UIColor whiteColor];
+    titleField.backgroundColor = [UIColor clearColor];
+    titleField.textAlignment = NSTextAlignmentCenter;
+    titleField.font = [UIFont fontWithName:@"American Typewriter" size:24];
     
-    topicLabel.text = [NSString stringWithFormat:@"Topic:\r %@",[night objectForKey:@"topic"]];
-    topicLabel.textColor = [UIColor whiteColor];
-    topicLabel.textAlignment = NSTextAlignmentCenter;
-    topicLabel.font = [UIFont fontWithName:@"American Typewriter" size:20];
+    topicField = [[UITextView alloc] initWithFrame: CGRectMake(10.0f, 110.0f, 300.0f, 70.0f)];
+    topicField.text = [NSString stringWithFormat:@"Topic:\r %@",[night objectForKey:@"topic"]];
+    topicField.textColor = [UIColor whiteColor];
+    topicField.backgroundColor = [UIColor clearColor];
+    topicField.textAlignment = NSTextAlignmentCenter;
+    topicField.font = [UIFont fontWithName:@"American Typewriter" size:18];
     
-    verseLabel.text = [NSString stringWithFormat:@"Memory Verse: \r%@", [night objectForKey:@"verse"]];
-    verseLabel.textColor = [UIColor whiteColor];
-    verseLabel.textAlignment = NSTextAlignmentCenter;
-    verseLabel.font = [UIFont fontWithName:@"American Typewriter" size:20];
+    verseField = [[UITextView alloc] initWithFrame: CGRectMake(10.0f, 190.0f, 300.0f, 160.0f)];
+    verseField.text = [NSString stringWithFormat:@"Memory Verse: \r%@", [night objectForKey:@"verse"]];
+    verseField.textColor = [UIColor whiteColor];
+    verseField.backgroundColor = [UIColor clearColor];
+    verseField.textAlignment = NSTextAlignmentCenter;
+    verseField.font = [UIFont fontWithName:@"American Typewriter" size:14];
+    
+    [self.view addSubview:titleField];
+    [self.view addSubview:topicField];
+    [self.view addSubview:verseField];
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         
         self.edgesForExtendedLayout = UIRectEdgeNone;
         
-    } else {
-        [self moveAllSubviewsDown];
     }
 }
 
@@ -72,7 +76,6 @@
         }
     }
 }
-
 
 -(void)viewWillAppear:(BOOL)animated
 {

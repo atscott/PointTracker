@@ -40,7 +40,6 @@
     {
         if([[[PFUser currentUser] objectForKey:@"isLeader"]boolValue] == YES)
         {
-            self.title = @"People";
             if(viewControllerOnDisplay == nil)
                 viewControllerOnDisplay =[[TableListViewController alloc] init];
             else

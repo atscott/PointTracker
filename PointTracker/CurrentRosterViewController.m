@@ -34,8 +34,6 @@
         
         self.edgesForExtendedLayout = UIRectEdgeNone;
         
-    } else {
-        [self moveAllSubviewsDown];
     }
 }
 
@@ -113,27 +111,6 @@
     // Set the text of the labels of the cell
     cell.textLabel.text = [NSString stringWithFormat:@"%@", name];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Checked in %@", [object valueForKey:@"createdAt"]];
-    
-    // Set the background of the cell based on gender
-//    bool isBoy = [[object objectForKey:@"isBoy"]boolValue];
-//    UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
-//    if(isBoy){
-//        [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"finalBoyBack.jpeg"]]];
-//        cell.backgroundView = back;
-//    }
-//    else if(!isBoy){
-//        [back setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"girlCellBack.jpeg"]]];
-//        cell.backgroundView = back;
-//    }
-    
-//    // Set colors
-//    cell.textLabel.textColor = [UIColor blackColor];
-//    cell.detailTextLabel.textColor = [UIColor grayColor];
-//    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-//    cell.textLabel.backgroundColor = [UIColor clearColor];
-//    cell.accessoryView.backgroundColor = [UIColor clearColor];
-//    cell.accessoryView.backgroundColor = [UIColor clearColor];
-    
     return cell;
 }
 

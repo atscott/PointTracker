@@ -135,7 +135,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
 
     
     UIBarButtonItem *savePersonButton = [[UIBarButtonItem alloc]

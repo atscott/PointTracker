@@ -76,8 +76,7 @@
 		A711E0C1171FA8D5003F6224 /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A711E0BF171FA8D5003F6224 /* History@2x.png */; };
 		A711E0CF171FA9BA003F6224 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A711E0CD171FA9BA003F6224 /* StatsViewController.m */; };
 		A711E0D0171FA9BA003F6224 /* StatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A711E0CE171FA9BA003F6224 /* StatsViewController.xib */; };
-		A71E8F97177E6BCF00F8F114 /* KidDashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A71E8F95177E6BCF00F8F114 /* KidDashViewController.m */; };
-		A71E8F98177E6BCF00F8F114 /* KidDashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A71E8F96177E6BCF00F8F114 /* KidDashViewController.xib */; };
+		A716BA70180E471600016381 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A716BA6F180E471600016381 /* Images.xcassets */; };
 		A72979BA171DF0A700693480 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979B9171DF0A700693480 /* Parse.framework */; };
 		A72979BC171DF0D300693480 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979BB171DF0D300693480 /* AudioToolbox.framework */; };
 		A72979BE171DF0DE00693480 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72979BD171DF0DE00693480 /* CFNetwork.framework */; };
@@ -152,6 +151,8 @@
 		A7A59D531739A16200D944BB /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D4F1739A16200D944BB /* page.png */; };
 		A7A59D5C1739BE0F00D944BB /* NightDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */; };
 		A7A59D5D1739BE0F00D944BB /* NightDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A59D5B1739BE0E00D944BB /* NightDetailViewController.xib */; };
+		A7B47262181769AF009BB7F7 /* downArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B47260181769AE009BB7F7 /* downArrow.png */; };
+		A7B47263181769AF009BB7F7 /* downArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7B47261181769AF009BB7F7 /* downArrow@2x.png */; };
 		A7BFA24A1725D775001EF111 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA2441725D775001EF111 /* BButton.m */; };
 		A7BFA24B1725D775001EF111 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA2461725D775001EF111 /* NSString+FontAwesome.m */; };
 		A7BFA24C1725D775001EF111 /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A7BFA2481725D775001EF111 /* UIColor+BButton.m */; };
@@ -325,9 +326,11 @@
 		A711E0CC171FA9BA003F6224 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		A711E0CD171FA9BA003F6224 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		A711E0CE171FA9BA003F6224 /* StatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatsViewController.xib; sourceTree = "<group>"; };
-		A71E8F94177E6BCF00F8F114 /* KidDashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KidDashViewController.h; sourceTree = "<group>"; };
-		A71E8F95177E6BCF00F8F114 /* KidDashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KidDashViewController.m; sourceTree = "<group>"; };
-		A71E8F96177E6BCF00F8F114 /* KidDashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KidDashViewController.xib; sourceTree = "<group>"; };
+		A716BA6F180E471600016381 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A716BA71180E47F600016381 /* Icon@2x+4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x+4.png"; path = "../Icon@2x+4.png"; sourceTree = "<group>"; };
+		A716BA72180E482F00016381 /* SpotLightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpotLightIcon.png; path = ../SpotLightIcon.png; sourceTree = "<group>"; };
+		A716BA73180E485600016381 /* SpotLightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SpotLightIcon@2x.png"; path = "../SpotLightIcon@2x.png"; sourceTree = "<group>"; };
+		A716BA74180E488A00016381 /* SpotLightIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpotLightIcon80.png; path = ../SpotLightIcon80.png; sourceTree = "<group>"; };
 		A72979B9171DF0A700693480 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A72979BB171DF0D300693480 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A72979BD171DF0DE00693480 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -433,6 +436,8 @@
 		A7A59D591739BE0E00D944BB /* NightDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NightDetailViewController.h; sourceTree = "<group>"; };
 		A7A59D5A1739BE0E00D944BB /* NightDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NightDetailViewController.m; sourceTree = "<group>"; };
 		A7A59D5B1739BE0E00D944BB /* NightDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NightDetailViewController.xib; sourceTree = "<group>"; };
+		A7B47260181769AE009BB7F7 /* downArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrow.png; sourceTree = "<group>"; };
+		A7B47261181769AF009BB7F7 /* downArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downArrow@2x.png"; sourceTree = "<group>"; };
 		A7BFA2431725D774001EF111 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		A7BFA2441725D775001EF111 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		A7BFA2451725D775001EF111 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
@@ -670,6 +675,7 @@
 				A711E0A3171FA075003F6224 /* Screens */,
 				63EA8FDB171DE83400E5BEB5 /* AppDelegate.h */,
 				63EA8FDC171DE83400E5BEB5 /* AppDelegate.m */,
+				A716BA6F180E471600016381 /* Images.xcassets */,
 				63EA8FD3171DE83400E5BEB5 /* Supporting Files */,
 			);
 			path = PointTracker;
@@ -678,6 +684,10 @@
 		63EA8FD3171DE83400E5BEB5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A716BA74180E488A00016381 /* SpotLightIcon80.png */,
+				A716BA73180E485600016381 /* SpotLightIcon@2x.png */,
+				A716BA72180E482F00016381 /* SpotLightIcon.png */,
+				A716BA71180E47F600016381 /* Icon@2x+4.png */,
 				A711E0A8171FA7C6003F6224 /* Assets */,
 				A7A1E46317355189005D705C /* Icon@2x.png */,
 				A7A1E46117355185005D705C /* Icon.png */,
@@ -789,9 +799,6 @@
 		A71E8F93177E6BA500F8F114 /* KidDashboard */ = {
 			isa = PBXGroup;
 			children = (
-				A71E8F94177E6BCF00F8F114 /* KidDashViewController.h */,
-				A71E8F95177E6BCF00F8F114 /* KidDashViewController.m */,
-				A71E8F96177E6BCF00F8F114 /* KidDashViewController.xib */,
 				A7FBF62A17DBE29400E92981 /* PrayerRequestYeahGodViewController.h */,
 				A7FBF62B17DBE29400E92981 /* PrayerRequestYeahGodViewController.m */,
 				A7FBF62D17DD5B6200E92981 /* NewRequestOrPraiseViewController.h */,
@@ -908,6 +915,8 @@
 		A7A38622171FFAE3007B5E4F /* UIBarButtonItemIcons */ = {
 			isa = PBXGroup;
 			children = (
+				A7B47260181769AE009BB7F7 /* downArrow.png */,
+				A7B47261181769AF009BB7F7 /* downArrow@2x.png */,
 				A751E49E1726D58700EC4D14 /* Setting.png */,
 				A751E49F1726D58800EC4D14 /* Setting@2x.png */,
 				A7BFA24F1725E202001EF111 /* SignOut.png */,
@@ -1024,6 +1033,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = SE4910I;
+				TargetAttributes = {
+					63EA8FC8171DE83400E5BEB5 = {
+						DevelopmentTeam = NHVSQN8Z3B;
+					};
+				};
 			};
 			buildConfigurationList = 63EA8FC4171DE83400E5BEB5 /* Build configuration list for PBXProject "PointTracker" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1052,6 +1066,7 @@
 				63EA8FE1171DE83400E5BEB5 /* Default@2x.png in Resources */,
 				63EA8FE3171DE83400E5BEB5 /* Default-568h@2x.png in Resources */,
 				A711E0AC171FA802003F6224 /* List@2x.png in Resources */,
+				A7B47263181769AF009BB7F7 /* downArrow@2x.png in Resources */,
 				A711E0AD171FA802003F6224 /* List.png in Resources */,
 				A711E0B0171FA839003F6224 /* Stats@2x.png in Resources */,
 				A711E0B1171FA839003F6224 /* Stats.png in Resources */,
@@ -1074,6 +1089,7 @@
 				A7FA36261725B52A006359D6 /* loginBack-568h@2x.png in Resources */,
 				A7FA36271725B52A006359D6 /* loginBack.png in Resources */,
 				A7FA36281725B52A006359D6 /* loginBack@2x.png in Resources */,
+				A7B47262181769AF009BB7F7 /* downArrow.png in Resources */,
 				A7BFA24D1725D775001EF111 /* FontAwesome.ttf in Resources */,
 				A7BFA2501725E202001EF111 /* SignOut.png in Resources */,
 				A7BFA2521725E20D001EF111 /* SignOut@2x.png in Resources */,
@@ -1094,6 +1110,7 @@
 				A7A1E46217355185005D705C /* Icon.png in Resources */,
 				A7A1E46417355189005D705C /* Icon@2x.png in Resources */,
 				A79E56C317384D7F000B1D45 /* Home-568@2x.png in Resources */,
+				A716BA70180E471600016381 /* Images.xcassets in Resources */,
 				A7A59D511739A16200D944BB /* WeekPickerViewController.xib in Resources */,
 				A7A59D531739A16200D944BB /* page.png in Resources */,
 				A7A59D5D1739BE0F00D944BB /* NightDetailViewController.xib in Resources */,
@@ -1109,7 +1126,6 @@
 				A754E03917428E2D008EC3E2 /* girlCheckedBack.jpeg in Resources */,
 				A754E03C17428F06008EC3E2 /* finalBoyBack.jpeg in Resources */,
 				A754E03D17428F06008EC3E2 /* finalGirlBack.jpeg in Resources */,
-				A71E8F98177E6BCF00F8F114 /* KidDashViewController.xib in Resources */,
 				A7BFD60A17C6F60D00C1CD61 /* LogViewController.xib in Resources */,
 				A7FBF62917DBD28A00E92981 /* MainLandingViewController.xib in Resources */,
 				A7FBF63117DD5B6600E92981 /* NewRequestOrPraiseViewController.xib in Resources */,
@@ -1211,7 +1227,6 @@
 				A754E027174217B9008EC3E2 /* ReaderBookDelegate.m in Sources */,
 				A754E028174217B9008EC3E2 /* ReaderDemoController.m in Sources */,
 				A754E02E174221DA008EC3E2 /* CheckinViewController.m in Sources */,
-				A71E8F97177E6BCF00F8F114 /* KidDashViewController.m in Sources */,
 				A7BFD60917C6F60D00C1CD61 /* LogViewController.m in Sources */,
 				A7FBF62817DBD28A00E92981 /* MainLandingViewController.m in Sources */,
 				A7FBF62C17DBE29400E92981 /* PrayerRequestYeahGodViewController.m in Sources */,
@@ -1259,10 +1274,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
+				PROVISIONING_PROFILE = "98CAAADB-2596-4F9D-BA06-18EF7C560E81";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "98CAAADB-2596-4F9D-BA06-18EF7C560E81";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1279,17 +1294,17 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
+				CODE_SIGN_IDENTITY = "iPhone Distrobution: Andrew Moore (ZN7V36T9A4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distrobution: Andrew Moore (ZN7V36T9A4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
+				PROVISIONING_PROFILE = "1214AC4C-06DB-4208-A021-AF5F19F86D11";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1214AC4C-06DB-4208-A021-AF5F19F86D11";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1298,6 +1313,8 @@
 		63EA8FFB171DE83500E5BEB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1315,8 +1332,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
+				PROVISIONING_PROFILE = "98CAAADB-2596-4F9D-BA06-18EF7C560E81";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "98CAAADB-2596-4F9D-BA06-18EF7C560E81";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1324,8 +1341,10 @@
 		63EA8FFC171DE83500E5BEB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Moore (ZN7V36T9A4)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distrobution: Andrew Moore (ZN7V36T9A4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrew Moore (NHVSQN8Z3B)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1341,8 +1360,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8DA31511-989E-4AC5-B67B-3074B20F1B9B";
+				PROVISIONING_PROFILE = "1214AC4C-06DB-4208-A021-AF5F19F86D11";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1214AC4C-06DB-4208-A021-AF5F19F86D11";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

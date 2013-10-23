@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (weak, nonatomic) IBOutlet UITextView *phoneNumberTextView;
 @property (weak, nonatomic) IBOutlet UITextView *emergencyPhoneTextView;
+@property (weak, nonatomic) IBOutlet UITextView *leaderTextView;
 
 -(id)initWithID:(PFObject *)person;
 - (IBAction)addPointsButtonTapAction:(id)sender;

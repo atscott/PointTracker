@@ -14,10 +14,9 @@
 @end
 
 @implementation NewRequestOrPraiseViewController
-
 @synthesize postTypeSegControl;
 @synthesize postTextView;
-
+bool forLeader = NO;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +29,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
+    forLeader = [[[PFUser currentUser] objectForKey:@"isLeader"]boolValue];
 }
 - (void)viewDidLoad
 {
@@ -77,6 +77,27 @@
     [post setObject: postTextView.text forKey: @"textSubmitted"];
     bool isRequest = [postTypeSegControl selectedSegmentIndex] == 0 ? YES : NO;
     [post setObject: [NSNumber numberWithBool:isRequest] forKey:@"isRequest"];
+
+    if (!forLeader)
+    {
+        PFQuery *query = [PFQuery queryWithClassName:@"People"];
+        NSString *emailOfCurrentUser = [[PFUser currentUser]email];
+        [query whereKey:@"email" equalTo:emailOfCurrentUser];
+        NSArray *objects = [query findObjects];
+        NSString *name;
+        if(objects.count == 1)
+        {
+            PFObject *person = [objects objectAtIndex:0];
+            NSString *firstName = [person objectForKey:@"firstName"];
+            NSString *lastName = [person objectForKey:@"lastName"];
+            name = [NSString stringWithFormat:@"%@ %@",firstName, lastName];
+            [post setObject:name forKey:@"submitter"];
+        }
+    }
+    if (forLeader)
+    {
+        [post setObject:[[PFUser currentUser] username] forKey:@"submitter"];
+    }
     [post saveEventually];
     
     [[self navigationController] popViewControllerAnimated:YES];

@@ -62,7 +62,7 @@
     return [NSArray arrayWithArray:tmpArr];
 }
 
-+ (NSArray *)arrayWithString:(NSString *[])strings
++ (NSArray *)arrayWithString:(__weak NSString *[])strings
                          len:(NSUInteger)len {
     NSMutableArray *tmpArr = [NSMutableArray
                               arrayWithCapacity:len];

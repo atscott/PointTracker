@@ -22,6 +22,7 @@
 @synthesize emergencyPhoneTextView;
 @synthesize phoneNumberTextView;
 @synthesize pointsLabel;
+@synthesize leaderTextView;
 
 -(id)initWithID:(PFObject *)person
 {
@@ -61,11 +62,17 @@
 {
     [super viewWillAppear:animated];
     
-    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
     
     self.gradeGenderLabel.text = [NSString stringWithFormat:@"%dth", [[selectedUser objectForKey:@"grade"] intValue]];
     self.gradeGenderLabel.font = [UIFont fontWithName:@"Arial" size:20];    
     
+    NSString *leader = [selectedUser objectForKey:@"groupLeader"];
+    self.leaderTextView.text = [NSString stringWithFormat:@"%@'s group", leader == nil || leader.length < 1 ? @"Nobody" : leader];
+    self.leaderTextView.font = [UIFont fontWithName:@"Arial" size:18];
+    self.leaderTextView.textColor = leader == nil || leader.length < 1 ? [UIColor redColor] : [UIColor whiteColor];
+    self.leaderTextView.textAlignment = NSTextAlignmentRight;
+
     self.phoneNumberTextView.text = [NSString stringWithFormat:@"%@",
                                      [selectedUser objectForKey:@"phoneNumber"]];
     self.phoneNumberTextView.font = [UIFont fontWithName:@"Arial" size:18];
@@ -220,7 +227,6 @@
     [log setObject: @"REMOVED" forKey: @"reason"];
     [log setObject: pointValSelected forKey:@"pointsAdded"];
     [log saveEventually];
-    
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex

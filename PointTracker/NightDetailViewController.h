@@ -13,12 +13,11 @@
 @interface NightDetailViewController : UIViewController
 {
     PFObject *night;
+    UITextView *titleField;
+    UITextView *topicField;
+    UITextView *verseField;
 }
 
 -(id)initWithNight:(PFObject *)night;
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *topicLabel;
-@property (weak, nonatomic) IBOutlet UILabel *verseLabel;
 
 @end

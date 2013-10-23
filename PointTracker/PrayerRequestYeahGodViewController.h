@@ -13,8 +13,6 @@
 <UIActionSheetDelegate>
 
 @property (nonatomic, strong) NSArray *values;
-
 - (IBAction)addNewItem:(id)sender;
 - (IBAction)logOutButtonTapAction:(id)sender;
-
 @end

@@ -13,6 +13,7 @@
 #import "MySignUpViewController.h"
 #import "PersonDetailsViewController.h"
 #import "CheckinViewController.h"
+#import "PrayerRequestYeahGodViewController.h"
 #import "CurrentRosterViewController.h"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -43,15 +44,15 @@
         [[self navigationItem] setTitle:@"People"];
         
         // Create and place the "+" button 
-        UIBarButtonItem *addPersonButton = [[UIBarButtonItem alloc]
-                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                  target:self
-                                                  action:@selector(addNewItem:)];
-        UIBarButtonItem *viewAttendanceButton = [[UIBarButtonItem alloc]
-                                                 initWithTitle:@"Today"
-                                                 style:UIBarButtonItemStyleBordered
-                                                 target:self
-                                                 action:@selector(viewPresentKids:)];
+//        UIBarButtonItem *addPersonButton = [[UIBarButtonItem alloc]
+//                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+//                                                  target:self
+//                                                  action:@selector(addNewItem:)];
+//        UIBarButtonItem *viewAttendanceButton = [[UIBarButtonItem alloc]
+//                                                 initWithTitle:@"Today"
+//                                                 style:UIBarButtonItemStyleBordered
+//                                                 target:self
+//                                                 action:@selector(viewPresentKids:)];
         
         // Create and place the "<-" logout button
         UIImage *signoutImage = [UIImage imageNamed:@"SignOut.png"];
@@ -65,9 +66,16 @@
         NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, nil];
         [[self navigationItem] setLeftBarButtonItems:leftBarButtons animated:YES];
         
-        // Create and place Array of RightBarButtons 
-        NSArray *barButtons = [[NSArray alloc] initWithObjects: addPersonButton, viewAttendanceButton, nil];
-        [[self navigationItem] setRightBarButtonItems:barButtons animated:YES];
+        // Create and place the right bar button item
+        UIImage *downArrowImage = [UIImage imageNamed:@"downArrow.png"];
+        UIButton *downArrowButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [downArrowButton setImage:downArrowImage forState:UIControlStateNormal];
+        [downArrowButton setFrame:CGRectMake(0, 0, downArrowImage.size.width+10, downArrowImage.size.height)];
+        
+        UIBarButtonItem *moreOptionsBarButton = [[UIBarButtonItem alloc] initWithCustomView:downArrowButton];
+        [downArrowButton addTarget:self action:@selector(moreOptionsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [[self navigationItem] setRightBarButtonItem:moreOptionsBarButton];
         
         myTableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 80.0)];
         
@@ -86,7 +94,7 @@
         mySearchBar.placeholder = segControl.selectedSegmentIndex == 1 ? @"Enter Last Name" : @"Enter First Name";
         mySearchBar.showsCancelButton = YES;
         mySearchBar.delegate = self;
-        mySearchBar.tintColor = [UIColor blackColor];
+        mySearchBar.tintColor = [UIColor lightGrayColor];
         
         [myTableHeaderView addSubview:mySearchBar];
         
@@ -121,7 +129,7 @@
 {
     [super viewWillAppear:animated];    
 
-    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
     [self loadObjects];
 }
 
@@ -133,15 +141,15 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
-- (IBAction)viewPresentKids:(id)sender
+- (IBAction)moreOptionsButtonTapped:(id)sender
 {
-    CurrentRosterViewController *currentRostView = [[CurrentRosterViewController alloc]init];
-    [[self navigationController] pushViewController:currentRostView animated:YES];
-}
-- (IBAction)addNewItem:(id)sender
-{
-    AddFormViewController *addForm = [[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped];
-    [[self navigationController] pushViewController:addForm animated:YES];
+    UIActionSheet *confirmSheet = [[UIActionSheet alloc]
+                                   initWithTitle:@"I want to..."
+                                   delegate:self
+                                   cancelButtonTitle:@"Cancel"
+                                   destructiveButtonTitle:nil
+                                   otherButtonTitles:@"Add a Kid", @"View Attendance", @"See prayer requests", nil];
+    [confirmSheet showFromTabBar:self.tabBarController.tabBar];
 }
 
 - (IBAction)segTapped:(id)sender
@@ -161,9 +169,28 @@
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        [PFUser logOut];
-        [[self navigationController] popToRootViewControllerAnimated: YES];
+    if ([actionSheet.title isEqualToString: @"Are you sure you want to Logout?"])
+        if (buttonIndex == 0) {
+            [PFUser logOut];
+            [[self navigationController] popToRootViewControllerAnimated: YES];
+        }
+    if ([actionSheet.title isEqualToString: @"I want to..."])
+    {
+        if (buttonIndex == 0) {
+            NSLog(@"Add Kid");
+            AddFormViewController *addForm = [[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped];
+            [[self navigationController] pushViewController:addForm animated:YES];
+        }
+        if (buttonIndex == 1) {
+            NSLog(@"View Attendance");
+            CurrentRosterViewController *currentRostView = [[CurrentRosterViewController alloc]init];
+            [[self navigationController] pushViewController:currentRostView animated:YES];
+        }
+        if (buttonIndex == 2) {
+            NSLog(@"View Prayer Requests");
+            PrayerRequestYeahGodViewController *requestsScreen = [[PrayerRequestYeahGodViewController alloc]init];
+            [[self navigationController] pushViewController:requestsScreen animated:YES];
+        }
     }
 }
 
@@ -186,7 +213,6 @@
         }
         else
         {
-            [[[UIAlertView alloc]initWithTitle:@"Error" message:@"Couldn't Connect" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
             NSLog(@"Error getting idValues");
         }
     }];

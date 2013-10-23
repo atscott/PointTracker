@@ -36,7 +36,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];   
+    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
 }
 
 -(void) viewDidAppear:(BOOL)animated

@@ -12,12 +12,15 @@
 <UIActionSheetDelegate, UISearchBarDelegate>
 {
     UIView *myTableHeaderView;
+    UIView *moreOptionsMenuView;
+    UIButton *addKidButton;
+    UIButton *currentAttendanceButton;
+    UIButton *viewRequestsAndYeahsButton;
     UISegmentedControl *segControl;
     UISearchBar *mySearchBar;
     NSString *searchName;
 }
 
-- (IBAction)addNewItem:(id)sender;
 - (IBAction)logOutButtonTapAction:(id)sender;
 
 @property (nonatomic, strong) NSArray *idValues;

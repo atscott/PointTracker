@@ -16,6 +16,7 @@
 
 @implementation PrayerRequestYeahGodViewController
 @synthesize values;
+bool isLeader = NO;
 
 - (id)init
 {
@@ -25,7 +26,47 @@
         self.parseClassName = @"RequestsAndPraises";
         self.pullToRefreshEnabled = YES;
         
-        [[self navigationItem] setTitle:@"Home"];
+        [[self navigationItem] setTitle:@"Posts"];
+        
+        UIBarButtonItem *addItemButton = [[UIBarButtonItem alloc]
+                                            initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                            target:self
+                                            action:@selector(addNewItem:)];
+        [[self navigationItem] setRightBarButtonItem: addItemButton];
+    }
+    return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadObjects];
+    isLeader = [[[PFUser currentUser] objectForKey:@"isLeader"]boolValue];
+    if (!isLeader)
+    {
+        UIView *tableHeaderView = [[UIView alloc] init];
+        [tableHeaderView setFrame: CGRectMake(0.0f, 0.0f, 320.0f, 50.0f)];
+        
+        UILabel *nameAndPointValue = [[UILabel alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 50.0f)];
+        [nameAndPointValue setText: [NSString stringWithFormat:@"Loading data..." ]];
+        [nameAndPointValue setTextAlignment:NSTextAlignmentCenter];
+        [nameAndPointValue setBackgroundColor:[UIColor lightGrayColor]];
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"People"];
+        NSString *emailOfCurrentUser = [[PFUser currentUser]email];
+        [query whereKey:@"email" equalTo:emailOfCurrentUser];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if(objects.count == 1)
+            {
+                PFObject *person = [objects objectAtIndex:0];
+                NSString *name = [person objectForKey:@"firstName"];
+                NSString *points = [NSString stringWithFormat:@"%@",[person objectForKey:@"points"]];
+                [nameAndPointValue setText: [NSString stringWithFormat:@"%@, you have %@ bidding points", name, points]];
+            }
+        }];
+        [tableHeaderView addSubview: nameAndPointValue];
+        [[self tableView]setTableHeaderView: tableHeaderView];
+        
         
         UIImage *signoutImage = [UIImage imageNamed:@"SignOut.png"];
         UIButton *signoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -37,71 +78,23 @@
         
         NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, nil];
         [[self navigationItem] setLeftBarButtonItems:leftBarButtons animated:YES];
-        
-        UIBarButtonItem *addPersonButton = [[UIBarButtonItem alloc]
-                                            initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                            target:self
-                                            action:@selector(addNewItem:)];
-        [[self navigationItem] setRightBarButtonItem: addPersonButton];
-    }
-    return self;
-}
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self loadObjects];
-    
-    UIView *tableHeaderView = [[UIView alloc] init];
-    [tableHeaderView setFrame: CGRectMake(0.0f, 0.0f, 320.0f, 50.0f)];
-    
-    UILabel *nameAndPointValue = [[UILabel alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 50.0f)];
-    [nameAndPointValue setText: [NSString stringWithFormat:@"Loading data..." ]];
-    [nameAndPointValue setTextAlignment:NSTextAlignmentCenter];
-    [nameAndPointValue setBackgroundColor:[UIColor lightGrayColor]];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"People"];
-    NSString *emailOfCurrentUser = [[PFUser currentUser]email];
-    [query whereKey:@"email" equalTo:emailOfCurrentUser];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if(objects.count == 1)
-        {
-            PFObject *person = [objects objectAtIndex:0];
-            NSString *name = [person objectForKey:@"firstName"];
-            NSString *points = [NSString stringWithFormat:@"%@",[person objectForKey:@"points"]];
-            [nameAndPointValue setText: [NSString stringWithFormat:@"%@, you have %@ bidding points", name, points]];
-        }
-    }];
-    [tableHeaderView addSubview: nameAndPointValue];
-    [[self tableView]setTableHeaderView: tableHeaderView];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
     
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
         self.edgesForExtendedLayout = UIRectEdgeNone;
-        
-    } else {
-        [self moveAllSubviewsDown];
-    }
 }
 
-- (void) moveAllSubviewsDown{
-    float barHeight = 45.0;
-    for (UIView *view in self.view.subviews) {
-        
-        if ([view isKindOfClass:[UIScrollView class]]) {
-            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height - barHeight);
-        } else {
-            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y + barHeight, view.frame.size.width, view.frame.size.height);
-        }
-    }
-}
+-(void) viewWillDisappear:(BOOL)animated
+{
 
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -179,6 +172,10 @@
     
     [[cell textLabel] setText: [NSString stringWithFormat:@"%@",[object objectForKey:@"textSubmitted"]]];
     
+    if(isLeader)
+    {
+        [[cell detailTextLabel] setText: [NSString stringWithFormat:@"%@",[object objectForKey:@"submitter"]]];
+    }
     // Set the background of the cell based on gender
     bool isRequest = [[object objectForKey:@"isRequest"]boolValue];
     UIView *back = [[UIView alloc]initWithFrame:CGRectZero];
