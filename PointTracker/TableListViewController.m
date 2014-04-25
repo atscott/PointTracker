@@ -148,7 +148,7 @@
                                    delegate:self
                                    cancelButtonTitle:@"Cancel"
                                    destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Add a Kid", @"View Attendance", @"See prayer requests", nil];
+                                   otherButtonTitles:@"Add a Kid", @"View Attendance", @"See prayer requests", @"Email Stats", nil];
     [confirmSheet showFromTabBar:self.tabBarController.tabBar];
 }
 
@@ -191,7 +191,95 @@
             PrayerRequestYeahGodViewController *requestsScreen = [[PrayerRequestYeahGodViewController alloc]init];
             [[self navigationController] pushViewController:requestsScreen animated:YES];
         }
+        if (buttonIndex == 3) {
+            NSLog(@"Email Stats");
+            [self sendAttendanceStats];
+        }
     }
+}
+
+- (void)sendAttendanceStats
+{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"PointLog"];
+    [query whereKey:@"reason" equalTo:@"CheckIn"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 1000;
+    NSArray *data = [query findObjects];
+
+    NSString *messageBody = @"";
+    
+    for (int i = 0; i < [data count]; i++)
+    {
+        NSString *name = [[data objectAtIndex:i] objectForKey:@"addedTo"];
+        
+        NSDate *date = [[data objectAtIndex:i] createdAt];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MM/dd/yyyy"];
+        NSString *stringFromDate = [formatter stringFromDate:date];
+
+        messageBody = [messageBody stringByAppendingString:[NSString stringWithFormat: @"%@, %@ \n", name, stringFromDate]];
+    }
+    
+    NSString *emailTitle = [NSString stringWithFormat:@"KidBlast Data Dump"];
+    // Email Content
+    
+    // To address
+    NSArray *toRecipents = [NSArray arrayWithObject:@"admoore14@gmail.com"];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    NSLog(messageBody);
+
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+}
+
+- (void)getPointsStats
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
+    [query orderByDescending:@"points"];
+    query.limit = 1000;
+    NSArray *data = [query findObjects];
+    
+    NSString *messageBody = @"";
+    
+    for (int i = 0; i < [data count]; i++)
+    {
+        NSString *firstName = [[data objectAtIndex:i] objectForKey:@"firstName"];
+        NSString *lastName = [[data objectAtIndex:i] objectForKey:@"lastName"];
+        NSString *points = [[[data objectAtIndex:i] objectForKey:@"points"]stringValue];
+        
+        messageBody = [messageBody stringByAppendingString:[NSString stringWithFormat: @"%@ - %@ - %@ \n", lastName, firstName, points]];
+        NSLog(messageBody);
+    }
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 /***************************************************************/
