@@ -232,6 +232,7 @@
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
+    [self getBoysPerNight];
     NSLog(messageBody);
 
     // Present mail view controller on screen
@@ -249,6 +250,26 @@
     
     for (int i = 0; i < [data count]; i++)
     {
+        NSString *firstName = [[data objectAtIndex:i] objectForKey:@"firstName"];
+        NSString *lastName = [[data objectAtIndex:i] objectForKey:@"lastName"];
+        NSString *points = [[[data objectAtIndex:i] objectForKey:@"points"]stringValue];
+        
+        messageBody = [messageBody stringByAppendingString:[NSString stringWithFormat: @"%@ - %@ - %@ \n", lastName, firstName, points]];
+        NSLog(messageBody);
+    }
+}
+
+- (void) getBoysPerNight
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Attendance"];
+    [query includeKey:@"personPointer"];
+    query.limit = 1000;
+    NSArray *data = [query findObjects];
+    
+    NSString *messageBody = @"";
+    
+    for (int i = 0; i < [data count]; i++)
+    { 
         NSString *firstName = [[data objectAtIndex:i] objectForKey:@"firstName"];
         NSString *lastName = [[data objectAtIndex:i] objectForKey:@"lastName"];
         NSString *points = [[[data objectAtIndex:i] objectForKey:@"points"]stringValue];
