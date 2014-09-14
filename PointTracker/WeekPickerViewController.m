@@ -9,7 +9,6 @@
 
 #import "WeekPickerViewController.h"
 #import "NightDetailViewController.h"
-#import "ReaderDocument.h"
 
 
 @implementation WeekPickerViewController
@@ -25,12 +24,6 @@ int mostRecentSelection;
     self.title = @"Schedule";
     mostRecentSelection = 0;
     
-    UIBarButtonItem *downloadScheduleButton = [[UIBarButtonItem alloc]
-                                         initWithTitle:@"PDF" style:UIBarButtonItemStyleBordered
-                                         target:self
-                                         action:@selector(downloadStuffConfirm:)];
-    [[self navigationItem] setRightBarButtonItem:downloadScheduleButton];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"Nights"];
     [query orderByAscending:@"date"];
     [query whereKey:@"date" greaterThanOrEqualTo:[NSDate date]];
@@ -43,26 +36,6 @@ int mostRecentSelection;
 {
     carousel.delegate = nil;
     carousel.dataSource = nil;
-}
-
--(IBAction)downloadStuffConfirm:(id)sender
-{
-    NSString *file = [[NSBundle mainBundle] pathForResource:@"KidBlast Bible topic list" ofType:@"pdf"];
-    ReaderDocument *document = [ReaderDocument withDocumentFilePath:file password:nil];
-    
-    if (document != nil)
-    {
-        ReaderViewController *readerViewController = [[ReaderViewController alloc] initWithReaderDocument:document];
-        readerViewController.delegate = self;
-        readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        readerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-        
-        [[self navigationController] pushViewController:readerViewController animated:YES];
-    }
-}
-
-- (void)dismissReaderViewController:(ReaderViewController *)viewController {
-    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 #pragma mark -

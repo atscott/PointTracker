@@ -43,17 +43,6 @@
         // Set the NavItem and title on the top navigation bar
         [[self navigationItem] setTitle:@"People"];
         
-        // Create and place the "+" button 
-//        UIBarButtonItem *addPersonButton = [[UIBarButtonItem alloc]
-//                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-//                                                  target:self
-//                                                  action:@selector(addNewItem:)];
-//        UIBarButtonItem *viewAttendanceButton = [[UIBarButtonItem alloc]
-//                                                 initWithTitle:@"Today"
-//                                                 style:UIBarButtonItemStyleBordered
-//                                                 target:self
-//                                                 action:@selector(viewPresentKids:)];
-        
         // Create and place the "<-" logout button
         UIImage *signoutImage = [UIImage imageNamed:@"SignOut.png"];
         UIButton *signoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -75,7 +64,11 @@
         UIBarButtonItem *moreOptionsBarButton = [[UIBarButtonItem alloc] initWithCustomView:downArrowButton];
         [downArrowButton addTarget:self action:@selector(moreOptionsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        [[self navigationItem] setRightBarButtonItem:moreOptionsBarButton];
+        UIBarButtonItem *addKidBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addKid:)];
+        
+        NSString *username = [PFUser currentUser].username;
+        bool isAdmin = [username isEqualToString: @"andrewm"] || [username isEqualToString: @"carlac"] || [username isEqualToString: @"suee"];
+        [[self navigationItem] setRightBarButtonItem: isAdmin ? moreOptionsBarButton : addKidBarButton];
         
         myTableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 80.0)];
         
@@ -148,14 +141,18 @@
                                    delegate:self
                                    cancelButtonTitle:@"Cancel"
                                    destructiveButtonTitle:nil
-                                   otherButtonTitles:@"Add a Kid", @"View Attendance", @"See prayer requests", @"Email Stats", nil];
+                                   otherButtonTitles:@"Add a Kid", @"Email Stats", nil];
     [confirmSheet showFromTabBar:self.tabBarController.tabBar];
 }
 
 - (IBAction)segTapped:(id)sender
 {
     mySearchBar.placeholder = segControl.selectedSegmentIndex == 1 ? @"Enter Last Name" : @"Enter First Name";
+    searchName = @"";
+    mySearchBar.text = @"";
+    [mySearchBar resignFirstResponder];
     [self loadObjects];
+
 }
 
 - (IBAction)logOutButtonTapAction:(id)sender {
@@ -182,16 +179,6 @@
             [[self navigationController] pushViewController:addForm animated:YES];
         }
         if (buttonIndex == 1) {
-            NSLog(@"View Attendance");
-            CurrentRosterViewController *currentRostView = [[CurrentRosterViewController alloc]init];
-            [[self navigationController] pushViewController:currentRostView animated:YES];
-        }
-        if (buttonIndex == 2) {
-            NSLog(@"View Prayer Requests");
-            PrayerRequestYeahGodViewController *requestsScreen = [[PrayerRequestYeahGodViewController alloc]init];
-            [[self navigationController] pushViewController:requestsScreen animated:YES];
-        }
-        if (buttonIndex == 3) {
             NSLog(@"Email Stats");
             [self sendAttendanceStats];
         }
@@ -200,7 +187,6 @@
 
 - (void)sendAttendanceStats
 {
-    
     PFQuery *query = [PFQuery queryWithClassName:@"PointLog"];
     [query whereKey:@"reason" equalTo:@"CheckIn"];
     [query orderByDescending:@"createdAt"];
@@ -209,74 +195,42 @@
 
     NSString *messageBody = @"";
     
+    NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy"];
+
+    
     for (int i = 0; i < [data count]; i++)
     {
         NSString *name = [[data objectAtIndex:i] objectForKey:@"addedTo"];
         
         NSDate *date = [[data objectAtIndex:i] createdAt];
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MM/dd/yyyy"];
         NSString *stringFromDate = [formatter stringFromDate:date];
-
-        messageBody = [messageBody stringByAppendingString:[NSString stringWithFormat: @"%@, %@ \n", name, stringFromDate]];
+        
+        
+        NSDateComponents *otherDay = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
+        NSDateComponents *today = [[NSCalendar currentCalendar] components:NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[NSDate date]];
+        if([today day] == [otherDay day] &&
+           [today month] == [otherDay month] &&
+           [today year] == [otherDay year] &&
+           [today era] == [otherDay era])
+        {
+            messageBody = [messageBody stringByAppendingString:[NSString stringWithFormat: @"%@, %@ \n", name, stringFromDate]];
+        }
     }
     
-    NSString *emailTitle = [NSString stringWithFormat:@"KidBlast Data Dump"];
-    // Email Content
+    NSString *emailTitle = [NSString stringWithFormat:@"KidBlast Attendance %u/%u/%u", [today month], [today day], [today year]];
     
-    // To address
-    NSArray *toRecipents = [NSArray arrayWithObject:@"admoore14@gmail.com"];
+    NSArray *toRecipents = [NSArray arrayWithObjects: @"susane@crosswaygt.org", @"carlac@crosswaygt.org", @"admoore14@gmail.com", nil];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
-    [self getBoysPerNight];
-    NSLog(messageBody);
 
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];
-}
-
-- (void)getPointsStats
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"People"];
-    [query orderByDescending:@"points"];
-    query.limit = 1000;
-    NSArray *data = [query findObjects];
-    
-    NSString *messageBody = @"";
-    
-    for (int i = 0; i < [data count]; i++)
-    {
-        NSString *firstName = [[data objectAtIndex:i] objectForKey:@"firstName"];
-        NSString *lastName = [[data objectAtIndex:i] objectForKey:@"lastName"];
-        NSString *points = [[[data objectAtIndex:i] objectForKey:@"points"]stringValue];
-        
-        messageBody = [messageBody stringByAppendingString:[NSString stringWithFormat: @"%@ - %@ - %@ \n", lastName, firstName, points]];
-        NSLog(messageBody);
-    }
-}
-
-- (void) getBoysPerNight
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Attendance"];
-    [query includeKey:@"personPointer"];
-    query.limit = 1000;
-    NSArray *data = [query findObjects];
-    
-    NSString *messageBody = @"";
-    
-    for (int i = 0; i < [data count]; i++)
-    { 
-        NSString *firstName = [[data objectAtIndex:i] objectForKey:@"firstName"];
-        NSString *lastName = [[data objectAtIndex:i] objectForKey:@"lastName"];
-        NSString *points = [[[data objectAtIndex:i] objectForKey:@"points"]stringValue];
-        
-        messageBody = [messageBody stringByAppendingString:[NSString stringWithFormat: @"%@ - %@ - %@ \n", lastName, firstName, points]];
-        NSLog(messageBody);
-    }
 }
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -401,6 +355,11 @@
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     [[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
+}
+
+- (IBAction)addKid:(id)sender{
+    AddFormViewController *addForm = [[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    [[self navigationController] pushViewController:addForm animated:YES];
 }
 
 @end

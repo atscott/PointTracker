@@ -13,6 +13,7 @@
 #import "MyLogInViewController.h"
 #import "WeekPickerViewController.h"
 #import "MainLandingViewController.h"
+#import "CurrentRosterViewController.h"
 
 @implementation AppDelegate
 
@@ -25,39 +26,20 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // List Tab
-//    TableListViewController *listViewController =  [[TableListViewController alloc] init];
-//    UINavigationController *listNavController = [[UINavigationController alloc] initWithRootViewController:listViewController];
-    
     UINavigationController *mainViewNavController =[[UINavigationController alloc] initWithRootViewController:[[MainLandingViewController alloc] init]];
-    // Statistics Tab
-    UIViewController *graphPickerViewController = [[GraphpickerViewController alloc] init];
-    UINavigationController *graphPickerNavController = [[UINavigationController alloc] initWithRootViewController:graphPickerViewController];
     
-    // Log Tab
-    UIViewController *logViewController = [[LogViewController alloc] init];
-    UINavigationController *logNavController = [[UINavigationController alloc] initWithRootViewController:logViewController];
-    
-    // Schedule Tab
     WeekPickerViewController *scheduleViewController = [[WeekPickerViewController alloc] init];
     UINavigationController *scheduleNavController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
     
+    CurrentRosterViewController *currentRosterViewController = [[CurrentRosterViewController alloc] init];
+    UINavigationController *currentRosterNavController = [[UINavigationController alloc] initWithRootViewController:currentRosterViewController];
+    
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[mainViewNavController, scheduleNavController, graphPickerNavController, logNavController];
+    self.tabBarController.viewControllers = @[mainViewNavController, scheduleNavController, currentRosterNavController];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
     return YES;
 }
-
-- (void)applicationWillResignActive:(UIApplication *)application { }
-
-- (void)applicationDidEnterBackground:(UIApplication *)application { }
-
-- (void)applicationWillEnterForeground:(UIApplication *)application { }
-
-- (void)applicationDidBecomeActive:(UIApplication *)application { }
-
-- (void)applicationWillTerminate:(UIApplication *)application { }
 
 @end

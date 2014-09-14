@@ -23,6 +23,9 @@
         self.parseClassName = @"PointLog";
         self.pullToRefreshEnabled = YES;
         self.paginationEnabled = NO;
+        
+        self.tabBarItem.image = [UIImage imageNamed:@"History"];
+        self.title = @"Current Attendance";
     }
     return self;
 }
@@ -61,7 +64,7 @@
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-    self.title = [NSString stringWithFormat:@"%lu here today", (unsigned long)self.objects.count];
+    //self.title = [NSString stringWithFormat:@"%lu here today", (unsigned long)self.objects.count];
 
 }
 
@@ -108,9 +111,12 @@
     // Get the first and last name of the person this cell is for
     NSString *name = [object valueForKey:@"addedTo"];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
+    
     // Set the text of the labels of the cell
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", name];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Checked in %@", [object valueForKey:@"createdAt"]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%u - %@", [indexPath row]+1, name];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Checked in %@", [formatter stringFromDate: [object createdAt]]];
     return cell;
 }
 
