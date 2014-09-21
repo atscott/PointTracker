@@ -84,7 +84,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     NSString *dateString = [dateFormatter stringFromDate:[night objectForKey:@"date"]];
-    [[self view] setBackgroundColor:[UIColor darkGrayColor]];
+    [[self view] setBackgroundColor:[UIColor lightGrayColor]];
     self.navigationItem.title = dateString;
 }
 

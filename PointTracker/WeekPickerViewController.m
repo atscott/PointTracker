@@ -50,9 +50,9 @@ int mostRecentSelection;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
     
-    [[self view] setBackgroundColor:[UIColor darkGrayColor]];
+    [[self view] setBackgroundColor:[UIColor lightGrayColor]];
     [carousel setCurrentItemIndex:mostRecentSelection];
 }
 

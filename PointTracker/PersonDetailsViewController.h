@@ -8,19 +8,15 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "BButton.h"
-#import "TDRatingView.h"
 
 @interface PersonDetailsViewController : UIViewController
-<TDRatingViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
+<UIAlertViewDelegate, UIActionSheetDelegate>
 {
-    TDRatingView *pointScale;
-    NSNumber *pointValSelected;
     PFObject *selectedUser;
     NSString *reason;
     UIBarButtonItem *checkinPersonButton;
 }
 @property (weak, nonatomic) IBOutlet UILabel *gradeGenderLabel;
-@property (weak, nonatomic) IBOutlet UITextView *addressTextView;
 @property (weak, nonatomic) IBOutlet UITextView *emailTextView;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (weak, nonatomic) IBOutlet UITextView *phoneNumberTextView;
@@ -30,6 +26,7 @@
 -(id)initWithID:(PFObject *)person;
 - (IBAction)addPointsButtonTapAction:(id)sender;
 - (IBAction)rmvPointsButtonTapAction:(id)sender;
+- (IBAction)checkinButtonTapAction:(id)sender;
 
 
 @end

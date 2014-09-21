@@ -44,6 +44,10 @@
     } else {
         [self moveAllSubviewsDown];
     }
+    
+    UIView* bview = [[UIView alloc] init];
+    bview.backgroundColor = [UIColor lightGrayColor];
+    [self.tableView setBackgroundView:bview];
 }
 
 - (void) moveAllSubviewsDown{
@@ -135,7 +139,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
 
     
     UIBarButtonItem *savePersonButton = [[UIBarButtonItem alloc]
@@ -295,7 +299,7 @@
     [userToSave setObject:[NSNumber numberWithInt:points] forKey:@"points"];
     [userToSave setObject:[NSNumber numberWithBool:YES] forKey:@"isKid"];
     [userToSave setObject:_groupLeader forKey:@"groupLeader"];
-    [userToSave saveEventually];
+    [userToSave save];
     
     [[self navigationController] popViewControllerAnimated:YES];
 }

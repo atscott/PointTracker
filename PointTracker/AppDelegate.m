@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "TableListViewController.h"
 #import "LogViewController.h"
-#import "GraphpickerViewController.h"
 #import "MyLogInViewController.h"
 #import "WeekPickerViewController.h"
 #import "MainLandingViewController.h"

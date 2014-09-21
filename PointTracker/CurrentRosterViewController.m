@@ -25,7 +25,7 @@
         self.paginationEnabled = NO;
         
         self.tabBarItem.image = [UIImage imageNamed:@"History"];
-        self.title = @"Current Attendance";
+        self.title = @"Today's Attendance";
     }
     return self;
 }
@@ -33,10 +33,10 @@
 -(void) viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
+
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-        
         self.edgesForExtendedLayout = UIRectEdgeNone;
-        
     }
 }
 

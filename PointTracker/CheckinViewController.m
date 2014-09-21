@@ -56,7 +56,7 @@
     nameLabel.text = [NSString stringWithFormat:@"%@ %@", first, last];
     nameLabel.textColor = [UIColor whiteColor];
     
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
+    [[self view] setBackgroundColor:[UIColor lightGrayColor]];
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
         self.edgesForExtendedLayout = UIRectEdgeNone;

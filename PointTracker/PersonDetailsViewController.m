@@ -17,7 +17,6 @@
 @implementation PersonDetailsViewController
 
 @synthesize gradeGenderLabel;
-@synthesize addressTextView;
 @synthesize emailTextView;
 @synthesize emergencyPhoneTextView;
 @synthesize phoneNumberTextView;
@@ -30,22 +29,30 @@
     if(self)
     {
         selectedUser = person;
-        pointValSelected = [NSNumber numberWithInt:100];
         
-        CGRect frame = CGRectMake(272, 75, 40, 40);
-        BButton *addPointsButton = [[BButton alloc] initWithFrame:frame];
-        [addPointsButton setTitle:@"+" forState:UIControlStateNormal];
+        
+        CGRect checkinFrame = CGRectMake(20, 60, 280, 40);
+        BButton *checkinButton = [[BButton alloc] initWithFrame:checkinFrame];
+        [checkinButton setTitle:@"Checkin" forState:UIControlStateNormal];
+        [checkinButton setType:BButtonTypeSuccess];
+        [checkinButton addTarget:self action:@selector(checkinButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:checkinButton];
+        
+        CGRect rmvPointsframe = CGRectMake(20, 115, 130, 40);
+        BButton *rmvPointsButton = [[BButton alloc] initWithFrame:rmvPointsframe];
+        [rmvPointsButton setTitle:@"Remove Points" forState:UIControlStateNormal];
+        [rmvPointsButton setType:BButtonTypeDanger];
+        [rmvPointsButton addTarget:self action:@selector(rmvPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:rmvPointsButton];
+        
+        CGRect addPointsframe = CGRectMake(170, 115, 130, 40);
+        BButton *addPointsButton = [[BButton alloc] initWithFrame:addPointsframe];
+        [addPointsButton setTitle:@"Add Points" forState:UIControlStateNormal];
         [addPointsButton setType:BButtonTypePrimary];
         [addPointsButton addTarget:self action:@selector(addPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:addPointsButton];
         
-        CGRect frame2 = CGRectMake(10, 75, 40, 40);
-        BButton *rmvPointsButton = [[BButton alloc] initWithFrame:frame2];
-        [rmvPointsButton setTitle:@"-" forState:UIControlStateNormal];
-        [rmvPointsButton setType:BButtonTypeDanger];
-        [rmvPointsButton addTarget:self action:@selector(rmvPointsButtonTapAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:rmvPointsButton];
-    }
+            }
     return self;
 }
 
@@ -62,38 +69,29 @@
 {
     [super viewWillAppear:animated];
     
-    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
     
     self.gradeGenderLabel.text = [NSString stringWithFormat:@"%dth", [[selectedUser objectForKey:@"grade"] intValue]];
     self.gradeGenderLabel.font = [UIFont fontWithName:@"Arial" size:20];    
     
     NSString *leader = [selectedUser objectForKey:@"groupLeader"];
-    self.leaderTextView.text = [NSString stringWithFormat:@"%@'s group", leader == nil || leader.length < 1 ? @"Nobody" : leader];
+    self.leaderTextView.text = [NSString stringWithFormat:@"%@ group", leader == nil || leader.length < 1 ? @"Unassigned" : [NSString stringWithFormat:@"%@'s", leader]];
     self.leaderTextView.font = [UIFont fontWithName:@"Arial" size:18];
-    self.leaderTextView.textColor = leader == nil || leader.length < 1 ? [UIColor redColor] : [UIColor whiteColor];
-    self.leaderTextView.textAlignment = NSTextAlignmentRight;
+    self.leaderTextView.textColor = leader == nil || leader.length < 1 ? [UIColor redColor] : [UIColor blackColor];
+    self.leaderTextView.textAlignment = NSTextAlignmentCenter;
 
     self.phoneNumberTextView.text = [NSString stringWithFormat:@"%@",
                                      [selectedUser objectForKey:@"phoneNumber"]];
     self.phoneNumberTextView.font = [UIFont fontWithName:@"Arial" size:18];
-    self.phoneNumberTextView.textColor = [UIColor whiteColor];
+    self.phoneNumberTextView.textColor = [UIColor blackColor];
     
-    self.emergencyPhoneTextView.text = [NSString stringWithFormat:@"%@",
-                                        [selectedUser objectForKey:@"emergencyPhoneNumber"]];
+    self.emergencyPhoneTextView.text = [NSString stringWithFormat:@"%@", [selectedUser objectForKey:@"emergencyPhoneNumber"]];
     self.emergencyPhoneTextView.font = [UIFont fontWithName:@"Arial" size:18];
-    self.emergencyPhoneTextView.textColor = [UIColor whiteColor];
+    self.emergencyPhoneTextView.textColor = [UIColor blackColor];
     
     self.emailTextView.text = [NSString stringWithFormat:@"%@",[selectedUser objectForKey:@"email"]];
     self.emailTextView.font = [UIFont fontWithName:@"Arial" size:18];
-    self.emailTextView.textColor = [UIColor whiteColor];
-    
-    self.addressTextView.text = [NSString stringWithFormat:@"%@ %@ %@ %@",
-                                 [selectedUser objectForKey:@"streetAddress"],
-                                 [selectedUser objectForKey:@"city"],
-                                 [selectedUser objectForKey:@"state"],
-                                 [selectedUser objectForKey:@"zipCode"]];
-    self.addressTextView.font = [UIFont fontWithName:@"Arial" size:18];
-    self.addressTextView.textColor = [UIColor whiteColor];
+    self.emailTextView.textColor = [UIColor blackColor];
     
     self.pointsLabel.text = [NSString stringWithFormat:@"%@",[selectedUser objectForKey:@"points"]];
     self.pointsLabel.font = [UIFont fontWithName:@"Arial" size:28];
@@ -129,34 +127,13 @@
 {
     [super viewDidLoad];
     
-    [[self view] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"classy_fabric.png"]]];
-
-    pointScale = [[TDRatingView alloc]init];
-    pointScale.maximumRating = 600;
-    pointScale.minimumRating = 100;
-    pointScale.widthOfEachNo = 35;
-    pointScale.heightOfEachNo = 50;
-    pointScale.sliderHeight = 22;
-    pointScale.difference = 100;
-    pointScale.delegate = self;
-    pointScale.scaleBgColor = [UIColor colorWithRed:40.0f/255 green:38.0f/255 blue:46.0f/255 alpha:1.0];
-    pointScale.arrowColor = [UIColor blackColor];
-    pointScale.disableStateTextColor = [UIColor colorWithRed:202.0f/255 green:183.0f/255 blue:172.0f/255 alpha:1.0];
-    [pointScale drawRatingControlWithX:55
-                                     Y:SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ? 50 : 5];
-    [self.view addSubview:pointScale];
-    
     UIBarButtonItem *editPersonButton = [[UIBarButtonItem alloc]
                                          initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
                                          target:self
                                          action:@selector(editPerson:)];
     
-    checkinPersonButton = [[UIBarButtonItem alloc]
-                                            initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                            target:self
-                                            action:@selector(checkinPerson:)];
-    NSMutableArray *buttons = [[NSMutableArray alloc] initWithObjects:editPersonButton, checkinPersonButton, nil];
-    [[self navigationItem] setRightBarButtonItems: buttons];
+    
+    [[self navigationItem] setRightBarButtonItem: editPersonButton];
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         
@@ -183,13 +160,6 @@
 {
     [super viewWillDisappear:animated];
 }
--(void) selectedRating:(NSString *)scale
-{
-    NSLog(@"SelectedRating:::%@",scale);
-    NSNumberFormatter * formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    pointValSelected = [formatter numberFromString:scale];
-}
 
 - (IBAction)addPointsButtonTapAction:(id)sender
 {
@@ -211,22 +181,28 @@
     
 }
 
+- (IBAction)checkinButtonTapAction:(id)sender
+{
+    [[self navigationController]pushViewController:[[CheckinViewController alloc]initWithID:selectedUser] animated:YES];
+}
+
+
 -(void)removePoints
 {
-    NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
-    NSNumber *dif = [NSNumber numberWithFloat:([currentPoints floatValue] - [pointValSelected floatValue])];
-    
-    [selectedUser setObject:dif forKey:@"points"];
-    [pointsLabel setText:[NSString stringWithFormat:@"%@",[dif stringValue]]];
-    [selectedUser saveEventually];
-    
-    PFObject *log = [PFObject objectWithClassName:@"PointLog"];
-    [log setObject: self.navigationItem.title forKey:@"addedTo"];
-    [log setObject: selectedUser forKey:@"addedToPointer"];
-    [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
-    [log setObject: @"REMOVED" forKey: @"reason"];
-    [log setObject: pointValSelected forKey:@"pointsAdded"];
-    [log saveEventually];
+//    NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
+//    NSNumber *dif = [NSNumber numberWithFloat:([currentPoints floatValue] - [pointValSelected floatValue])];
+//    
+//    [selectedUser setObject:dif forKey:@"points"];
+//    [pointsLabel setText:[NSString stringWithFormat:@"%@",[dif stringValue]]];
+//    [selectedUser saveEventually];
+//    
+//    PFObject *log = [PFObject objectWithClassName:@"PointLog"];
+//    [log setObject: self.navigationItem.title forKey:@"addedTo"];
+//    [log setObject: selectedUser forKey:@"addedToPointer"];
+//    [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
+//    [log setObject: @"REMOVED" forKey: @"reason"];
+//    [log setObject: pointValSelected forKey:@"pointsAdded"];
+//    [log saveEventually];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -263,20 +239,20 @@
     
     if(buttonIndex < 4)
     {
-        NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
-        NSNumber *sum = [NSNumber numberWithFloat:([currentPoints floatValue] + [pointValSelected floatValue])];
-        
-        [selectedUser setObject:sum forKey:@"points"];
-        [pointsLabel setText:[NSString stringWithFormat:@"%@", [sum stringValue]]];
-        [selectedUser saveEventually];
-        
-        PFObject *log = [PFObject objectWithClassName:@"PointLog"];
-        [log  setObject: self.navigationItem.title forKey:@"addedTo"];
-        [log setObject: selectedUser forKey:@"addedToPointer"];
-        [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
-        [log setObject: reason forKey: @"reason"];
-        [log setObject: pointValSelected forKey:@"pointsAdded"];
-        [log saveEventually];
+//        NSNumber *currentPoints = [selectedUser objectForKey:@"points"];
+//        NSNumber *sum = [NSNumber numberWithFloat:([currentPoints floatValue] + [pointValSelected floatValue])];
+//        
+//        [selectedUser setObject:sum forKey:@"points"];
+//        [pointsLabel setText:[NSString stringWithFormat:@"%@", [sum stringValue]]];
+//        [selectedUser saveEventually];
+//        
+//        PFObject *log = [PFObject objectWithClassName:@"PointLog"];
+//        [log  setObject: self.navigationItem.title forKey:@"addedTo"];
+//        [log setObject: selectedUser forKey:@"addedToPointer"];
+//        [log setObject: [[PFUser currentUser] username] forKey:@"addedBy"];
+//        [log setObject: reason forKey: @"reason"];
+//        [log setObject: pointValSelected forKey:@"pointsAdded"];
+//        [log saveEventually];
     }
 }
 
@@ -286,11 +262,6 @@
     [editView setUserBeingEdited:selectedUser];
     
     [[self navigationController] pushViewController:editView animated:YES];
-}
-
--(IBAction)checkinPerson:(id)sender
-{
-    [[self navigationController]pushViewController:[[CheckinViewController alloc]initWithID:selectedUser] animated:YES];
 }
 
 @end

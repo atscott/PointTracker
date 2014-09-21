@@ -9,7 +9,6 @@
 #import "MainLandingViewController.h"
 #import "MyLogInViewController.h"
 #import "MySignUpViewController.h"
-#import "PrayerRequestYeahGodViewController.h"
 #import "TableListViewController.h"
 
 @interface MainLandingViewController ()
@@ -47,10 +46,6 @@
             
             [[self navigationController] pushViewController:viewControllerOnDisplay animated:NO];
             
-        }
-        else if([[[PFUser currentUser] objectForKey:@"isLeader"]boolValue] == NO)
-        {
-            [[self navigationController] pushViewController:[[PrayerRequestYeahGodViewController alloc] init] animated:NO];
         }
     }
 }

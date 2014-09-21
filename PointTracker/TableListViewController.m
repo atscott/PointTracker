@@ -11,9 +11,8 @@
 #import "AddFormViewController.h"
 #import "MyLogInViewController.h"
 #import "MySignUpViewController.h"
-#import "PersonDetailsViewController.h"
+#import "PersonViewControllerTableViewController.h"
 #import "CheckinViewController.h"
-#import "PrayerRequestYeahGodViewController.h"
 #import "CurrentRosterViewController.h"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -87,7 +86,7 @@
         mySearchBar.placeholder = segControl.selectedSegmentIndex == 1 ? @"Enter Last Name" : @"Enter First Name";
         mySearchBar.showsCancelButton = YES;
         mySearchBar.delegate = self;
-        mySearchBar.tintColor = [UIColor lightGrayColor];
+        mySearchBar.tintColor = [UIColor grayColor];
         
         [myTableHeaderView addSubview:mySearchBar];
         
@@ -122,7 +121,7 @@
 {
     [super viewWillAppear:animated];    
 
-    [self.navigationController.navigationBar setTintColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
     [self loadObjects];
 }
 
@@ -223,14 +222,27 @@
     
     NSArray *toRecipents = [NSArray arrayWithObjects: @"susane@crosswaygt.org", @"carlac@crosswaygt.org", @"admoore14@gmail.com", nil];
     
-    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = self;
-    [mc setSubject:emailTitle];
-    [mc setMessageBody:messageBody isHTML:NO];
-    [mc setToRecipients:toRecipents];
-
-    // Present mail view controller on screen
-    [self presentViewController:mc animated:YES completion:NULL];
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+        mc.mailComposeDelegate = self;
+        [mc setSubject:emailTitle];
+        [mc setMessageBody:messageBody isHTML:NO];
+        [mc setToRecipients:toRecipents];
+        
+        // Present mail view controller on screen
+        [self presentViewController:mc animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Oops!"
+                                                         message:@"You need to setup your email account in settings first."
+                                                        delegate:self
+                                               cancelButtonTitle:nil
+                                               otherButtonTitles: nil];
+        [alert addButtonWithTitle:@"Ok"];
+        [alert show];
+    }
 }
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -254,7 +266,7 @@
     }
     
     // Close the Mail Interface
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /***************************************************************/
@@ -269,6 +281,7 @@
 - (void)objectsWillLoad {
     [super objectsWillLoad];
     PFQuery *query = [self queryForTable];
+    query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error)
         {
@@ -283,6 +296,7 @@
 
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    query.limit = 1000;
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
@@ -342,7 +356,7 @@
     
     // Set colors
     cell.textLabel.textColor = [UIColor blackColor];
-    cell.detailTextLabel.textColor = [UIColor grayColor];
+    cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     cell.detailTextLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.accessoryView.backgroundColor = [UIColor clearColor];
@@ -354,7 +368,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    [[self navigationController] pushViewController:[[PersonDetailsViewController alloc] initWithID:idValues[indexPath.row]] animated:YES];
+    [[self navigationController] pushViewController:[[PersonViewControllerTableViewController alloc] initWithPerson:idValues[indexPath.row]] animated:YES];
 }
 
 - (IBAction)addKid:(id)sender{
