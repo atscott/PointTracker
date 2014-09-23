@@ -54,21 +54,6 @@
         NSArray *leftBarButtons = [[NSArray alloc] initWithObjects:signoutBarButton, nil];
         [[self navigationItem] setLeftBarButtonItems:leftBarButtons animated:YES];
         
-        // Create and place the right bar button item
-        UIImage *downArrowImage = [UIImage imageNamed:@"downArrow.png"];
-        UIButton *downArrowButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [downArrowButton setImage:downArrowImage forState:UIControlStateNormal];
-        [downArrowButton setFrame:CGRectMake(0, 0, downArrowImage.size.width+10, downArrowImage.size.height)];
-        
-        UIBarButtonItem *moreOptionsBarButton = [[UIBarButtonItem alloc] initWithCustomView:downArrowButton];
-        [downArrowButton addTarget:self action:@selector(moreOptionsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIBarButtonItem *addKidBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addKid:)];
-        
-        NSString *username = [PFUser currentUser].username;
-        bool isAdmin = [username isEqualToString: @"andrewm"] || [username isEqualToString: @"carlac"] || [username isEqualToString: @"suee"];
-        [[self navigationItem] setRightBarButtonItem: isAdmin ? moreOptionsBarButton : addKidBarButton];
-        
         myTableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 80.0)];
         
         NSArray *itemArray = [NSArray arrayWithObjects: @"First Name", @"Last Name", @"Points", nil];
@@ -97,6 +82,23 @@
     return self;
 }
 
+-(void) setBarButtonItem
+{
+    UIImage *downArrowImage = [UIImage imageNamed:@"downArrow.png"];
+    UIButton *downArrowButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [downArrowButton setImage:downArrowImage forState:UIControlStateNormal];
+    [downArrowButton setFrame:CGRectMake(0, 0, downArrowImage.size.width+10, downArrowImage.size.height)];
+    
+    UIBarButtonItem *moreOptionsBarButton = [[UIBarButtonItem alloc] initWithCustomView:downArrowButton];
+    [downArrowButton addTarget:self action:@selector(moreOptionsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *addKidBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addKid:)];
+    
+    NSString *username = [PFUser currentUser].username;
+    bool isAdmin = [username isEqualToString: @"andrewm"] || [username isEqualToString: @"carlac"] || [username isEqualToString: @"suee"];
+    [[self navigationItem] setRightBarButtonItem: isAdmin ? moreOptionsBarButton : addKidBarButton];
+}
+
 -(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     searchName = searchBar.text;
@@ -122,6 +124,7 @@
     [super viewWillAppear:animated];    
 
     [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
+    [self setBarButtonItem];
     [self loadObjects];
 }
 
@@ -168,7 +171,8 @@
     if ([actionSheet.title isEqualToString: @"Are you sure you want to Logout?"])
         if (buttonIndex == 0) {
             [PFUser logOut];
-            [[self navigationController] popToRootViewControllerAnimated: YES];
+            [self handleLogin];
+            //[[self navigationController] popToRootViewControllerAnimated: YES];
         }
     if ([actionSheet.title isEqualToString: @"I want to..."])
     {
@@ -375,5 +379,138 @@
     AddFormViewController *addForm = [[AddFormViewController alloc]initWithStyle:UITableViewStyleGrouped];
     [[self navigationController] pushViewController:addForm animated:YES];
 }
+
+
+-(void)handleLogin
+{
+    if (![PFUser currentUser]) {
+        // Customize the Log In View Controller
+        MyLogInViewController *logInViewController = [[MyLogInViewController alloc] init];
+        [logInViewController setDelegate:self];
+        [logInViewController setFields:
+         PFLogInFieldsUsernameAndPassword |
+         PFLogInFieldsSignUpButton |
+         PFLogInFieldsDismissButton ];
+        
+        // Customize the Sign Up View Controller
+        MySignUpViewController *signUpViewController = [[MySignUpViewController alloc] init];
+        [signUpViewController setDelegate:self];
+        [signUpViewController setFields:PFSignUpFieldsDefault | PFSignUpFieldsAdditional];
+        [logInViewController setSignUpController:signUpViewController];
+        
+        // Present Log In View Controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    }
+}
+
+
+#pragma mark - PFLogInViewControllerDelegate
+
+- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
+    
+    if (username && password && username.length != 0 && password.length != 0)
+        return YES;
+    
+    [[[UIAlertView alloc] initWithTitle:@"Oops"
+                                message:@"Make sure you fill out all of the information!"
+                               delegate:nil
+                      cancelButtonTitle:@"Will do"
+                      otherButtonTitles:nil] show];
+    return NO;
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
+}
+
+// Sent to the delegate when the log in screen is dismissed.
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - PFSignUpViewControllerDelegate
+
+- (BOOL)doesAUserExistInPeopleTableWithEmail:(NSString *) email
+{
+    BOOL __block exists = false;
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
+    [query whereKey:@"email" equalTo:email];
+    PFObject *match = [query getFirstObject ];
+    if(match != nil)
+    {
+        exists = true;
+    }
+    return exists;
+}
+
+
+// Sent to the delegate to determine whether the sign up request should be submitted to the server.
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
+    BOOL informationComplete = YES;
+    BOOL goodEmail = YES;
+    for (id key in info) {
+        NSString *field = [info objectForKey:key];
+        if (!field || field.length == 0) {
+            informationComplete = NO;
+            break;
+        }
+        if([key isEqualToString:@"email"])
+        {
+            goodEmail = [self doesAUserExistInPeopleTableWithEmail:field];
+        }
+    }
+    
+    if (!informationComplete) {
+        [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                    message:@"Make sure you fill out all of the information!"
+                                   delegate:nil
+                          cancelButtonTitle:@"ok"
+                          otherButtonTitles:nil] show];
+    }else if(!goodEmail) {
+        [[[UIAlertView alloc] initWithTitle:@"No Matching Email"
+                                    message:@"There is no matching person with that email in the database."
+                                   delegate:nil
+                          cancelButtonTitle:@"ok"
+                          otherButtonTitles:nil] show];
+    }
+    return (informationComplete && goodEmail);
+}
+
+- (void) createPointerInPeopleTableInBackground:(PFUser *) withUser
+{
+    NSString *emailForUser = [withUser objectForKey:@"email"];
+    PFQuery *query = [PFQuery queryWithClassName:@"People"];
+    [query whereKey:@"email" containsString:emailForUser];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *match, NSError *error) {
+        [match setObject:withUser forKey:@"userLink"];
+        [match saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if(error != nil)
+            {
+                [[[UIAlertView alloc]initWithTitle:@"Connection Falure" message:@"Please connect to the internet and try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            }
+        }];
+    }];
+}
+
+// Sent to the delegate when a PFUser is signed up.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self createPointerInPeopleTableInBackground: user];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+// Sent to the delegate when the sign up attempt fails.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    NSLog(@"Failed to sign up...");
+}
+
+// Sent to the delegate when the sign up screen is dismissed.
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    NSLog(@"User dismissed the signUpViewController");
+}
+
 
 @end

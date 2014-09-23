@@ -10,7 +10,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 
 @interface TableListViewController : PFQueryTableViewController
-<UIActionSheetDelegate, UISearchBarDelegate, MFMailComposeViewControllerDelegate>
+<UIActionSheetDelegate, UISearchBarDelegate, MFMailComposeViewControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 {
     UIView *myTableHeaderView;
     UIView *moreOptionsMenuView;

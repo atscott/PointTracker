@@ -11,7 +11,6 @@
 #import "LogViewController.h"
 #import "MyLogInViewController.h"
 #import "WeekPickerViewController.h"
-#import "MainLandingViewController.h"
 #import "CurrentRosterViewController.h"
 
 @implementation AppDelegate
@@ -25,7 +24,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UINavigationController *mainViewNavController =[[UINavigationController alloc] initWithRootViewController:[[MainLandingViewController alloc] init]];
+    UINavigationController *mainViewNavController =[[UINavigationController alloc] initWithRootViewController:[[TableListViewController alloc] init]];
     
     WeekPickerViewController *scheduleViewController = [[WeekPickerViewController alloc] init];
     UINavigationController *scheduleNavController = [[UINavigationController alloc] initWithRootViewController:scheduleViewController];
